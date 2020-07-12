@@ -7,9 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   states = [
-    {id: 1, name: 'Onboarding', active: true},
-    {id: 2, name: 'Resident',   active: false},
-    {id: 3, name: 'Worker',     active: false},
+    {id: 1, name: 'Онбординг', active: true},
+    {id: 2, name: 'Бассейн',   active: false},
+    {id: 3, name: 'Обучение',     active: false},
+    {id: 4, name: 'Проверка Идеи',   active: false},
+    {id: 5, name: 'Трудоустройство',     active: false},
   ];
 
   mainUser = {
