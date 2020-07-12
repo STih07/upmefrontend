@@ -3,33 +3,33 @@ name: CI
 on: [push]
 
 jobs:
-#  build:
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      - uses: actions/checkout@v1
-#      - name: Use Node.js 12.8
-#        uses: actions/setup-node@v1
-#        with:
-#          node-version: 12.8
-#      - name: Install dependencies
-#        run: npm install
-#      - name: Lint
-#        run: npm run lint
-#      - name: Build
-#        run: npm run build -- --prod
-#      - name: Test
-#        run: npm test
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - name: All things angular
-        uses: AhsanAyaz/angular-deploy-gh-pages-actions
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12.8
+        uses: actions/setup-node@v1
         with:
-          github_access_token: ${{ secrets.ACCESS_TOKEN }} # see the Configuration section for how you can create secrets
-          build_configuration: ci # The build environment for the app. please look configurations in your angular.json
-          base_href: /   # make sure this corresponds to https://<your_username>.github.io/<base_href>/
-          deploy_branch: gh-pages # The branch the action should deploy to.
-          build_folder: dist/upme # The folder where your project is supposed to be after running ng build by the action.
+          node-version: 12.8
+      - name: Install dependencies
+        run: npm install
+      - name: Lint
+        run: npm run lint
+      - name: Build
+        run: npm run build -- --prod
+      - name: Test
+        run: npm test
+#  build:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: All things angular
+#        uses: AhsanAyaz/angular-deploy-gh-pages-actions
+#        with:
+#          github_access_token: ${{ secrets.ACCESS_TOKEN }} # see the Configuration section for how you can create secrets
+#          build_configuration: ci # The build environment for the app. please look configurations in your angular.json
+#          base_href: /   # make sure this corresponds to https://<your_username>.github.io/<base_href>/
+#          deploy_branch: gh-pages # The branch the action should deploy to.
+#          build_folder: dist/upme # The folder where your project is supposed to be after running ng build by the action.
