@@ -18,7 +18,7 @@ export class AppComponent {
     name: 'Anna D.',
     icon: 'assets/img/user_img.png',
   };
-  
+
   user = {
     name: 'Yuliia Chudina',
     icon: 'assets/img/user_card_img.png',
