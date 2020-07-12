@@ -176,6 +176,41 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
   padding: 1rem !important;
 }
 
+.mentor-match{
+  background: #E6E9ED;
+  outline: 8px solid #8492A6;
+  outline-offset: -8px;
+}
+
+.rating-block-description{
+  margin: auto 0;
+  margin-right: 2.5rem;
+  margin-left: 0.5rem;
+}
+
+.block-description-1{
+  background: #E6E9ED;
+}
+
+.block-description-2{
+  background: #8492A6;
+}
+
+.block-description-3{
+  background: #E6E9ED;
+  outline: 4px solid #8492A6;
+  outline-offset: -4px;
+}
+
+.rating-block{
+  width: 4rem;
+  height: 1.5rem;
+}
+
+.mentor-rating {
+  background: #8492A6;
+}
+
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 1rem;
