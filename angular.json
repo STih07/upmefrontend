@@ -93,7 +93,7 @@
                 }
               ]
             },
-            "hmr": {
+            "ci": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
