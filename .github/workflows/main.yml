@@ -20,7 +20,7 @@ jobs:
 #        run: npm run build -- --prod
 #      - name: Test
 #        run: npm test
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
