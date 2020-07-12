@@ -8,7 +8,7 @@ jobs:
     # Machine environment:
     # https://help.github.com/en/articles/software-in-virtual-environments-for-github-actions#ubuntu-1804-lts
     # We specify the Node.js version manually below, and use versioned Chrome from Puppeteer.
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v1
@@ -23,6 +23,6 @@ jobs:
       - name: Build
         run: npm run build -- --prod
       - name: Test
-        run: npm test -- --configuration=ci
+        run: npm test
       - name: E2E
-        run: npm run e2e -- --configuration=ci
+        run: npm run e2e
