@@ -43,7 +43,7 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: dist/upme
+          FOLDER: dist/upmefrontend
 
 #  build:
 #    runs-on: ubuntu-latest
