@@ -45,7 +45,7 @@
     <!-- Footer -->
 </div>
 </div>
-<div class="container-fluid container-application mt-4 d-block">
+<div class="container-fluid container-application mt-4 d-block" style="overflow: visible;">
   <span class="text-white h3">Profile</span>
   <ul class="nav mt-4">
     <ng-container *ngFor="let state of states; let i = index">
@@ -168,7 +168,8 @@
     </div>
     <div class="col-lg-4">
       <!-- Profile stats -->
-      <div class="card card-fluid">
+      <div class="card card-fluid"  #solution >
+        <a style="display: none; position: absolute;" name ="top"></a>
         <div class="d-flex justify-content-center card-title small mt-1">Solution</div>
         <div class="card-body py-0 row">
           <div>
@@ -493,6 +494,11 @@
             </tr>
             </tbody>
           </table>
+            <div style="width: 100%; scroll-behavior: smooth;" >
+              <button class="btn btn-primary" style="width: 30%; margin-left:35%; margin-top: 3.2%; font-size:14px;" (click)="scrollToTop()" >
+                Принять решение
+              </button>
+            </div>
         </div>
         <div class="card-footer"></div>
       </div>
