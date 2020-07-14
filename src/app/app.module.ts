@@ -14,10 +14,9 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ToastrModule,
     ToastrModule.forRoot(),
   ],
-  providers: [ {provide: ToastrService, useClass: ToastrService} ],
+  providers: [ ToastrService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
