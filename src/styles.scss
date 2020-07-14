@@ -10,6 +10,7 @@ $fa-font-path: "~resources/fa/fonts";
 $application-container-bg-height: 400px;
 @import "resources/purpose/scss/purpose.scss";
 @import "resources/fa/scss/font-awesome.scss";
+@import '~ngx-toastr/toastr';
 
 
 $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
@@ -128,5 +129,18 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
   }
   span {
     vertical-align: middle;
+  }
+}
+
+.custom-toastr{
+  background-color: $primary;
+  font-family: "Nunito", sans-serif;
+  color: $primary !important;
+  padding: 10px 15px 10px 50px !important; 
+  background-position: 15px center !important;
+  box-shadow: 0 0 6px #999999 !important;
+  background-color: #E6E9ED;
+  &.toast-success {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='512' height='512'%3E%3Cpath fill='rgb(0, 106, 215)' d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z'/%3E%3C/svg%3E");
   }
 }

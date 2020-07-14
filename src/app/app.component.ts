@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
+
 export class AppComponent {
+  constructor(private toastr: ToastrService){}
+
   states = [
     {id: 1, name: 'Onboarding', active: true},
     {id: 2, name: 'Resident',   active: false},
@@ -41,4 +45,11 @@ export class AppComponent {
     { id: 4, name: 'Не принят. Ты ещё очень юн и мы советуем тебе подать заявку в IT2School' },
   ];
   selectedUserStateId = 1;
+
+  showSuccess(): void {
+    this.toastr.success('Success', '', {
+      timeOut: 100000,
+      toastClass: 'ngx-toastr custom-toastr',
+    });
+  }
 }

@@ -75,7 +75,7 @@
               <small class="d-block text-black color-black">{{user.profile}}</small>
             </div>
             <div class="col-auto">
-              <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill btn-secondary">
+              <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill btn-secondary" >
                 <span class="btn-inner--icon"><i class="fa fa-pencil"></i></span>
                 <span class="btn-inner--text">Edit</span>
               </button>
@@ -181,7 +181,7 @@
               </li>
             </ul>
           </div>
-          <button class="btn btn-secondary btn-xs mx-3 custom-btn w-100"><span class="h6 text-white">Подтвердить</span></button>
+          <button class="btn btn-secondary btn-xs mx-3 custom-btn w-100" (click)="showSuccess()"><span class="h6 text-white">Подтвердить</span></button>
         </div>
         <div class="card-footer no-top-border"></div>
       </div>
