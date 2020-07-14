@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 
 export class AppComponent {
-  constructor(private toastr: ToastrService){}
+  constructor(private toastr: ToastrService) {}
 
   states = [
     {id: 1, name: 'Onboarding', active: true},
