@@ -51,7 +51,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.progressRef = this.ngProgress.ref();
-
     this.progressRef.start();
 
     this.http.get('https://api.punkapi.com/v2/beers').subscribe((response) => { this.progressRef.complete(); });

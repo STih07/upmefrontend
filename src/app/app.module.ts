@@ -14,7 +14,9 @@ import { AppComponent } from './app.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    NgProgressModule,
+    NgProgressModule.withConfig({
+      color: '#8492a6',
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
