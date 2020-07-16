@@ -1,4 +1,5 @@
-<div class="container-fluid container-application">
+<ng-progress #progressBar ></ng-progress>
+<div class="container-fluid container-application" (load)="progressBar.start()">
   <!-- Sidenav -->
   <div class="sidenav show ml-0" id="sidenav-main">
     <!-- Sidenav header -->

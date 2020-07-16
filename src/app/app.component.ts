@@ -1,11 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NgProgress, NgProgressRef } from 'ngx-progressbar';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  progressRef: NgProgressRef;
+  response: any;
+
   states = [
     {id: 1, name: 'Onboarding', active: true},
     {id: 2, name: 'Resident',   active: false},
@@ -41,4 +46,15 @@ export class AppComponent {
     { id: 4, name: 'Не принят. Ты ещё очень юн и мы советуем тебе подать заявку в IT2School' },
   ];
   selectedUserStateId = 1;
+
+  constructor(private ngProgress: NgProgress, private http: HttpClient) {}
+
+  ngOnInit() {
+    this.progressRef = this.ngProgress.ref();
+
+    this.progressRef.start();
+
+    this.http.get('https://api.punkapi.com/v2/beers').subscribe((response) => { this.progressRef.complete(); });
+  }
+  // tslint:disable-next-line:use-lifecycle-interface
 }
