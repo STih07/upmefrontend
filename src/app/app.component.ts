@@ -39,6 +39,23 @@ export class AppComponent implements OnInit {
     points: 123,
   };
 
+  activity = {
+    totalDays: 8,
+    earlier: {
+      days: 2,
+      fasterOn: 5,
+    },
+    formDay: 1,
+    testTask: {
+      days: 3,
+      mistakes: 5,
+    },
+    practiceTask: {
+      days: 3,
+      mistakes: 3,
+    },
+  };
+
   userStates = [
     { id: 1, name: 'Принят' },
     { id: 2, name: 'Принят на испытательный срок' },
