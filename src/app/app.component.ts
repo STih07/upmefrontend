@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { NgProgress, NgProgressRef } from 'ngx-progressbar';
-import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  progressRef: NgProgressRef;
-  response: any;
+export class AppComponent {
 
   states = [
     {id: 1, name: 'Onboarding', active: true},
@@ -64,13 +60,4 @@ export class AppComponent implements OnInit {
   ];
   selectedUserStateId = 1;
 
-  constructor(private ngProgress: NgProgress, private http: HttpClient) {}
-
-  ngOnInit() {
-    this.progressRef = this.ngProgress.ref();
-    this.progressRef.start();
-
-    this.http.get('https://api.punkapi.com/v2/beers').subscribe((response) => { this.progressRef.complete(); });
-  }
-  // tslint:disable-next-line:use-lifecycle-interface
 }
