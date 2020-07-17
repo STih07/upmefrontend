@@ -196,11 +196,11 @@
             <div class="d-flex justify-content-between">
               <div class="mr-5 d-flex flex-column">
                 <span class="text-muted">Начал:</span>
-                <span>12-03-2020</span>
+                <span>{{genInfo.studyingTime.began}}</span>
               </div>
               <div class="d-flex flex-column mr-3">
                 <span class="text-muted">Закончил:</span>
-                <span>--</span>
+                <span>{{genInfo.studyingTime.finished}}</span>
               </div>
             </div>
           </div>
@@ -209,13 +209,13 @@
           <div class="row">
             <div class="col-lg-6">
               <p class="_card-subtitle font-weight-bolder">Образование:</p>
-              <p class="h6 pb-2">Учебное заведение: КЗИ ОНАС</p>
-              <p class="h6 pb-2">Факультет: Разработчик ПО 4 курс</p>
-              <p class="h6 pd-2">Другие достижения: 3 класса музыкальной школы, зборная колледжа по волейболу.</p>
+              <p class="h6 pb-2">Учебное заведение: {{genInfo.education.institution}}</p>
+              <p class="h6 pb-2">Факультет: {{genInfo.education.faculty}}</p>
+              <p class="h6 pd-2">Другие достижения: {{genInfo.education.otherAchievements}}.</p>
             </div>
             <div class="col-lg-6 pl-5">
               <p class="_card-subtitle font-weight-bolder">Мотивация:</p>
-              <div class="h6 pb-2 pr-5">Хочу получать акутульное образование сфере ИТ и находиться среди ребят, который любят и ценят самообразование. Так же всегда мечтала заниматься инетресным делом и получать от этого удовольствие. Хочу получать акуаульно образование сфере ИТ и находиться среди ребят, который любят и ценят самообразование. Так же всегда мечтала заниматься  который любят...
+              <div class="h6 pb-2 pr-5">{{genInfo.motivation}}.
               <span class="float-right text-primary font-weight-bold">Больше <i class="fa fa-angle-down"></i></span>
               </div>
             </div>
@@ -306,29 +306,23 @@
             <div class="col-lg-4">Статус:</div>
             <div class="col-lg-8 pl-0">
               <div class="d-inline-block block_success text-white">
-                Done
+                {{testTaskBlock.status.progress}}
               </div>
             </div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Затрачено дней:</div>
             <div class="col-lg-8 px-0">
-              <div class="d-inline-block fs-9 used-day checked"><span>1</span></div>
-              <div class="d-inline-block fs-9 used-day checked"><span>2</span></div>
-              <div class="d-inline-block fs-9 used-day checked"><span>3</span></div>
-              <div class="d-inline-block fs-9 used-day checked"><span>4</span></div>
-              <div class="d-inline-block fs-9 used-day"><span>5</span></div>
-              <div class="d-inline-block fs-9 used-day"><span>6</span></div>
-              <div class="d-inline-block fs-9 used-day"><span>7</span></div>
+              <div class="d-inline-block fs-9 used-day" [class.checked]="day.checked == true" *ngFor="let day of testTaskBlock.daysSpent"><span>{{day.box}}</span></div>
             </div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Результат:</div>
-            <div class="col-lg-8 px-0 color-black fs-11"><span class="font-weight-bolder">Хорошо</span> (7/10 баллов)</div>
+            <div class="col-lg-8 px-0 color-black fs-11"><span class="font-weight-bolder">{{testTaskBlock.result.nameResult}}</span> ({{testTaskBlock.result.points}}/10 баллов)</div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Ошибок:</div>
-            <div class="col-lg-8 px-0 color-black fs-11">5</div>
+            <div class="col-lg-8 px-0 color-black fs-11">{{testTaskBlock.mistakes}}</div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Баллы проф репутации:</div>
@@ -374,30 +368,24 @@
             <div class="col-lg-4">Статус:</div>
             <div class="col-lg-8 pl-0">
               <div class="d-inline-block block_success text-white">
-                Done
+                {{practiceTaskBlock.php.status.progress}}
               </div>
             </div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Затрачено дней:</div>
             <div class="col-lg-8 px-0">
-              <div class="d-inline-block fs-9 used-day checked"><span>1</span></div>
-              <div class="d-inline-block fs-9 used-day checked"><span>2</span></div>
-              <div class="d-inline-block fs-9 used-day checked"><span>3</span></div>
-              <div class="d-inline-block fs-9 used-day checked"><span>4</span></div>
-              <div class="d-inline-block fs-9 used-day"><span>5</span></div>
-              <div class="d-inline-block fs-9 used-day"><span>6</span></div>
-              <div class="d-inline-block fs-9 used-day"><span>7</span></div>
+              <div class="d-inline-block fs-9 used-day checked" [class.checked]="day.checked == true" *ngFor="let day of practiceTaskBlock.php.daysSpent"><span>{{day.box}}</span></div>
             </div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Оценка:</div>
-            <div class="col-lg-8 px-0 color-black fs-11">Выполнено с мелкими ошибками (40/50 баллов)</div>
+            <div class="col-lg-8 px-0 color-black fs-11">{{practiceTaskBlock.php.rating.nameRating}} ({{practiceTaskBlock.php.rating.points}}/50 баллов)</div>
           </div>
           <div class="h6 row font-weight-normal pb-4">
             <div class="col-lg-4">Фитбек от ментора:</div>
             <div class="col-lg-8 px-0 color-black fs-11">
-                Кандидат хорошо владеет базовыми знаниями (типы переменнных и операции над ними), небольшой опыт владения классами, льём водичку для красо...
+              {{practiceTaskBlock.php.feetback}}
               <span class="float-right text-primary font-weight-bold mr-3">Больше <i class="fa fa-angle-down"></i></span>
             </div>
           </div>

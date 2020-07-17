@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
 
   states = [
@@ -35,6 +36,15 @@ export class AppComponent {
     points: 123,
   };
 
+
+  userStates = [
+    { id: 1, name: 'Принят' },
+    { id: 2, name: 'Принят на испытательный срок' },
+    { id: 3, name: 'Не принят' },
+    { id: 4, name: 'Не принят. Ты ещё очень юн и мы советуем тебе подать заявку в IT2School' },
+  ];
+  selectedUserStateId = 1;
+
   activity = {
     totalDays: 8,
     earlier: {
@@ -52,12 +62,70 @@ export class AppComponent {
     },
   };
 
-  userStates = [
-    { id: 1, name: 'Принят' },
-    { id: 2, name: 'Принят на испытательный срок' },
-    { id: 3, name: 'Не принят' },
-    { id: 4, name: 'Не принят. Ты ещё очень юн и мы советуем тебе подать заявку в IT2School' },
-  ];
-  selectedUserStateId = 1;
+  genInfo = {
+    studyingTime: {
+      began: '12-03-2020',
+      finished: '--',
+    },
+    education: {
+      institution: 'КЗИ ОНАС',
+      faculty: 'Разработчик ПО 4 курс',
+      otherAchievements: '3 класса музікальной школі, зборная колледжа по волейболу',
+    },
+    // tslint:disable-next-line:max-line-length
+    motivation: 'Хочу получать акутульное образование сфере ИТ и находиться среди ребят, который любят и ценят самообразование. Так же всегда мечтала заниматься инетресным делом и получать от этого удовольствие. Хочу получать акуаульно образование сфере ИТ и находиться среди ребят, который любят и ценят самообразование. Так же всегда мечтала заниматься который любят...',
+    tableHardSkill: {},
+    tableSoftSkill: {},
+  };
 
+  testTaskBlock = {
+    status: {
+      progress: 'done',
+      id: 1,
+    },
+    daysSpent: [
+      {checked: true, box: 1},
+      {checked: true, box: 2},
+      {checked: true, box: 3},
+      {checked: true, box: 4},
+      {checked: false, box: 5},
+      {checked: false, box: 6},
+      {checked: false, box: 7},
+    ],
+    result: {
+      nameResult: 'Хорошо',
+      points: 7,
+    },
+    mistakes: 5,
+  };
+
+  practiceTaskBlock = {
+    php: {
+      ative: true,
+      status: {
+        progress: 'done',
+        id: 1,
+      },
+      daysSpent: [
+        {checked: true, box: 1},
+        {checked: true, box: 2},
+        {checked: true, box: 3},
+        {checked: true, box: 4},
+        {checked: false, box: 5},
+        {checked: false, box: 6},
+        {checked: false, box: 7},
+      ],
+      rating: {
+        nameRating: 'Выполнено с мелкими ошибками',
+        points: 40,
+      },
+      // tslint:disable-next-line:max-line-length
+      feetback: 'Кандидат хорошо владеет базовыми знаниями (типы переменнных и операции над ними), небольшой опыт владения классами, льём водичку для красо...',
+      tableRating: {},
+    },
+    front_end: {
+      active: false,
+    },
+  };
+  softSkillBlock = {};
 }
