@@ -109,17 +109,17 @@
               <button
                 type="button"
                 class="btn btn-xs btn-primary btn-icon rounded-pill btn-secondary"
-                (click)="ngxSmartModalService.getModal('myModal').open()"
+                (click)="ngxSmartModalService.getModal('editModal').open()"
               >
-                <ngx-smart-modal #myModal identifier="myModal">
-                  <h1>Title</h1>
-                  <h4>Text...</h4>
-                </ngx-smart-modal>
                 <span class="btn-inner--icon"
                   ><i class="fa fa-pencil"></i
                 ></span>
                 <span class="btn-inner--text">Edit</span>
               </button>
+              <ngx-smart-modal #myModal identifier="editModal">
+                <h1>Title</h1>
+                <h4>Text...</h4>
+              </ngx-smart-modal>
             </div>
           </div>
         </div>
@@ -251,9 +251,16 @@
               </li>
             </ul>
           </div>
-          <button class="btn btn-secondary btn-xs mx-3 custom-btn w-100">
+          <button
+            class="btn btn-secondary btn-xs mx-3 custom-btn w-100"
+            (click)="ngxSmartModalService.getModal('submitModal').open()"
+          >
             <span class="h6 text-white">Подтвердить</span>
           </button>
+          <ngx-smart-modal #myModal identifier="submitModal">
+            <h1>Title</h1>
+            <p>Some stuff...</p>
+          </ngx-smart-modal>
         </div>
         <div class="card-footer no-top-border"></div>
       </div>
