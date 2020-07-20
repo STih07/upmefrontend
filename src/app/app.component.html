@@ -21,28 +21,25 @@
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
-                  style="padding-right: 0.5rem;"
-                  >Направление</a
-                >
+                  >Направление</a>
                 <img src="../assets/icons/arrow-down.svg" width="12px" height="7.41px" alt="">
                 <div
                   class="dropdown-menu dropdown-menu-right"
                   aria-labelledby="navbar-primary_dropdown_1"
                 ></div>
-              </li> 
+              </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" style="width: 80px">Soft Skills</a>
+                <a class="nav-link">Soft Skills</a>
               </li>
               <li class="nav-item dropdown dropdown-custom">
                 <a
-                  class="nav-link "
+                  class="nav-link"
                   href="#"
                   id="navbar-primary_dropdown_1"
                   role="button"
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
-                  style="padding-right: 0.5rem;"
                   >Пользователи</a
                 >
                 <img src="../assets/icons/arrow-down.svg" width="12px" height="7.41px" alt="">
@@ -152,12 +149,12 @@
               </a>
             </div>
             <div class="col ml-md-n2">
-              <a href="#!" class="d-block h6 mb-0">{{ user.name }}</a>
-              <small class="d-block text-black color-black">{{
+              <a href="#!" class="d-block h6 mb-0" style="font-size: 18px;">{{ user.name }}</a>
+              <small class="d-block text-black color-black" style="font-size: 14px;">{{
                 user.profile
               }}</small>
             </div>
-            <div class="col-auto">
+            <div class="col-auto" style="align-self: flex-start;">
               <button
                 type="button"
                 class="btn btn-xs btn-primary btn-icon rounded-pill btn-secondary"
@@ -206,7 +203,7 @@
           </div>
           <div class="row my-3 align-items-center">
             <div class="col">
-              <h6 class="text-sm mb-0">
+              <h6 class="text-sm mb-0" style="display: flex;">
                 <i class="fa fa-linkedin-square mr-3"></i>
                 <a
                   class="link"
@@ -220,8 +217,7 @@
         </div>
         <div class="card-footer p-2 d-flex justify-content-center">
           <div class="d-flex flex-column align-items-center">
-            <div class="h5 mb-0 text-secondary">{{ user.points }}</div>
-            <div class="small">Балла</div>
+            <div class="h5 mb-0 text-secondary">Resident</div>
           </div>
         </div>
       </div>
@@ -643,19 +639,18 @@
           <table class="table custom-table table-bg">
             <thead>
               <tr>
-                <th scope="col">Владение</th>
-                <th scope="col" class="py-1">Критическое мышление</th>
-                <th scope="col">Коммуникаб.</th>
-                <th scope="col" class="py-1">Командная работа</th>
-                <th scope="col" class="py-1">Выносливость</th>
+                <th scope="col" style="width: 15.625rem;">Качество</th>
+                <th scope="col" class="py-1" style="width: 15.625rem;">Слабая сторона</th>
+                <th scope="col" style="width: 15.625rem;">Стоит попробовать</th>
+                <th scope="col" class="py-1" style="width: 15.625rem;">Сильная сторона</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td scope="row">Критическое мышление</td>
+                <td scope="row" >Критическое мышление</td>
+                <td class="mentor-match"></td>
                 <td></td>
                 <td></td>
-                <td class="disabled"></td>
               </tr>
               <tr>
                 <td scope="row">Коммуникаб.</td>
@@ -669,6 +664,24 @@
                 <td></td>
                 <td class="disabled"></td>
               </tr>
+              <tr>
+                <td scope="row">Комментарий</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td colspan="5">
+                  <div class="d-flex">
+                    <div class="rating-block bg-light"></div>
+                    <span class="rating-block-description ">- самооценка</span>
+                    <div class="rating-block block-description-2"></div>
+                    <span class="rating-block-description ">- оценка ментора</span>
+                    <div class="rating-block block-description-3"></div>
+                    <span class="rating-block-description ">- совпадает</span>
+                  </div>
+                </td>
+            </tr>
             </tbody>
           </table>
         </div>
