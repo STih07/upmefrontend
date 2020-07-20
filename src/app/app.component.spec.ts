@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { ngModuleJitUrl } from '@angular/compiler';
 import { HttpClientModule } from '@angular/common/http';
+import { TaskStatusPipe } from './status.pipe';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -12,7 +13,8 @@ describe('AppComponent', () => {
         HttpClientModule,
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        TaskStatusPipe,
       ],
     }).compileComponents();
   }));
