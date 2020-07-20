@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -43,4 +43,13 @@ export class AppComponent {
     { id: 4, name: 'Не принят. Ты ещё очень юн и мы советуем тебе подать заявку в IT2School' },
   ];
   selectedUserStateId = 1;
+
+  @ViewChild('solution') solutionRef: any ;
+    scrollToTop() {
+      setTimeout(() => {
+        this.solutionRef.nativeElement.classList.add('heartbeat');
+      }, 0);
+      this.solutionRef.nativeElement.classList.remove('heartbeat');
+      window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }
 }
