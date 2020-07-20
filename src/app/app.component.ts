@@ -6,7 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 
+
+
 export class AppComponent {
+
+  arrayOfDays: number[] = Array(7).fill(0).map((x, i) => i);
 
   states = [
     {id: 1, name: 'Onboarding', active: true},
@@ -47,10 +51,7 @@ export class AppComponent {
 
   activity = {
     totalDays: 8,
-    earlier: {
-      days: 2,
-      fasterOn: 5,
-    },
+    // Мозги плавятся
     formDay: 1,
     testTask: {
       days: 3,
@@ -74,58 +75,61 @@ export class AppComponent {
     },
     // tslint:disable-next-line:max-line-length
     motivation: 'Хочу получать акутульное образование сфере ИТ и находиться среди ребят, который любят и ценят самообразование. Так же всегда мечтала заниматься инетресным делом и получать от этого удовольствие. Хочу получать акуаульно образование сфере ИТ и находиться среди ребят, который любят и ценят самообразование. Так же всегда мечтала заниматься который любят...',
-    tableHardSkill: {},
-    tableSoftSkill: {},
+    tableHardSkill: [
+      // ничего - 0, не знаю - 1, читал немного - 2, хорошо знаю - 3, постоянно пишу - 4
+      {name: 'PHP', userRating: 4},
+      {name: 'SQL', userRating: 3},
+      {name: 'Front-end', userRating: 4},
+    ],
+    tableSoftSkill: [
+      // ничего - 0, сильная сторона - 1, слабая сторона - 2, стоит поработать - 3
+      {name: 'Критическое мышление', userRating: 1},
+      {name: 'Усидчивость', userRating: 3},
+      {name: 'Коммуникабельность', userRating: 2},
+    ],
   };
 
   testTaskBlock = {
-    status: {
-      progress: 'done',
-      id: 1,
-    },
-    daysSpent: [
-      {checked: true, box: 1},
-      {checked: true, box: 2},
-      {checked: true, box: 3},
-      {checked: true, box: 4},
-      {checked: false, box: 5},
-      {checked: false, box: 6},
-      {checked: false, box: 7},
-    ],
+    name: 'SQL',
+    status: 1,
+    daysSpent: 5,
     result: {
-      nameResult: 'Хорошо',
       points: 7,
+      maxPossiblePoints: 10,
     },
     mistakes: 5,
   };
 
-  practiceTaskBlock = {
-    php: {
-      ative: true,
-      status: {
-        progress: 'done',
-        id: 1,
-      },
-      daysSpent: [
-        {checked: true, box: 1},
-        {checked: true, box: 2},
-        {checked: true, box: 3},
-        {checked: true, box: 4},
-        {checked: false, box: 5},
-        {checked: false, box: 6},
-        {checked: false, box: 7},
-      ],
+  practiceTaskBlock = [
+    {
+      name: 'PHP',
+      // status: 0 == IN PROGRESS, status: 1 == DONE
+      status: 1,
+      daysSpent: 5,
       rating: {
-        nameRating: 'Выполнено с мелкими ошибками',
-        points: 40,
+        points: 10,
+        maxPossiblePoints: 50,
       },
       // tslint:disable-next-line:max-line-length
       feetback: 'Кандидат хорошо владеет базовыми знаниями (типы переменнных и операции над ними), небольшой опыт владения классами, льём водичку для красо...',
-      tableRating: {},
-    },
-    front_end: {
-      active: false,
-    },
-  };
-  softSkillBlock = {};
+      tableRating: [
+        // ничего - 0, не знаю - 1, читал немного - 2, хорошо знаю - 3, постоянно пишу - 4
+        {name: 'Самооценка', userRating: 4},
+        {name: 'Оценка ментора', mentorRating: 3},
+      ],
+      source: {
+        nameFile: 'name_of_file.png',
+        type: 'png',
+        size: '45mb',
+      }
+  }
+];
+
+  softSkillBlock = [
+  // ничего - 0, сильная сторона - 1, стоит поработать - 2, слабая сторона - 3
+    {name: 'Критическое мышление', userRating: 1, mentorRating: 1},
+    {name: 'Коммуникабельность', userRating: 1, mentorRating: 2},
+    {name: 'Командная работа', userRating: 2, mentorRating: 0},
+    {name: 'Выносливость', userRating: 3, mentorRating: 0},
+  ];
 }

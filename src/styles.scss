@@ -130,3 +130,13 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
     vertical-align: middle;
   }
 }
+
+.block-mentor{
+  background: $muted;
+}
+
+.block-mentor-and-user{
+  background: $light;
+  outline: 8px solid $muted;
+  outline-offset: -8px;
+}

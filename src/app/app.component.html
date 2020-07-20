@@ -135,8 +135,8 @@
             </div>
             <div class="ml-4 mr-3 py-3">
               <div class="mb-3 color-black font-weight-300">Раньше на</div>
-              <span class="text-success h2 font-weight-bold mr-2">{{activity.earlier.days}}</span> <span>дня</span>
-              <span class="float-right small text-right">Быстрее<br> среднего на {{activity.earlier.fasterOn}}%</span>
+              <span class="text-success h2 font-weight-bold mr-2">2</span> <span>дня</span>
+              <span class="float-right small text-right">Быстрее<br> среднего на 5%</span>
             </div>
           </div>
           <div class="col-lg-6 d-flex flex-column justify-content-around left-light-border">
@@ -232,26 +232,12 @@
                   </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td scope="row">SQL</td>
-                  <td></td>
-                  <td></td>
-                  <td class="disabled"></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td scope="row">PHP</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td class="disabled"></td>
-                </tr>
-                <tr>
-                  <td scope="row">Front-end</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td class="disabled"></td>
+                <tr *ngFor="let thing of genInfo.tableHardSkill">
+                  <td scope="row">{{thing.name}}</td>
+                  <td [class.disabled]="thing.userRating === 1"></td>
+                  <td [class.disabled]="thing.userRating === 2"></td>
+                  <td [class.disabled]="thing.userRating === 3"></td>
+                  <td [class.disabled]="thing.userRating === 4"></td>
                 </tr>
                 </tbody>
               </table>
@@ -263,30 +249,18 @@
                   <tr>
                     <th scope="col">Качество</th>
                     <th scope="col" class="py-1">Сильная сторона</th>
-                    <th scope="col">Стоит попробовать</th>
-                    <th scope="col" class="py-1">Слабая сторона</th>
+                    <th scope="col">Слабая сторона</th>
+                    <th scope="col" class="py-1">Стоит поработать</th>
                   </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td scope="row">Критическое мышление</td>
-                  <td></td>
-                  <td></td>
-                  <td class="disabled"></td>
-                </tr>
-                <tr>
-                  <td scope="row">Коммуникаб.</td>
-                  <td></td>
-                  <td></td>
-                  <td class="disabled"></td>
-                </tr>
-                <tr>
-                  <td scope="row">Выносливость</td>
-                  <td></td>
-                  <td></td>
-                  <td class="disabled"></td>
-                </tr>
-                </tbody>
+                  <tr *ngFor="let thing of genInfo.tableSoftSkill">
+                    <td scope="row">{{thing.name}}</td>
+                    <td [class.disabled]="thing.userRating === 1"></td>
+                    <td [class.disabled]="thing.userRating === 2"></td>
+                    <td [class.disabled]="thing.userRating === 3"></td>
+                  </tr>
+                  </tbody>
               </table>
             </div>
           </div>
@@ -306,19 +280,19 @@
             <div class="col-lg-4">Статус:</div>
             <div class="col-lg-8 pl-0">
               <div class="d-inline-block block_success text-white">
-                {{testTaskBlock.status.progress}}
+                {{ testTaskBlock.status | taskStatus}}
               </div>
             </div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Затрачено дней:</div>
             <div class="col-lg-8 px-0">
-              <div class="d-inline-block fs-9 used-day" [class.checked]="day.checked == true" *ngFor="let day of testTaskBlock.daysSpent"><span>{{day.box}}</span></div>
+              <div class="d-inline-block fs-9 used-day" [class.checked]="testTaskBlock.daysSpent > day" *ngFor="let day of arrayOfDays"><span>{{day + 1}}</span></div>
             </div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Результат:</div>
-            <div class="col-lg-8 px-0 color-black fs-11"><span class="font-weight-bolder">{{testTaskBlock.result.nameResult}}</span> ({{testTaskBlock.result.points}}/10 баллов)</div>
+            <div class="col-lg-8 px-0 color-black fs-11"><span class="font-weight-bolder">Хорошо</span> ({{testTaskBlock.result.points}}/{{testTaskBlock.result.maxPossiblePoints}} баллов)</div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Ошибок:</div>
@@ -355,7 +329,7 @@
       </div>
     </div>
     <div class="col-lg-6">
-      <div class="card">
+      <div class="card" *ngFor="let thing of practiceTaskBlock">
         <div class="card-title m-4 pt-1">
           <span class="h4 font-weight-900">Практическое</span>
           <div class="float-right temp_choose-tab">
@@ -368,24 +342,24 @@
             <div class="col-lg-4">Статус:</div>
             <div class="col-lg-8 pl-0">
               <div class="d-inline-block block_success text-white">
-                {{practiceTaskBlock.php.status.progress}}
+                {{thing.status | taskStatus}}
               </div>
             </div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Затрачено дней:</div>
             <div class="col-lg-8 px-0">
-              <div class="d-inline-block fs-9 used-day checked" [class.checked]="day.checked == true" *ngFor="let day of practiceTaskBlock.php.daysSpent"><span>{{day.box}}</span></div>
+              <div class="d-inline-block fs-9 used-day checked" [class.checked]="thing.daysSpent > day" *ngFor="let day of arrayOfDays"><span>{{day + 1}}</span></div>
             </div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Оценка:</div>
-            <div class="col-lg-8 px-0 color-black fs-11">{{practiceTaskBlock.php.rating.nameRating}} ({{practiceTaskBlock.php.rating.points}}/50 баллов)</div>
+            <div class="col-lg-8 px-0 color-black fs-11">Выполнено с мелкими ошибками ({{thing.rating.points}}/{{thing.rating.maxPossiblePoints}} баллов)</div>
           </div>
           <div class="h6 row font-weight-normal pb-4">
             <div class="col-lg-4">Фитбек от ментора:</div>
             <div class="col-lg-8 px-0 color-black fs-11">
-              {{practiceTaskBlock.php.feetback}}
+              {{thing.feetback}}
               <span class="float-right text-primary font-weight-bold mr-3">Больше <i class="fa fa-angle-down"></i></span>
             </div>
           </div>
@@ -404,21 +378,14 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td scope="row">Самооценка</td>
-              <td></td>
-              <td></td>
-              <td class="disabled"></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td scope="row">Оценка ментора</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td class="disabled"></td>
-            </tr>
-            </tbody>
+              <tr *ngFor="let thing of thing.tableRating">
+                <td scope="row">{{thing.name}}</td>
+                <td [class.disabled]="thing.userRating === 1 || thing.mentorRating === 1"></td>
+                <td [class.disabled]="thing.userRating === 2 || thing.mentorRating === 2"></td>
+                <td [class.disabled]="thing.userRating === 3 || thing.mentorRating === 3"></td>
+                <td [class.disabled]="thing.userRating === 4 || thing.mentorRating === 4"></td>
+              </tr>
+        </tbody>
           </table>
           <div class="h6 row font-weight-normal pb-3 pt-3 mt-4">
             <div class="sources pr-0">Исходники:</div>
@@ -454,31 +421,18 @@
             <thead>
             <tr>
               <th scope="col">Владение</th>
-              <th scope="col" class="py-1">Критическое мышление</th>
-              <th scope="col">Коммуникаб.</th>
-              <th scope="col" class="py-1">Командная работа</th>
-              <th scope="col" class="py-1">Выносливость</th>
+              <th scope="col" class="py-1">Сильная сторона</th>
+              <th scope="col">Стоит поработать</th>
+              <th scope="col" class="py-1">Слабая сторона</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td scope="row">Критическое мышление</td>
-              <td></td>
-              <td></td>
-              <td class="disabled"></td>
-            </tr>
-            <tr>
-              <td scope="row">Коммуникаб.</td>
-              <td></td>
-              <td></td>
-              <td class="disabled"></td>
-            </tr>
-            <tr>
-              <td scope="row">Выносливость</td>
-              <td></td>
-              <td></td>
-              <td class="disabled"></td>
-            </tr>
+            <tr *ngFor="let skill of softSkillBlock">
+              <td scope="row">{{skill.name}}</td>
+              <td [class.disabled]="skill.userRating === 1" [class.block-mentor-and-user]="skill.userRating === skill.mentorRating && skill.userRating === 1" [class.block-mentor]="skill.mentorRating === 1"></td>
+              <td [class.disabled]="skill.userRating === 2" [class.block-mentor-and-user]="skill.userRating === skill.mentorRating && skill.userRating === 2" [class.block-mentor]="skill.mentorRating === 2"></td>
+              <td [class.disabled]="skill.userRating === 3" [class.block-mentor-and-user]="skill.userRating === skill.mentorRating && skill.userRating === 3" [class.block-mentor]="skill.mentorRating === 3"></td>
+          </tr>
             </tbody>
           </table>
         </div>
