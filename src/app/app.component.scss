@@ -1,3 +1,9 @@
+$primary: #006ad7;
+$secondary: #4f60fd;
+$light: #e6e9ed;
+$muted: #8492a6;
+$success: #36b37e;
+$warning: #ff6930;
 
 .navbar {
   padding: 2.2rem 0;
@@ -5,7 +11,7 @@
 
 .nav {
   .nav-item {
-    border-width: 2px!important;
+    border-width: 2px !important;
     &.not-active {
       border-color: rgba(255, 255, 255, 0.6) !important;
       .nav-link {
@@ -23,11 +29,11 @@
 }
 
 .color-gray {
-  color: #3C4858;
+  color: #3c4858;
 }
 
 ._card-subtitle {
-  color: #3C4858;
+  color: #3c4858;
   font-size: 1.1rem;
 }
 
@@ -46,16 +52,14 @@
 
 .custom__ul {
   list-style: none;
-  color: #3C4858;
+  color: #3c4858;
 }
 
 .temp_choose-tab {
-
   .temp_btn {
     width: 8.5rem;
   }
 }
-
 
 .card-btn-label {
   padding-left: 3.2rem;
@@ -71,3 +75,42 @@
   padding-left: 10px;
 }
 
+.group-modal-edit {
+  margin-bottom: 16px;
+}
+
+.btn-modal-edit {
+  height: 35px;
+  font-size: 14px;
+  padding: 8px 14px;
+  background-color: $light;
+  border: none;
+  color: $primary;
+  &.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #006ad7 !important;
+  }
+}
+
+.last-group-custom{
+  margin-bottom: 1.5rem;
+}
+
+.btn-group-modal-edit-floor {
+  padding-top: 1.5rem;
+  border-top: 1px solid #F1F7FC;
+}
+
+.btn-modal-edit-floor{
+  &.btn-modal-edit-close{
+    background: transparent;
+    color: red;
+    border: none;
+    padding: 8px 0;
+  }
+  &.btn-modal-edit-save{
+    border: 4px;
+    height: 32px;
+    line-height: 19px;
+  }
+}

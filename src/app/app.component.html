@@ -116,9 +116,93 @@
                 ></span>
                 <span class="btn-inner--text">Edit</span>
               </button>
-              <ngx-smart-modal #myModal identifier="editModal">
-                <h1>Title</h1>
-                <h4>Text...</h4>
+              <ngx-smart-modal
+                #myModal
+                identifier="editModal"
+                [closable]="false"
+              >
+                <form>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Full Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="exampleInputEmail1"
+                      aria-describedby="emailHelp"
+                      placeholder="Enter full name"
+                    />
+                  </div>
+                  <label for="btnGroupEdit">Direction</label>
+                  <div
+                    role="group"
+                    aria-label="Basic example"
+                    id="btnGroupEdit"
+                    class="group-modal-edit"
+                  >
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary btn-modal-edit"
+                    >
+                      PHP
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary btn-modal-edit"
+                    >
+                      SQL
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary btn-modal-edit"
+                    >
+                      Design
+                    </button>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="exampleInputPassword1"
+                      placeholder="Enter email"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Phone</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="exampleInputPassword1"
+                      placeholder="+380"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Telegram Nick</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="exampleInputPassword1"
+                      placeholder="Enter telegram nick"
+                    />
+                  </div>
+                  <div class="form-group last-group-custom">
+                    <label for="exampleInputPassword1">Link</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="exampleInputPassword1"
+                      placeholder="Enter link"
+                    />
+                  </div>
+                  <div class="d-flex justify-content-between btn-group-modal-edit-floor">
+                    <button type="submit" class="btn btn-primary btn-sm btn-modal-edit-floor btn-modal-edit-save">
+                      Save
+                    </button>
+                    <button type="submit" class="btn btn-primary btn-sm btn-modal-edit-floor btn-modal-edit-close">
+                      Cancel
+                    </button>
+                  </div>
+                </form>
               </ngx-smart-modal>
             </div>
           </div>
