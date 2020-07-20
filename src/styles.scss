@@ -188,15 +188,15 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
   margin-left: 0.5rem;
 }
 
-.block-description-1{
+.block-description-1 {
   background: $light;
 }
 
-.block-description-2{
+.block-description-2 {
   background: $muted;
 }
 
-.block-description-3{
+.block-description-3 {
   background: $light;
   outline: 4px solid $muted;
   outline-offset: -4px;
@@ -219,4 +219,12 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
   .navbar-expand-lg .navbar-nav .nav-item {
     margin-right: 3.75rem;
   }
+}
+
+.navbar-nav .nav-item .nav-link {
+  //text-overflow:
+  white-space: nowrap;
+  font-weight: normal;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.2rem;
 }
