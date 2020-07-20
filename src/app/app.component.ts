@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgxSmartModalService } from 'ngx-smart-modal';
 
 @Component({
   selector: 'app-root',
@@ -41,4 +42,6 @@ export class AppComponent {
     { id: 4, name: 'Не принят. Ты ещё очень юн и мы советуем тебе подать заявку в IT2School' },
   ];
   selectedUserStateId = 1;
+
+  constructor(public ngxSmartModalService: NgxSmartModalService) {}
 }
