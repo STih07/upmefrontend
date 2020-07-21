@@ -2,56 +2,30 @@
   <!-- Sidenav -->
   <div class="sidenav show ml-0" id="sidenav-main">
     <!-- Sidenav header -->
-    <div class="sidenav-header d-flex mb-0 align-items-center">
-      <nav
-        class="navbar navbar-horizontal navbar-expand-lg navbar-dark bg-primary mt-4 custom-navbar"
-      >
+    <div class="sidenav-header d-flex mb-0 align-items-center p-0 pt-1 mb-0">
+      <nav class="navbar navbar-horizontal navbar-expand-lg navbar-dark bg-primary mt-4 custom-navbar p-0 mb-0">
         <div class="container">
-          <div class="collapse navbar-collapse" id="navbar-primary">
+          <div class="collapse navbar-collapse pl-0" id="navbar-primary">
             <ul class="navbar-nav ml-lg-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Главная</a>
+              <li class="nav-item mr-5">
+                <a class="nav-link pl-0" href="#">Главная</a>
               </li>
-              <li class="nav-item dropdown dropdown-custom">
-                <a
-                  class="nav-link"
-                  href="#"
-                  id="navbar-primary_dropdown_1"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  style="padding-right: 0.5rem;"
-                  >Направление</a
-                >
+              <li class="nav-item dropdown dropdown-custom mr-5">
+                <a class="nav-link pr-1" href="#" id="navbar-primary_dropdown_1" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">Направление</a>
                 <img src="../assets/icons/arrow-down.svg" width="12px" height="7.41px" alt="">
-                <div
-                  class="dropdown-menu dropdown-menu-right"
-                  aria-labelledby="navbar-primary_dropdown_1"
-                ></div>
-              </li> 
-              <li class="nav-item">
-                <a class="nav-link" href="#" style="width: 80px">Soft Skills</a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-primary_dropdown_1"></div>
               </li>
-              <li class="nav-item dropdown dropdown-custom">
-                <a
-                  class="nav-link "
-                  href="#"
-                  id="navbar-primary_dropdown_1"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  style="padding-right: 0.5rem;"
-                  >Пользователи</a
-                >
+              <li class="nav-item mr-5">
+                <a class="nav-link header-link-custom" href="#">Soft Skills</a>
+              </li>
+              <li class="nav-item dropdown dropdown-custom mr-5">
+                <a class="nav-link pr-1" href="#" id="navbar-primary_dropdown_1" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">Пользователи</a>
                 <img src="../assets/icons/arrow-down.svg" width="12px" height="7.41px" alt="">
-                <div
-                  class="dropdown-menu"
-                  aria-labelledby="navbar-primary_dropdown_1"
-                ></div>
+                <div class="dropdown-menu" aria-labelledby="navbar-primary_dropdown_1"></div>
               </li>
-              <li class="nav-item">
+              <li class="nav-item mr-5">
                 <a class="nav-link" href="#">Карьера</a>
               </li>
             </ul>
@@ -60,11 +34,8 @@
       </nav>
       <div class="ml-auto">
         <!-- Sidenav toggler -->
-        <div
-          class="sidenav-toggler sidenav-toggler-dark d-md-none active"
-          data-action="sidenav-unpin"
-          data-target="#sidenav-main"
-        >
+        <div class="sidenav-toggler sidenav-toggler-dark d-md-none active" data-action="sidenav-unpin"
+          data-target="#sidenav-main">
           <div class="sidenav-toggler-inner">
             <i class="sidenav-toggler-line bg-white"></i>
             <i class="sidenav-toggler-line bg-white"></i>
@@ -78,33 +49,19 @@
   <!-- Content -->
   <div class="main-content position-relative">
     <!-- Main nav -->
-    <nav
-      class="navbar navbar-main navbar-expand-lg pb-0 mb-0 bg-primary"
-      id="navbar-main"
-    >
+    <nav class="navbar navbar-main navbar-expand-lg pb-0 mb-0 bg-primary" id="navbar-main">
       <div class="container-fluid">
-        <div
-          class="collapse navbar-collapse pr-0 navbar-collapse-fade"
-          id="navbar-main-collapse"
-        >
+        <div class="collapse navbar-collapse pr-0 navbar-collapse-fade" id="navbar-main-collapse">
           <ul class="navbar-nav ml-lg-auto align-items-center d-none d-lg-flex">
             <li class="nav-item dropdown dropdown-animate">
-              <a
-                class="nav-link pt-0 pr-lg-0"
-                href="#"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
+              <a class="nav-link pt-0 pr-lg-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
                 <div class="media media-pill align-items-center">
                   <span class="avatar rounded-circle">
-                    <img alt="Image placeholder" [src]="mainUser.icon" />
+                    <img alt="Image placeholder" [src]="mainUser.icon">
                   </span>
                   <div class="ml-2 d-none d-lg-block">
-                    <span class="mb-0 h6 text-white font-weight-bolder">{{
-                      mainUser.name
-                    }}</span>
+                    <span class="mb-0 h6 text-white font-weight-bolder">{{mainUser.name}}</span>
                   </div>
                 </div>
               </a>
@@ -120,24 +77,12 @@
   <span class="text-white h3">{{user.name}}</span>
   <ul class="nav mt-4">
     <ng-container *ngFor="let state of states; let i = index">
-      <li
-        *ngIf="i !== 0"
-        class="nav-item border-bottom pr-3"
-        [class.not-active]="!state.active"
-      ></li>
+      <li *ngIf="i !== 0" class="nav-item border-bottom pr-3" [class.not-active]="!state.active"></li>
       <li class="nav-item border-bottom" [class.not-active]="!state.active">
-        <a
-          class="nav-link h5 pr-0 pb-1"
-          [class.text-white]="state.active"
-          [class.pl-0]="i === 0"
-          >{{ state.name }}</a
-        >
+        <a class="nav-link h5 pr-0 pb-1" [class.text-white]="state.active" [class.pl-0]="i === 0">{{state.name}}</a>
       </li>
     </ng-container>
-    <li
-      class="nav-item get-rest border-bottom"
-      [class.not-active]="!states[states.length - 1].active"
-    ></li>
+    <li class="nav-item get-rest border-bottom" [class.not-active]="!states[states.length - 1].active"></li>
   </ul>
   <div class="row mt-4">
     <div class="col-lg-4">
@@ -148,23 +93,16 @@
             <div class="col-auto">
               <!-- Avatar -->
               <a href="#" class="avatar rounded-circle">
-                <img alt="Image placeholder" [src]="user.icon" class="" />
+                <img alt="Image placeholder" [src]="user.icon" class="">
               </a>
             </div>
             <div class="col ml-md-n2">
-              <a href="#!" class="d-block h6 mb-0">{{ user.name }}</a>
-              <small class="d-block text-black color-black">{{
-                user.profile
-              }}</small>
+              <a href="#!" class="d-block h6 mb-0">{{user.name}}</a>
+              <small class="d-block text-black color-black">{{user.profile}}</small>
             </div>
             <div class="col-auto">
-              <button
-                type="button"
-                class="btn btn-xs btn-primary btn-icon rounded-pill btn-secondary"
-              >
-                <span class="btn-inner--icon"
-                  ><i class="fa fa-pencil"></i
-                ></span>
+              <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill btn-secondary">
+                <span class="btn-inner--icon"><i class="fa fa-pencil"></i></span>
                 <span class="btn-inner--text">Edit</span>
               </button>
             </div>
@@ -174,20 +112,16 @@
           <div class="row mb-3 align-items-center">
             <div class="col">
               <h6 class="text-sm mb-0">
-                <img src="assets/icons/gmail_ico.svg" class="gmail-ico mr-3" />
-                <a
-                  class="link"
-                  target="_blank"
-                  [href]="'mailto:' + user.social_media.mail"
-                  >{{ user.social_media.mail }}</a
-                >
+                <img src="assets/icons/gmail_ico.svg" class="gmail-ico mr-3">
+                <a class="link" target="_blank"
+                  [href]="'mailto:' + user.social_media.mail">{{user.social_media.mail}}</a>
               </h6>
             </div>
           </div>
           <div class="row my-3 align-items-center">
             <div class="col">
               <h6 class="text-sm mb-0">
-                <i class="fa fa-phone mr-3"></i>{{ user.social_media.phone }}
+                <i class="fa fa-phone mr-3"></i>{{user.social_media.phone}}
               </h6>
             </div>
           </div>
@@ -195,12 +129,8 @@
             <div class="col">
               <h6 class="text-sm mb-0">
                 <i class="fa fa-paper-plane mr-3"></i>
-                <a
-                  class="link"
-                  target="_blank"
-                  [href]="user.social_media.telegram.link"
-                  >{{ user.social_media.telegram.username }}</a
-                >
+                <a class="link" target="_blank"
+                  [href]="user.social_media.telegram.link">{{user.social_media.telegram.username}}</a>
               </h6>
             </div>
           </div>
@@ -208,19 +138,15 @@
             <div class="col">
               <h6 class="text-sm mb-0">
                 <i class="fa fa-linkedin-square mr-3"></i>
-                <a
-                  class="link"
-                  target="_blank"
-                  [href]="user.social_media.linkedin"
-                  ><span class="link">{{ user.social_media.linkedin }}</span></a
-                >
+                <a class="link" target="_blank" [href]="user.social_media.linkedin"><span
+                    class="link">{{user.social_media.linkedin}}</span></a>
               </h6>
             </div>
           </div>
         </div>
         <div class="card-footer p-2 d-flex justify-content-center">
           <div class="d-flex flex-column align-items-center">
-            <div class="h5 mb-0 text-secondary">{{ user.points }}</div>
+            <div class="h5 mb-0 text-secondary">{{user.points}}</div>
             <div class="small">Балла</div>
           </div>
         </div>
@@ -229,9 +155,7 @@
     <div class="col-lg-4">
       <!-- Profile stats -->
       <div class="card card-fluid">
-        <div class="d-flex justify-content-center card-title small mt-1">
-          Activity
-        </div>
+        <div class="d-flex justify-content-center card-title small mt-1">Activity</div>
         <div class="card-body p-0 row">
           <div class="col-lg-6 d-flex flex-column justify-content-between">
             <div class="bottom-light-border mx-4 py-3">
@@ -243,20 +167,14 @@
               <div class="mb-3 color-black font-weight-300">Раньше на</div>
               <span class="text-success h2 font-weight-bold mr-2">2</span>
               <span>дня</span>
-              <span class="float-right small text-right"
-                >Быстрее<br />
-                среднего на 5%</span
-              >
+              <span class="float-right small text-right">Быстрее<br>среднего на 5%</span>
             </div>
           </div>
-          <div
-            class="col-lg-6 d-flex flex-column justify-content-around left-light-border"
-          >
+          <div class="col-lg-6 d-flex flex-column justify-content-around left-light-border">
             <div class="ml-3">
               <div class="color-black font-weight-300">Форма</div>
               <div class="mt-2">
-                <span class="text-primary font-weight-bold h5 mr-1">1</span>
-                день
+                <span class="text-primary font-weight-bold h5 mr-1">1</span>день
               </div>
             </div>
             <div class="ml-3">
@@ -281,20 +199,14 @@
     <div class="col-lg-4">
       <!-- Profile stats -->
       <div class="card card-fluid">
-        <div class="d-flex justify-content-center card-title small mt-1">
-          Solution
-        </div>
+        <div class="d-flex justify-content-center card-title small mt-1">Solution</div>
         <div class="card-body py-0 row">
           <div>
             <ul class="custom__ul">
-              <li
-                *ngFor="let state of userStates; let i = index"
-                [class._selected]="selectedUserStateId === state.id"
-                (click)="selectedUserStateId = state.id"
-                class="pl-1 custom_checkbox lh-120"
-                [class.pb-4]="i !== userStates.length - 1"
-              >
-                {{ state.name }}
+              <li *ngFor="let state of userStates; let i = index" [class._selected]="selectedUserStateId === state.id"
+                (click)="selectedUserStateId = state.id" class="pl-1 custom_checkbox lh-120"
+                [class.pb-4]="i !== userStates.length - 1">
+                {{state.name}}
               </li>
             </ul>
           </div>
@@ -310,9 +222,7 @@
     <div class="col">
       <div class="card">
         <div class="card-title m-4">
-          <span class="h4 font-weight-900"
-            >Общая информация(анкета и письмо)</span
-          >
+          <span class="h4 font-weight-900">Общая информация(анкета и письмо)</span>
           <div class="float-right">
             <div class="d-flex justify-content-between">
               <div class="mr-5 d-flex flex-column">
@@ -332,12 +242,9 @@
               <p class="_card-subtitle font-weight-bolder">Образование:</p>
               <p class="h6 pb-2">Учебное заведение: КЗИ ОНАС</p>
               <p class="h6 pb-2">Факультет: Разработчик ПО 4 курс</p>
-              <p class="h6 pd-2">
-                Другие достижения: 3 класса музыкальной школы, зборная колледжа
-                по волейболу.
-              </p>
+              <p class="h6 pd-2">Другие достижения: 3 класса музыкальной школы, зборная колледжа по волейболу.</p>
             </div>
-            <div class="col-lg-6 pl-5">
+            <div class="col-lg-6 pl-4">
               <p class="_card-subtitle font-weight-bolder">Мотивация:</p>
               <div class="h6 pb-2 pr-5">
                 Хочу получать акутульное образование сфере ИТ и находиться среди
@@ -346,23 +253,19 @@
                 удовольствие. Хочу получать акуаульно образование сфере ИТ и
                 находиться среди ребят, который любят и ценят самообразование.
                 Так же всегда мечтала заниматься который любят...
-                <span class="float-right text-primary font-weight-bold"
-                  >Больше <i class="fa fa-angle-down"></i
-                ></span>
+                <span class="float-right text-primary font-weight-bold">Больше <i class="fa fa-angle-down"></i></span>
               </div>
             </div>
-            <div class="col-lg-6 mt-3">
-              <p class="_card-subtitle font-weight-bolder">
-                Самооценка Hard Skills:
-              </p>
-              <table class="table custom-table">
+            <div class="col-lg-6 mt-3 profile__table-hardSkills">
+              <p class="_card-subtitle font-weight-bolder">Самооценка Hard Skills:</p>
+              <table class="table custom-table ">
                 <thead>
                   <tr>
-                    <th scope="col">Направление</th>
-                    <th scope="col">Не знаю</th>
-                    <th scope="col">Читал немного</th>
-                    <th scope="col">Хорошо знаю</th>
-                    <th scope="col">Постоянно пишу</th>
+                    <th scope="col" class="pr-1">Направление</th>
+                    <th scope="col" class="pr-1">Не знаю</th>
+                    <th scope="col" class="pr-1">Читал немного</th>
+                    <th scope="col" class="pr-1">Хорошо знаю</th>
+                    <th scope="col" class="pr-1">Постоянно пишу</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -390,17 +293,15 @@
                 </tbody>
               </table>
             </div>
-            <div class="col-lg-6 pl-5 mt-3">
-              <p class="_card-subtitle font-weight-bolder">
-                Самооценка Soft Skills:
-              </p>
+            <div class="col-lg-6 pl-4 mt-3">
+              <p class="_card-subtitle font-weight-bolder">Самооценка Soft Skills:</p>
               <table class="table custom-table table-sm">
                 <thead>
                   <tr>
-                    <th scope="col">Качество</th>
-                    <th scope="col" class="py-1">Сильная сторона</th>
-                    <th scope="col">Стоит попробовать</th>
-                    <th scope="col" class="py-1">Слабая сторона</th>
+                    <th scope="col" class="pr-1">Качество</th>
+                    <th scope="col" class="py-1 pr-1">Сильная сторона</th>
+                    <th scope="col" class="pr-1">Стоит попробовать</th>
+                    <th scope="col" class="py-1 pr-1">Слабая сторона</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -435,36 +336,22 @@
       <div class="card">
         <div class="card-title m-4 pt-1">
           <span class="h4 font-weight-900">Тестовое</span>
-          <button
-            class="btn btn-sm btn-secondary float-right fs-10 card-btn-label lh-120"
-          >
-            SQL
-          </button>
+          <button class="btn btn-sm btn-secondary float-right fs-10 card-btn-label lh-120">SQL</button>
         </div>
         <div class="card-body pt-0 pb-0">
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Статус:</div>
             <div class="col-lg-8 pl-0">
-              <div class="d-inline-block block_success text-white">
-                Done
-              </div>
+              <div class="d-inline-block block_success text-white">Done</div>
             </div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Затрачено дней:</div>
             <div class="col-lg-8 px-0">
-              <div class="d-inline-block fs-9 used-day checked">
-                <span>1</span>
-              </div>
-              <div class="d-inline-block fs-9 used-day checked">
-                <span>2</span>
-              </div>
-              <div class="d-inline-block fs-9 used-day checked">
-                <span>3</span>
-              </div>
-              <div class="d-inline-block fs-9 used-day checked">
-                <span>4</span>
-              </div>
+              <div class="d-inline-block fs-9 used-day checked"><span>1</span></div>
+              <div class="d-inline-block fs-9 used-day checked"><span>2</span></div>
+              <div class="d-inline-block fs-9 used-day checked"><span>3</span></div>
+              <div class="d-inline-block fs-9 used-day checked"><span>4</span></div>
               <div class="d-inline-block fs-9 used-day"><span>5</span></div>
               <div class="d-inline-block fs-9 used-day"><span>6</span></div>
               <div class="d-inline-block fs-9 used-day"><span>7</span></div>
@@ -482,9 +369,9 @@
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Баллы проф репутации:</div>
-            <div class="col-lg-8 px-0 color-black">
+            <div class="col-lg-8 px-0 color-black"> 
               <div class="badge badge-soft-success fs-11 font-weight-normal">
-                <img src="assets/icons/arrow-up.svg" class="mb-1 mr-1" />15
+                <img src="assets/icons/arrow-up.svg" class="mb-1 mr-1">15
               </div>
             </div>
           </div>
@@ -494,20 +381,13 @@
             <div class="col-lg-8 px-0 color-black">
               <div class="d-inline-flex align-items-center">
                 <div class="col-auto">
-                  <img
-                    alt="Image placeholder"
-                    src="assets/icons/psd.png"
-                    class="img-fluid"
-                    style="width: 40px;"
-                  />
+                  <img alt="Image placeholder" src="assets/icons/psd.png" class="img-fluid file_main-image">
                 </div>
                 <div class="col ml-n2">
                   <h6 class="text-sm mb-0">
                     <a href="#!">website-wireframe.psd</a>
                   </h6>
-                  <p class="card-text mt-1 small text-muted">
-                    45.9 MB
-                  </p>
+                  <p class="card-text mt-1 small text-muted">45.9 MB</p>
                 </div>
               </div>
             </div>
@@ -520,38 +400,24 @@
         <div class="card-title m-4 pt-1">
           <span class="h4 font-weight-900">Практическое</span>
           <div class="float-right temp_choose-tab">
-            <button class="btn btn-sm m-0 temp_btn btn-secondary fs-10 lh-120">
-              PHP
-            </button>
-            <button class="btn btn-sm m-0 temp_btn btn-light fs-10 lh-120">
-              Front-end
-            </button>
+            <button class="btn btn-sm m-0 temp_btn btn-secondary fs-10 lh-120">PHP</button>
+            <button class="btn btn-sm m-0 temp_btn btn-light fs-10 lh-120">Front-end</button>
           </div>
         </div>
         <div class="card-body pt-0 pb-0">
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Статус:</div>
             <div class="col-lg-8 pl-0">
-              <div class="d-inline-block block_success text-white">
-                Done
-              </div>
+              <div class="d-inline-block block_success text-white">Done</div>
             </div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Затрачено дней:</div>
             <div class="col-lg-8 px-0">
-              <div class="d-inline-block fs-9 used-day checked">
-                <span>1</span>
-              </div>
-              <div class="d-inline-block fs-9 used-day checked">
-                <span>2</span>
-              </div>
-              <div class="d-inline-block fs-9 used-day checked">
-                <span>3</span>
-              </div>
-              <div class="d-inline-block fs-9 used-day checked">
-                <span>4</span>
-              </div>
+              <div class="d-inline-block fs-9 used-day checked"><span>1</span></div>
+              <div class="d-inline-block fs-9 used-day checked"><span>2</span></div>
+              <div class="d-inline-block fs-9 used-day checked"><span>3</span></div>
+              <div class="d-inline-block fs-9 used-day checked"><span>4</span></div>
               <div class="d-inline-block fs-9 used-day"><span>5</span></div>
               <div class="d-inline-block fs-9 used-day"><span>6</span></div>
               <div class="d-inline-block fs-9 used-day"><span>7</span></div>
@@ -569,23 +435,20 @@
               Кандидат хорошо владеет базовыми знаниями (типы переменнных и
               операции над ними), небольшой опыт владения классами, льём водичку
               для красо...
-              <span class="float-right text-primary font-weight-bold mr-3"
-                >Больше <i class="fa fa-angle-down"></i
-              ></span>
+              <span class="float-right text-primary font-weight-bold mr-3">Больше <i class="fa fa-angle-down"></i></span>
             </div>
           </div>
-
           <div class="h6 row font-weight-normal pb-1">
             <div class="col-lg-12">Сравнение оценок:</div>
           </div>
           <table class="table custom-table">
             <thead>
               <tr>
-                <th scope="col"></th>
-                <th scope="col">Не знаю</th>
-                <th scope="col">Читал немного</th>
-                <th scope="col">Хорошо знаю</th>
-                <th scope="col">Постоянно пишу</th>
+                <th scope="col" class="pr-1"></th>
+                <th scope="col" class="pr-1">Не знаю</th>
+                <th scope="col" class="pr-1">Читал немного</th>
+                <th scope="col" class="pr-1">Хорошо знаю</th>
+                <th scope="col" class="pr-1">Постоянно пишу</th>
               </tr>
             </thead>
             <tbody>
@@ -610,20 +473,13 @@
             <div class="col-lg-8 px-0 color-black">
               <div class="d-inline-flex align-items-center">
                 <div class="col-auto">
-                  <img
-                    alt="Image placeholder"
-                    src="assets/icons/psd.png"
-                    class="img-fluid"
-                    style="width: 40px;"
-                  />
+                  <img alt="Image placeholder" src="assets/icons/psd.png" class="img-fluid file_main-image">
                 </div>
                 <div class="col ml-n2">
                   <h6 class="text-sm mb-0">
                     <a href="#!">website-wireframe.psd</a>
                   </h6>
-                  <p class="card-text mt-1 small text-muted">
-                    45.9 MB
-                  </p>
+                  <p class="card-text mt-1 small text-muted">45.9 MB</p>
                 </div>
               </div>
             </div>
