@@ -1,19 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
-$primary:   #006AD7;
-$secondary: #4F60FD;
-$light:     #E6E9ED;
-$muted:     #8492A6;
-$success:   #36B37E;
-$warning:   #FF6930;
+$primary: #006ad7;
+$secondary: #4f60fd;
+$light: #e6e9ed;
+$muted: #8492a6;
+$success: #36b37e;
+$warning: #ff6930;
 
 $fa-font-path: "~resources/fa/fonts";
 $application-container-bg-height: 400px;
 @import "resources/purpose/scss/purpose.scss";
 @import "resources/fa/scss/font-awesome.scss";
 
-
 $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
-
 
 @for $i from 1 through 20 {
   .fs-#{$i} {
@@ -32,8 +30,6 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
   padding: 2.2rem 0;
 }
 
-
-
 .link {
   color: $primary;
   overflow: hidden;
@@ -41,14 +37,12 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
   text-overflow: ellipsis;
 }
 
-
-
 .custom_checkbox {
   position: relative;
   &:before {
     position: absolute;
     content: '';
-    border: 1px solid #8492A6;
+    border: 1px solid #8492a6;
     border-radius: 50%;
     height: 16px;
     width: 16px;
@@ -64,18 +58,14 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
     content: '';
     background: $primary;
     border-radius: 50%;
-
   }
 }
-
 
 .block_success {
   padding: 2px 2rem;
   background: $success;
   border: 2px solid $light;
 }
-
-
 
 .left-light-border {
   border-left: 1px solid $light;
@@ -85,9 +75,9 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
   border-bottom: 1px solid $light;
 }
 
-
 .custom-table {
-  th, td {
+  th,
+  td {
     font-size: 0.9rem;
     border-top: 2px solid $light;
     border-bottom: 2px solid $light;
@@ -95,7 +85,7 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
     border-right: 1px solid $light;
     padding: 0.75rem 1rem;
     text-align: left;
-    vertical-align: middle!important;
+    vertical-align: middle !important;
     line-height: 1.1rem;
   }
   &.table-sm {
@@ -106,13 +96,12 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
     padding: 0.75rem 1.5rem;
   }
   td {
-    color: #3C4858;
+    color: #3c4858;
   }
   .disabled {
     background: $light;
   }
 }
-
 
 .used-day {
   width: 1.7rem;
@@ -124,19 +113,29 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
   background: transparent;
   border: 2px solid $light;
   &.checked {
-    background: #8492A6;
+    background: #8492a6;
   }
   span {
     vertical-align: middle;
   }
 }
 
-.block-mentor{
-  background: $muted;
+.profile__table-hardSkills{
+  padding-right: 2.25rem;
 }
 
-.block-mentor-and-user{
-  background: $light;
-  outline: 8px solid $muted;
-  outline-offset: -8px;
+.custom-navbar {
+  z-index: 102;
+}
+
+.dropdown-custom {
+  width: 128px;
+  display: flex;
+  align-items: center;
+}
+
+.header-custom {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 1rem;
+  overflow-y: hidden;
 }
