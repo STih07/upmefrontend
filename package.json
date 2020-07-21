@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test -- --no-watch --no-progress --browsers=ChromeHeadlessCI",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "ng build --prod --base-href=/upmefrontend/"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +23,7 @@
     "bootstrap": "^4.5.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
+    "ngx-progressbar": "^6.0.3",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

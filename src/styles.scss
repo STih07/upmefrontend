@@ -41,7 +41,7 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
   position: relative;
   &:before {
     position: absolute;
-    content: "";
+    content: '';
     border: 1px solid #8492a6;
     border-radius: 50%;
     height: 16px;
@@ -120,23 +120,11 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
   }
 }
 
-.mt-3,
-.my-3 {
+.profile__table-hardSkills{
   padding-right: 2.25rem;
 }
 
-.card .table td,
-.card .table th {
-  padding-right: 0.5rem;
-}
-
-.pl-5,
-.px-5 {
-  padding-left: 2rem !important;
-}
-
 .custom-navbar {
-  padding: 0.25rem 0 !important;
   z-index: 102;
 }
 
@@ -144,19 +132,6 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
   width: 128px;
   display: flex;
   align-items: center;
-}
-
-.application .sidenav-header {
-  padding: 0.25rem 0;
-}
-
-.application .navbar {
-  margin-bottom: 0;
-}
-
-.application .navbar-collapse {
-  padding-left: 0;
-  padding-right: 20px;
 }
 
 .header-custom {
