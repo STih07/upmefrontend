@@ -41,7 +41,7 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
   position: relative;
   &:before {
     position: absolute;
-    content: "";
+    content: '';
     border: 1px solid #8492a6;
     border-radius: 50%;
     height: 16px;
@@ -174,4 +174,24 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
   margin-bottom: 0;
   color: $light;
   width: 10.625rem;
+}
+
+.profile__table-hardSkills{
+  padding-right: 2.25rem;
+}
+
+.custom-navbar {
+  z-index: 102;
+}
+
+.dropdown-custom {
+  width: 128px;
+  display: flex;
+  align-items: center;
+}
+
+.header-custom {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 1rem;
+  overflow-y: hidden;
 }
