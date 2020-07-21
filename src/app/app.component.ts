@@ -15,7 +15,7 @@ export class AppComponent {
   mainUser = {
     name: 'Anna D.',
     icon: 'assets/img/user_img.png'
-  };  
+  };
 
   user = {
     name: 'Yuliia Chudina',
