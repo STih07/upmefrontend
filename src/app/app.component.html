@@ -180,15 +180,15 @@
             <div class="ml-3">
               <div class="color-black font-weight-300">Тестовое</div>
               <div class="mt-2">
-                <span class="text-primary font-weight-bold h5 mr-1">3</span> дня
-                <span class="float-right small mr-4">5 ошибок</span>
+                <span class="text-primary font-weight-bold h5 mr-1">{{activity.testTask.days}}</span> дня
+                <span class="float-right small mr-4">{{activity.testTask.mistakes}} ошибок</span>
               </div>
             </div>
             <div class="ml-3">
               <div class="color-black font-weight-300">Практическое</div>
               <div class="mt-2">
-                <span class="text-primary font-weight-bold h5 mr-1">3</span> дня
-                <span class="float-right small mr-4">3 ошибки</span>
+                <span class="text-primary font-weight-bold h5 mr-1">{{activity.practiceTask.days}}</span> дня
+                <span class="float-right small mr-4">{{activity.practiceTask.mistakes}} ошибки</span>
               </div>
             </div>
           </div>
@@ -227,11 +227,11 @@
             <div class="d-flex justify-content-between">
               <div class="mr-5 d-flex flex-column">
                 <span class="text-muted">Начал:</span>
-                <span>12-03-2020</span>
+                <span>{{genInfo.studyingTime.began}}</span>
               </div>
               <div class="d-flex flex-column mr-3">
                 <span class="text-muted">Закончил:</span>
-                <span>--</span>
+                <span>{{genInfo.studyingTime.finished}}</span>
               </div>
             </div>
           </div>
@@ -240,9 +240,9 @@
           <div class="row">
             <div class="col-lg-6">
               <p class="_card-subtitle font-weight-bolder">Образование:</p>
-              <p class="h6 pb-2">Учебное заведение: КЗИ ОНАС</p>
-              <p class="h6 pb-2">Факультет: Разработчик ПО 4 курс</p>
-              <p class="h6 pd-2">Другие достижения: 3 класса музыкальной школы, зборная колледжа по волейболу.</p>
+              <p class="h6 pb-2">Учебное заведение: {{genInfo.education.institution}}</p>
+              <p class="h6 pb-2">Факультет: {{genInfo.education.faculty}}</p>
+              <p class="h6 pd-2">Другие достижения: {{genInfo.education.otherAchievements}}.</p>
             </div>
             <div class="col-lg-6 pl-4">
               <p class="_card-subtitle font-weight-bolder">Мотивация:</p>
@@ -348,13 +348,7 @@
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Затрачено дней:</div>
             <div class="col-lg-8 px-0">
-              <div class="d-inline-block fs-9 used-day checked"><span>1</span></div>
-              <div class="d-inline-block fs-9 used-day checked"><span>2</span></div>
-              <div class="d-inline-block fs-9 used-day checked"><span>3</span></div>
-              <div class="d-inline-block fs-9 used-day checked"><span>4</span></div>
-              <div class="d-inline-block fs-9 used-day"><span>5</span></div>
-              <div class="d-inline-block fs-9 used-day"><span>6</span></div>
-              <div class="d-inline-block fs-9 used-day"><span>7</span></div>
+              <div class="d-inline-block fs-9 used-day" [class.checked]="testTaskBlock.daysSpent > day" *ngFor="let day of arrayOfDays"><span>{{day + 1}}</span></div>
             </div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
@@ -365,7 +359,7 @@
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Ошибок:</div>
-            <div class="col-lg-8 px-0 color-black fs-11">5</div>
+            <div class="col-lg-8 px-0 color-black fs-11">{{testTaskBlock.mistakes}}</div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Баллы проф репутации:</div>
@@ -396,7 +390,7 @@
       </div>
     </div>
     <div class="col-lg-6">
-      <div class="card">
+      <div class="card" *ngFor="let thing of practiceTaskBlock">
         <div class="card-title m-4 pt-1">
           <span class="h4 font-weight-900">Практическое</span>
           <div class="float-right temp_choose-tab">
@@ -414,13 +408,7 @@
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Затрачено дней:</div>
             <div class="col-lg-8 px-0">
-              <div class="d-inline-block fs-9 used-day checked"><span>1</span></div>
-              <div class="d-inline-block fs-9 used-day checked"><span>2</span></div>
-              <div class="d-inline-block fs-9 used-day checked"><span>3</span></div>
-              <div class="d-inline-block fs-9 used-day checked"><span>4</span></div>
-              <div class="d-inline-block fs-9 used-day"><span>5</span></div>
-              <div class="d-inline-block fs-9 used-day"><span>6</span></div>
-              <div class="d-inline-block fs-9 used-day"><span>7</span></div>
+              <div class="d-inline-block fs-9 used-day checked" [class.checked]="thing.daysSpent > day" *ngFor="let day of arrayOfDays"><span>{{day + 1}}</span></div>
             </div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
