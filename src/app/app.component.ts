@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { NgProgress, NgProgressRef } from 'ngx-progressbar';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,6 +10,8 @@ import { Component } from '@angular/core';
 
 
 export class AppComponent {
+  progressRef: NgProgressRef;
+  response: any;
 
   arrayOfDays: number[] = Array(7).fill(0).map((x, i) => i);
 
@@ -134,4 +137,14 @@ export class AppComponent {
     {name: 'Командная работа', userRating: 2, mentorRating: 0},
     {name: 'Выносливость', userRating: 3, mentorRating: 0},
   ];
+
+  constructor(private ngProgress: NgProgress, private http: HttpClient) {}
+
+  // tslint:disable-next-line:use-lifecycle-interface
+  ngOnInit() {
+    this.progressRef = this.ngProgress.ref();
+    this.progressRef.start();
+
+    this.http.get('https://api.punkapi.com/v2/beers').subscribe((response) => { this.progressRef.complete(); });
+  }
 }

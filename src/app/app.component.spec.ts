@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { ngModuleJitUrl } from '@angular/compiler';
 import { HttpClientModule } from '@angular/common/http';
 import { TaskStatusPipe } from './status.pipe';
+import { NgProgressModule } from 'ngx-progressbar';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -11,6 +12,7 @@ describe('AppComponent', () => {
       imports: [
         RouterTestingModule,
         HttpClientModule,
+        NgProgressModule,
       ],
       declarations: [
         AppComponent,
