@@ -8,9 +8,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 
 
-
 export class AppComponent {
-  
+
   constructor(private toastr: ToastrService) {}
   arrayOfDays: number[] = Array(7).fill(0).map((x, i) => i);
 
@@ -43,7 +42,6 @@ export class AppComponent {
     },
     points: 123,
   };
-
 
   userStates = [
     { id: 1, name: 'Принят' },
