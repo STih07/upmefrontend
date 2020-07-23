@@ -1,7 +1,11 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+
 import { NgxSmartModalModule } from 'ngx-smart-modal';
+import { ngModuleJitUrl } from '@angular/compiler';
+import { HttpClientModule } from '@angular/common/http';
+import { TaskStatusPipe } from './status.pipe';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -9,9 +13,11 @@ describe('AppComponent', () => {
       imports: [
         RouterTestingModule,
         NgxSmartModalModule.forRoot(),
+        HttpClientModule,
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        TaskStatusPipe,
       ],
     }).compileComponents();
   }));
