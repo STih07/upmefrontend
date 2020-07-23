@@ -168,20 +168,20 @@
     </div>
     <div class="col-lg-4">
       <!-- Profile stats -->
-      <div class="card card-fluid">
-        <div class="d-flex justify-content-center card-title small mt-1">Solution</div>
+      <div class="card card-fluid" [class.disabled]='hasSolution'>
+        <div class="d-flex justify-content-center card-title small mt-1" [class.disabled]='hasSolution'>Solution</div>
         <div class="card-body py-0 row">
           <div>
-            <ul class="custom__ul">
+            <ul class="custom__ul"  [class.disabled]='hasSolution'>
               <li *ngFor="let state of userStates; let i = index"
-                  [class._selected]="selectedUserStateId === state.id"
-                  (click)="selectedUserStateId = state.id"
+                  [class._selected]="selectedSolution === state.id"
+                  (click)="selectedSolution = state.id"
                   class="pl-1 custom_checkbox lh-120" [class.pb-4]="i !== userStates.length - 1">
                 {{state.name}}
               </li>
             </ul>
           </div>
-          <button class="btn btn-secondary btn-xs mx-3 custom-btn w-100"><span class="h6 text-white">Подтвердить</span></button>
+          <button class="btn btn-secondary btn-xs mx-3 custom-btn w-100" [disabled]="selectedSolution === null || hasSolution" (click)="hasSolution = !hasSolution"><span class="h6 text-white">Подтвердить</span></button>
         </div>
         <div class="card-footer no-top-border"></div>
       </div>

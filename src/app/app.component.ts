@@ -40,5 +40,6 @@ export class AppComponent {
     { id: 3, name: 'Не принят' },
     { id: 4, name: 'Не принят. Ты ещё очень юн и мы советуем тебе подать заявку в IT2School' },
   ];
-  selectedUserStateId = 1;
+  selectedSolution = null;
+  hasSolution = false;
 }
