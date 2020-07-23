@@ -1,11 +1,10 @@
-
 .navbar {
   padding: 2.2rem 0;
 }
 
 .nav {
   .nav-item {
-    border-width: 2px!important;
+    border-width: 2px !important;
     &.not-active {
       border-color: rgba(255, 255, 255, 0.6) !important;
       .nav-link {
@@ -23,11 +22,11 @@
 }
 
 .color-gray {
-  color: #3C4858;
+  color: #3c4858;
 }
 
 ._card-subtitle {
-  color: #3C4858;
+  color: #3c4858;
   font-size: 1.1rem;
 }
 
@@ -46,16 +45,14 @@
 
 .custom__ul {
   list-style: none;
-  color: #3C4858;
+  color: #3c4858;
 }
 
 .temp_choose-tab {
-
   .temp_btn {
     width: 8.5rem;
   }
 }
-
 
 .card-btn-label {
   padding-left: 3.2rem;
@@ -77,3 +74,10 @@
 }
 
 // color: rgba(60, 72, 88, 0.3) !important;
+.header-link-custom {
+  white-space: nowrap;
+}
+
+.file_main-image {
+  width: 40px;
+}
