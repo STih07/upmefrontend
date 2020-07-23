@@ -315,7 +315,7 @@
             <ul class="custom__ul">
               <li *ngFor="let state of userStates; let i = index" [class._selected]="selectedUserStateId === state.id" 
               (click)="selectedUserStateId = state.id" class="pl-1 custom_checkbox lh-120" [class.pb-4]="i !== userStates.length - 1">
-                {{estate.name}}
+                {{state.name}}
               </li>
             </ul>
           </div>
