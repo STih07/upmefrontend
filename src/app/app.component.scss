@@ -4,6 +4,8 @@ $light: #e6e9ed;
 $muted: #8492a6;
 $success: #36b37e;
 $warning: #ff6930;
+// Определиться с названием цвета для модального окна и других окон с этим цветом
+$modalColor: #3c4858; 
 
 .navbar {
   padding: 2.2rem 0;
@@ -29,11 +31,11 @@ $warning: #ff6930;
 }
 
 .color-gray {
-  color: #3c4858;
+  color: $modalColor;
 }
 
 ._card-subtitle {
-  color: #3c4858;
+  color: $modalColor;
   font-size: 1.1rem;
 }
 
@@ -75,6 +77,10 @@ $warning: #ff6930;
   padding-left: 10px;
 }
 
+.custom-edit-modal{
+  color: $modalColor;
+}
+
 .group-modal-edit {
   margin-bottom: 16px;
 }
@@ -104,7 +110,7 @@ $warning: #ff6930;
 .btn-modal-edit-floor{
   &.btn-modal-edit-close{
     background: transparent;
-    color: red;
+    color: #FF566C;
     border: none;
     padding: 8px 0;
   }
@@ -115,6 +121,10 @@ $warning: #ff6930;
   }
 }
 
+.modal-edit-links-other{
+  color: $muted;
+}
+
 .header-link-custom {
   white-space: nowrap;
 }
@@ -122,3 +132,4 @@ $warning: #ff6930;
 .file_main-image {
   width: 40px;
 }
+

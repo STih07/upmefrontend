@@ -125,6 +125,7 @@
                 #myModal
                 identifier="editModal"
                 [closable]="false"
+                class="custom-edit-modal"
               >
                 <form>
                   <div class="form-group">
@@ -164,38 +165,38 @@
                     </button>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Email</label>
+                    <label for="modal-edit-email">Email</label>
                     <input
                       type="email"
                       class="form-control"
-                      id="exampleInputPassword1"
+                      id="modal-edit-email"
                       placeholder="Enter email"
                     />
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Phone</label>
+                    <label for="modal-edit-phone">Phone</label>
                     <input
                       type="text"
                       class="form-control"
-                      id="exampleInputPassword1"
+                      id="modal-edit-phone"
                       placeholder="+380"
                     />
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Telegram Nick</label>
+                    <label for="modal-edit-telegram">Telegram Nick</label>
                     <input
                       type="text"
                       class="form-control"
-                      id="exampleInputPassword1"
+                      id="modal-edit-telegram"
                       placeholder="Enter telegram nick"
                     />
                   </div>
                   <div class="form-group last-group-custom">
-                    <label for="exampleInputPassword1">Link</label>
+                    <label for="modal-edit-links">Link <span class="modal-edit-links-other">(GitHub, Behance etc)</span></label>
                     <input
                       type="text"
                       class="form-control"
-                      id="exampleInputPassword1"
+                      id="modal-edit-links"
                       placeholder="Enter link"
                     />
                   </div>
@@ -225,7 +226,7 @@
           <div class="row my-3 align-items-center">
             <div class="col">
               <h6 class="text-sm mb-0">
-                <i class="fa fa-phone mr-3"></i>{{ user.social_media.phone }}
+                <i class="fa fa-phone mr-3"></i>{{user.social_media.phone}}
               </h6>
             </div>
           </div>
