@@ -139,3 +139,15 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
   padding-bottom: 1rem;
   overflow-y: hidden;
 }
+
+.info-popover-custom{
+  max-width: 136px;
+  font-size: 10px;
+}
+
+.popover-body{
+  padding: 0.5rem;
+  line-height: 14px;
+  max-width: 120px;
+  color: #3C4858;
+}
