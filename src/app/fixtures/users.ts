@@ -23,15 +23,6 @@ export const users = [
             points: 123,
         },
 
-        userStates: [
-            { id: 1, name: 'Принят' },
-            { id: 2, name: 'Принят на испытательный срок' },
-            { id: 3, name: 'Не принят' },
-            { id: 4, name: 'Не принят. Ты ещё очень юн и мы советуем тебе подать заявку в IT2School' },
-        ],
-
-        selectedUserStateId: 1,
-
         activity: {
             totalDays: {
                 average: 10,
