@@ -7,7 +7,7 @@ import { switchMap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class FakeHttpClientService {
-  get(fakeUser: any) {
+  get() {
   return timer(2000).pipe(switchMap(() => of(users)));
   }
 }

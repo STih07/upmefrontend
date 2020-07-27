@@ -8,21 +8,30 @@ import { FakeHttpClientService } from './services/fake-http-client.service';
 })
 
 export class AppComponent implements OnInit {
-  user: any ;
+  users: any;
 
   arrayOfDays: number[] = Array(7).fill(0).map((x, i) => i);
 
-  constructor(private fakeResponse: FakeHttpClientService) {}
+  states: [
+    { id: 1, name: 'Онбординг', active: true },
+    { id: 2, name: 'Бассейн', active: false },
+    { id: 3, name: 'Обучение', active: false },
+    { id: 4, name: 'Проверка Идеи', active: false },
+    { id: 5, name: 'Трудоустройство', active: false },
+  ];
+
+
+  constructor(private fakeResponse: FakeHttpClientService) { }
 
   ngOnInit() {
-    this.fakeResponse.get(this.user).subscribe(user => {
-      this.user = user;
+    this.fakeResponse.get().subscribe(user => {
+      this.users = user;
       console.log(user);
     });
   }
 
   getPercentOfDiffrence(num1: number, num2: number) {
-    return((num1 - num2) * 100 / num1);
+    return ((num1 - num2) * 100 / num1);
   }
 
 }
