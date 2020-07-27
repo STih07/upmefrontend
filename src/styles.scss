@@ -113,7 +113,7 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
   background: transparent;
   border: 2px solid $light;
   &.checked {
-    background: #8492a6;
+    background: $muted;
   }
   span {
     vertical-align: middle;
@@ -194,4 +194,66 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   padding-bottom: 1rem;
   overflow-y: hidden;
+}
+
+.btn-xs {
+  padding: 0.375rem 0.7rem;
+  font-size: 0.75rem;
+  line-height: 0.5;
+  border-radius: 0.25rem;
+}
+
+.p-2 {
+  padding: 1rem !important;
+}
+
+.mentor-match{
+  background: $light;
+  outline: 8px solid $muted;
+  outline-offset: -8px;
+}
+
+.rating-block-description{
+  margin: auto 2.5rem auto 0.5rem;
+}
+
+.block-description-1 {
+  background: $light;
+}
+
+.block-description-2 {
+  background: $muted;
+}
+
+.block-description-3 {
+  background: $light;
+  outline: 4px solid $muted;
+  outline-offset: -4px;
+}
+
+.rating-block{
+  width: 4rem;
+  height: 1.5rem;
+}
+
+.mentor-rating {
+  background: $muted;
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1rem;
+    padding-left: 0;
+  }
+  .navbar-expand-lg .navbar-nav .nav-item {
+    margin-right: 3.75rem;
+  }
+}
+
+.navbar-nav .nav-item .nav-link {
+  //text-overflow:
+  white-space: nowrap;
+  font-weight: normal;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.2rem;
 }

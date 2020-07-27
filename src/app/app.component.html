@@ -136,7 +136,7 @@
           </div>
           <div class="row my-3 align-items-center">
             <div class="col">
-              <h6 class="text-sm mb-0">
+              <h6 class="text-sm mb-0 d-flex">
                 <i class="fa fa-linkedin-square mr-3"></i>
                 <a class="link" target="_blank" [href]="user.social_media.linkedin"><span
                     class="link">{{user.social_media.linkedin}}</span></a>
@@ -146,8 +146,7 @@
         </div>
         <div class="card-footer p-2 d-flex justify-content-center">
           <div class="d-flex flex-column align-items-center">
-            <div class="h5 mb-0 text-secondary">{{user.points}}</div>
-            <div class="small">Балла</div>
+            <div class="h5 mb-0 text-secondary">Resident</div>
           </div>
         </div>
       </div>
@@ -517,23 +516,45 @@
             </thead>
             <tbody>
               <tr>
-                <td scope="row">Критическое мышление</td>
-                <td></td>
-                <td></td>
+                <td scope="row" >Критическое мышление</td>
+                <td class="mentor-match"></td>
                 <td class="disabled"></td>
+                <td></td>
+                <td></td>
               </tr>
               <tr>
                 <td scope="row">Коммуникаб.</td>
                 <td></td>
-                <td></td>
+                <td class="mentor-rating"></td>
                 <td class="disabled"></td>
+                <td></td>
               </tr>
               <tr>
                 <td scope="row">Выносливость</td>
                 <td></td>
                 <td></td>
+                <td></td>
                 <td class="disabled"></td>
               </tr>
+              <tr>
+                <td scope="row">Комментарий</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td colspan="5">
+                  <div class="d-flex">
+                    <div class="rating-block block-description-1"></div>
+                    <span class="rating-block-description ">- самооценка</span>
+                    <div class="rating-block block-description-2"></div>
+                    <span class="rating-block-description ">- оценка ментора</span>
+                    <div class="rating-block block-description-3"></div>
+                    <span class="rating-block-description ">- совпадает</span>
+                  </div>
+                </td>
+            </tr>
             </tbody>
           </table>
         </div>
