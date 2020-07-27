@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-
-
 
 export class AppComponent {
 
@@ -52,15 +49,22 @@ export class AppComponent {
   selectedUserStateId = 1;
 
   activity = {
-    totalDays: 8,
-    // Мозги плавятся
-    formDay: 1,
-    testTask: {
-      days: 3,
-      mistakes: 5,
+    totalDays: {
+      average: 10,
+      current: 8,
     },
-    practiceTask: {
-      days: 3,
+    formDays: {
+      average: 1,
+      current: 1,
+    },
+    testDays: {
+      average: 3,
+      current: 3,
+      mistakes: 5
+    },
+    practiceDays: {
+      average: 3,
+      current: 3,
       mistakes: 3,
     },
   };
@@ -124,8 +128,8 @@ export class AppComponent {
         type: 'png',
         size: '45mb',
       }
-  }
-];
+    }
+  ];
 
   softSkillBlock = [
   // ничего - 0, сильная сторона - 1, стоит поработать - 2, слабая сторона - 3
@@ -134,4 +138,9 @@ export class AppComponent {
     {name: 'Командная работа', userRating: 2, mentorRating: 0},
     {name: 'Выносливость', userRating: 3, mentorRating: 0},
   ];
+
+  getPercentOfDiffrence(num1: number, num2: number) {
+    return((num1 - num2) * 100 / num1);
+  }
+
 }
