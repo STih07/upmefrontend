@@ -147,12 +147,7 @@ export class AppComponent {
   constructor(private ngProgress: NgProgress, private http: HttpClient) {}
 
   // tslint:disable-next-line:use-lifecycle-interface
-  ngOnInit() {
-    this.progressRef = this.ngProgress.ref();
-    this.progressRef.start();
-
-    this.http.get('https://api.punkapi.com/v2/beers').subscribe((response) => { this.progressRef.complete(); });
-  }
+  ngOnInit() {}
   getPercentOfDiffrence(num1: number, num2: number) {
     return((num1 - num2) * 100 / num1);
   }
