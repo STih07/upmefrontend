@@ -50,15 +50,9 @@
   <!-- Content -->
   <div class="main-content position-relative">
     <!-- Main nav -->
-    <nav
-      class="navbar navbar-main navbar-expand-lg pb-0 mb-0 bg-primary"
-      id="navbar-main"
-    >
+    <nav class="navbar navbar-main navbar-expand-lg pb-0 mb-0 bg-primary" id="navbar-main">
       <div class="container-fluid">
-        <div
-          class="collapse navbar-collapse pr-0 navbar-collapse-fade"
-          id="navbar-main-collapse"
-        >
+        <div class="collapse navbar-collapse pr-0 navbar-collapse-fade" id="navbar-main-collapse">
           <ul class="navbar-nav ml-lg-auto align-items-center d-none d-lg-flex">
             <li class="nav-item dropdown dropdown-animate">
               <a class="nav-link pt-0 pr-lg-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -68,9 +62,7 @@
                     <img alt="Image placeholder" [src]="mainUser.icon">
                   </span>
                   <div class="ml-2 d-none d-lg-block">
-                    <span class="mb-0 h6 text-white font-weight-bolder">{{
-                      mainUser.name
-                    }}</span>
+                    <span class="mb-0 h6 text-white font-weight-bolder">{{mainUser.name}}</span>
                   </div>
                 </div>
               </a>
@@ -102,23 +94,16 @@
             <div class="col-auto">
               <!-- Avatar -->
               <a href="#" class="avatar rounded-circle">
-                <img alt="Image placeholder" [src]="user.icon" class="" />
+                <img alt="Image placeholder" [src]="user.icon" class="">
               </a>
             </div>
             <div class="col ml-md-n2">
-              <a href="#!" class="d-block h6 mb-0">{{ user.name }}</a>
-              <small class="d-block text-black color-black">{{
-                user.profile
-              }}</small>
+              <a href="#!" class="d-block h6 mb-0">{{user.name}}</a>
+              <small class="d-block text-black color-black">{{user.profile}}</small>
             </div>
             <div class="col-auto">
-              <button
-                type="button"
-                class="btn btn-xs btn-primary btn-icon rounded-pill btn-secondary"
-              >
-                <span class="btn-inner--icon"
-                  ><i class="fa fa-pencil"></i
-                ></span>
+              <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill btn-secondary">
+                <span class="btn-inner--icon"><i class="fa fa-pencil"></i></span>
                 <span class="btn-inner--text">Edit</span>
               </button>
             </div>
@@ -137,7 +122,7 @@
           <div class="row my-3 align-items-center">
             <div class="col">
               <h6 class="text-sm mb-0">
-                <i class="fa fa-phone mr-3"></i>{{ user.social_media.phone }}
+                <i class="fa fa-phone mr-3"></i>{{user.social_media.phone}}
               </h6>
             </div>
           </div>
@@ -152,7 +137,7 @@
           </div>
           <div class="row my-3 align-items-center">
             <div class="col">
-              <h6 class="text-sm mb-0">
+              <h6 class="text-sm mb-0 d-flex">
                 <i class="fa fa-linkedin-square mr-3"></i>
                 <a class="link" target="_blank" [href]="user.social_media.linkedin"><span
                     class="link">{{user.social_media.linkedin}}</span></a>
@@ -162,8 +147,7 @@
         </div>
         <div class="card-footer p-2 d-flex justify-content-center">
           <div class="d-flex flex-column align-items-center">
-            <div class="h5 mb-0 text-secondary">{{ user.points }}</div>
-            <div class="small">Балла</div>
+            <div class="h5 mb-0 text-secondary">Resident</div>
           </div>
         </div>
       </div>
@@ -171,9 +155,7 @@
     <div class="col-lg-4">
       <!-- Profile stats -->
       <div class="card card-fluid">
-        <div class="d-flex justify-content-center card-title small mt-1">
-          Activity
-        </div>
+        <div class="d-flex justify-content-center card-title small mt-1">Activity</div>
         <div class="card-body p-0 row">
           <div class="col-lg-6 d-flex flex-column justify-content-between">
             <div class="bottom-light-border mx-4 py-3">
@@ -190,9 +172,7 @@
               <span class="float-right small text-right">Быстрее<br>среднего на {{getPercentOfDiffrence(activity.totalDays.average, activity.totalDays.current) | round}}%</span>
             </div>
           </div>
-          <div
-            class="col-lg-6 d-flex flex-column justify-content-around left-light-border"
-          >
+          <div class="col-lg-6 d-flex flex-column justify-content-around left-light-border">
             <div class="ml-3">
               <div class="color-black font-weight-300">Форма</div>
               <div class="mt-2">
@@ -249,9 +229,7 @@
     <div class="col">
       <div class="card">
         <div class="card-title m-4">
-          <span class="h4 font-weight-900"
-            >Общая информация(анкета и письмо)</span
-          >
+          <span class="h4 font-weight-900">Общая информация(анкета и письмо)</span>
           <div class="float-right">
             <div class="d-flex justify-content-between">
               <div class="mr-5 d-flex flex-column">
@@ -365,11 +343,7 @@
       <div class="card">
         <div class="card-title m-4 pt-1">
           <span class="h4 font-weight-900">Тестовое</span>
-          <button
-            class="btn btn-sm btn-secondary float-right fs-10 card-btn-label lh-120"
-          >
-            SQL
-          </button>
+          <button class="btn btn-sm btn-secondary float-right fs-10 card-btn-label lh-120">SQL</button>
         </div>
         <div class="card-body pt-0 pb-0">
           <div class="h6 row font-weight-normal pb-3">
@@ -386,22 +360,36 @@
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Результат:</div>
-            <div class="col-lg-8 px-0 color-black fs-11">
-              <span class="font-weight-bolder">Хорошо</span> (7/10 баллов)
+            <div class="col-lg-8 px-0 color-black fs-11" class="test__result">
+              <div>
+                <span class="font-weight-bolder">Хорошо</span> (7/10 баллов)
+              </div>
+              <div class="popover__wrapper">
+                <img
+                  src="../assets/icons/info.svg"
+                  alt="info-result"
+                  style="margin-right: 0.45rem;"
+                />
+                <div class="popover__content">
+                  <p class="popover__message">
+                    Some text...
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Ошибок:</div>
             <div class="col-lg-8 px-0 color-black fs-11">{{testTaskBlock.mistakes}}</div>
           </div>
-          <div class="h6 row font-weight-normal pb-3">
+          <!-- <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Баллы проф репутации:</div>
-            <div class="col-lg-8 px-0 color-black"> 
+            <div class="col-lg-8 px-0 color-black">
               <div class="badge badge-soft-success fs-11 font-weight-normal">
                 <img src="assets/icons/arrow-up.svg" class="mb-1 mr-1" />15
               </div>
             </div>
-          </div>
+          </div> -->
           <div class="big-divider"></div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="sources pr-0">Исходники:</div>
@@ -427,12 +415,8 @@
         <div class="card-title m-4 pt-1">
           <span class="h4 font-weight-900">Практическое</span>
           <div class="float-right temp_choose-tab">
-            <button class="btn btn-sm m-0 temp_btn btn-secondary fs-10 lh-120">
-              PHP
-            </button>
-            <button class="btn btn-sm m-0 temp_btn btn-light fs-10 lh-120">
-              Front-end
-            </button>
+            <button class="btn btn-sm m-0 temp_btn btn-secondary fs-10 lh-120">PHP</button>
+            <button class="btn btn-sm m-0 temp_btn btn-light fs-10 lh-120">Front-end</button>
           </div>
         </div>
         <div class="card-body pt-0 pb-0">
@@ -533,23 +517,45 @@
             </thead>
             <tbody>
               <tr>
-                <td scope="row">Критическое мышление</td>
-                <td></td>
-                <td></td>
+                <td scope="row" >Критическое мышление</td>
+                <td class="mentor-match"></td>
                 <td class="disabled"></td>
+                <td></td>
+                <td></td>
               </tr>
               <tr>
                 <td scope="row">Коммуникаб.</td>
                 <td></td>
-                <td></td>
+                <td class="mentor-rating"></td>
                 <td class="disabled"></td>
+                <td></td>
               </tr>
               <tr>
                 <td scope="row">Выносливость</td>
                 <td></td>
                 <td></td>
+                <td></td>
                 <td class="disabled"></td>
               </tr>
+              <tr>
+                <td scope="row">Комментарий</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td colspan="5">
+                  <div class="d-flex">
+                    <div class="rating-block block-description-1"></div>
+                    <span class="rating-block-description ">- самооценка</span>
+                    <div class="rating-block block-description-2"></div>
+                    <span class="rating-block-description ">- оценка ментора</span>
+                    <div class="rating-block block-description-3"></div>
+                    <span class="rating-block-description ">- совпадает</span>
+                  </div>
+                </td>
+            </tr>
             </tbody>
           </table>
         </div>
