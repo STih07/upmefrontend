@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NgProgress, NgProgressRef } from 'ngx-progressbar';
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -6,6 +9,8 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
+  progressRef: NgProgressRef;
+  response: any;
 
   arrayOfDays: number[] = Array(7).fill(0).map((x, i) => i);
 
@@ -139,6 +144,10 @@ export class AppComponent {
     {name: 'Выносливость', userRating: 3, mentorRating: 0},
   ];
 
+  constructor(private ngProgress: NgProgress, private http: HttpClient) {}
+
+  // tslint:disable-next-line:use-lifecycle-interface
+  ngOnInit() {}
   getPercentOfDiffrence(num1: number, num2: number) {
     return((num1 - num2) * 100 / num1);
   }
