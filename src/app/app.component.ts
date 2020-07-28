@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
   arrayOfDays: number[] = Array(7).fill(0).map((x, i) => i);
 
-  states: [
+  states = [
     { id: 1, name: 'Онбординг', active: true },
     { id: 2, name: 'Бассейн', active: false },
     { id: 3, name: 'Обучение', active: false },
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
     { id: 5, name: 'Трудоустройство', active: false },
   ];
 
-  userStates: [
+  userStates = [
     { id: 1, name: 'Принят' },
     { id: 2, name: 'Принят на испытательный срок' },
     { id: 3, name: 'Не принят' },
@@ -36,14 +36,13 @@ export class AppComponent implements OnInit {
     this.fakeResponse.getUsers().subscribe(user => {
       this.users = user;
     });
-    this.fakeResponse.getUserById(1).subscribe(user => this.userProfile = user);
+    this.fakeResponse.getUserById(1).subscribe(user => {
+     console.log(user);
+     return this.userProfile = user;
+    });
   }
 
   getPercentOfDiffrence(num1: number, num2: number) {
     return ((num1 - num2) * 100 / num1);
-  }
-
-  getUser(id: number) {
-    return this.userProfile = this.users.find((user: any) => user.id === id);
   }
 }

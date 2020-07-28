@@ -8,12 +8,9 @@ import { switchMap, find } from 'rxjs/operators';
 })
 export class FakeHttpClientService {
   getUsers() {
-    return timer(2000).pipe(switchMap(() => of(users)));
+    return timer(Math.round(Math.random() * 300)).pipe(switchMap(() => of(users)));
   }
   getUserById(id: number) {
-    return of(users.find(user => {
-      console.log(user);
-      return user.id === id;
-    }));
+    return timer(Math.round(Math.random() * 300)).pipe(switchMap(() => of(users.find(user => user.id === id))));
   }
 }
