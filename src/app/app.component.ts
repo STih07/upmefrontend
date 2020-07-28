@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FakeHttpClientService } from './services/fake-http-client.service';
+import { NgProgress, NgProgressRef } from 'ngx-progressbar';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ import { FakeHttpClientService } from './services/fake-http-client.service';
 export class AppComponent implements OnInit {
   users: any;
   userProfile: any = null;
+  progressRef: NgProgressRef;
 
   arrayOfDays: number[] = Array(7).fill(0).map((x, i) => i);
 

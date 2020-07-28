@@ -79,6 +79,11 @@ export const users = [
                 maxPossiblePoints: 10,
             },
             mistakes: 5,
+            source: {
+                nameFile: 'website-wireframe',
+                type: 'psd',
+                size: '45.9 MB',
+            }
         },
 
         practiceTaskBlock: [
@@ -88,7 +93,7 @@ export const users = [
                 status: 1,
                 daysSpent: 5,
                 rating: {
-                    points: 10,
+                    points: 40,
                     maxPossiblePoints: 50,
                 },
                 // tslint:disable-next-line:max-line-length
@@ -99,9 +104,9 @@ export const users = [
                     { name: 'Оценка ментора', mentorRating: 3 },
                 ],
                 source: {
-                    nameFile: 'name_of_file.png',
+                    nameFile: 'name_of_file',
                     type: 'png',
-                    size: '45mb',
+                    size: '45 MB',
                 }
             }
         ],
