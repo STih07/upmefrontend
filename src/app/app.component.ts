@@ -10,7 +10,7 @@ import { NgProgress, NgProgressRef } from 'ngx-progressbar';
 
 export class AppComponent implements OnInit {
   users: any;
-  userProfile: any = null;
+  user: any;
   progressRef: NgProgressRef;
 
   arrayOfDays: number[] = Array(7).fill(0).map((x, i) => i);
@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
     this.fakeResponse.getUserById(1).subscribe(user => {
       console.log(user);
       this.progressRef.complete();
-      return this.userProfile = user;
+      return this.user = user;
     });
   }
 
