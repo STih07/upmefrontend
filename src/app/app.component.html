@@ -1,3 +1,4 @@
+<ng-progress #progressBar ></ng-progress>
 <div class="container-fluid container-application header-custom">
   <!-- Sidenav -->
   <div class="sidenav show ml-0" id="sidenav-main">
@@ -136,7 +137,7 @@
           </div>
           <div class="row my-3 align-items-center">
             <div class="col">
-              <h6 class="text-sm mb-0">
+              <h6 class="text-sm mb-0 d-flex">
                 <i class="fa fa-linkedin-square mr-3"></i>
                 <a class="link" target="_blank" [href]="user.social_media.linkedin"><span
                     class="link">{{user.social_media.linkedin}}</span></a>
@@ -146,8 +147,7 @@
         </div>
         <div class="card-footer p-2 d-flex justify-content-center">
           <div class="d-flex flex-column align-items-center">
-            <div class="h5 mb-0 text-secondary">{{user.points}}</div>
-            <div class="small">Балла</div>
+            <div class="h5 mb-0 text-secondary">Resident</div>
           </div>
         </div>
       </div>
@@ -204,7 +204,9 @@
     <div class="col-lg-4">
       <!-- Profile stats -->
       <div class="card card-fluid">
-        <div class="d-flex justify-content-center card-title small mt-1">Solution</div>
+        <div class="d-flex justify-content-center card-title small mt-1">
+          Solution
+        </div>
         <div class="card-body py-0 row">
           <div>
             <ul class="custom__ul">
@@ -358,22 +360,36 @@
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Результат:</div>
-            <div class="col-lg-8 px-0 color-black fs-11">
-              <span class="font-weight-bolder">Хорошо</span> (7/10 баллов)
+            <div class="col-lg-8 px-0 color-black fs-11" class="test__result">
+              <div>
+                <span class="font-weight-bolder">Хорошо</span> (7/10 баллов)
+              </div>
+              <div class="popover__wrapper">
+                <img
+                  src="../assets/icons/info.svg"
+                  alt="info-result"
+                  style="margin-right: 0.45rem;"
+                />
+                <div class="popover__content">
+                  <p class="popover__message">
+                    Some text...
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Ошибок:</div>
             <div class="col-lg-8 px-0 color-black fs-11">{{testTaskBlock.mistakes}}</div>
           </div>
-          <div class="h6 row font-weight-normal pb-3">
+          <!-- <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Баллы проф репутации:</div>
-            <div class="col-lg-8 px-0 color-black"> 
+            <div class="col-lg-8 px-0 color-black">
               <div class="badge badge-soft-success fs-11 font-weight-normal">
-                <img src="assets/icons/arrow-up.svg" class="mb-1 mr-1">15
+                <img src="assets/icons/arrow-up.svg" class="mb-1 mr-1" />15
               </div>
             </div>
-          </div>
+          </div> -->
           <div class="big-divider"></div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="sources pr-0">Исходники:</div>
@@ -501,23 +517,45 @@
             </thead>
             <tbody>
               <tr>
-                <td scope="row">Критическое мышление</td>
-                <td></td>
-                <td></td>
+                <td scope="row" >Критическое мышление</td>
+                <td class="mentor-match"></td>
                 <td class="disabled"></td>
+                <td></td>
+                <td></td>
               </tr>
               <tr>
                 <td scope="row">Коммуникаб.</td>
                 <td></td>
-                <td></td>
+                <td class="mentor-rating"></td>
                 <td class="disabled"></td>
+                <td></td>
               </tr>
               <tr>
                 <td scope="row">Выносливость</td>
                 <td></td>
                 <td></td>
+                <td></td>
                 <td class="disabled"></td>
               </tr>
+              <tr>
+                <td scope="row">Комментарий</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td colspan="5">
+                  <div class="d-flex">
+                    <div class="rating-block block-description-1"></div>
+                    <span class="rating-block-description ">- самооценка</span>
+                    <div class="rating-block block-description-2"></div>
+                    <span class="rating-block-description ">- оценка ментора</span>
+                    <div class="rating-block block-description-3"></div>
+                    <span class="rating-block-description ">- совпадает</span>
+                  </div>
+                </td>
+            </tr>
             </tbody>
           </table>
         </div>
