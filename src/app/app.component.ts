@@ -32,15 +32,20 @@ export class AppComponent implements OnInit {
 
   selectedUserStateId: 1;
 
-  constructor(private fakeResponse: FakeHttpClientService) { }
+  constructor(private fakeResponse: FakeHttpClientService, private progress: NgProgress) { }
 
   ngOnInit() {
+    this.progressRef = this.progress.ref('progressBar');
+
+    this.progressRef.start();
+
     this.fakeResponse.getUsers().subscribe(user => {
       this.users = user;
     });
     this.fakeResponse.getUserById(1).subscribe(user => {
-     console.log(user);
-     return this.userProfile = user;
+      console.log(user);
+      this.progressRef.complete();
+      return this.userProfile = user;
     });
   }
 

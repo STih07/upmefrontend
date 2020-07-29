@@ -18,9 +18,7 @@ import { RoundPipe } from './round.pipe';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    NgProgressModule.withConfig({
-      color: '#8492a6',
-    }),
+    NgProgressModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
