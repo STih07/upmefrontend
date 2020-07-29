@@ -15,6 +15,11 @@ export class AppComponent implements OnInit {
 
   arrayOfDays: number[] = Array(7).fill(0).map((x, i) => i);
 
+  mainUser = {
+    name: 'Anna D.',
+    icon: 'assets/img/user_img.png'
+  };
+
   states = [
     { id: 1, name: 'Онбординг', active: true },
     { id: 2, name: 'Бассейн', active: false },

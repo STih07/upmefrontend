@@ -1,11 +1,6 @@
 export const users = [
     {
         id: 1,
-        mainUser: {
-            name: 'Anna D.',
-            icon: 'assets/img/user_img.png'
-        },
-
         user: {
             name: 'Yuliia Chudina',
             icon: 'assets/img/user_card_img.png',
@@ -121,11 +116,6 @@ export const users = [
     },
     {
         id: 2,
-        mainUser: {
-            name: 'Anna D.',
-            icon: 'assets/img/user_img.png'
-        },
-
         user: {
             name: 'Yuliia Chudina',
             icon: 'assets/img/user_card_img.png',
