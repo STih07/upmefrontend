@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { NgProgress, NgProgressRef } from 'ngx-progressbar';
 import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-
-
 
 export class AppComponent {
   progressRef: NgProgressRef;
@@ -55,15 +54,22 @@ export class AppComponent {
   selectedUserStateId = 1;
 
   activity = {
-    totalDays: 8,
-    // Мозги плавятся
-    formDay: 1,
-    testTask: {
-      days: 3,
-      mistakes: 5,
+    totalDays: {
+      average: 10,
+      current: 8,
     },
-    practiceTask: {
-      days: 3,
+    formDays: {
+      average: 1,
+      current: 1,
+    },
+    testDays: {
+      average: 3,
+      current: 3,
+      mistakes: 5
+    },
+    practiceDays: {
+      average: 3,
+      current: 3,
       mistakes: 3,
     },
   };
@@ -127,8 +133,8 @@ export class AppComponent {
         type: 'png',
         size: '45mb',
       }
-  }
-];
+    }
+  ];
 
   softSkillBlock = [
   // ничего - 0, сильная сторона - 1, стоит поработать - 2, слабая сторона - 3
@@ -141,10 +147,9 @@ export class AppComponent {
   constructor(private ngProgress: NgProgress, private http: HttpClient) {}
 
   // tslint:disable-next-line:use-lifecycle-interface
-  ngOnInit() {
-    this.progressRef = this.ngProgress.ref();
-    this.progressRef.start();
-
-    this.http.get('https://api.punkapi.com/v2/beers').subscribe((response) => { this.progressRef.complete(); });
+  ngOnInit() {}
+  getPercentOfDiffrence(num1: number, num2: number) {
+    return((num1 - num2) * 100 / num1);
   }
+
 }
