@@ -340,7 +340,7 @@
   </div>
   <div class="row">
     <div class="col-lg-6">
-      <div class="card">
+      <div class="card custom-card">
         <div class="card-title m-4 pt-1">
           <span class="h4 font-weight-900">Тестовое</span>
           <button class="btn btn-sm btn-secondary float-right fs-10 card-btn-label lh-120">SQL</button>
@@ -411,12 +411,12 @@
       </div>
     </div>
     <div class="col-lg-6">
-      <div class="card" *ngFor="let thing of practiceTaskBlock">
+      <div class="card custom-card" *ngFor="let thing of practiceTaskBlock">
         <div class="card-title m-4 pt-1">
           <span class="h4 font-weight-900">Практическое</span>
           <div class="float-right temp_choose-tab">
-            <button class="btn btn-sm m-0 temp_btn btn-secondary fs-10 lh-120">PHP</button>
-            <button class="btn btn-sm m-0 temp_btn btn-light fs-10 lh-120">Front-end</button>
+            <button class="btn btn-sm m-0 temp_btn btn-secondary fs-10 lh-120 ">PHP</button>
+            <button class="btn btn-sm m-0 temp_btn btn-light fs-10 lh-120 custom-not-active">Front-end</button>
           </div>
         </div>
         <div class="card-body pt-0 pb-0">
@@ -434,13 +434,13 @@
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Оценка:</div>
-            <div class="col-lg-8 px-0 color-black fs-11">
+            <div class="col-lg-8 px-0 color-black fs-9">
               Выполнено с мелкими ошибками (40/50 баллов)
             </div>
           </div>
           <div class="h6 row font-weight-normal pb-4">
             <div class="col-lg-4">Фитбек от ментора:</div>
-            <div class="col-lg-8 px-0 color-black fs-11">
+            <div class="col-lg-8 px-0 color-black fs-9">
               Кандидат хорошо владеет базовыми знаниями (типы переменнных и
               операции над ними), небольшой опыт владения классами, льём водичку
               для красо...
@@ -564,3 +564,4 @@
     </div>
   </div>
 </div>
+ v

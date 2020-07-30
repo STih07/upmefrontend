@@ -209,6 +209,7 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
 
 .mentor-match{
   background: $light;
+  border-color: #8492A6;
   outline: 8px solid $muted;
   outline-offset: -8px;
 }
@@ -238,6 +239,7 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
 
 .mentor-rating {
   background: $muted;
+  border-color: $muted;
 }
 
 @media (min-width: 992px) {
