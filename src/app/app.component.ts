@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FakeHttpClientService } from './services/fake-http-client.service';
-import { NgProgress, NgProgressRef } from 'ngx-progressbar';
+import { FakeHttpClient } from './services/fake-http-client.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +9,6 @@ import { NgProgress, NgProgressRef } from 'ngx-progressbar';
 
 export class AppComponent implements OnInit {
   user: any;
-  progressRef: NgProgressRef;
 
   arrayOfDays: number[] = Array(7).fill(0).map((x, i) => i);
 
@@ -36,17 +34,11 @@ export class AppComponent implements OnInit {
 
   selectedUserStateId: 1;
 
-  constructor(private fakeResponse: FakeHttpClientService, private progress: NgProgress) { }
+  constructor(private fakeResponse: FakeHttpClient) { }
 
   ngOnInit() {
-    this.progressRef = this.progress.ref('progressBar');
-
-    this.progressRef.start();
-
     this.fakeResponse.getUserById(1).subscribe(user => {
-      console.log(user);
-      this.progressRef.complete();
-      return this.user = user;
+      this.user = user;
     });
   }
 

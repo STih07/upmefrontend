@@ -1,16 +1,29 @@
 import { Injectable } from '@angular/core';
-import { of, timer, observable } from 'rxjs';
+import { of, timer, throwError } from 'rxjs';
 import { users } from '../fixtures/users';
-import { switchMap, find } from 'rxjs/operators';
+import { switchMap, tap, catchError } from 'rxjs/operators';
+import { Progress } from './progress-bar.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FakeHttpClientService {
+export class FakeHttpClient {
+  constructor(private progress: Progress) {}
+
   getUsers() {
-    return timer(Math.round(Math.random() * 300)).pipe(switchMap(() => of(users)));
+    return this.randomTimer().pipe(switchMap(() => of(users)));
   }
+
+  randomTimer() {
+    return timer(Math.round(Math.random() * 300));
+  }
+
   getUserById(id: number) {
-    return timer(Math.round(Math.random() * 300)).pipe(switchMap(() => of(users.find(user => user.id === id))));
+    this.progress.start();
+    return this.randomTimer().pipe(
+      switchMap(() => of(users.find(user => user.id === id))),
+      tap(() => this.progress.complete()),
+      catchError(() => throwError(this.progress.setConfig()))
+    );
   }
 }
