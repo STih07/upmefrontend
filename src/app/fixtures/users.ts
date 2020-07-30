@@ -3,7 +3,7 @@ export const users = [
         id: 1,
         user: {
             name: 'Yuliia Chudina',
-            icon: 'assets/img/user_card_img.png',
+            icon: 'assets/img/user_1.png',
             profile: 'UX/UI Designer',
             lastStateId: 2,
             social_media: {
