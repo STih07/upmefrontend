@@ -9,7 +9,6 @@ import { NgProgress, NgProgressRef } from 'ngx-progressbar';
 })
 
 export class AppComponent implements OnInit {
-  users: any;
   user: any;
   progressRef: NgProgressRef;
 
@@ -44,9 +43,6 @@ export class AppComponent implements OnInit {
 
     this.progressRef.start();
 
-    this.fakeResponse.getUsers().subscribe(user => {
-      this.users = user;
-    });
     this.fakeResponse.getUserById(1).subscribe(user => {
       console.log(user);
       this.progressRef.complete();
