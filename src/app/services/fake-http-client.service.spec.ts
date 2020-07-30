@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FakeHttpClientService } from './fake-http-client.service';
+import { FakeHttpClient } from './fake-http-client.service';
 
 describe('FakeHttpClientService', () => {
-  let service: FakeHttpClientService;
+  let service: FakeHttpClient;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(FakeHttpClientService);
+    service = TestBed.inject(FakeHttpClient);
   });
 
   it('should be created', () => {
