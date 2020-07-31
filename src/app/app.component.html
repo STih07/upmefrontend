@@ -368,7 +368,7 @@
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Затрачено дней: <img src="assets/icons/info.svg" alt="info-result"
                 ngbPopover="Превышено более чем на 3 дня" triggers="mouseenter:mouseleave"
-                popoverClass="info-popover-custom" />
+                popoverClass="info-popover-custom">
             </div>
             <div class="col-lg-8 px-0">
               <div class="d-inline-block fs-9 used-day" [class.checked]="testTaskBlock.daysSpent > day"
@@ -377,7 +377,7 @@
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Результат: <img src="assets/icons/info.svg" alt="info-result" ngbPopover="Превышено
-                более чем на 3 дня" triggers="mouseenter:mouseleave" popoverClass="info-popover-custom" /></div>
+                более чем на 3 дня" triggers="mouseenter:mouseleave" popoverClass="info-popover-custom"></div>
             <div class="col-lg-8 px-0 color-black fs-11">
               <span class="font-weight-bolder">Хорошо</span> (7/10 баллов)
             </div>
@@ -431,14 +431,18 @@
             </div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
-            <div class="col-lg-4">Затрачено дней:</div>
+            <div class="col-lg-4">Затрачено дней: <img src="assets/icons/info.svg" alt="info-result"
+              ngbPopover="Превышено более чем на 3 дня" triggers="mouseenter:mouseleave"
+              popoverClass="info-popover-custom"></div>
             <div class="col-lg-8 px-0">
               <div class="d-inline-block fs-9 used-day checked" [class.checked]="thing.daysSpent > day"
                 *ngFor="let day of arrayOfDays"><span>{{day + 1}}</span></div>
             </div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
-            <div class="col-lg-4">Оценка:</div>
+            <div class="col-lg-4">Оценка: <img src="assets/icons/info.svg" alt="info-result"
+              ngbPopover="Превышено более чем на 3 дня" triggers="mouseenter:mouseleave"
+              popoverClass="info-popover-custom"></div>
             <div class="col-lg-8 px-0 color-black fs-11">
               Выполнено с мелкими ошибками (40/50 баллов)
             </div>
