@@ -10,11 +10,11 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    loadChildren: () => import('./modules/profile/components/profile/profile.module').then(m => m.ProfileModule)
+    loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule)
   },
   {
     path: 'directions',
-    loadChildren: () => import('./modules/directions/components/directions/directions.module').then(m => m.DirectionsModule)
+    loadChildren: () => import('./modules/directions/directions.module').then(m => m.DirectionsModule)
   },
 ];
 
