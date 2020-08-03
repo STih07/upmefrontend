@@ -1,14 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
-
-enum TestTaskState {
-    IN_PROGRESS = 0,
-    DONE = 1
-  }
-
+import { TestTaskState } from '../../../models/test-task-state.enum';
 @Pipe({
   name: 'taskStatus',
 })
-
 
 export class TaskStatusPipe implements PipeTransform {
   transform(status: TestTaskState) {

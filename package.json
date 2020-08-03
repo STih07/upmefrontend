@@ -23,6 +23,7 @@
     "bootstrap": "^4.5.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
+    "ngx-smart-popover": "^1.4.0",
     "ngx-progressbar": "^6.0.3",
     "ngx-toastr": "^13.0.0",
     "rxjs": "~6.5.4",

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap");
+
 .navbar {
   padding: 2.2rem 0;
 }
@@ -66,6 +68,28 @@
 .sources {
   margin-top: 0.75rem;
   padding-left: 10px;
+}
+
+.heartbeat {
+  animation: heartbeat 1.5s 2;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.08);
+  }
+  50% {
+    transform: scale(1);
+  }
+  65% {
+    transform: scale(1.04);
+  }
+  80% {
+    transform: scale(1);
+  }
 }
 
 .header-link-custom {

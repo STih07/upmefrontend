@@ -1,22 +1,20 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { ToastrModule } from 'ngx-toastr';
 import { ngModuleJitUrl } from '@angular/compiler';
 import { HttpClientModule } from '@angular/common/http';
-import { TaskStatusPipe } from './status.pipe';
+import { NgProgressModule } from 'ngx-progressbar';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        ToastrModule.forRoot(),
         HttpClientModule,
+        NgProgressModule,
       ],
       declarations: [
         AppComponent,
-        TaskStatusPipe,
       ],
     }).compileComponents();
   }));
