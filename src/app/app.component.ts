@@ -18,14 +18,4 @@ export class AppComponent {
 
   constructor(private ngProgress: NgProgress) { }
 
-
-  @ViewChild('solution') solutionRef: any ;
-    scrollToTop() {
-      setTimeout(() => {
-        this.solutionRef.nativeElement.classList.add('heartbeat');
-      }, 0);
-      this.solutionRef.nativeElement.classList.remove('heartbeat');
-      window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
-  }
-
 }
