@@ -6,6 +6,7 @@ $success: #36b37e;
 $warning: #ff6930;
 // Определиться с названием цвета для модального окна и других окон с этим цветом
 $modalColor: #3c4858; 
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap");
 
 .navbar {
   padding: 2.2rem 0;
@@ -154,10 +155,4 @@ $modalColor: #3c4858;
 
 .file_main-image {
   width: 40px;
-}
-
-.custom-submit-modal{
-  text-align: center;
-  display: flex;
-  justify-content: space-around;
 }
