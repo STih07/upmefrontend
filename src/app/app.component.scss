@@ -125,6 +125,29 @@ $modalColor: #3c4858;
   color: $muted;
 }
 
+.heartbeat {
+  animation: heartbeat 1.5s 2;
+}
+
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.08);
+  }
+  50% {
+    transform: scale(1);
+  }
+  65% {
+    transform: scale(1.04);
+  }
+  80% {
+    transform: scale(1);
+  }
+}
+
 .header-link-custom {
   white-space: nowrap;
 }
@@ -132,4 +155,3 @@ $modalColor: #3c4858;
 .file_main-image {
   width: 40px;
 }
-

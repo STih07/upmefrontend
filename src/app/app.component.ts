@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NgProgress, NgProgressRef } from 'ngx-progressbar';
+import { HttpClient } from '@angular/common/http';
 import { NgxSmartModalService } from 'ngx-smart-modal';
 
 @Component({
@@ -7,9 +9,9 @@ import { NgxSmartModalService } from 'ngx-smart-modal';
   styleUrls: ['./app.component.scss']
 })
 
-
-
 export class AppComponent {
+  progressRef: NgProgressRef;
+  response: any;
 
   arrayOfDays: number[] = Array(7).fill(0).map((x, i) => i);
 
@@ -53,15 +55,22 @@ export class AppComponent {
   selectedUserStateId = 1;
 
   activity = {
-    totalDays: 8,
-    // Мозги плавятся
-    formDay: 1,
-    testTask: {
-      days: 3,
-      mistakes: 5,
+    totalDays: {
+      average: 10,
+      current: 8,
     },
-    practiceTask: {
-      days: 3,
+    formDays: {
+      average: 1,
+      current: 1,
+    },
+    testDays: {
+      average: 3,
+      current: 3,
+      mistakes: 5
+    },
+    practiceDays: {
+      average: 3,
+      current: 3,
       mistakes: 3,
     },
   };
@@ -125,8 +134,8 @@ export class AppComponent {
         type: 'png',
         size: '45mb',
       }
-  }
-];
+    }
+  ];
 
   softSkillBlock = [
   // ничего - 0, сильная сторона - 1, стоит поработать - 2, слабая сторона - 3
@@ -136,5 +145,12 @@ export class AppComponent {
     {name: 'Выносливость', userRating: 3, mentorRating: 0},
   ];
 
-  constructor(public ngxSmartModalService: NgxSmartModalService) {}
+  constructor(private ngProgress: NgProgress, private http: HttpClient, public ngxSmartModalService: NgxSmartModalService) {}
+
+  // tslint:disable-next-line:use-lifecycle-interface
+  ngOnInit() {}
+  getPercentOfDiffrence(num1: number, num2: number) {
+    return((num1 - num2) * 100 / num1);
+  }
+
 }
