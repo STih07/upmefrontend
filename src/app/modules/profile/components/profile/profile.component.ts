@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-profile',
@@ -124,6 +124,9 @@ export class ProfileComponent implements OnInit {
     }
   ];
 
+  @ViewChild('solution') solutionRef: any ;
+
+
   softSkillBlock = [
     // ничего - 0, сильная сторона - 1, стоит поработать - 2, слабая сторона - 3
     { name: 'Критическое мышление', userRating: 1, mentorRating: 1 },
@@ -132,7 +135,6 @@ export class ProfileComponent implements OnInit {
     { name: 'Выносливость', userRating: 3, mentorRating: 0 },
   ];
 
-
   constructor() { }
 
   ngOnInit(): void {
@@ -140,6 +142,9 @@ export class ProfileComponent implements OnInit {
 
   getPercentOfDiffrence(num1: number, num2: number) {
     return ((num1 - num2) * 100 / num1);
+  }
+  scrollToTop() {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
   }
 
 }
