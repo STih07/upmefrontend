@@ -1,28 +1,25 @@
 import { Component } from '@angular/core';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss']
 })
-
-
 
 export class AppComponent {
 
   arrayOfDays: number[] = Array(7).fill(0).map((x, i) => i);
 
   states = [
-    { id: 1, name: 'Онбординг', active: true },
-    { id: 2, name: 'Бассейн', active: false },
-    { id: 3, name: 'Обучение', active: false },
-    { id: 4, name: 'Проверка Идеи', active: false },
-    { id: 5, name: 'Трудоустройство', active: false },
+    {id: 1, name: 'Онбординг', active: true},
+    {id: 2, name: 'Бассейн',   active: false},
+    {id: 3, name: 'Обучение',     active: false},
+    {id: 4, name: 'Проверка Идеи',   active: false},
+    {id: 5, name: 'Трудоустройство',     active: false},
   ];
 
   mainUser = {
     name: 'Anna D.',
-    icon: 'assets/img/user_img.png',
+    icon: 'assets/img/user_img.png'
   };
 
   user = {
@@ -35,9 +32,9 @@ export class AppComponent {
       phone: '+380 93 350 24 32',
       telegram: {
         username: '@chudiina',
-        link: 'https://t.me/stih07',
+        link: 'https://t.me/stih07'
       },
-      linkedin: 'https://www.linkedin.com/in/galina-orishich-a89b69169/',
+      linkedin: 'https://www.linkedin.com/in/galina-orishich-a89b69169/'
     },
     points: 123,
   };
@@ -47,24 +44,27 @@ export class AppComponent {
     { id: 1, name: 'Принят' },
     { id: 2, name: 'Принят на испытательный срок' },
     { id: 3, name: 'Не принят' },
-    {
-      id: 4,
-      name:
-        'Не принят. Ты ещё очень юн и мы советуем тебе подать заявку в IT2School',
-    },
+    { id: 4, name: 'Не принят. Ты ещё очень юн и мы советуем тебе подать заявку в IT2School' },
   ];
   selectedUserStateId = 1;
 
   activity = {
-    totalDays: 8,
-    // Мозги плавятся
-    formDay: 1,
-    testTask: {
-      days: 3,
-      mistakes: 5,
+    totalDays: {
+      average: 10,
+      current: 8,
     },
-    practiceTask: {
-      days: 3,
+    formDays: {
+      average: 1,
+      current: 1,
+    },
+    testDays: {
+      average: 3,
+      current: 3,
+      mistakes: 5
+    },
+    practiceDays: {
+      average: 3,
+      current: 3,
       mistakes: 3,
     },
   };
@@ -128,8 +128,8 @@ export class AppComponent {
         type: 'png',
         size: '45mb',
       }
-  }
-];
+    }
+  ];
 
   softSkillBlock = [
   // ничего - 0, сильная сторона - 1, стоит поработать - 2, слабая сторона - 3
@@ -138,4 +138,9 @@ export class AppComponent {
     {name: 'Командная работа', userRating: 2, mentorRating: 0},
     {name: 'Выносливость', userRating: 3, mentorRating: 0},
   ];
+
+  getPercentOfDiffrence(num1: number, num2: number) {
+    return((num1 - num2) * 100 / num1);
+  }
+
 }

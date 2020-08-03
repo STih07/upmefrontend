@@ -5,10 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TaskStatusPipe } from './status.pipe';
+import { RoundPipe } from './round.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     TaskStatusPipe,
+    RoundPipe
   ],
   imports: [
     BrowserModule,
