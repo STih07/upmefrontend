@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap");
+
 .navbar {
   padding: 2.2rem 0;
 }
@@ -68,12 +70,29 @@
   padding-left: 10px;
 }
 
-.card-fluid.disabled, .card-title.disabled, .custom__ul.disabled {
-  pointer-events:none;
-  color: rgba(60, 72, 88, 0.3) !important;
+// color: rgba(60, 72, 88, 0.3) !important;
+.heartbeat {
+  animation: heartbeat 1.5s 2;
 }
 
-// color: rgba(60, 72, 88, 0.3) !important;
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.08);
+  }
+  50% {
+    transform: scale(1);
+  }
+  65% {
+    transform: scale(1.04);
+  }
+  80% {
+    transform: scale(1);
+  }
+}
+
 .header-link-custom {
   white-space: nowrap;
 }
