@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { TestTaskState } from './models/test-task-state.enum';
+import { TestTaskState } from '../../../models/test-task-state.enum';
 @Pipe({
   name: 'taskStatus',
 })
