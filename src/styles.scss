@@ -265,3 +265,18 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
   color: rgba(255, 255, 255, 0.8);
   font-size: 1.2rem;
 }
+
+.modal-submit{ 
+  top:30%
+}
+
+.modal-submit > .nsm-content{
+  height: 190px;
+  width: 450px;
+}
+
+.modal-submit > .nsm-content > .nsm-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}

@@ -16,11 +16,11 @@ export class AppComponent {
   arrayOfDays: number[] = Array(7).fill(0).map((x, i) => i);
 
   states = [
-    {id: 1, name: 'Онбординг', active: true},
-    {id: 2, name: 'Бассейн',   active: false},
-    {id: 3, name: 'Обучение',     active: false},
-    {id: 4, name: 'Проверка Идеи',   active: false},
-    {id: 5, name: 'Трудоустройство',     active: false},
+    { id: 1, name: 'Онбординг', active: true },
+    { id: 2, name: 'Бассейн', active: false },
+    { id: 3, name: 'Обучение', active: false },
+    { id: 4, name: 'Проверка Идеи', active: false },
+    { id: 5, name: 'Трудоустройство', active: false },
   ];
 
   mainUser = {
@@ -89,15 +89,15 @@ export class AppComponent {
     motivation: 'Хочу получать акутульное образование сфере ИТ и находиться среди ребят, который любят и ценят самообразование. Так же всегда мечтала заниматься инетресным делом и получать от этого удовольствие. Хочу получать акуаульно образование сфере ИТ и находиться среди ребят, который любят и ценят самообразование. Так же всегда мечтала заниматься который любят...',
     tableHardSkill: [
       // ничего - 0, не знаю - 1, читал немного - 2, хорошо знаю - 3, постоянно пишу - 4
-      {name: 'PHP', userRating: 4},
-      {name: 'SQL', userRating: 3},
-      {name: 'Front-end', userRating: 4},
+      { name: 'PHP', userRating: 4 },
+      { name: 'SQL', userRating: 3 },
+      { name: 'Front-end', userRating: 4 },
     ],
     tableSoftSkill: [
       // ничего - 0, сильная сторона - 1, слабая сторона - 2, стоит поработать - 3
-      {name: 'Критическое мышление', userRating: 1},
-      {name: 'Усидчивость', userRating: 3},
-      {name: 'Коммуникабельность', userRating: 2},
+      { name: 'Критическое мышление', userRating: 1 },
+      { name: 'Усидчивость', userRating: 3 },
+      { name: 'Коммуникабельность', userRating: 2 },
     ],
   };
 
@@ -126,8 +126,8 @@ export class AppComponent {
       feetback: 'Кандидат хорошо владеет базовыми знаниями (типы переменнных и операции над ними), небольшой опыт владения классами, льём водичку для красо...',
       tableRating: [
         // ничего - 0, не знаю - 1, читал немного - 2, хорошо знаю - 3, постоянно пишу - 4
-        {name: 'Самооценка', userRating: 4},
-        {name: 'Оценка ментора', mentorRating: 3},
+        { name: 'Самооценка', userRating: 4 },
+        { name: 'Оценка ментора', mentorRating: 3 },
       ],
       source: {
         nameFile: 'name_of_file.png',
@@ -138,19 +138,32 @@ export class AppComponent {
   ];
 
   softSkillBlock = [
-  // ничего - 0, сильная сторона - 1, стоит поработать - 2, слабая сторона - 3
-    {name: 'Критическое мышление', userRating: 1, mentorRating: 1},
-    {name: 'Коммуникабельность', userRating: 1, mentorRating: 2},
-    {name: 'Командная работа', userRating: 2, mentorRating: 0},
-    {name: 'Выносливость', userRating: 3, mentorRating: 0},
+    // ничего - 0, сильная сторона - 1, стоит поработать - 2, слабая сторона - 3
+    { name: 'Критическое мышление', userRating: 1, mentorRating: 1 },
+    { name: 'Коммуникабельность', userRating: 1, mentorRating: 2 },
+    { name: 'Командная работа', userRating: 2, mentorRating: 0 },
+    { name: 'Выносливость', userRating: 3, mentorRating: 0 },
   ];
 
-  constructor(private ngProgress: NgProgress, private http: HttpClient, public ngxSmartModalService: NgxSmartModalService) {}
+  constructor(private ngProgress: NgProgress, private http: HttpClient, private modal: NgxSmartModalService) { }
 
   // tslint:disable-next-line:use-lifecycle-interface
-  ngOnInit() {}
+  ngOnInit() { }
+
+  getUserState() {
+    return this.userStates.find(state => state.id === this.selectedUserStateId);
+  }
+
   getPercentOfDiffrence(num1: number, num2: number) {
-    return((num1 - num2) * 100 / num1);
+    return ((num1 - num2) * 100 / num1);
+  }
+
+  openEditModal() {
+    return this.modal.getModal('editModal').open();
+  }
+
+  openConfirmationModal() {
+    this.modal.getModal('submitModal').open();
   }
 
 }
