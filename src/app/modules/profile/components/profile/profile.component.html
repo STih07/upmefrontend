@@ -1,5 +1,5 @@
 <div class="container-fluid container-application mt-4 d-block" *ngIf="user">
-    <span class="text-white h3">{{user.user.name}}</span>
+    <span class="text-white h3">{{user.info.name}}</span>
     <ul class="nav mt-4">
       <ng-container *ngFor="let state of states; let i = index">
         <li *ngIf="i !== 0" class="nav-item border-bottom pr-3" [class.not-active]="!state.active"></li>
@@ -18,12 +18,12 @@
               <div class="col-auto">
                 <!-- Avatar -->
                 <a href="#" class="avatar rounded-circle">
-                  <img alt="Image placeholder" [src]="user.user.icon">
+                  <img alt="Image placeholder" [src]="user.info.icon">
                 </a>
               </div>
               <div class="col ml-md-n2">
-                <a href="#!" class="d-block h6 mb-0">{{user.user.name}}</a>
-                <small class="d-block text-black color-black">{{user.user.profile}}</small>
+                <a href="#!" class="d-block h6 mb-0">{{user.info.name}}</a>
+                <small class="d-block text-black color-black">{{user.info.profile}}</small>
               </div>
               <div class="col-auto">
                 <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill btn-secondary">
@@ -39,14 +39,14 @@
                 <h6 class="text-sm mb-0">
                   <img src="assets/icons/gmail_ico.svg" class="gmail-ico mr-3">
                   <a class="link" target="_blank"
-                    [href]="'mailto:' + user.user.social_media.mail">{{user.user.social_media.mail}}</a>
+                    [href]="'mailto:' + user.info.social_media.mail">{{user.info.social_media.mail}}</a>
                 </h6>
               </div>
             </div>
             <div class="row my-3 align-items-center">
               <div class="col">
                 <h6 class="text-sm mb-0">
-                  <i class="fa fa-phone mr-3"></i>{{user.user.social_media.phone}}
+                  <i class="fa fa-phone mr-3"></i>{{user.info.social_media.phone}}
                 </h6>
               </div>
             </div>
@@ -55,7 +55,7 @@
                 <h6 class="text-sm mb-0">
                   <i class="fa fa-paper-plane mr-3"></i>
                   <a class="link" target="_blank"
-                    [href]="user.user.social_media.telegram.link">{{user.user.social_media.telegram.username}}</a>
+                    [href]="user.info.social_media.telegram.link">{{user.info.social_media.telegram.username}}</a>
                 </h6>
               </div>
             </div>
@@ -63,8 +63,8 @@
               <div class="col">
                 <h6 class="text-sm mb-0 d-flex">
                   <i class="fa fa-linkedin-square mr-3"></i>
-                  <a class="link" target="_blank" [href]="user.user.social_media.linkedin"><span
-                      class="link">{{user.user.social_media.linkedin}}</span></a>
+                  <a class="link" target="_blank" [href]="user.info.social_media.linkedin"><span
+                      class="link">{{user.info.social_media.linkedin}}</span></a>
                 </h6>
               </div>
             </div>
@@ -152,7 +152,7 @@
                 </li>
               </ul>
             </div>
-            <button class="btn btn-secondary btn-xs mx-3 custom-btn w-100" [disabled]="selectedSolution === null || hasSolution" (click)="hasSolution = !hasSolution">
+            <button class="btn btn-secondary btn-xs mx-3 custom-btn w-100" [disabled]="selectedUserStateId === null || hasSolution" (click)="hasSolution = !hasSolution">
               <span class="h6 text-white">Подтвердить</span>
             </button>
           </div>
@@ -216,9 +216,9 @@
                   </tbody>
                 </table>
               </div>
-              <div class="col-lg-6 pl-4 mt-3">
+              <div class="col-lg-6 mt-3" style="padding-left: 2rem;">
                 <p class="_card-subtitle font-weight-bolder">Самооценка Soft Skills:</p>
-                <table class="table custom-table table-sm">
+                <table class="table custom-table table-sm" style="max-width: none!important;">
                   <thead>
                     <tr>
                       <th scope="col" class="pr-1">Качество</th>
@@ -297,7 +297,7 @@
                   </div>
                   <div class="col ml-n2">
                     <h6 class="text-sm mb-0">
-                      <a href="#!">{{user.testTaskBlock.source.nameFile}}.{{user.testTaskBlock.source.type}}</a>
+                      <a href="#!">{{user.testTaskBlock.source?.nameFile}}.{{user.testTaskBlock.source?.type}}</a>
                     </h6>
                     <p class="card-text mt-1 small text-muted">{{user.testTaskBlock.source.size}}</p>
                   </div>
@@ -379,9 +379,9 @@
                   </div>
                   <div class="col ml-n2">
                     <h6 class="text-sm mb-0">
-                      <a href="#!">{{thing.source.nameFile}}.{{thing.source.type}}</a>
+                      <a href="#!">{{thing.source?.nameFile}}.{{thing.source?.type}}</a>
                     </h6>
-                    <p class="card-text mt-1 small text-muted">{{thing.source.size}}</p>
+                    <p class="card-text mt-1 small text-muted">{{thing.source?.size}}</p>
                   </div>
                 </div>
               </div>
