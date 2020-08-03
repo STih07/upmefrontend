@@ -3,6 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProfileComponent } from './profile.component';
 import { TaskStatusPipe } from '../../pipes/status.pipe';
 import { RoundPipe } from '../../pipes/round.pipe';
+import { NgxSmartModalModule } from 'ngx-smart-modal';
+
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -14,6 +16,9 @@ describe('ProfileComponent', () => {
         ProfileComponent,
         TaskStatusPipe,
         RoundPipe,
+      ],
+      imports: [
+        NgxSmartModalModule.forRoot(),
       ]
     })
       .compileComponents();

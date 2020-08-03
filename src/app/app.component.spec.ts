@@ -2,7 +2,6 @@ import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
-import { NgxSmartModalModule } from 'ngx-smart-modal';
 import { ngModuleJitUrl } from '@angular/compiler';
 import { HttpClientModule } from '@angular/common/http';
 import { NgProgressModule } from 'ngx-progressbar';
@@ -12,7 +11,6 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        NgxSmartModalModule.forRoot(),
         HttpClientModule,
         NgProgressModule,
       ],
