@@ -98,3 +98,7 @@
     width: 40px;
   }
   
+  .card-fluid.disabled, .card-title.disabled, .custom__ul.disabled {
+    pointer-events:none;
+    color: rgba(60, 72, 88, 0.3) !important;
+  }

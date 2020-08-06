@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { NgProgress, NgProgressRef } from 'ngx-progressbar';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -17,9 +16,6 @@ export class AppComponent {
     icon: 'assets/img/user_img.png'
   };
 
-  constructor(private ngProgress: NgProgress, private http: HttpClient) { }
-
-  // tslint:disable-next-line:use-lifecycle-interface
-  ngOnInit() { }
+  constructor(private ngProgress: NgProgress) { }
 
 }
