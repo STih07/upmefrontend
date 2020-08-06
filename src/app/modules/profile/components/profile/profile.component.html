@@ -272,7 +272,7 @@
                 popoverClass="info-popover-custom"></div>
               <div class="col-lg-8 px-0 color-black fs-11" class="test__result">
                 <span class="font-weight-bolder">Хорошо</span>
-                ({{user.testTaskBlock.result.points}}/{{user.testTaskBlock.result.maxPossiblePoints}} баллов)
+                ({{user.testTaskBlock.result?.points}}/{{user.testTaskBlock.result?.maxPossiblePoints}} баллов)
               </div>
             </div>
             <div class="h6 row font-weight-normal pb-3">
@@ -299,7 +299,7 @@
                     <h6 class="text-sm mb-0">
                       <a href="#!">{{user.testTaskBlock.source?.nameFile}}.{{user.testTaskBlock.source?.type}}</a>
                     </h6>
-                    <p class="card-text mt-1 small text-muted">{{user.testTaskBlock.source.size}}</p>
+                    <p class="card-text mt-1 small text-muted">{{user.testTaskBlock.source?.size}}</p>
                   </div>
                 </div>
               </div>
@@ -335,8 +335,8 @@
               <div class="col-lg-4">Оценка: <img src="assets/icons/info.svg" alt="info-result"
                 ngbPopover="Превышено более чем на 3 дня" triggers="mouseenter:mouseleave"
                 popoverClass="info-popover-custom"></div>
-              <div class="col-lg-8 px-0 color-black fs-11">
-                Выполнено с мелкими ошибками ({{thing.rating.points}}/{{thing.rating.maxPossiblePoints}} баллов)
+              <div class="col-lg-8 px-0 color-black fs-11" *ngIf="thing.rating">
+                Выполнено с мелкими ошибками ({{thing.rating?.points}}/{{thing.rating.maxPossiblePoints}} баллов)
               </div>
             </div>
             <div class="h6 row font-weight-normal pb-4">
