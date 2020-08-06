@@ -5,11 +5,11 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/profile',
+    redirectTo: '/profile/1',
     pathMatch: 'full'
   },
   {
-    path: 'profile',
+    path: 'profile/1',
     loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule)
   },
   {

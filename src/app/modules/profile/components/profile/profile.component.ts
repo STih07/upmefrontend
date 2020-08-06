@@ -132,7 +132,7 @@ export class ProfileComponent implements OnInit {
       id: 2,
       name: 'Front-end',
       // status: 0 == IN PROGRESS, status: 1 == DONE
-      status: 1,
+      status: 0,
       daysSpent: 5,
       rating: {
         points: 10,
