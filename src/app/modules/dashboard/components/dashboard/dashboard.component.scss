@@ -43,15 +43,15 @@
 
 .custom-col-name{
     width: 112px;
-    padding-right: 11.25rem !important;
+    padding-right: 8rem !important;
 }
 
-.custom-table-form-1{
+.custom-tasks-col{
     width: 96px;
 }
 
 .custom-padding-col-1{
-    padding-left: 0.6rem !important;
+    padding-left: 0.65rem !important;
     border-left: 8px solid transparent;
 }
 
@@ -82,9 +82,14 @@
 }
 
 .custom-nothing-block{
+    position: absolute;
+    width: 100%;
+    height: 100%;
     background-color: #EFF2F7;
     text-align: center;
     color: #fff;
+    top: 0;
+    left: 0;
 }
 
 .custom-warning-block{
@@ -100,4 +105,33 @@
 
 .custom-complete-block{
     background-color: #EFF9FF;
+}
+
+.custom-task-col{
+    width: 180px;
+}
+
+.custom-dicision-col{
+    width: 112px;
+}
+
+.custom-practice-col{
+    width: 132px;
+}
+
+.custom-circle-active{
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #36B37E;
+    align-self: center;
+    margin-right: 0.1rem;
+}
+
+.custom-col-finish{
+    white-space: normal;
+}
+
+.custom-tasks-test, .custom-tasks-practice{
+    width: 80px;
 }
