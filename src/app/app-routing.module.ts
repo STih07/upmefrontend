@@ -13,7 +13,7 @@ const routes: Routes = [
     loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule)
   },
   {
-    path: 'directions/1',
+    path: 'directions',
     loadChildren: () => import('./modules/directions/directions.module').then(m => m.DirectionsModule)
   },
 ];
