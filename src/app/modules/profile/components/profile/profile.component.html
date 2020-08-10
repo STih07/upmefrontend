@@ -353,7 +353,7 @@
                 <div *ngFor="let day of arrayOfDays" class="d-inline-block">
                   <div *ngIf="day < 7; else extraDays" class="custom-fs-12 used-day" [class.checked]="thing.daysSpent > day"><span>{{day + 1}}</span></div>
                   <ng-template #extraDays>
-                    <div *ngIf="thing.daysSpent > 7" class="custom-fs-12 used-day" [class.days-extra-color]="thing.daysSpent > day"><span>{{day + 1}}</span></div>
+                    <div *ngIf="thing.daysSpent > 7" class="custom-fs-12 used-day" [class.days-extra-color]="testTaskBlock.daysSpent > day"><span>{{day + 1}}</span></div>
                   </ng-template>
                 </div>
               </div>
