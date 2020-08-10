@@ -141,7 +141,8 @@ export class ProfileComponent implements OnInit {
   }
 
   getArrayDays(spentDays: number) {
-    return Array(Math.max(7, spentDays)).fill(0).map((x, i) => i);
+    const length = Math.max(Math.min(spentDays, 10), 7);
+    return Array.from({length}, (x, i) => i + 1);
   }
 
   getPercentOfDiffrence(num1: number, num2: number) {

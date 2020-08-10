@@ -5,6 +5,7 @@ $light: #e6e9ed;
 $muted: #8492a6;
 $success: #36b37e;
 $warning: #ff6930;
+$error: #FF566C;
 
 $fa-font-path: "~resources/fa/fonts";
 $application-container-bg-height: 400px;
@@ -256,4 +257,8 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
   font-weight: normal;
   color: rgba(255, 255, 255, 0.8);
   font-size: 1.2rem;
+}
+
+.days-extra-color{
+  background-color: $error;
 }
