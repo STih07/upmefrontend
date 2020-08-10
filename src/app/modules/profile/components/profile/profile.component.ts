@@ -7,7 +7,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  arrayOfDays: number[] = Array(7).fill(0).map((x, i) => i);
+  arrayOfDays: number[] = Array(10).fill(0).map((x, i) => i);
 
   states = [
     { id: 1, name: 'Онбординг', active: true },
@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit {
     { id: 4, name: 'Проверка Идеи', active: false },
     { id: 5, name: 'Трудоустройство', active: false },
   ];
+
   user = {
     name: 'Yuliia Chudina',
     icon: 'assets/img/user_card_img.png',
@@ -105,7 +106,7 @@ export class ProfileComponent implements OnInit {
       name: 'PHP',
       // status: 0 == IN PROGRESS, status: 1 == DONE
       status: 1,
-      daysSpent: 5,
+      daysSpent: 9,
       rating: {
         points: 10,
         maxPossiblePoints: 50,
