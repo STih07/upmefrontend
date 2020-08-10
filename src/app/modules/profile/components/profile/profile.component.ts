@@ -7,8 +7,6 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  arrayOfDays: number[] = Array(10).fill(0).map((x, i) => i);
-
   states = [
     { id: 1, name: 'Онбординг', active: true },
     { id: 2, name: 'Бассейн', active: false },
@@ -93,7 +91,7 @@ export class ProfileComponent implements OnInit {
   testTaskBlock = {
     name: 'SQL',
     status: 1,
-    daysSpent: 5,
+    daysSpent: 8,
     result: {
       points: 7,
       maxPossiblePoints: 10,
@@ -106,7 +104,7 @@ export class ProfileComponent implements OnInit {
       name: 'PHP',
       // status: 0 == IN PROGRESS, status: 1 == DONE
       status: 1,
-      daysSpent: 9,
+      daysSpent: 5,
       rating: {
         points: 10,
         maxPossiblePoints: 50,
@@ -140,6 +138,10 @@ export class ProfileComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  getArrayDays(spentDays: number) {
+    return Array(Math.max(7, spentDays)).fill(0).map((x, i) => i);
   }
 
   getPercentOfDiffrence(num1: number, num2: number) {
