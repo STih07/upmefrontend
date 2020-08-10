@@ -71,7 +71,7 @@
           </div>
           <div class="card-footer p-2 d-flex justify-content-center">
             <div class="d-flex flex-column align-items-center">
-              <div class="h5 mb-0 text-secondary">Resident</div>
+              <div class="h5 mb-0 text-secondary">Резидент</div>
             </div>
           </div>
         </div>
@@ -174,8 +174,8 @@
                 <p class="h6 custom-fs-14">Другие достижения: {{genInfo.education.otherAchievements}}.</p>
               </div>
               <div class="col-lg-6 pl-4">
-                <p class="_card-subtitle font-weight-bolder">Мотивация:</p>
-                <div class="h6 pb-2 pr-5 fs-9">
+                <p class="_card-subtitle font-weight-bolder ml-2">Мотивация:</p>
+                <div class="h6 pb-2 pr-5 fs-9 ml-2">
                   Хочу получать акутульное образование сфере ИТ и находиться среди
                   ребят, который любят и ценят самообразование. Так же всегда
                   мечтала заниматься инетресным делом и получать от этого
@@ -223,8 +223,8 @@
                 </table>
               </div>
               <div class="col-lg-6 pl-4 mt-3">
-                <p class="_card-subtitle font-weight-bolder">Самооценка Soft Skills:</p>
-                <table class="table custom-table table-sm">
+                <p class="_card-subtitle font-weight-bolder ml-2">Самооценка Soft Skills:</p>
+                <table class="table custom-table table-sm ml-2">
                   <thead>
                     <tr>
                       <th scope="col" class="pr-1">Качество</th>
@@ -235,19 +235,19 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td scope="row">Критическое мышление</td>
+                      <td scope="row" class="custom-fs-12">Критическое мышление</td>
                       <td></td>
                       <td></td>
                       <td class="disabled"></td>
                     </tr>
                     <tr>
-                      <td scope="row">Коммуникаб.</td>
+                      <td scope="row" class="custom-fs-12">Усидчивость</td>
                       <td></td>
                       <td></td>
                       <td class="disabled"></td>
                     </tr>
                     <tr>
-                      <td scope="row">Выносливость</td>
+                      <td scope="row" class="custom-fs-12">Коммуникабельность</td>
                       <td></td>
                       <td></td>
                       <td class="disabled"></td>
@@ -275,29 +275,21 @@
               </div>
             </div>
             <div class="h6 row font-weight-normal pb-3">
-              <div class="col-lg-4 custom-fs-13">Затрачено дней: <img src="assets/icons/info.svg" alt="info-result"
+              <div class="col-lg-4 custom-fs-13">Затрачено дней: <img *ngIf="testTaskBlock.daysSpent > 10" src="assets/icons/info.svg" alt="info-result"
                 ngbPopover="Превышено более чем на 3 дня" triggers="mouseenter:mouseleave"
                 popoverClass="info-popover-custom"></div>
               <div class="col-lg-8 px-0">
-                <div class="d-inline-block fs-9 used-day custom-fs-12" [class.checked]="testTaskBlock.daysSpent > day" *ngFor="let day of arrayOfDays"><span>{{day + 1}}</span></div>
+                <div *ngFor="let day of getArrayDays(testTaskBlock.daysSpent)" class="d-inline-block custom-fs-12 used-day" [class.checked]="day < 7 && testTaskBlock.daysSpent > day" [class.days-extra-color]="day >= 7"><span>{{day + 1}}</span></div>
               </div>
             </div>
             <div class="h6 row font-weight-normal pb-3">
-              <div class="col-lg-4 custom-fs-13">Оценка:<img src="assets/icons/info.svg" alt="info-result"
+              <div class="col-lg-4 custom-fs-13">Оценка: <img src="assets/icons/info.svg" alt="info-result"
                 ngbPopover="Превышено более чем на 3 дня" triggers="mouseenter:mouseleave"
                 popoverClass="info-popover-custom"></div>
               <div class="col-lg-8 px-0 color-black custom-fs-14" class="test__result">
                 <div class="custom-fs-14">
                   <span class="font-weight-bolder">Хорошо</span> (7/10 баллов)
                 </div>
-              <div class="popover__wrapper">
-                <img src="../assets/icons/info.svg" alt="info-result" style="margin-right: 0.45rem;" />
-                <div class="popover__content">
-                  <p class="popover__message">
-                    Some text...
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
             <div class="h6 row font-weight-normal pb-3">
@@ -349,11 +341,11 @@
               </div>
             </div>
             <div class="h6 row font-weight-normal pb-3">
-              <div class="col-lg-4 custom-fs-13">Затрачено дней: <img src="assets/icons/info.svg" alt="info-result"
+              <div class="col-lg-4 custom-fs-13">Затрачено дней: <img *ngIf="thing.daysSpent > 10" src="assets/icons/info.svg" alt="info-result"
                 ngbPopover="Превышено более чем на 3 дня" triggers="mouseenter:mouseleave"
                 popoverClass="info-popover-custom"></div>
               <div class="col-lg-8 px-0">
-                <div class="d-inline-block custom-fs-12 used-day checked" [class.checked]="thing.daysSpent > day" *ngFor="let day of arrayOfDays"><span>{{day + 1}}</span></div>
+                  <div *ngFor="let day of getArrayDays(thing.daysSpent)" class="d-inline-block custom-fs-12 used-day" [class.checked]="day < 7 && thing.daysSpent > day" [class.days-extra-color]="day >= 7"><span>{{day + 1}}</span></div>
               </div>
             </div>
             <div class="h6 row font-weight-normal pb-3">
