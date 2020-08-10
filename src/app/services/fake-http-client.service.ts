@@ -21,7 +21,7 @@ export class FakeHttpClient {
   getUserById(id: number) {
     this.progress.start();
     return this.randomTimer().pipe(
-      switchMap(() => of(users.find(user => user.id == id))),
+      switchMap(() => of(users.find(user => user.id === +id))),
       tap(() => this.progress.complete()),
       catchError(() => throwError(this.progress.setConfig()))
     );
