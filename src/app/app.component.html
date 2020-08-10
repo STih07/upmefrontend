@@ -75,7 +75,7 @@
   </div>
 </div>
 <div class="container-fluid container-application mt-4 d-block" *ngIf="user">
-  <span class="text-white h3">{{user.user.name}}</span>
+  <span class="text-white h3">{{user.info.name}}</span>
   <ul class="nav mt-4">
     <ng-container *ngFor="let state of states; let i = index">
       <li *ngIf="i !== 0" class="nav-item border-bottom pr-3" [class.not-active]="!state.active"></li>
@@ -94,12 +94,12 @@
             <div class="col-auto">
               <!-- Avatar -->
               <a href="#" class="avatar rounded-circle">
-                <img alt="Image placeholder" [src]="user.user.icon" />
+                <img alt="Image placeholder" [src]="user.info.icon" />
               </a>
             </div>
             <div class="col ml-md-n2">
-              <a href="#!" class="d-block h6 mb-0">{{user.user.name}}</a>
-              <small class="d-block text-black color-black">{{user.user.profile}}</small>
+              <a href="#!" class="d-block h6 mb-0">{{user.info.name}}</a>
+              <small class="d-block text-black color-black">{{user.info.profile}}</small>
             </div>
             <div class="col-auto">
               <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill btn-secondary">
@@ -115,14 +115,14 @@
               <h6 class="text-sm mb-0">
                 <img src="assets/icons/gmail_ico.svg" class="gmail-ico mr-3">
                 <a class="link" target="_blank"
-                  [href]="'mailto:' + user.user.social_media.mail">{{user.user.social_media.mail}}</a>
+                  [href]="'mailto:' + user.info.social_media.mail">{{user.info.social_media.mail}}</a>
               </h6>
             </div>
           </div>
           <div class="row my-3 align-items-center">
             <div class="col">
               <h6 class="text-sm mb-0">
-                <i class="fa fa-phone mr-3"></i>{{user.user.social_media.phone}}
+                <i class="fa fa-phone mr-3"></i>{{user.info.social_media.phone}}
               </h6>
             </div>
           </div>
@@ -131,7 +131,7 @@
               <h6 class="text-sm mb-0">
                 <i class="fa fa-paper-plane mr-3"></i>
                 <a class="link" target="_blank"
-                  [href]="user.user.social_media.telegram.link">{{user.user.social_media.telegram.username}}</a>
+                  [href]="user.info.social_media.telegram.link">{{user.info.social_media.telegram.username}}</a>
               </h6>
             </div>
           </div>
@@ -139,16 +139,14 @@
             <div class="col">
               <h6 class="text-sm mb-0">
                 <i class="fa fa-linkedin-square mr-3"></i>
-                <a class="link" target="_blank" [href]="user.user.social_media.linkedin"><span
-                    class="link">{{user.user.social_media.linkedin}}</span></a>
+                <a class="link" target="_blank" [href]="user.info.social_media.linkedin"><span
+                    class="link">{{user.info.social_media.linkedin}}</span></a>
               </h6>
             </div>
           </div>
         </div>
         <div class="card-footer p-2 d-flex justify-content-center">
           <div class="d-flex flex-column align-items-center">
-            <div class="h5 mb-0 text-secondary">{{user.user.points}}</div>
-            <div class="small">Балла</div>
           </div>
         </div>
       </div>
@@ -287,12 +285,12 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let thing of user.genInfo.tableHardSkill">
-                    <td scope="row">{{thing.name}}</td>
-                    <td [class.disabled]="thing.userRating === 1"></td>
-                    <td [class.disabled]="thing.userRating === 2"></td>
-                    <td [class.disabled]="thing.userRating === 3"></td>
-                    <td [class.disabled]="thing.userRating === 4"></td>
+                  <tr *ngFor="let tableHard of user.genInfo.tableHardSkill">
+                    <td scope="row">{{tableHard.name}}</td>
+                    <td [class.disabled]="tableHard.userRating === 1"></td>
+                    <td [class.disabled]="tableHard.userRating === 2"></td>
+                    <td [class.disabled]="tableHard.userRating === 3"></td>
+                    <td [class.disabled]="tableHard.userRating === 4"></td>
                   </tr>
                 </tbody>
               </table>
@@ -309,11 +307,11 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let thing of user.genInfo.tableSoftSkill">
-                    <td scope="row">{{thing.name}}</td>
-                    <td [class.disabled]="thing.userRating === 1"></td>
-                    <td [class.disabled]="thing.userRating === 2"></td>
-                    <td [class.disabled]="thing.userRating === 3"></td>
+                  <tr *ngFor="let tableSoft of user.genInfo.tableSoftSkill">
+                    <td scope="row">{{tableSoft.name}}</td>
+                    <td [class.disabled]="tableSoft.userRating === 1"></td>
+                    <td [class.disabled]="tableSoft.userRating === 2"></td>
+                    <td [class.disabled]="tableSoft.userRating === 3"></td>
                   </tr>
                 </tbody>
               </table>
@@ -336,14 +334,14 @@
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Статус:</div>
             <div class="col-lg-8 pl-0">
-              <div class="d-inline-block block_success text-white">{{ user.testTaskBlock.status | taskStatus}}
+              <div class="d-inline-block block_success text-white">{{ user.testTasks.status | taskStatus}}
               </div>
             </div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Затрачено дней:</div>
             <div class="col-lg-8 px-0">
-              <div class="d-inline-block fs-9 used-day" [class.checked]="user.testTaskBlock.daysSpent > day"
+              <div class="d-inline-block fs-9 used-day" [class.checked]="user.testTasks.daysSpent > day"
                 *ngFor="let day of arrayOfDays"><span>{{day + 1}}</span></div>
             </div>
           </div>
@@ -351,13 +349,13 @@
             <div class="col-lg-4">Результат:</div>
             <div class="col-lg-8 px-0 color-black fs-11">
               <span class="font-weight-bolder">Хорошо</span>
-              ({{user.testTaskBlock.result.points}}/{{user.testTaskBlock.result.maxPossiblePoints}}
+              ({{user.testTasks.result}}/{{user.testTasks.result.maxPossiblePoints}}
               баллов)
             </div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Ошибок:</div>
-            <div class="col-lg-8 px-0 color-black fs-11">{{user.testTaskBlock.mistakes}}</div>
+            <div class="col-lg-8 px-0 color-black fs-11">{{user.testTasks.mistakes}}</div>
           </div>
           <!-- <div class="h6 row font-weight-normal pb-3">
               <div class="col-lg-4">Баллы проф репутации:</div>
@@ -377,9 +375,9 @@
                 </div>
                 <div class="col ml-n2">
                   <h6 class="text-sm mb-0">
-                    <a href="#!">{{user.testTaskBlock.source.nameFile}}.{{user.testTaskBlock.source.type}}</a>
+                    <a href="#!">{{user.testTasks.source.nameFile}}.{{user.testTasks.source.type}}</a>
                   </h6>
-                  <p class="card-text mt-1 small text-muted">{{user.testTaskBlock.source.size}}</p>
+                  <p class="card-text mt-1 small text-muted">{{user.testTasks.source.size}}</p>
                 </div>
               </div>
             </div>
@@ -388,7 +386,7 @@
       </div>
     </div>
     <div class="col-lg-6">
-      <div class="card" *ngFor="let thing of user.practiceTaskBlock">
+      <div class="card" *ngFor="let task of user.practiceTasks">
         <div class="card-title m-4 pt-1">
           <span class="h4 font-weight-900">Практическое</span>
           <div class="float-right temp_choose-tab">
@@ -404,26 +402,26 @@
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Статус:</div>
             <div class="col-lg-8 pl-0">
-              <div class="d-inline-block block_success text-white">{{thing.status | taskStatus}}</div>
+              <div class="d-inline-block block_success text-white">{{task.status | taskStatus}}</div>
             </div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Затрачено дней:</div>
             <div class="col-lg-8 px-0">
-              <div class="d-inline-block fs-9 used-day checked" [class.checked]="thing.daysSpent > day"
+              <div class="d-inline-block fs-9 used-day checked" [class.checked]="task.daysSpent > day"
                 *ngFor="let day of arrayOfDays"><span>{{day + 1}}</span></div>
             </div>
           </div>
           <div class="h6 row font-weight-normal pb-3">
             <div class="col-lg-4">Оценка:</div>
             <div class="col-lg-8 px-0 color-black fs-11">
-              Выполнено с мелкими ошибками ({{thing.rating.points}}/{{thing.rating.maxPossiblePoints}} баллов)
+              Выполнено с мелкими ошибками ({{task.rating.points}}/{{task.rating.maxPossiblePoints}} баллов)
             </div>
           </div>
           <div class="h6 row font-weight-normal pb-4">
             <div class="col-lg-4">Фитбек от ментора:</div>
             <div class="col-lg-8 px-0 color-black fs-11">
-              {{thing.feetback}}
+              {{task.feedback}}
               <span class="float-right text-primary font-weight-bold mr-3">Больше <i
                   class="fa fa-angle-down"></i></span>
             </div>
@@ -442,12 +440,12 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let thing of thing.tableRating">
-                <td scope="row">{{thing.name}}</td>
-                <td [class.disabled]="thing.userRating === 1 || thing.mentorRating === 1"></td>
-                <td [class.disabled]="thing.userRating === 2 || thing.mentorRating === 2"></td>
-                <td [class.disabled]="thing.userRating === 3 || thing.mentorRating === 3"></td>
-                <td [class.disabled]="thing.userRating === 4 || thing.mentorRating === 4"></td>
+              <tr *ngFor="let table of task.tableRating">
+                <td scope="row">{{table.name}}</td>
+                <td [class.disabled]="table.userRating === 1 || table.mentorRating === 1"></td>
+                <td [class.disabled]="table.userRating === 2 || table.mentorRating === 2"></td>
+                <td [class.disabled]="table.userRating === 3 || table.mentorRating === 3"></td>
+                <td [class.disabled]="table.userRating === 4 || table.mentorRating === 4"></td>
               </tr>
             </tbody>
           </table>
@@ -460,9 +458,9 @@
                 </div>
                 <div class="col ml-n2">
                   <h6 class="text-sm mb-0">
-                    <a href="#!">{{thing.source.nameFile}}.{{thing.source.type}}</a>
+                    <a href="#!">{{task.source.nameFile}}.{{task.source.type}}</a>
                   </h6>
-                  <p class="card-text mt-1 small text-muted">{{thing.source.size}}</p>
+                  <p class="card-text mt-1 small text-muted">{{task.source.size}}</p>
                 </div>
               </div>
             </div>
@@ -489,7 +487,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let skill of user.softSkillBlock">
+              <tr *ngFor="let skill of user.softSkill">
                 <td scope="row">{{skill.name}}</td>
                 <td [class.disabled]="skill.userRating === 1"
                   [class.block-mentor-and-user]="skill.userRating === skill.mentorRating && skill.userRating === 1"

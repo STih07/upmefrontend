@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FakeHttpClient } from './services/fake-http-client.service';
+import { ProfileUser } from './models/profile-user';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { FakeHttpClient } from './services/fake-http-client.service';
 })
 
 export class AppComponent implements OnInit {
-  user: any;
+  user: ProfileUser;
 
   arrayOfDays: number[] = Array(7).fill(0).map((x, i) => i);
 
@@ -37,7 +38,7 @@ export class AppComponent implements OnInit {
   constructor(private fakeResponse: FakeHttpClient) { }
 
   ngOnInit() {
-    this.fakeResponse.getUserById(1).subscribe(user => {
+    this.fakeResponse.getUserById(4).subscribe((user: ProfileUser) => {
       this.user = user;
     });
   }
