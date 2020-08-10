@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {FakeHttpClient} from '../../../../services/fake-http-client.service';
 import {ActivatedRoute} from '@angular/router';
+import {PracticeTask, TestTask} from '../../../../models/profile-user';
 
 @Component({
   selector: 'app-profile',
@@ -31,6 +32,8 @@ export class ProfileComponent implements OnInit {
   ];
 
   selectedUserStateId = null;
+  selectedTest: TestTask;
+  selectedPractice: PracticeTask;
 
   constructor(
     private fakeResponse: FakeHttpClient,
@@ -40,15 +43,23 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.fakeResponse.getUserById(this.route.snapshot.params.id).subscribe(user => {
       this.user = user;
-      console.log(user);
+      this.selectedTest = this.user.testTasks?.[0];
     });
   }
 
-  getPercentOfDiffrence(num1: number, num2: number) {
+  getPercentOfDifference(num1: number, num2: number) {
     return ((num1 - num2) * 100 / num1);
   }
 
   scrollToTop() {
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }
+
+  showTest(test: TestTask) {
+    this.selectedTest = test;
+  }
+
+  showPractice(practice: PracticeTask) {
+    this.selectedPractice = practice;
   }
 }

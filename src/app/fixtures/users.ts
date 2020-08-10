@@ -84,6 +84,21 @@ export const users: ProfileUser[] = [
                     type: 'psd',
                     size: '45.9 MB',
                 }
+            },
+          {
+                name: 'PHP',
+                status: 0,
+                daysSpent: 5,
+                result: {
+                    points: 7,
+                    maxPossiblePoints: 10,
+                },
+                mistakes: 5,
+                source: {
+                    nameFile: 'website-wireframe',
+                    type: 'psd',
+                    size: '45.9 MB',
+                }
             }
         ],
 
@@ -646,7 +661,7 @@ export const users: ProfileUser[] = [
         id: 7,
         info: {
             name: 'Kyrylo Meretskiy',
-            icon: 'https://imgur.com/a/OTAhylo',
+            icon: 'https://i.imgur.com/X9n83E4.png',
             profile: 'Middle Back-end Engineer(Symphony)',
             lastStateId: 2,
             social_media: {
@@ -781,7 +796,7 @@ export const users: ProfileUser[] = [
         id: 8,
         info: {
             name: 'Serhii Tihovskii',
-            icon: 'https://imgur.com/a/anW4w75',
+            icon: 'https://i.imgur.com/KmMA1K5.png',
             profile: 'Middle Frontend Engineer(Angular)',
             lastStateId: 2,
             social_media: {
@@ -948,7 +963,7 @@ export const users: ProfileUser[] = [
         testTasks: [
             {
                 name: 'Angular',
-                status: 2,
+                status: 0,
                 daysSpent: 4,
                 result: null,
                 mistakes: null,

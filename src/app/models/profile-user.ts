@@ -5,8 +5,8 @@ export interface ProfileUser {
     userStateId: null;
     canMakeDecision: null;
     genInfo: GenInfo;
-    testTasks: TestTaskBlockClass[];
-    practiceTasks: PracticeTaskBlock[];
+    testTasks: TestTask[];
+    practiceTasks: PracticeTask[];
     softSkill: SoftSkillBlock[];
 }
 
@@ -72,7 +72,7 @@ export interface Telegram {
     link: string;
 }
 
-export interface PracticeTaskBlock {
+export interface PracticeTask {
     name: string;
     status: number;
     daysSpent: number;
@@ -99,7 +99,7 @@ export interface SoftSkillBlock {
     mentorRating?: number;
 }
 
-export interface TestTaskBlockClass {
+export interface TestTask {
     name: string;
     status: number;
     daysSpent: number;
