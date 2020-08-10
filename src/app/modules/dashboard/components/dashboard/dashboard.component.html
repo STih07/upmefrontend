@@ -5,7 +5,7 @@
             <div class="d-flex align-items-center">
                 <div>
                     <img src="assets/icons/settings.svg" alt="settings" class="p-1">
-                    <span class="text-white custom-fs-14"> Settings</span>
+                    <span class="text-white custom-fs-14">Settings</span>
                 </div>
                 <div class="bg-white text-white rounded-circle ml-3 custom-plus"></div>
             </div>
@@ -33,17 +33,15 @@
                                         <img src="assets/icons/arrow-down-gray.svg" alt="arrow-down">
                                     </div>
                                 </th>
-                                <th class="pl-0 custom-col-name custom-fs-14 py-2 align-middle" scope="col">Name</th>
-                                <th class="pr-5 custom-col-name custom-fs-14 py-2 align-middle" scope="col">Начало</th>
-                                <th class="custom-table-form-1 px-2 text-center custom-fs-14 py-2 align-middle"
-                                    scope="col">Форма</th>
-                                <th class="custom-table-form-1 px-2 text-center custom-fs-14 py-2 align-middle"
-                                    scope="col">Письмо</th>
-                                <th class="custom-table-form-1 px-2 text-center custom-fs-14 py-2 align-middle"
-                                    scope="col">Тестовое</th>
-                                <th class="custom-fs-14 py-2 align-middle" scope="col">Практическое</th>
-                                <th class="custom-fs-14 pl-3 pr-0 py-2 align-middle" scope="col">Решение</th>
-                                <th class="custom-fs-14 pl-5 pr-3 py-2 align-middle" scope="col">Финиш</th>
+                                <th class="pl-0 custom-col-name custom-fs-14 py-2 align-middle" scope="col">Имя</th>
+                                <th class="custom-fs-14 py-2 align-middle" scope="col">Начало</th>
+                                <th class="custom-fs-14 pl-0 custom-task-col text-center">Задание</th>
+                                <th class="custom-tasks-col px-2 text-center custom-fs-14 py-2 align-middle"scope="col">Форма</th>
+                                <th class="custom-tasks-col px-2 text-center custom-fs-14 py-2 align-middle"scope="col">Письмо</th>
+                                <th class="custom-tasks-col px-2 text-center custom-fs-14 py-2 align-middle"scope="col">Тестовое</th>
+                                <th class="custom-practice-col custom-fs-14 py-2 align-middle" scope="col">Практическое</th>
+                                <th class="custom-dicision-col custom-fs-14 py-2 align-middle text-center" scope="col">Решение</th>
+                                <th class="custom-fs-14 pl-2 py-2 align-middle" scope="col">Финиш</th>
                                 <th scope="col"></th>
                                 <th scope="col"></th>
                             </tr>
@@ -57,22 +55,47 @@
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <a href="#" class="avatar rounded-circle">
-                                                <img alt="Image placeholder" src="assets/img/user_card_img.png" class="">
+                                                <img alt="Image placeholder" src="assets/img/user_card_img.png">
                                             </a>
                                         </div>
                                         <div class="col ml-md-n2">
-                                            <a href="#!" class="d-block h6 mb-0 custom-fs-12">Yuliia Chudina</a>
-                                            <small class="d-block text-black color-black custom-fs-12">#01</small>
+                                            <a href="#!" class="d-block h6 mb-0 custom-fs-12 text-left">Yuliia Chudina</a>
+                                            <small class="d-block text-black color-black custom-fs-12 text-left">#01</small>
                                         </div>
                                     </div>
                                 </th>
                                 <th class="align-middle py-3 position-relative">26/02/2020</th>
-                                <th class="align-middle py-3 position-relative"><div class="custom-success-block"></div></th>
-                                <th class="align-middle py-3 position-relative"><div class="custom-success-block"></div></th>
-                                <th class="align-middle py-3 position-relative"><div class="custom-success-block"></div></th>
-                                <th class="align-middle py-3 position-relative"><div class="custom-success-block practice-block"></div></th>
-                                <th class="pl-0"></th>
-                                <th class="align-middle pl-5  py-3 pr-0">15/03/2020</th>
+                                <th class="d-flex py-2 pr-2 pl-0">
+                                    <div class="custom-tasks-test">
+                                        <div class="custom-fs-10 mb-1">Тестовое:</div>
+                                        <div class="custom-fs-12 d-flex">
+                                            <div class="custom-circle-active"></div><span>Front-end</span>
+                                        </div>
+                                        <div class="custom-fs-12 d-flex">
+                                            <div class="custom-circle-active"></div><span>SQL</span>
+                                        </div>
+                                    </div>
+                                    <div class="custom-tasks-practice">
+                                        <div class="custom-fs-10 mb-1">Практическое:</div>
+                                        <div class="custom-fs-12 d-flex">
+                                            <div class="custom-circle-active"></div><span>UX/UI Design</span>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th class="align-middle py-3 position-relative">
+                                    <div class="custom-success-block">Готово</div>
+                                </th>
+                                <th class="align-middle py-3 position-relative">
+                                    <div class="custom-success-block">Готово</div>
+                                </th>
+                                <th class="align-middle py-3 position-relative">
+                                    <div class="custom-success-block">Готово</div>
+                                </th>
+                                <th class="align-middle py-3 position-relative">
+                                    <div class="custom-success-block practice-block">Готово</div>
+                                </th>
+                                <th class="align-middle text-center custom-col-finish">Принят</th>
+                                <th class="align-middle pl-2 pr-0 py-3 text-left">15/03/2020</th>
                                 <th class="align-middle pr-3"><img src="assets/icons/edit.svg" alt="edit"></th>
                                 <th class="align-middle pl-0"><img src="assets/icons/delete.svg" alt="delete"></th>
                             </tr>
@@ -84,22 +107,38 @@
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <a href="#" class="avatar rounded-circle">
-                                                <img alt="Image placeholder" src="assets/img/user_card_img.png" class="">
+                                                <img alt="Image placeholder" src="assets/img/user_card_img.png">
                                             </a>
                                         </div>
                                         <div class="col ml-md-n2">
-                                            <a href="#!" class="d-block h6 mb-0 custom-fs-12">Darrel Webb</a>
-                                            <small class="d-block text-black color-black custom-fs-12">#08</small>
+                                            <a href="#!" class="d-block h6 mb-0 custom-fs-12 text-left">Darrell Web</a>
+                                            <small class="d-block text-black color-black custom-fs-12 text-left">#08</small>
                                         </div>
                                     </div>
                                 </th>
                                 <th class="align-middle py-3 position-relative">06/02/2020</th>
-                                <th class="align-middle py-3 position-relative"><div class="custom-success-block"></div></th>
-                                <th class="align-middle py-3 position-relative"><div class="custom-success-block"></div></th>
-                                <th class="align-middle py-3 position-relative"><div class="custom-success-block"></div></th>
-                                <th class="align-middle py-3 position-relative custom-nothing-block"><div></div></th>
-                                <th class="pl-0"></th>
-                                <th class="align-middle pl-5  py-3 pr-0">17/03/2020</th>
+                                <th class="d-flex py-2 pr-2 pl-0">
+                                    <div class="custom-tasks-test">
+                                        <div class="custom-fs-10 mb-1">Тестовое:</div>
+                                        <div class="custom-fs-12 d-flex">
+                                            <div class="custom-circle-active"></div><span>SQL</span>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th class="align-middle py-3 position-relative">
+                                    <div class="custom-success-block">Готово</div>
+                                </th>
+                                <th class="align-middle py-3 position-relative">
+                                    <div class="custom-success-block">Готово</div>
+                                </th>
+                                <th class="align-middle py-3 position-relative">
+                                    <div class="custom-success-block">Готово</div>
+                                </th>
+                                <th class="align-middle py-3 position-relative">
+                                    <div class="custom-nothing-block practice-block"></div>
+                                </th>
+                                <th class="align-middle text-center custom-col-finish">Принят на испытательный</th>
+                                <th class="align-middle pl-2 pr-0 py-3 text-left">17/03/2020</th>
                                 <th class="align-middle pr-3"><img src="assets/icons/edit.svg" alt="edit"></th>
                                 <th class="align-middle pl-0"><img src="assets/icons/delete.svg" alt="delete"></th>
                             </tr>
@@ -111,22 +150,47 @@
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <a href="#" class="avatar rounded-circle">
-                                                <img alt="Image placeholder" src="assets/img/user_card_img.png" class="">
+                                                <img alt="Image placeholder" src="assets/img/user_card_img.png">
                                             </a>
                                         </div>
                                         <div class="col ml-md-n2">
-                                            <a href="#!" class="d-block h6 mb-0 custom-fs-12">Lily Bell</a>
-                                            <small class="d-block text-black color-black custom-fs-12">#02</small>
+                                            <a href="#!" class="d-block h6 mb-0 custom-fs-12 text-left">Lily Bell</a>
+                                            <small class="d-block text-black color-black custom-fs-12 text-left">#02</small>
                                         </div>
                                     </div>
                                 </th>
                                 <th class="align-middle py-3 position-relative">01/02/2020</th>
-                                <th class="align-middle py-3 position-relative"><div class="custom-success-block"></div></th>
-                                <th class="align-middle py-3 position-relative"><div class="custom-gray-block"></div></th>
-                                <th class="align-middle py-3 position-relative"><div class="custom-gray-block"></div></th>
-                                <th class="align-middle py-3 position-relative"><div class="custom-gray-block"></div></th>
-                                <th class="pl-0"></th>
-                                <th class="align-middle pl-5  py-3 pr-0">--</th>
+                                <th class="d-flex py-2 pr-2 pl-0">
+                                    <div class="custom-tasks-test">
+                                        <div class="custom-fs-10 mb-1">Тестовое:</div>
+                                        <div class="custom-fs-12 d-flex">
+                                            <div class="custom-circle-active"></div><span>PHP</span>
+                                        </div>
+                                        <div class="custom-fs-12 d-flex">
+                                            <div class="custom-circle-active"></div><span>SQL</span>
+                                        </div>
+                                    </div>
+                                    <div class="custom-tasks-practice">
+                                        <div class="custom-fs-10 mb-1">Практическое:</div>
+                                        <div class="custom-fs-12 d-flex">
+                                            <div class="custom-circle-active"></div><span>Front-end</span>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th class="align-middle py-3 position-relative">
+                                    <div class="custom-success-block">Готово</div>
+                                </th>
+                                <th class="align-middle py-3 position-relative">
+                                    <div class="custom-gray-block"></div>
+                                </th>
+                                <th class="align-middle py-3 position-relative">
+                                    <div class="custom-gray-block"></div>
+                                </th>
+                                <th class="align-middle py-3 position-relative">
+                                    <div class="custom-gray-block practice-block"></div>
+                                </th>
+                                <th class="align-middle text-center custom-col-finish">Принят</th>
+                                <th class="align-middle pl-2 pr-0 py-3 text-left">--</th>
                                 <th class="align-middle pr-3"><img src="assets/icons/edit.svg" alt="edit"></th>
                                 <th class="align-middle pl-0"><img src="assets/icons/delete.svg" alt="delete"></th>
                             </tr>
@@ -138,49 +202,47 @@
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <a href="#" class="avatar rounded-circle">
-                                                <img alt="Image placeholder" src="assets/img/user_card_img.png" class="">
+                                                <img alt="Image placeholder" src="assets/img/user_card_img.png">
                                             </a>
                                         </div>
                                         <div class="col ml-md-n2">
-                                            <a href="#!" class="d-block h6 mb-0 custom-fs-12">Cody Cooper</a>
-                                            <small class="d-block text-black color-black custom-fs-12">#03</small>
+                                            <a href="#!" class="d-block h6 mb-0 custom-fs-12 text-left">Cody Cooper</a>
+                                            <small class="d-block text-black color-black custom-fs-12 text-left">#03</small>
                                         </div>
                                     </div>
                                 </th>
                                 <th class="align-middle py-3 position-relative">13/02/2020</th>
-                                <th class="align-middle py-3 position-relative"><div class="custom-success-block"></div></th>
-                                <th class="align-middle py-3 position-relative"><div class="custom-success-block"></div></th>
-                                <th class="align-middle py-3 position-relative"><div class="custom-gray-block"></div></th>
-                                <th class="align-middle py-3 position-relative custom-nothing-block"><div></div></th>
-                                <th class="pl-0"></th>
-                                <th class="align-middle pl-5  py-3 pr-0">--</th>
-                                <th class="align-middle pr-3"><img src="assets/icons/edit.svg" alt="edit"></th>
-                                <th class="align-middle pl-0"><img src="assets/icons/delete.svg" alt="delete"></th>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="custom-padding-col-1 align-middle py-3">
-                                    <img src="assets/icons/empty-circle.svg" alt="success-circle">
-                                </th>
-                                <th class="pl-0 align-middle py-3">
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <a href="#" class="avatar rounded-circle">
-                                                <img alt="Image placeholder" src="assets/img/user_card_img.png" class="">
-                                            </a>
+                                <th class="d-flex py-2 pr-2 pl-0">
+                                    <div class="custom-tasks-test">
+                                        <div class="custom-fs-10 mb-1">Тестовое:</div>
+                                        <div class="custom-fs-12 d-flex">
+                                            <div class="custom-circle-active"></div><span>PHP</span>
                                         </div>
-                                        <div class="col ml-md-n2">
-                                            <a href="#!" class="d-block h6 mb-0 custom-fs-12">Darel Webb</a>
-                                            <small class="d-block text-black color-black custom-fs-12">#08</small>
+                                        <div class="custom-fs-12 d-flex">
+                                            <div class="custom-circle-active"></div><span>SQL</span>
+                                        </div>
+                                    </div>
+                                    <div class="custom-tasks-practice">
+                                        <div class="custom-fs-10 mb-1">Практическое:</div>
+                                        <div class="custom-fs-12 d-flex">
+                                            <div class="custom-circle-active"></div><span>Front-end</span>
                                         </div>
                                     </div>
                                 </th>
-                                <th class="align-middle py-3 position-relative">03/02/2020</th>
-                                <th class="align-middle py-3 position-relative"><div class="custom-success-block"></div></th>
-                                <th class="align-middle py-3 position-relative"><div class="custom-warning-block">В процессе</div></th>
-                                <th class="align-middle py-3 position-relative custom-nothing-block"><div></div></th>
-                                <th class="align-middle py-3 position-relative"><div class="custom-gray-block"></div></th>
-                                <th class="pl-0"></th>
-                                <th class="align-middle pl-5  py-3 pr-0">--</th>
+                                <th class="align-middle py-3 position-relative">
+                                    <div class="custom-success-block">Готово</div>
+                                </th>
+                                <th class="align-middle py-3 position-relative">
+                                    <div class="custom-success-block">Готово</div>
+                                </th>
+                                <th class="align-middle py-3 position-relative">
+                                    <div class="custom-warning-block">В прогрессе</div>
+                                </th>
+                                <th class="align-middle py-3 position-relative">
+                                    <div class="custom-nothing-block practice-block"></div>
+                                </th>
+                                <th class="align-middle text-center custom-col-finish">Не принят, еще очень юн</th>
+                                <th class="align-middle pl-2 pr-0 py-3 text-left">--</th>
                                 <th class="align-middle pr-3"><img src="assets/icons/edit.svg" alt="edit"></th>
                                 <th class="align-middle pl-0"><img src="assets/icons/delete.svg" alt="delete"></th>
                             </tr>
