@@ -1,5 +1,7 @@
+$muted: #8492a6;
+$success: #36b37e;
+$warning: #ff6930;
 $white: #fff;
-$done: #36b373;
 
 .add-block{
     width: 2.5rem;
@@ -21,10 +23,6 @@ $done: #36b373;
         top: 19px;
         left: 30%;
     }
-}
-
-.color-gray{
-    color: #3c4858;
 }
 
 .btn-decision{
@@ -71,20 +69,20 @@ $done: #36b373;
 }
 
 .selected-row{
-    border-left: 8px solid $done;
+    border-left: 8px solid $success;
 }
 
 .success-block{
-    background-color: $done;
     height: 24px;
     text-align: center;
+    background-color: $success;
     color: $white;
 }
 
 .gray-block{
-    background-color: #8492A6;
     height: 24px;
     text-align: center;
+    background-color: $muted;
     color: $white;
 }
 
@@ -93,7 +91,7 @@ $done: #36b373;
 }
 
 .warning-block{
-    background-color: #FF6930;
+    background-color: $warning;
     height: 24px;
     text-align: center;
     color: $white;
@@ -107,7 +105,7 @@ $done: #36b373;
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background: $done;
+    background: $success;
     align-self: center;
     margin-right: 0.1rem;
 }
