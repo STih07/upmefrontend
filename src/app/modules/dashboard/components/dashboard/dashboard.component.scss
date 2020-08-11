@@ -1,8 +1,7 @@
-.custom-color-gray{
-    color: #3c4858;
-}
+$white: #fff;
+$done: #36b373;
 
-.custom-plus{
+.add-block{
     width: 2.5rem;
     height: 2.5rem;
     position: relative;
@@ -24,114 +23,99 @@
     }
 }
 
-.custom-btn-decision{
+.color-gray{
+    color: #3c4858;
+}
+
+.btn-decision{
     padding:7px 39px;
     background: #EFF2F7;
     color: #273444;
 }
 
-.custom-width-col-1{
+.col-filter{
     width: 44px;
     padding: 6px 10px;
 }
 
-.custom-table-filter{
+.btn-table-filter{
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.13);
     border-radius: 2px;
     padding: 5px;
 }
 
-.custom-col-name{
+.col-name{
     width: 112px;
     padding-right: 8rem !important;
 }
 
-.custom-tasks-col{
+.task-col{
+    width: 180px;
+}
+
+.form-col, .test-col, .letter-col{
     width: 96px;
 }
 
-.custom-padding-col-1{
+.dicision-col{
+    width: 112px;
+}
+
+.practice-col{
+    width: 132px;
+}
+
+.col-filter-pl{
     padding-left: 0.65rem !important;
     border-left: 8px solid transparent;
 }
 
-.custom-selected-col{
-    border-left: 8px solid #36b373;
+.selected-row{
+    border-left: 8px solid $done;
 }
 
-.custom-success-block{
-    position: absolute;
-    background-color: #36b373;
-    width: 100%;
+.success-block{
+    background-color: $done;
     height: 24px;
-    top: 30px;
-    left: 0;
     text-align: center;
-    color: #fff;
+    color: $white;
 }
 
-.custom-gray-block{
-    position: absolute;
+.gray-block{
     background-color: #8492A6;
-    width: 100%;
     height: 24px;
-    top: 30px;
-    left: 0;
     text-align: center;
-    color: #fff;
+    color: $white;
 }
 
-.custom-nothing-block{
-    position: absolute;
-    width: 100%;
-    height: 100%;
+.nothing-block{
     background-color: #EFF2F7;
-    text-align: center;
-    color: #fff;
-    top: 0;
-    left: 0;
 }
 
-.custom-warning-block{
-    position: absolute;
+.warning-block{
     background-color: #FF6930;
-    width: 100%;
     height: 24px;
-    top: 30px;
-    left: 0;
     text-align: center;
-    color: #fff;
+    color: $white;
 }
 
-.custom-complete-block{
+.all-done-row{
     background-color: #EFF9FF;
 }
 
-.custom-task-col{
-    width: 180px;
-}
-
-.custom-dicision-col{
-    width: 112px;
-}
-
-.custom-practice-col{
-    width: 132px;
-}
-
-.custom-circle-active{
+.circle-active{
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background: #36B37E;
+    background: $done;
     align-self: center;
     margin-right: 0.1rem;
 }
 
-.custom-col-finish{
+.finish-row{
     white-space: normal;
 }
 
-.custom-tasks-test, .custom-tasks-practice{
+.task-col-test, .task-col-practice{
     width: 80px;
 }

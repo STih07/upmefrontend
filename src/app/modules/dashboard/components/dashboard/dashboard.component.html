@@ -7,7 +7,7 @@
                     <img src="assets/icons/settings.svg" alt="settings" class="p-1">
                     <span class="text-white custom-fs-14">Settings</span>
                 </div>
-                <div class="bg-white text-white rounded-circle ml-3 custom-plus"></div>
+                <div class="bg-white text-white rounded-circle ml-3 add-block"></div>
             </div>
         </div>
     </div>
@@ -15,9 +15,9 @@
         <div class="col">
             <div class="card mt-3">
                 <div class="card-header d-flex align-items-center justify-content-between py-3">
-                    <span class="custom-fs-14 custom-color-gray">Users</span>
+                    <span class="custom-fs-14 color-gray">Users</span>
                     <div>
-                        <button class="btn custom-btn-decision custom-fs-12 mr-4">Принять решение</button>
+                        <button class="btn mr-4 btn-decision custom-fs-12 ">Принять решение</button>
                         <img src="assets/icons/search.svg" alt="search" class="mr-4">
                         <img src="assets/icons/filter.svg" alt="filter" class="mr-4">
                         <img src="assets/icons/more.svg" alt="more">
@@ -27,80 +27,80 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th class="pl-2 pr-2 custom-width-col-1 py-2 align-middle" scope="col">
-                                    <div class="custom-table-filter">
+                                <th class="pl-2 pr-2 py-2 align-middle col-filter" scope="col">
+                                    <button class="btn btn-table-filter">
                                         <img src="assets/icons/check-circle.svg" alt="check-circle" class="mr-2">
                                         <img src="assets/icons/arrow-down-gray.svg" alt="arrow-down">
-                                    </div>
+                                    </button>
                                 </th>
-                                <th class="pl-0 custom-col-name custom-fs-14 py-2 align-middle" scope="col">Имя</th>
-                                <th class="custom-fs-14 py-2 align-middle" scope="col">Начало</th>
-                                <th class="custom-fs-14 pl-0 custom-task-col text-center">Задание</th>
-                                <th class="custom-tasks-col px-2 text-center custom-fs-14 py-2 align-middle"scope="col">Форма</th>
-                                <th class="custom-tasks-col px-2 text-center custom-fs-14 py-2 align-middle"scope="col">Письмо</th>
-                                <th class="custom-tasks-col px-2 text-center custom-fs-14 py-2 align-middle"scope="col">Тестовое</th>
-                                <th class="custom-practice-col custom-fs-14 py-2 align-middle" scope="col">Практическое</th>
-                                <th class="custom-dicision-col custom-fs-14 py-2 align-middle text-center" scope="col">Решение</th>
-                                <th class="custom-fs-14 pl-2 py-2 align-middle" scope="col">Финиш</th>
+                                <th class="pl-0 py-2 align-middle col-name custom-fs-14" scope="col">Имя</th>
+                                <th class="py-2 align-middle custom-fs-14" scope="col">Начало</th>
+                                <th class="pl-0 text-center task-col custom-fs-14 ">Задание</th>
+                                <th class="px-2 py-2 text-center align-middle form-col custom-fs-14"scope="col">Форма</th>
+                                <th class="px-2 py-2 text-center align-middle letter-col custom-fs-14"scope="col">Письмо</th>
+                                <th class="px-2 py-2 text-center align-middle test-col custom-fs-14"scope="col">Тестовое</th>
+                                <th class="py-2 align-middle practice-col custom-fs-14" scope="col">Практическое</th>
+                                <th class="py-2 text-center align-middle dicision-col custom-fs-14" scope="col">Решение</th>
+                                <th class="pl-2 py-2 align-middle custom-fs-14" scope="col">Финиш</th>
                                 <th scope="col"></th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="custom-complete-block">
-                                <th scope="row" class="custom-padding-col-1 align-middle py-3">
+                            <tr class="all-done-row">
+                                <th scope="row" class="py-3 align-middle col-filter-pl ">
                                     <img src="assets/icons/success-circle.svg" alt="success-circle">
                                 </th>
-                                <th class="pl-0 align-middle py-3">
+                                <th class="pl-0 py-3 align-middle">
                                     <div class="row align-items-center">
-                                        <div class="col-auto">
+                                        <div class="col-auto">  
                                             <a href="#" class="avatar rounded-circle">
                                                 <img alt="Image placeholder" src="assets/img/user_card_img.png">
                                             </a>
                                         </div>
                                         <div class="col ml-md-n2">
-                                            <a href="#!" class="d-block h6 mb-0 custom-fs-12 text-left">Yuliia Chudina</a>
-                                            <small class="d-block text-black color-black custom-fs-12 text-left">#01</small>
+                                            <a href="#!" class="d-block h6 mb-0 text-left custom-fs-12">Yuliia Chudina</a>
+                                            <small class="d-block text-black color-black text-left custom-fs-12">#01</small>
                                         </div>
                                     </div>
                                 </th>
-                                <th class="align-middle py-3 position-relative">26/02/2020</th>
+                                <th class="py-3 align-middle ">26/02/2020</th>
                                 <th class="d-flex py-2 pr-2 pl-0">
-                                    <div class="custom-tasks-test">
+                                    <div class="task-col-test">
                                         <div class="custom-fs-10 mb-1">Тестовое:</div>
                                         <div class="custom-fs-12 d-flex">
-                                            <div class="custom-circle-active"></div><span>Front-end</span>
+                                            <div class="circle-active"></div><span>Front-end</span>
                                         </div>
                                         <div class="custom-fs-12 d-flex">
-                                            <div class="custom-circle-active"></div><span>SQL</span>
+                                            <div class="circle-active"></div><span>SQL</span>
                                         </div>
                                     </div>
-                                    <div class="custom-tasks-practice">
+                                    <div class="task-col-practice">
                                         <div class="custom-fs-10 mb-1">Практическое:</div>
                                         <div class="custom-fs-12 d-flex">
-                                            <div class="custom-circle-active"></div><span>UX/UI Design</span>
+                                            <div class="circle-active"></div><span>UX/UI Design</span>
                                         </div>
                                     </div>
                                 </th>
-                                <th class="align-middle py-3 position-relative">
-                                    <div class="custom-success-block">Готово</div>
+                                <th class="align-middle py-3 px-0">
+                                    <div class="success-block">Готово</div>
                                 </th>
-                                <th class="align-middle py-3 position-relative">
-                                    <div class="custom-success-block">Готово</div>
+                                <th class="align-middle py-3 px-0">
+                                    <div class="success-block">Готово</div>
                                 </th>
-                                <th class="align-middle py-3 position-relative">
-                                    <div class="custom-success-block">Готово</div>
+                                <th class="align-middle py-3 px-0">
+                                    <div class="success-block">Готово</div>
                                 </th>
-                                <th class="align-middle py-3 position-relative">
-                                    <div class="custom-success-block practice-block">Готово</div>
+                                <th class="align-middle py-3 px-0">
+                                    <div class="success-block practice-block">Готово</div>
                                 </th>
-                                <th class="align-middle text-center custom-col-finish">Принят</th>
+                                <th class="align-middle text-center finish-row">Принят</th>
                                 <th class="align-middle pl-2 pr-0 py-3 text-left">15/03/2020</th>
                                 <th class="align-middle pr-3"><img src="assets/icons/edit.svg" alt="edit"></th>
                                 <th class="align-middle pl-0"><img src="assets/icons/delete.svg" alt="delete"></th>
                             </tr>
-                            <tr class="custom-complete-block">
-                                <th scope="row" class="custom-padding-col-1 align-middle py-3 custom-selected-col">
+                            <tr class="all-done-row">
+                                <th scope="row" class="col-filter-pl align-middle py-3 selected-row">
                                     <img src="assets/icons/success-circle.svg" alt="success-circle">
                                 </th>
                                 <th class="pl-0 align-middle py-3">
@@ -116,34 +116,34 @@
                                         </div>
                                     </div>
                                 </th>
-                                <th class="align-middle py-3 position-relative">06/02/2020</th>
+                                <th class="align-middle py-3">06/02/2020</th>
                                 <th class="d-flex py-2 pr-2 pl-0">
-                                    <div class="custom-tasks-test">
+                                    <div class="task-col-test">
                                         <div class="custom-fs-10 mb-1">Тестовое:</div>
                                         <div class="custom-fs-12 d-flex">
-                                            <div class="custom-circle-active"></div><span>SQL</span>
+                                            <div class="circle-active"></div><span>SQL</span>
                                         </div>
                                     </div>
                                 </th>
-                                <th class="align-middle py-3 position-relative">
-                                    <div class="custom-success-block">Готово</div>
+                                <th class="align-middle py-3 px-0">
+                                    <div class="success-block">Готово</div>
                                 </th>
-                                <th class="align-middle py-3 position-relative">
-                                    <div class="custom-success-block">Готово</div>
+                                <th class="align-middle py-3 px-0">
+                                    <div class="success-block">Готово</div>
                                 </th>
-                                <th class="align-middle py-3 position-relative">
-                                    <div class="custom-success-block">Готово</div>
+                                <th class="align-middle py-3 px-0">
+                                    <div class="success-block">Готово</div>
                                 </th>
-                                <th class="align-middle py-3 position-relative">
-                                    <div class="custom-nothing-block practice-block"></div>
+                                <th class="align-middle py-3 px-0 nothing-block">
+                                    <div class="practice-block"></div>
                                 </th>
-                                <th class="align-middle text-center custom-col-finish">Принят на испытательный</th>
+                                <th class="align-middle text-center finish-row">Принят на испытательный</th>
                                 <th class="align-middle pl-2 pr-0 py-3 text-left">17/03/2020</th>
                                 <th class="align-middle pr-3"><img src="assets/icons/edit.svg" alt="edit"></th>
                                 <th class="align-middle pl-0"><img src="assets/icons/delete.svg" alt="delete"></th>
                             </tr>
                             <tr>
-                                <th scope="row" class="custom-padding-col-1 align-middle py-3">
+                                <th scope="row" class="col-filter-pl align-middle py-3">
                                     <img src="assets/icons/empty-circle.svg" alt="success-circle">
                                 </th>
                                 <th class="pl-0 align-middle py-3">
@@ -159,43 +159,43 @@
                                         </div>
                                     </div>
                                 </th>
-                                <th class="align-middle py-3 position-relative">01/02/2020</th>
+                                <th class="align-middle py-3">01/02/2020</th>
                                 <th class="d-flex py-2 pr-2 pl-0">
-                                    <div class="custom-tasks-test">
+                                    <div class="task-col-test">
                                         <div class="custom-fs-10 mb-1">Тестовое:</div>
                                         <div class="custom-fs-12 d-flex">
-                                            <div class="custom-circle-active"></div><span>PHP</span>
+                                            <div class="circle-active"></div><span>PHP</span>
                                         </div>
                                         <div class="custom-fs-12 d-flex">
-                                            <div class="custom-circle-active"></div><span>SQL</span>
+                                            <div class="circle-active"></div><span>SQL</span>
                                         </div>
                                     </div>
-                                    <div class="custom-tasks-practice">
+                                    <div class="task-col-practice">
                                         <div class="custom-fs-10 mb-1">Практическое:</div>
                                         <div class="custom-fs-12 d-flex">
-                                            <div class="custom-circle-active"></div><span>Front-end</span>
+                                            <div class="circle-active"></div><span>Front-end</span>
                                         </div>
                                     </div>
                                 </th>
-                                <th class="align-middle py-3 position-relative">
-                                    <div class="custom-success-block">Готово</div>
+                                <th class="align-middle py-3 px-0">
+                                    <div class="success-block">Готово</div>
                                 </th>
-                                <th class="align-middle py-3 position-relative">
-                                    <div class="custom-gray-block"></div>
+                                <th class="align-middle py-3 px-0">
+                                    <div class="gray-block"></div>
                                 </th>
-                                <th class="align-middle py-3 position-relative">
-                                    <div class="custom-gray-block"></div>
+                                <th class="align-middle py-3 px-0">
+                                    <div class="gray-block"></div>
                                 </th>
-                                <th class="align-middle py-3 position-relative">
-                                    <div class="custom-gray-block practice-block"></div>
+                                <th class="align-middle py-3 px-0">
+                                    <div class="gray-block practice-block"></div>
                                 </th>
-                                <th class="align-middle text-center custom-col-finish">Принят</th>
+                                <th class="align-middle text-center finish-row">Принят</th>
                                 <th class="align-middle pl-2 pr-0 py-3 text-left">--</th>
                                 <th class="align-middle pr-3"><img src="assets/icons/edit.svg" alt="edit"></th>
                                 <th class="align-middle pl-0"><img src="assets/icons/delete.svg" alt="delete"></th>
                             </tr>
                             <tr>
-                                <th scope="row" class="custom-padding-col-1 align-middle py-3">
+                                <th scope="row" class="col-filter-pl align-middle py-3">
                                     <img src="assets/icons/empty-circle.svg" alt="success-circle">
                                 </th>
                                 <th class="pl-0 align-middle py-3">
@@ -211,37 +211,37 @@
                                         </div>
                                     </div>
                                 </th>
-                                <th class="align-middle py-3 position-relative">13/02/2020</th>
+                                <th class="align-middle py-3">13/02/2020</th>
                                 <th class="d-flex py-2 pr-2 pl-0">
-                                    <div class="custom-tasks-test">
+                                    <div class="task-col-test">
                                         <div class="custom-fs-10 mb-1">Тестовое:</div>
                                         <div class="custom-fs-12 d-flex">
-                                            <div class="custom-circle-active"></div><span>PHP</span>
+                                            <div class="circle-active"></div><span>PHP</span>
                                         </div>
                                         <div class="custom-fs-12 d-flex">
-                                            <div class="custom-circle-active"></div><span>SQL</span>
+                                            <div class="circle-active"></div><span>SQL</span>
                                         </div>
                                     </div>
-                                    <div class="custom-tasks-practice">
+                                    <div class="task-col-practice">
                                         <div class="custom-fs-10 mb-1">Практическое:</div>
                                         <div class="custom-fs-12 d-flex">
-                                            <div class="custom-circle-active"></div><span>Front-end</span>
+                                            <div class="circle-active"></div><span>Front-end</span>
                                         </div>
                                     </div>
                                 </th>
-                                <th class="align-middle py-3 position-relative">
-                                    <div class="custom-success-block">Готово</div>
+                                <th class="align-middle py-3 px-0">
+                                    <div class="success-block">Готово</div>
                                 </th>
-                                <th class="align-middle py-3 position-relative">
-                                    <div class="custom-success-block">Готово</div>
+                                <th class="align-middle py-3 px-0">
+                                    <div class="success-block">Готово</div>
                                 </th>
-                                <th class="align-middle py-3 position-relative">
-                                    <div class="custom-warning-block">В прогрессе</div>
+                                <th class="align-middle py-3 px-0">
+                                    <div class="warning-block">В прогрессе</div>
                                 </th>
-                                <th class="align-middle py-3 position-relative">
-                                    <div class="custom-nothing-block practice-block"></div>
+                                <th class="align-middle py-3 px-0 nothing-block">
+                                    <div class="practice-block"></div>
                                 </th>
-                                <th class="align-middle text-center custom-col-finish">Не принят, еще очень юн</th>
+                                <th class="align-middle text-center finish-row">Не принят, еще очень юн</th>
                                 <th class="align-middle pl-2 pr-0 py-3 text-left">--</th>
                                 <th class="align-middle pr-3"><img src="assets/icons/edit.svg" alt="edit"></th>
                                 <th class="align-middle pl-0"><img src="assets/icons/delete.svg" alt="delete"></th>
