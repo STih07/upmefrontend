@@ -62,4 +62,9 @@ export class ProfileComponent implements OnInit {
   showPractice(practice: PracticeTask) {
     this.selectedPractice = practice;
   }
+
+  getFullName() {
+    const [name, surname] = this.user.info.name.split(' ').map(word => word[0]);
+    return name + surname;
+  }
 }
