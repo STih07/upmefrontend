@@ -12,14 +12,16 @@
                     <h6 class="h3">Sign In</h6>
                   </div>
                   <span class="clearfix"></span>
-                  <form role="form">
+                  <form [formGroup]="singInForm" (ngSubmit)="onSubmit()">
                     <div class="form-group">
                       <label class="form-control-label">Email address</label>
                       <div class="input-group input-group-merge">
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fa fa-user"></i></span>
                         </div>
-                        <input type="email" class="form-control" id="input-email" placeholder="name@example.com">
+                        <input type="email" formControlName="email" class="form-control"
+                               placeholder="email@example.com">
+
                       </div>
                     </div>
                     <div class="form-group mb-4">
@@ -28,26 +30,25 @@
                           <label class="form-control-label">Password</label>
                         </div>
                         <div class="mb-2">
-                          <a href="#!" class="small text-muted text-underline--dashed border-primary">Forget
+                          <a href="" class="small text-muted text-underline--dashed border-primary">Forget
                             password?</a>
                         </div>
                       </div>
-                      <div class="input-group input-group-merge">
+                      <div class="input-group input-group-merge pass">
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fa fa-key"></i></span>
                         </div>
-                        <input type="password" class="form-control" id="input-password" placeholder="Password">
+                        <input type="password" formControlName="password" class="form-control pass"
+                               placeholder="password">
                         <div class="input-group-append">
                             <span class="input-group-text">
-                              <a href="#" data-toggle="password-text" data-target="#input-password">
-                                <img src="assets/icons/eye.svg" alt="">
-                              </a>
+                              <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
                             </span>
                         </div>
                       </div>
                     </div>
                     <div class="mt-5 mb-1">
-                      <button type="button" class="btn btn-sm btn-primary btn-icon">
+                      <button type="submit" class="btn btn-sm btn-primary btn-icon" [disabled]="singInForm.invalid">
                         <span class="btn-inner--text">Sign in</span>
                         <i class="fa fa-long-arrow-right"></i>
                       </button>
@@ -55,7 +56,7 @@
                   </form>
                 </div>
                 <div class="card-footer px-md-5"><small>Not registered? </small>
-                  <a href="#" class="small font-weight-bold">Create account</a></div>
+                  <a href="" class="small font-weight-bold">Create account</a></div>
               </div>
             </div>
           </div>
