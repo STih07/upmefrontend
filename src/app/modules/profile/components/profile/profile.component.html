@@ -19,7 +19,7 @@
                 <!-- Avatar -->
                 <a href="#" class="avatar rounded-circle bg-warning">
                   <img *ngIf="user.info.icon" alt="Image placeholder" [src]="user.info.icon">
-                  <div *ngIf="!user.info.icon" class="text-white custom-fs-21 d-flex align-items-center" style="font-weight: 900;">{{getFullName()}}</div>
+                  <div *ngIf="!user.info.icon" class="text-white custom-fs-21 lh-100 font-weight-900" style="transform: translateY(5%)">{{getFullName()}}</div>
                 </a>
               </div>
               <div class="col ml-md-n2">
