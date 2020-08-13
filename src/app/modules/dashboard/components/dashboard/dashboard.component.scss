@@ -38,9 +38,9 @@
     padding: 5px;
 }
 
-.col-name{
+th.col-name{
     width: 112px;
-    padding-right: 8rem !important;
+    padding-right: 8rem;
 }
 
 .task-col{
@@ -59,12 +59,12 @@
     width: 132px;
 }
 
-.col-filter-pl{
-    padding-left: 0.65rem !important;
+th.col-filter-pl{
+    padding-left: 0.65rem;
     border-left: 8px solid transparent;
 }
 
-.selected-row{
+th.selected-row{
     border-left: 8px solid #36b37e;
 }
 
