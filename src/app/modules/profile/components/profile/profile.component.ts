@@ -64,7 +64,7 @@ export class ProfileComponent implements OnInit {
   }
 
   getFullName() {
-    const [name, surname] = this.user.info.name.split(' ').map(word => word[0]);
+    const [name, surname] = this.user.info.name.split(' ').map((word: string) => word[0]);
     return name + surname;
   }
 }

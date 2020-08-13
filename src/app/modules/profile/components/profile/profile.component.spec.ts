@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProfileComponent } from './profile.component';
 import { TaskStatusPipe } from '../../pipes/status.pipe';
 import { RoundPipe } from '../../pipes/round.pipe';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -14,6 +15,9 @@ describe('ProfileComponent', () => {
         ProfileComponent,
         TaskStatusPipe,
         RoundPipe,
+      ],
+      imports: [
+        RouterTestingModule
       ]
     })
       .compileComponents();
