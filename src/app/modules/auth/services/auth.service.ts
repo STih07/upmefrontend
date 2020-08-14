@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { LoginRequest } from '../../../models/login-request';
 import { AuthResponse } from '../../../models/auth-response';
 import { HttpClient } from '@angular/common/http';
+import { RegisterRequest } from '../../../models/register-request';
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +17,9 @@ export class AuthService {
 
   login(data: LoginRequest): Observable<AuthResponse> {
     return this.http.get<AuthResponse>(AuthService.loginRequestUrl);
+  }
+
+  register(data: RegisterRequest): Observable<any> {
+    return this.http.get(AuthService.loginRequestUrl);
   }
 }
