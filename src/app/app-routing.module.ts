@@ -10,7 +10,7 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: '/dashboard'
+        loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule)
       },
       {
         path: 'profile',
@@ -19,10 +19,6 @@ const routes: Routes = [
       {
         path: 'directions',
         loadChildren: () => import('./modules/directions/directions.module').then(m => m.DirectionsModule)
-      },
-      {
-        path: 'dashboard',
-        loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule)
       }
     ]
   },
