@@ -11,8 +11,8 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/profile',
-        pathMatch: 'full'
+        pathMatch: 'full',
+        loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule)
       },
       {
         path: 'profile',
@@ -21,7 +21,7 @@ const routes: Routes = [
       {
         path: 'directions',
         loadChildren: () => import('./modules/directions/directions.module').then(m => m.DirectionsModule)
-      },
+      }
     ],
     canActivate: [AuthGuard]
   },
