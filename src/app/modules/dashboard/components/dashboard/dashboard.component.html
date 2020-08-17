@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col">
             <div class="card mt-3">
-                <div class="card-header d-flex align-items-center justify-content-between py-3">
+                <div class="card-header d-flex align-items-center justify-content-between py-2">
                     <span class="custom-fs-14">Кандидаты</span>
                     <div>
                         <button class="btn mr-4 btn-decision custom-fs-12 ">Принять решение</button>
@@ -27,83 +27,71 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th class="pl-2 pr-2 py-2 align-middle col-filter" scope="col">
+                                <th class="pl-2 pr-2 py-1 align-middle col-filter" scope="col">
                                     <button class="btn btn-table-filter">
                                         <img src="assets/icons/check-circle.svg" alt="check-circle" class="mr-2">
                                         <img src="assets/icons/arrow-down-gray.svg" alt="arrow-down">
                                     </button>
                                 </th>
-                                <th class="pl-0 py-2 align-middle col-name custom-fs-14" scope="col">Имя</th>
-                                <th class="py-2 align-middle custom-fs-14" scope="col">Начало</th>
-                                <th class="pl-0 text-center task-col custom-fs-14 ">Задание</th>
-                                <th class="px-2 py-2 text-center align-middle form-col custom-fs-14"scope="col">Форма</th>
-                                <th class="px-2 py-2 text-center align-middle letter-col custom-fs-14"scope="col">Письмо</th>
-                                <th class="px-2 py-2 text-center align-middle test-col custom-fs-14"scope="col">Тестовое</th>
-                                <th class="py-2 align-middle practice-col custom-fs-14" scope="col">Практическое</th>
-                                <th class="py-2 text-center align-middle dicision-col custom-fs-14" scope="col">Решение</th>
-                                <th class="pl-2 py-2 align-middle custom-fs-14" scope="col">Финиш</th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
+                                <th class="pl-0 py-1 align-middle col-name custom-fs-14" scope="col">Имя</th>
+                                <th class="py-1 align-middle col-begin custom-fs-14" scope="col">Начало</th>
+                                <th class="py-1 align-middle form-col custom-fs-14" scope="col">Форма</th>
+                                <th class="py-1 align-middle letter-col custom-fs-14" scope="col">Письмо</th>
+                                <th class="py-1 align-middle test-col custom-fs-14" scope="col">Тестовое</th>
+                                <th class="py-1 align-middle practice-col custom-fs-14" scope="col">Практическое</th>
+                                <th class="py-1 align-middle dicision-col custom-fs-14" scope="col">Решение</th>
+                                <th class="pl-2 py-1 align-middle custom-fs-14 finish-col" scope="col">Финиш</th>
+                                <th scope="col edit-col"></th>
+                                <th scope="col edit-col"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="all-done-row">
-                                <th scope="row" class="py-3 align-middle col-filter-pl ">
+                            <tr class="all-done-row tr-height">
+                                <th scope="row" class="py-2 align-middle col-filter-pl selected-row">
                                     <img src="assets/icons/success-circle.svg" alt="success-circle">
                                 </th>
-                                <th class="pl-0 py-3 align-middle">
+                                <th class="pl-0 py-2 align-middle">
                                     <div class="row align-items-center">
-                                        <div class="col-auto">  
+                                        <div class="col-auto">
                                             <a href="#" class="avatar rounded-circle">
                                                 <img alt="Image placeholder" src="assets/img/user_card_img.png">
                                             </a>
                                         </div>
                                         <div class="col ml-md-n2">
-                                            <a href="#!" class="d-block h6 mb-0 text-left custom-fs-12">Yuliia Chudina</a>
-                                            <small class="d-block text-black color-black text-left custom-fs-12">#01</small>
+                                            <a href="#!" class="d-block h6 mb-0 custom-fs-12">Yuliia Chudina</a>
+                                            <small class="d-block text-black color-black custom-fs-12">#01</small>
                                         </div>
                                     </div>
                                 </th>
-                                <th class="py-3 align-middle ">26/02/2020</th>
-                                <th class="d-flex py-2 pr-2 pl-0">
-                                    <div class="task-col-test">
-                                        <div class="custom-fs-10 mb-1">Тестовое:</div>
-                                        <div class="custom-fs-12 d-flex">
-                                            <div class="circle-active bg-success"></div><span>Front-end</span>
-                                        </div>
-                                        <div class="custom-fs-12 d-flex">
-                                            <div class="circle-active bg-success"></div><span>SQL</span>
-                                        </div>
-                                    </div>
-                                    <div class="task-col-practice">
-                                        <div class="custom-fs-10 mb-1">Практическое:</div>
-                                        <div class="custom-fs-12 d-flex">
-                                            <div class="circle-active bg-success"></div><span>UX/UI Design</span>
-                                        </div>
+                                <th class="py-2 align-middle ">26/02/2020</th>
+                                <th class="align-middle py-2 px-0">
+                                    <div class="status-block bg-success"><span class="ml-4 custom-fs-12">Готово</span></div>
+                                </th>
+                                <th class="align-middle py-2 px-0">
+                                    <div class="status-block bg-success"><span class="ml-4 custom-fs-12">Готово</span></div>
+                                </th>
+                                <th class="align-middle py-2 px-0">
+                                    <div class="status-block bg-success d-flex align-items-center justify-content-between">
+                                        <span class="ml-4 custom-fs-12">Готово</span>
+                                        <img src="assets/icons/arrow-down.svg" height="7.41px" width="12px" class="mr-2">
                                     </div>
                                 </th>
-                                <th class="align-middle py-3 px-0">
-                                    <div class="status-block bg-success">Готово</div>
+                                <th class="align-middle py-2 px-0">
+                                    <div class="status-block bg-success d-flex align-items-center justify-content-between">
+                                        <span class="ml-4 custom-fs-12">Готово</span>
+                                        <img src="assets/icons/arrow-down.svg" height="7.41px" width="12px" class="mr-2">
+                                    </div>
                                 </th>
-                                <th class="align-middle py-3 px-0">
-                                    <div class="status-block bg-success">Готово</div>
-                                </th>
-                                <th class="align-middle py-3 px-0">
-                                    <div class="status-block bg-success">Готово</div>
-                                </th>
-                                <th class="align-middle py-3 px-0">
-                                    <div class="status-block bg-success practice-block">Готово</div>
-                                </th>
-                                <th class="align-middle text-center finish-row">Принят</th>
-                                <th class="align-middle pl-2 pr-0 py-3 text-left">15/03/2020</th>
-                                <th class="align-middle pr-3"><img src="assets/icons/edit.svg" alt="edit"></th>
-                                <th class="align-middle pl-0"><img src="assets/icons/delete.svg" alt="delete"></th>
+                                <th class="align-middle finish-row custom-fs-14 py-1">Принят</th>
+                                <th class="align-middle pl-2 pr-2 py-2">15/03/2020</th>
+                                <th class="align-middle pr-2 text-right"><img src="assets/icons/edit.svg" alt="edit"></th>
+                                <th class="align-middle pl-1 pr-3 text-center"><img src="assets/icons/delete.svg"alt="delete"></th>
                             </tr>
-                            <tr class="all-done-row">
-                                <th scope="row" class="col-filter-pl align-middle py-3 selected-row">
+                            <tr class="all-done-row tr-height">
+                                <th scope="row" class="col-filter-pl align-middle py-2 selected-row">
                                     <img src="assets/icons/success-circle.svg" alt="success-circle">
                                 </th>
-                                <th class="pl-0 align-middle py-3">
+                                <th class="pl-0 align-middle py-2">
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <a href="#" class="avatar rounded-circle">
@@ -111,42 +99,37 @@
                                             </a>
                                         </div>
                                         <div class="col ml-md-n2">
-                                            <a href="#!" class="d-block h6 mb-0 custom-fs-12 text-left">Darrell Web</a>
-                                            <small class="d-block text-black color-black custom-fs-12 text-left">#08</small>
+                                            <a href="#!" class="d-block h6 mb-0 custom-fs-12">Darrell Web</a>
+                                            <small class="d-block text-black color-black custom-fs-12">#08</small>
                                         </div>
                                     </div>
                                 </th>
-                                <th class="align-middle py-3">06/02/2020</th>
-                                <th class="d-flex py-2 pr-2 pl-0">
-                                    <div class="task-col-test">
-                                        <div class="custom-fs-10 mb-1">Тестовое:</div>
-                                        <div class="custom-fs-12 d-flex">
-                                            <div class="circle-active bg-success"></div><span>SQL</span>
-                                        </div>
+                                <th class="align-middle py-2">06/02/2020</th>
+                                <th class="align-middle py-2 px-0">
+                                    <div class="status-block bg-success"><span class="ml-4 custom-fs-12">Готово</span></div>
+                                </th>
+                                <th class="align-middle py-2 px-0">
+                                    <div class="status-block bg-success"><span class="ml-4 custom-fs-12">Готово</span></div>
+                                </th>
+                                <th class="align-middle py-2 px-0">
+                                    <div class="status-block bg-success d-flex align-items-center justify-content-between">
+                                        <span class="ml-4 custom-fs-12">Готово</span>
+                                        <img src="assets/icons/arrow-down.svg" height="7.41px" width="12px" class="mr-2">
                                     </div>
                                 </th>
-                                <th class="align-middle py-3 px-0">
-                                    <div class="status-block bg-success">Готово</div>
+                                <th class="align-middle py-2 px-0 nothing-block">
+                                    <div class=""></div>
                                 </th>
-                                <th class="align-middle py-3 px-0">
-                                    <div class="status-block bg-success">Готово</div>
-                                </th>
-                                <th class="align-middle py-3 px-0">
-                                    <div class="status-block bg-success">Готово</div>
-                                </th>
-                                <th class="align-middle py-3 px-0 nothing-block">
-                                    <div class="practice-block"></div>
-                                </th>
-                                <th class="align-middle text-center finish-row">Принят на испытательный</th>
-                                <th class="align-middle pl-2 pr-0 py-3 text-left">17/03/2020</th>
-                                <th class="align-middle pr-3"><img src="assets/icons/edit.svg" alt="edit"></th>
-                                <th class="align-middle pl-0"><img src="assets/icons/delete.svg" alt="delete"></th>
+                                <th class="align-middle finish-row custom-fs-14 py-1">Принят на испытательный</th>
+                                <th class="align-middle pl-2 pr-2 py-2">17/03/2020</th>
+                                <th class="align-middle pr-2 text-right"><img src="assets/icons/edit.svg" alt="edit"></th>
+                                <th class="align-middle pl-1 pr-3 text-center"><img src="assets/icons/delete.svg" alt="delete"></th>
                             </tr>
-                            <tr>
-                                <th scope="row" class="col-filter-pl align-middle py-3">
+                            <tr class="tr-height">
+                                <th scope="row" class="col-filter-pl align-middle py-2">
                                     <img src="assets/icons/empty-circle.svg" alt="success-circle">
                                 </th>
-                                <th class="pl-0 align-middle py-3">
+                                <th class="pl-0 align-middle py-2">
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <a href="#" class="avatar rounded-circle">
@@ -154,51 +137,40 @@
                                             </a>
                                         </div>
                                         <div class="col ml-md-n2">
-                                            <a href="#!" class="d-block h6 mb-0 custom-fs-12 text-left">Lily Bell</a>
-                                            <small class="d-block text-black color-black custom-fs-12 text-left">#02</small>
+                                            <a href="#!" class="d-block h6 mb-0 custom-fs-12">Lily Bell</a>
+                                            <small class="d-block text-black color-black custom-fs-12">#02</small>
                                         </div>
                                     </div>
                                 </th>
-                                <th class="align-middle py-3">01/02/2020</th>
-                                <th class="d-flex py-2 pr-2 pl-0">
-                                    <div class="task-col-test">
-                                        <div class="custom-fs-10 mb-1">Тестовое:</div>
-                                        <div class="custom-fs-12 d-flex">
-                                            <div class="circle-active bg-success"></div><span>PHP</span>
-                                        </div>
-                                        <div class="custom-fs-12 d-flex">
-                                            <div class="circle-active bg-success"></div><span>SQL</span>
-                                        </div>
-                                    </div>
-                                    <div class="task-col-practice">
-                                        <div class="custom-fs-10 mb-1">Практическое:</div>
-                                        <div class="custom-fs-12 d-flex">
-                                            <div class="circle-active bg-success"></div><span>Front-end</span>
-                                        </div>
+                                <th class="align-middle py-2">01/02/2020</th>
+                                <th class="align-middle py-2 px-0">
+                                    <div class="status-block bg-success"><span class="ml-4 custom-fs-12">Готово</span></div>
+                                </th>
+                                <th class="align-middle py-2 px-0">
+                                    <div class="status-block gray-block"><span class="ml-4 custom-fs-12">Не начато</span></div>
+                                </th>
+                                <th class="align-middle py-2 px-0">
+                                    <div class="status-block gray-block d-flex align-items-center justify-content-between">
+                                        <span class="ml-4 custom-fs-12">Не начато</span>
+                                        <img src="assets/icons/arrow-down.svg" height="7.41px" width="12px" class="mr-2">
                                     </div>
                                 </th>
-                                <th class="align-middle py-3 px-0">
-                                    <div class="status-block bg-success">Готово</div>
+                                <th class="align-middle py-2 px-0">
+                                    <div class="status-block gray-block d-flex align-items-center justify-content-between">
+                                        <span class="ml-4 custom-fs-12">Не начато</span>
+                                        <img src="assets/icons/arrow-down.svg" height="7.41px" width="12px" class="mr-2">
+                                    </div>
                                 </th>
-                                <th class="align-middle py-3 px-0">
-                                    <div class="status-block gray-block"></div>
-                                </th>
-                                <th class="align-middle py-3 px-0">
-                                    <div class="status-block gray-block"></div>
-                                </th>
-                                <th class="align-middle py-3 px-0">
-                                    <div class="status-block gray-block practice-block"></div>
-                                </th>
-                                <th class="align-middle text-center finish-row">Принят</th>
-                                <th class="align-middle pl-2 pr-0 py-3 text-left">--</th>
-                                <th class="align-middle pr-3"><img src="assets/icons/edit.svg" alt="edit"></th>
-                                <th class="align-middle pl-0"><img src="assets/icons/delete.svg" alt="delete"></th>
+                                <th class="align-middle finish-row custom-fs-14 py-1">Не принят</th>
+                                <th class="align-middle pl-2 pr-2 py-2">--</th>
+                                <th class="align-middle pr-2 text-right"><img src="assets/icons/edit.svg" alt="edit"></th>
+                                <th class="align-middle pl-1 pr-3 text-center"><img src="assets/icons/delete.svg" alt="delete"></th>
                             </tr>
-                            <tr>
-                                <th scope="row" class="col-filter-pl align-middle py-3">
+                            <tr class="tr-height">
+                                <th scope="row" class="col-filter-pl align-middle ">
                                     <img src="assets/icons/empty-circle.svg" alt="success-circle">
                                 </th>
-                                <th class="pl-0 align-middle py-3">
+                                <th class="pl-0 align-middle ">
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <a href="#" class="avatar rounded-circle">
@@ -206,45 +178,30 @@
                                             </a>
                                         </div>
                                         <div class="col ml-md-n2">
-                                            <a href="#!" class="d-block h6 mb-0 custom-fs-12 text-left">Cody Cooper</a>
-                                            <small class="d-block text-black color-black custom-fs-12 text-left">#03</small>
+                                            <a href="#!" class="d-block h6 mb-0 custom-fs-12">Cody Cooper</a>
+                                            <small class="d-block text-black color-black custom-fs-12">#03</small>
                                         </div>
                                     </div>
                                 </th>
-                                <th class="align-middle py-3">13/02/2020</th>
-                                <th class="d-flex py-2 pr-2 pl-0">
-                                    <div class="task-col-test">
-                                        <div class="custom-fs-10 mb-1">Тестовое:</div>
-                                        <div class="custom-fs-12 d-flex">
-                                            <div class="circle-active bg-success"></div><span>PHP</span>
-                                        </div>
-                                        <div class="custom-fs-12 d-flex">
-                                            <div class="circle-active bg-success"></div><span>SQL</span>
-                                        </div>
-                                    </div>
-                                    <div class="task-col-practice">
-                                        <div class="custom-fs-10 mb-1">Практическое:</div>
-                                        <div class="custom-fs-12 d-flex">
-                                            <div class="circle-active bg-success"></div><span>Front-end</span>
-                                        </div>
+                                <th class="align-middle ">13/02/2020</th>
+                                <th class="align-middle  px-0">
+                                    <div class="status-block bg-success"><span class="ml-4 custom-fs-12">Готово</span></div>
+                                </th>
+                                <th class="align-middle  px-0">
+                                    <div class="status-block bg-success"><span class="ml-4 custom-fs-12">Готово</span></div>
+                                </th>
+                                <th class="align-middle  px-0">
+                                    <div class="status-block bg-warning d-flex align-items-center justify-content-between">
+                                        <span class="ml-4 custom-fs-12">В прогрессе</span>
+                                        <img src="assets/icons/arrow-down.svg" height="7.41px" width="12px" class="mr-2">
                                     </div>
                                 </th>
-                                <th class="align-middle py-3 px-0">
-                                    <div class="status-block bg-success">Готово</div>
+                                <th class="align-middle  px-0 nothing-block"><div class=""></div>
                                 </th>
-                                <th class="align-middle py-3 px-0">
-                                    <div class="status-block bg-success">Готово</div>
-                                </th>
-                                <th class="align-middle py-3 px-0">
-                                    <div class="status-block bg-warning">В прогрессе</div>
-                                </th>
-                                <th class="align-middle py-3 px-0 nothing-block">
-                                    <div class="practice-block"></div>
-                                </th>
-                                <th class="align-middle text-center finish-row">Не принят, еще очень юн</th>
-                                <th class="align-middle pl-2 pr-0 py-3 text-left">--</th>
-                                <th class="align-middle pr-3"><img src="assets/icons/edit.svg" alt="edit"></th>
-                                <th class="align-middle pl-0"><img src="assets/icons/delete.svg" alt="delete"></th>
+                                <th class=" align-middle finish-row custom-fs-14 py-1">Не принят, еще очень юн, советуем пойти в it2school</th>
+                                <th class="align-middle pl-2 pr-2 ">--</th>
+                                <th class="align-middle pr-2 text-right"><img src="assets/icons/edit.svg" alt="edit"></th>
+                                <th class="align-middle pl-1 pr-3 text-center"><img src="assets/icons/delete.svg" alt="delete"></th>
                             </tr>
                         </tbody>
                     </table>
