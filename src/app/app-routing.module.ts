@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
+import { Page404Component } from './page404/page404.component';
+import { AuthGuard } from './modules/auth/auth.guard';
 
 
 const routes: Routes = [
@@ -20,12 +22,17 @@ const routes: Routes = [
         path: 'directions',
         loadChildren: () => import('./modules/directions/directions.module').then(m => m.DirectionsModule)
       }
-    ]
+    ],
+    canActivate: [AuthGuard]
   },
   {
     path: 'auth',
     loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)
-  }
+  },
+  {
+    path: '**',
+    component: Page404Component
+  },
 ];
 
 @NgModule({
