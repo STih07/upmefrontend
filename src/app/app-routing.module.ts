@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
+import { AuthGuard } from './modules/auth/auth.guard';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
         path: 'directions',
         loadChildren: () => import('./modules/directions/directions.module').then(m => m.DirectionsModule)
       },
-    ]
+    ],
+    canActivate: [AuthGuard]
   },
   {
     path: 'auth',
