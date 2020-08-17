@@ -6,12 +6,14 @@ import { NgProgressModule } from 'ngx-progressbar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
+import { Page404Component } from './page404/page404.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent
-  ],
+    LayoutComponent,
+    Page404Component,
+    ],
   imports: [
     BrowserModule,
     HttpClientModule,
