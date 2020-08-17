@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,12 +18,12 @@ export class LoginComponent {
     password: ['', [Validators.minLength(8), Validators.required]]
   });
 
-  constructor(private authService: AuthService, private fb: FormBuilder) {
+  constructor(private authService: AuthService, private fb: FormBuilder, private router: Router) {
     this.showPassword = false;
   }
 
   onSubmit() {
-    this.authService.login(this.singInForm.value);
+    this.authService.login(this.singInForm.value).subscribe(() => this.router.navigateByUrl(''));
   }
 
   onEyeClick() {
