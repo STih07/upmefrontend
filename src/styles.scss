@@ -18,6 +18,13 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
     font-size: #{$i / 10}rem;
   }
 }
+
+@for $j from 1 to 32 {
+  .custom-fs-#{$j} {
+    font-size: #{$j * 0.0625}rem !important;
+  }
+}
+
 .application .sidenav-header .navbar-brand img {
   height: 1.8rem;
 }
@@ -256,4 +263,10 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
   font-weight: normal;
   color: rgba(255, 255, 255, 0.8);
   font-size: 1.2rem;
+}
+
+.btn-gray {
+  background-color: $light;
+  color: $muted;
+  border: 1px solid $muted;
 }
