@@ -28,7 +28,6 @@ export class DashboardComponent implements OnInit {
       ],
       decision: 'Принят',
       finish: '15/03/2020',
-      hasSelected: 1,
     },
     {
       id: 2,
@@ -46,7 +45,6 @@ export class DashboardComponent implements OnInit {
       practiceTasks: null,
       decision: 'Принят на испытательный',
       finish: '17/03/2020',
-      hasSelected: 1,
     },
     {
       id: 3,
@@ -68,7 +66,6 @@ export class DashboardComponent implements OnInit {
       ],
       decision: 'Принят на испытательный',
       finish: '17/03/2020',
-      hasSelected: 0,
     },
     {
       id: 4,
@@ -86,7 +83,6 @@ export class DashboardComponent implements OnInit {
       practiceTasks: null,
       decision: 'Принят на испытательный',
       finish: '17/03/2020',
-      hasSelected: 0,
     },
   ];
 
