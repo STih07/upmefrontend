@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { NgProgress, NgProgressRef } from 'ngx-progressbar';
-import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +7,4 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class AppComponent {
-  progressRef: NgProgressRef;
-  response: any;
-
-  mainUser = {
-    name: 'Anna D.',
-    icon: 'assets/img/user_img.png'
-  };
-
-  constructor(private ngProgress: NgProgress, private http: HttpClient) { }
-
-  // tslint:disable-next-line:use-lifecycle-interface
-  ngOnInit() { }
-
 }
