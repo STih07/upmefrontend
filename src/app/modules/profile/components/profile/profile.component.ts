@@ -1,13 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent implements OnInit {
 
-  arrayOfDays: number[] = Array(7).fill(0).map((x, i) => i);
+export class ProfileComponent implements OnInit {
 
   states = [
     { id: 1, name: 'Онбординг', active: true },
@@ -16,6 +15,7 @@ export class ProfileComponent implements OnInit {
     { id: 4, name: 'Проверка Идеи', active: false },
     { id: 5, name: 'Трудоустройство', active: false },
   ];
+
   user = {
     name: 'Yuliia Chudina',
     icon: 'assets/img/user_card_img.png',
@@ -39,7 +39,8 @@ export class ProfileComponent implements OnInit {
     { id: 3, name: 'Не принят' },
     { id: 4, name: 'Не принят. Ты ещё очень юн и мы советуем тебе подать заявку в IT2School' },
   ];
-  selectedUserStateId = 1;
+  selectedSolution = null;
+  hasSolution = false;
 
   activity = {
     totalDays: {
@@ -91,7 +92,7 @@ export class ProfileComponent implements OnInit {
   testTaskBlock = {
     name: 'SQL',
     status: 1,
-    daysSpent: 5,
+    daysSpent: 8,
     result: {
       points: 7,
       maxPossiblePoints: 10,
@@ -124,6 +125,9 @@ export class ProfileComponent implements OnInit {
     }
   ];
 
+  @ViewChild('solution') solutionRef: any ;
+
+
   softSkillBlock = [
     // ничего - 0, сильная сторона - 1, стоит поработать - 2, слабая сторона - 3
     { name: 'Критическое мышление', userRating: 1, mentorRating: 1 },
@@ -138,8 +142,16 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getArrayDays(spentDays: number) {
+    const length = Math.max(Math.min(spentDays, 10), 7);
+    return Array.from({length}, (x, i) => i + 1);
+  }
+
   getPercentOfDiffrence(num1: number, num2: number) {
     return ((num1 - num2) * 100 / num1);
+  }
+  scrollToTop() {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
   }
 
   showSuccess(): void {

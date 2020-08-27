@@ -1,10 +1,10 @@
 <div class="container-fluid container-application mt-4 d-block">
-    <span class="text-white h3">{{user.name}}</span>
+    <span class="text-white h3 custom-fs-26">{{user.name}}</span>
     <ul class="nav mt-4">
       <ng-container *ngFor="let state of states; let i = index">
         <li *ngIf="i !== 0" class="nav-item border-bottom pr-3" [class.not-active]="!state.active"></li>
         <li class="nav-item border-bottom" [class.not-active]="!state.active">
-          <a class="nav-link h5 pr-0 pb-1" [class.text-white]="state.active" [class.pl-0]="i === 0">{{state.name}}</a>
+          <a class="nav-link h5 pr-0 pb-1 custom-fs-18" [class.text-white]="state.active" [class.pl-0]="i === 0">{{state.name}}</a>
         </li>
       </ng-container>
       <li class="nav-item get-rest border-bottom" [class.not-active]="!states[states.length - 1].active"></li>
@@ -22,8 +22,8 @@
                 </a>
               </div>
               <div class="col ml-md-n2">
-                <a href="#!" class="d-block h6 mb-0">{{user.name}}</a>
-                <small class="d-block text-black color-black">{{user.profile}}</small>
+                <a href="#!" class="d-block h6 mb-0 custom-fs-18">{{user.name}}</a>
+                <small class="d-block text-black color-black custom-fs-14">{{user.profile}}</small>
               </div>
               <div class="col-auto">
                 <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill btn-secondary">
@@ -71,7 +71,7 @@
           </div>
           <div class="card-footer p-2 d-flex justify-content-center">
             <div class="d-flex flex-column align-items-center">
-              <div class="h5 mb-0 text-secondary">Resident</div>
+              <div class="h5 mb-0 text-secondary">Резидент</div>
             </div>
           </div>
         </div>
@@ -79,17 +79,17 @@
       <div class="col-lg-4">
         <!-- Profile stats -->
         <div class="card card-fluid">
-          <div class="d-flex justify-content-center card-title small mt-1">Activity</div>
+          <div class="d-flex justify-content-center card-title small mt-1 custom-fs-12">Activity</div>
           <div class="card-body p-0 row">
             <div class="col-lg-6 d-flex flex-column justify-content-between">
               <div class="bottom-light-border mx-4 py-3">
-                <div class="mb-3 color-black font-weight-300">Всего</div>
+                <div class="mb-3 color-black font-weight-300 custom-fs-13">Всего</div>
                 <span class="text-success h2 font-weight-bold mr-2" [class.text-primary]='activity.totalDays.average === activity.totalDays.current'
                 [class.text-warning]='activity.totalDays.average < activity.totalDays.current' [class.text-success]='activity.totalDays.average > activity.totalDays.current'>8</span>
                 <span>дней</span>
               </div>
               <div class="ml-4 mr-3 py-3">
-                <div class="mb-3 color-black font-weight-300">Раньше на</div>
+                <div class="mb-3 color-black font-weight-300 custom-fs-13">Раньше на</div>
                 <span class="text-success h2 font-weight-bold mr-2" [class.text-primary]='activity.totalDays.average === activity.totalDays.current'
                 [class.text-warning]='activity.totalDays.average < activity.totalDays.current' [class.text-success]='activity.totalDays.average > activity.totalDays.current'>2</span>
                 <span>дня</span>
@@ -98,14 +98,14 @@
             </div>
             <div class="col-lg-6 d-flex flex-column justify-content-around left-light-border">
               <div class="ml-3">
-                <div class="color-black font-weight-300">Форма</div>
+                <div class="color-black font-weight-300 custom-fs-13">Форма</div>
                 <div class="mt-2">
                   <span class="text-primary font-weight-bold h5 mr-1" [class.text-primary]='activity.formDays.average === activity.formDays.current'
                   [class.text-warning]='activity.formDays.average < activity.formDays.current' [class.text-success]='activity.formDays.average > activity.formDays.current'>1</span>день
                 </div>
               </div>
               <div class="ml-3">
-                <div class="color-black font-weight-300">Тестовое</div>
+                <div class="color-black font-weight-300 custom-fs-13">Тестовое</div>
                 <div class="mt-2">
                   <span class="text-primary font-weight-bold h5 mr-1" [class.text-primary]='activity.testDays.average === activity.testDays.current'
                   [class.text-warning]='activity.testDays.average < activity.testDays.current' [class.text-success]='activity.testDays.average > activity.testDays.current'>{{activity.testDays.current}}</span> дня
@@ -113,7 +113,7 @@
                 </div>
               </div>
               <div class="ml-3">
-                <div class="color-black font-weight-300">Практическое</div>
+                <div class="color-black font-weight-300 custom-fs-13">Практическое</div>
                 <div class="mt-2">
                   <span class="text-primary font-weight-bold h5 mr-1" [class.text-primary]='activity.practiceDays.average === activity.practiceDays.current'
                   [class.text-warning]='activity.practiceDays.average < activity.practiceDays.current' [class.text-success]='activity.practiceDays.average > activity.practiceDays.current'>{{activity.practiceDays.current}}</span> дня
@@ -127,21 +127,19 @@
       </div>
       <div class="col-lg-4">
         <!-- Profile stats -->
-        <div class="card card-fluid">
-          <div class="d-flex justify-content-center card-title small mt-1">
-            Solution
-          </div>
+        <div class="card card-fluid" [class.disabled]='hasSolution'>
+          <div class="d-flex justify-content-center card-title small mt-1" [class.disabled]='hasSolution'>Solution</div>
           <div class="card-body py-0 row">
             <div>
               <ul class="custom__ul">
-                <li *ngFor="let state of userStates; let i = index" [class._selected]="selectedUserStateId === state.id"
-                  (click)="selectedUserStateId = state.id" class="pl-1 custom_checkbox lh-120"
+                <li *ngFor="let state of userStates; let i = index" [class._selected]="selectedSolution === state.id"
+                  (click)="selectedSolution = state.id" class="pl-1 custom_checkbox lh-120"
                   [class.pb-4]="i !== userStates.length - 1">
                   {{state.name}}
                 </li>
               </ul>
             </div>
-            <button class="btn btn-secondary btn-xs mx-3 custom-btn w-100" (click)="showSuccess()">
+            <button class="btn btn-secondary btn-xs mx-3 custom-btn w-100" (click)="showSuccess()" [disabled]="selectedSolution === null || hasSolution" (click)="hasSolution = !hasSolution">
               <span class="h6 text-white">Подтвердить</span>
             </button>
           </div>
@@ -153,14 +151,14 @@
       <div class="col">
         <div class="card">
           <div class="card-title m-4">
-            <span class="h4 font-weight-900">Общая информация(анкета и письмо)</span>
+            <span class="h4 font-weight-900 custom-fs-18">Общая информация(анкета и письмо)</span>
             <div class="float-right">
               <div class="d-flex justify-content-between">
-                <div class="mr-5 d-flex flex-column">
+                <div class="mr-5 d-flex flex-column custom-fs-14">
                   <span class="text-muted">Начал:</span>
                   <span>{{genInfo.studyingTime.began}}</span>
                 </div>
-                <div class="d-flex flex-column mr-3">
+                <div class="d-flex flex-column mr-3 custom-fs-14">
                   <span class="text-muted">Закончил:</span>
                   <span>{{genInfo.studyingTime.finished}}</span>
                 </div>
@@ -170,14 +168,14 @@
           <div class="card-body pt-0">
             <div class="row">
               <div class="col-lg-6">
-                <p class="_card-subtitle font-weight-bolder">Образование:</p>
-                <p class="h6 pb-2">Учебное заведение: {{genInfo.education.institution}}</p>
-                <p class="h6 pb-2">Факультет: {{genInfo.education.faculty}}</p>
-                <p class="h6 pd-2">Другие достижения: {{genInfo.education.otherAchievements}}.</p>
+                <p class="_card-subtitle font-weight-900">Образование:</p>
+                <p class="h6 custom-fs-14 pb-2">Учебное заведение: {{genInfo.education.institution}}</p>
+                <p class="h6 custom-fs-14 pb-2">Факультет: {{genInfo.education.faculty}}</p>
+                <p class="h6 custom-fs-14">Другие достижения: {{genInfo.education.otherAchievements}}.</p>
               </div>
               <div class="col-lg-6 pl-4">
-                <p class="_card-subtitle font-weight-bolder">Мотивация:</p>
-                <div class="h6 pb-2 pr-5">
+                <p class="_card-subtitle font-weight-bolder ml-2">Мотивация:</p>
+                <div class="h6 pb-2 pr-5 fs-9 ml-2">
                   Хочу получать акутульное образование сфере ИТ и находиться среди
                   ребят, который любят и ценят самообразование. Так же всегда
                   мечтала заниматься инетресным делом и получать от этого
@@ -225,8 +223,8 @@
                 </table>
               </div>
               <div class="col-lg-6 pl-4 mt-3">
-                <p class="_card-subtitle font-weight-bolder">Самооценка Soft Skills:</p>
-                <table class="table custom-table table-sm">
+                <p class="_card-subtitle font-weight-bolder ml-2">Самооценка Soft Skills:</p>
+                <table class="table custom-table table-sm ml-2">
                   <thead>
                     <tr>
                       <th scope="col" class="pr-1">Качество</th>
@@ -237,19 +235,19 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td scope="row">Критическое мышление</td>
+                      <td scope="row" class="custom-fs-12">Критическое мышление</td>
                       <td></td>
                       <td></td>
                       <td class="disabled"></td>
                     </tr>
                     <tr>
-                      <td scope="row">Коммуникаб.</td>
+                      <td scope="row" class="custom-fs-12">Усидчивость</td>
                       <td></td>
                       <td></td>
                       <td class="disabled"></td>
                     </tr>
                     <tr>
-                      <td scope="row">Выносливость</td>
+                      <td scope="row" class="custom-fs-12">Коммуникабельность</td>
                       <td></td>
                       <td></td>
                       <td class="disabled"></td>
@@ -264,47 +262,39 @@
     </div>
     <div class="row">
       <div class="col-lg-6">
-        <div class="card">
+        <div class="card custom-card">
           <div class="card-title m-4 pt-1">
-            <span class="h4 font-weight-900">Тестовое</span>
-            <button class="btn btn-sm btn-secondary float-right fs-10 card-btn-label lh-120">SQL</button>
+            <span class="h4 font-weight-900 custom-fs-18">Тестовое</span>
+            <button class="btn btn-sm btn-secondary float-right fs-10 card-btn-label lh-120 custom-fs-14">SQL</button>
           </div>
           <div class="card-body pt-0 pb-0">
             <div class="h6 row font-weight-normal pb-3">
-              <div class="col-lg-4">Статус:</div>
+              <div class="col-lg-4 custom-fs-13">Статус:</div>
               <div class="col-lg-8 pl-0">
-                <div class="d-inline-block block_success text-white">Done</div>
+                <div class="d-inline-block block_success text-white custom-fs-14">Done</div>
               </div>
             </div>
             <div class="h6 row font-weight-normal pb-3">
-              <div class="col-lg-4">Затрачено дней:</div>
+              <div class="col-lg-4 custom-fs-13">Затрачено дней: <img *ngIf="testTaskBlock.daysSpent > 10" src="assets/icons/info.svg" alt="info-result"
+                ngbPopover="Превышено более чем на 3 дня" triggers="mouseenter:mouseleave"
+                popoverClass="info-popover-custom"></div>
               <div class="col-lg-8 px-0">
-                <div class="d-inline-block fs-9 used-day" [class.checked]="testTaskBlock.daysSpent > day" *ngFor="let day of arrayOfDays"><span>{{day + 1}}</span></div>
+                <div *ngFor="let day of getArrayDays(testTaskBlock.daysSpent)" class="d-inline-block custom-fs-12 used-day" [class.checked]="day < 7 && testTaskBlock.daysSpent > day" [class.days-extra-color]="day >= 7"><span>{{day + 1}}</span></div>
               </div>
             </div>
             <div class="h6 row font-weight-normal pb-3">
-              <div class="col-lg-4">Результат:</div>
-              <div class="col-lg-8 px-0 color-black fs-11" class="test__result">
-                <div>
+              <div class="col-lg-4 custom-fs-13">Оценка: <img src="assets/icons/info.svg" alt="info-result"
+                ngbPopover="Превышено более чем на 3 дня" triggers="mouseenter:mouseleave"
+                popoverClass="info-popover-custom"></div>
+              <div class="col-lg-8 px-0 color-black custom-fs-14" class="test__result">
+                <div class="custom-fs-14">
                   <span class="font-weight-bolder">Хорошо</span> (7/10 баллов)
                 </div>
-                <div class="popover__wrapper">
-                  <img
-                    src="../assets/icons/info.svg"
-                    alt="info-result"
-                    style="margin-right: 0.45rem;"
-                  />
-                  <div class="popover__content">
-                    <p class="popover__message">
-                      Some text...
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
+          </div>
             <div class="h6 row font-weight-normal pb-3">
-              <div class="col-lg-4">Ошибок:</div>
-              <div class="col-lg-8 px-0 color-black fs-11">{{testTaskBlock.mistakes}}</div>
+              <div class="col-lg-4 custom-fs-13">Ошибок:</div>
+              <div class="col-lg-8 px-0 color-black custom-fs-14">{{testTaskBlock.mistakes}}</div>
             </div>
             <!-- <div class="h6 row font-weight-normal pb-3">
               <div class="col-lg-4">Баллы проф репутации:</div>
@@ -316,17 +306,17 @@
             </div> -->
             <div class="big-divider"></div>
             <div class="h6 row font-weight-normal pb-3">
-              <div class="sources pr-0">Исходники:</div>
+              <div class="sources pr-0 custom-fs-13">Исходники:</div>
               <div class="col-lg-8 px-0 color-black">
                 <div class="d-inline-flex align-items-center">
                   <div class="col-auto">
                     <img alt="Image placeholder" src="assets/icons/psd.png" class="img-fluid file_main-image">
                   </div>
                   <div class="col ml-n2">
-                    <h6 class="text-sm mb-0">
+                    <span class="text-sm mb-0 custom-fs-13">
                       <a href="#!">website-wireframe.psd</a>
-                    </h6>
-                    <p class="card-text mt-1 small text-muted">45.9 MB</p>
+                    </span>
+                    <p class="card-text mt-1 small text-muted custom-fs-13">45.9 MB</p>
                   </div>
                 </div>
               </div>
@@ -335,49 +325,53 @@
         </div>
       </div>
       <div class="col-lg-6">
-        <div class="card" *ngFor="let thing of practiceTaskBlock">
+        <div class="card custom-card" *ngFor="let thing of practiceTaskBlock">
           <div class="card-title m-4 pt-1">
-            <span class="h4 font-weight-900">Практическое</span>
+            <span class="h4 font-weight-900 custom-fs-18">Практическое</span>
             <div class="float-right temp_choose-tab">
-              <button class="btn btn-sm m-0 temp_btn btn-secondary fs-10 lh-120">PHP</button>
-              <button class="btn btn-sm m-0 temp_btn btn-light fs-10 lh-120">Front-end</button>
+              <button class="btn btn-sm m-0 temp_btn btn-secondary custom-fs-14 lh-120">PHP</button>
+              <button class="btn btn-sm m-0 temp_btn btn-light fs-10 lh-120 custom-not-active custom-fs-14">Front-end</button>
             </div>
           </div>
           <div class="card-body pt-0 pb-0">
             <div class="h6 row font-weight-normal pb-3">
-              <div class="col-lg-4">Статус:</div>
+              <div class="col-lg-4 custom-fs-13">Статус:</div>
               <div class="col-lg-8 pl-0">
-                <div class="d-inline-block block_success text-white">Done</div>
+                <div class="d-inline-block block_success text-white custom-fs-14">Done</div>
               </div>
             </div>
             <div class="h6 row font-weight-normal pb-3">
-              <div class="col-lg-4">Затрачено дней:</div>
+              <div class="col-lg-4 custom-fs-13">Затрачено дней: <img *ngIf="thing.daysSpent > 10" src="assets/icons/info.svg" alt="info-result"
+                ngbPopover="Превышено более чем на 3 дня" triggers="mouseenter:mouseleave"
+                popoverClass="info-popover-custom"></div>
               <div class="col-lg-8 px-0">
-                <div class="d-inline-block fs-9 used-day checked" [class.checked]="thing.daysSpent > day" *ngFor="let day of arrayOfDays"><span>{{day + 1}}</span></div>
+                  <div *ngFor="let day of getArrayDays(thing.daysSpent)" class="d-inline-block custom-fs-12 used-day" [class.checked]="day < 7 && thing.daysSpent > day" [class.days-extra-color]="day >= 7"><span>{{day + 1}}</span></div>
               </div>
             </div>
             <div class="h6 row font-weight-normal pb-3">
-              <div class="col-lg-4">Оценка:</div>
-              <div class="col-lg-8 px-0 color-black fs-11">
+              <div class="col-lg-4 custom-fs-13">Оценка: <img src="assets/icons/info.svg" alt="info-result"
+                ngbPopover="Превышено более чем на 3 дня" triggers="mouseenter:mouseleave"
+                popoverClass="info-popover-custom"></div>
+              <div class="col-lg-8 px-0 color-black custom-fs-14">
                 Выполнено с мелкими ошибками (40/50 баллов)
               </div>
             </div>
             <div class="h6 row font-weight-normal pb-4">
-              <div class="col-lg-4">Фитбек от ментора:</div>
-              <div class="col-lg-8 px-0 color-black fs-11">
+              <div class="col-lg-4 custom-fs-13">Фитбек от ментора:</div>
+              <div class="col-lg-8 px-0 color-black custom-fs-14">
                 Кандидат хорошо владеет базовыми знаниями (типы переменнных и
                 операции над ними), небольшой опыт владения классами, льём водичку
                 для красо...
                 <span class="float-right text-primary font-weight-bold mr-3">Больше <i class="fa fa-angle-down"></i></span>
               </div>
             </div>
-            <div class="h6 row font-weight-normal pb-1">
+            <div class="h6 row font-weight-normal pb-1 custom-fs-13">
               <div class="col-lg-12">Сравнение оценок:</div>
             </div>
             <table class="table custom-table">
               <thead>
                 <tr>
-                  <th scope="col" class="pr-1"></th>
+                  <th scope="col" class="pr-1">Направление</th>
                   <th scope="col" class="pr-1">Не знаю</th>
                   <th scope="col" class="pr-1">Читал немного</th>
                   <th scope="col" class="pr-1">Хорошо знаю</th>
@@ -402,14 +396,14 @@
               </tbody>
             </table>
             <div class="h6 row font-weight-normal pb-3 pt-3 mt-4">
-              <div class="sources pr-0">Исходники:</div>
+              <div class="sources pr-0 custom-fs-13">Исходники:</div>
               <div class="col-lg-8 px-0 color-black">
                 <div class="d-inline-flex align-items-center">
                   <div class="col-auto">
                     <img alt="Image placeholder" src="assets/icons/psd.png" class="img-fluid file_main-image">
                   </div>
                   <div class="col ml-n2">
-                    <h6 class="text-sm mb-0">
+                    <h6 class="text-sm mb-0 custom-fs-13">
                       <a href="#!">website-wireframe.psd</a>
                     </h6>
                     <p class="card-text mt-1 small text-muted">45.9 MB</p>
@@ -425,7 +419,7 @@
       <div class="col">
         <div class="card">
           <div class="card-title m-4">
-            <span class="h4 font-weight-900">Soft skills:</span>
+            <span class="h4 font-weight-900 custom-fs-18">Soft skills:</span>
           </div>
           <div class="card-body">
             <p class="_card-subtitle font-weight-bolder">Сравнение оценок:</p>
@@ -470,7 +464,7 @@
                 </tr>
                 <tr>
                   <td colspan="5">
-                    <div class="d-flex">
+                    <div class="d-flex custom-fs-14">
                       <div class="rating-block block-description-1"></div>
                       <span class="rating-block-description ">- самооценка</span>
                       <div class="rating-block block-description-2"></div>
@@ -484,6 +478,11 @@
             </table>
           </div>
           <div class="card-footer"></div>
+        </div>
+        <div class="d-flex justify-content-center my-5">
+          <button class="btn btn-secondary custom-btn py-2 px-5 w-25" (click)="scrollToTop()" >
+            Принять решение
+          </button>
         </div>
       </div>
     </div>

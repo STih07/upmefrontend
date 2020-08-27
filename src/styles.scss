@@ -5,6 +5,7 @@ $light: #e6e9ed;
 $muted: #8492a6;
 $success: #36b37e;
 $warning: #ff6930;
+$error: #FF566C;
 
 $fa-font-path: "~resources/fa/fonts";
 $application-container-bg-height: 400px;
@@ -20,6 +21,13 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
     font-size: #{$i / 10}rem;
   }
 }
+
+@for $j from 1 to 32 {
+  .custom-fs-#{$j} {
+    font-size: #{$j * 0.0625}rem !important;
+  }
+}
+
 .application .sidenav-header .navbar-brand img {
   height: 1.8rem;
 }
@@ -106,8 +114,8 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
 }
 
 .used-day {
-  width: 1.7rem;
-  height: 1.7rem;
+  width: 1.5rem;
+  height: 1.5rem;
   position: relative;
   margin-right: 2px;
   text-align: center;
@@ -176,21 +184,6 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
   }
 }
 
-.popover__wrapper:hover .popover__content {
-  z-index: 10;
-  opacity: 1;
-  visibility: visible;
-  transform: translate(0, 8px);
-  transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
-}
-
-.popover__message {
-  text-align: center;
-  margin-bottom: 0;
-  color: $light;
-  width: 10.625rem;
-}
-
 .profile__table-hardSkills{
   padding-right: 2.25rem;
 }
@@ -211,6 +204,11 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
   overflow-y: hidden;
 }
 
+.info-popover-custom{
+  max-width: 136px;
+  font-size: 10px;
+}
+
 .btn-xs {
   padding: 0.375rem 0.7rem;
   font-size: 0.75rem;
@@ -224,6 +222,7 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
 
 .mentor-match{
   background: $light;
+  border-color: #8492A6;
   outline: 8px solid $muted;
   outline-offset: -8px;
 }
@@ -253,6 +252,7 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
 
 .mentor-rating {
   background: $muted;
+  border-color: $muted;
 }
 
 @media (min-width: 992px) {
@@ -271,4 +271,8 @@ $font-sizes: (6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18);
   font-weight: normal;
   color: rgba(255, 255, 255, 0.8);
   font-size: 1.2rem;
+}
+
+.days-extra-color{
+  background-color: $error;
 }

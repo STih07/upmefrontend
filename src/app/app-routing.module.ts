@@ -1,20 +1,37 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LayoutComponent } from './layout/layout.component';
+import { Page404Component } from './page404/page404.component';
+import { AuthGuard } from './modules/auth/auth.guard';
 
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: '/profile',
-    pathMatch: 'full'
+    path: '', component: LayoutComponent,
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule)
+      },
+      {
+        path: 'profile',
+        loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule)
+      },
+      {
+        path: 'directions',
+        loadChildren: () => import('./modules/directions/directions.module').then(m => m.DirectionsModule)
+      }
+    ],
+    canActivate: [AuthGuard]
   },
   {
-    path: 'profile',
-    loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule)
+    path: 'auth',
+    loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path: 'directions',
-    loadChildren: () => import('./modules/directions/directions.module').then(m => m.DirectionsModule)
+    path: '**',
+    component: Page404Component
   },
 ];
 

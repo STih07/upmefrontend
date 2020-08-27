@@ -1,0 +1,18 @@
+.form-h3 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 2.0625rem;
+  color: #3C4858;
+}
+
+.submit-btn {
+  border-radius: 8px;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+#eye {
+  color: #006ad7;
+  &:hover {
+    cursor: pointer;
+  }
+}
