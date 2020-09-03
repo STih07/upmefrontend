@@ -139,8 +139,8 @@
                 </li>
               </ul>
             </div>
-            <button class="btn btn-secondary btn-xs mx-3 custom-btn w-100" [disabled]="selectedSolution === null || hasSolution" (click)="hasSolution = !hasSolution">
-              <span class="h6 text-white text-sm">Подтвердить</span>
+            <button class="btn btn-secondary btn-xs mx-3 custom-btn w-100" (click)="showSuccess()" [disabled]="selectedSolution === null || hasSolution" (click)="hasSolution = !hasSolution; showSuccess()">
+              <span class="h6 text-white">Подтвердить</span>
             </button>
           </div>
           <div class="card-footer no-top-border"></div>

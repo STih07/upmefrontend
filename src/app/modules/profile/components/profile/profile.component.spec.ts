@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { ToastrModule } from 'ngx-toastr';
 import { ProfileComponent } from './profile.component';
 import { TaskStatusPipe } from '../../pipes/status.pipe';
 import { RoundPipe } from '../../pipes/round.pipe';
@@ -14,6 +15,9 @@ describe('ProfileComponent', () => {
         ProfileComponent,
         TaskStatusPipe,
         RoundPipe,
+      ],
+      imports: [
+        ToastrModule.forRoot(),
       ]
     })
       .compileComponents();
