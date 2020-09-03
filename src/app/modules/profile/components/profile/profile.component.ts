@@ -92,7 +92,7 @@ export class ProfileComponent implements OnInit {
   testTaskBlock = {
     name: 'SQL',
     status: 1,
-    daysSpent: 8,
+    daysSpent: 11,
     result: {
       points: 7,
       maxPossiblePoints: 10,
@@ -105,7 +105,7 @@ export class ProfileComponent implements OnInit {
       name: 'PHP',
       // status: 0 == IN PROGRESS, status: 1 == DONE
       status: 1,
-      daysSpent: 5,
+      daysSpent: 6,
       rating: {
         points: 10,
         maxPossiblePoints: 50,
