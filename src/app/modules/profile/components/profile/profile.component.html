@@ -228,9 +228,9 @@
                   <thead>
                     <tr>
                       <th scope="col" class="pr-1">Качество</th>
-                      <th scope="col" class="py-1 pr-1">Сильная сторона</th>
-                      <th scope="col" class="pr-1">Стоит попробовать</th>
-                      <th scope="col" class="py-1 pr-1">Слабая сторона</th>
+                      <th scope="col" class="py-1 px-3">Сильная сторона</th>
+                      <th scope="col" class="pr-1 px-3">Стоит попробовать</th>
+                      <th scope="col" class="py-1 pr-4">Слабая сторона</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -279,7 +279,7 @@
                 ngbPopover="Превышено более чем на 3 дня" triggers="mouseenter:mouseleave"
                 popoverClass="info-popover-custom"></div>
               <div class="col-lg-8 px-0">
-                <div *ngFor="let day of getArrayDays(testTaskBlock.daysSpent)" class="d-inline-block custom-fs-12 used-day" [class.checked]="day < 7 && testTaskBlock.daysSpent > day" [class.days-extra-color]="day >= 7"><span>{{day + 1}}</span></div>
+                <div *ngFor="let day of getArrayDays(testTaskBlock.daysSpent)" class="d-inline-block custom-fs-12 used-day" [class.checked]="day <= 7 && testTaskBlock.daysSpent > day" [class.days-extra-color]="day > 7"><span>{{day}}</span></div>
               </div>
             </div>
             <div class="h6 row font-weight-normal pb-3">
@@ -345,7 +345,7 @@
                 ngbPopover="Превышено более чем на 3 дня" triggers="mouseenter:mouseleave"
                 popoverClass="info-popover-custom"></div>
               <div class="col-lg-8 px-0">
-                  <div *ngFor="let day of getArrayDays(thing.daysSpent)" class="d-inline-block custom-fs-12 used-day" [class.checked]="day < 7 && thing.daysSpent > day" [class.days-extra-color]="day >= 7"><span>{{day + 1}}</span></div>
+                  <div *ngFor="let day of getArrayDays(thing.daysSpent)" class="d-inline-block custom-fs-12 used-day" [class.checked]="day <= 7 && thing.daysSpent > day" [class.days-extra-color]="day > 7"><span>{{day}}</span></div>
               </div>
             </div>
             <div class="h6 row font-weight-normal pb-3">
@@ -372,10 +372,10 @@
               <thead>
                 <tr>
                   <th scope="col" class="pr-1">Направление</th>
-                  <th scope="col" class="pr-1">Не знаю</th>
-                  <th scope="col" class="pr-1">Читал немного</th>
-                  <th scope="col" class="pr-1">Хорошо знаю</th>
-                  <th scope="col" class="pr-1">Постоянно пишу</th>
+                  <th scope="col" class="px-3">Не знаю</th>
+                  <th scope="col" class="px-3">Читал немного</th>
+                  <th scope="col" class="px-3">Хорошо знаю</th>
+                  <th scope="col" class="px-3">Постоянно пишу</th>
                 </tr>
               </thead>
               <tbody>
