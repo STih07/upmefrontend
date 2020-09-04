@@ -104,7 +104,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="selected-col tr-height text-dark">
+                            <tr *ngFor="let user of users" class="selected-col tr-height text-dark">
                                 <th scope="row" class="col-filter-pl text-center">
                                     <img src="assets/icons/success-circle.svg" alt="success-circle">
                                 </th>
@@ -112,22 +112,22 @@
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <a href="#" class="avatar rounded-circle">
-                                                <img alt="Image placeholder" src="assets/img/user_card_img.png">
+                                                <img alt="Image placeholder" [src]="user.image">
                                             </a>
                                         </div>
                                         <div class="col ml-md-n2">
-                                            <a href="#!" class="d-block h6 mb-0 text-sm">Yuliia Chudina</a>
-                                            <small class="d-block text-dark color-black custom-fs-12 font-weight-900">#01</small>
+                                            <a href="#!" class="d-block h6 mb-0 text-sm">{{user.name}}</a>
+                                            <small class="d-block text-dark color-black custom-fs-12 font-weight-900">#0{{user.id}}</small>
                                         </div>
                                     </div>
-                                    <div class="text-sm text-muted">
+                                    <div class="text-sm text-muted user-source">
                                         <span>Исходники: </span>
-                                        <a href="!#">https://www.ben...</a>
+                                        <a href="!#">{{user.source}}</a>
                                     </div>
                                 </th>
-                                <th class="text-sm pl-3 pt-4">Онбординг</th>
+                                <th class="text-sm pl-3 pt-4">{{user.stage}}</th>
                                 <th class="px-0 pt-4">
-                                    <div class="status-block bg-success pt-1"><span class="ml-3 text-sm font-weight-normal">Проверено</span></div>
+                                    <div class="status-block pt-1" [class.bg-success]="user.status === 2" [class.bg-warning]="user.status === 1" [class.gray-block]="user.status === 0" ><span class="ml-3 text-sm font-weight-normal">{{user.status | taskStatus}}</span></div>
                                 </th>
                                 <th class="px-3 pt-4">
                                     <div class="status-block multiselect bg-white text-dark d-flex align-items-center justify-content-between">
@@ -135,83 +135,7 @@
                                         <img src="assets/icons/arrow-down-black.svg" height="4.93px" width="9.09px" class="mr-2">
                                     </div>
                                 </th>
-                                <th class="text-wrap px-4 pt-4 pb-1">
-                                    Кандидат хорошо владеет базовыми знаниями (типы переменнных и операции над ними), небольшой опыт владения классами, льём водичку для красоты, чтобы текста было много, очень много
-                                </th>
-                                <th class="pr-2 text-right pt-4"><img src="assets/icons/edit.svg" alt="edit"></th>
-                                <th class="pl-1 pr-3 text-center pt-4"><img src="assets/icons/delete.svg"alt="delete"></th>
-                            </tr>
-                            <tr class="tr-height text-dark">
-                                <th scope="row" class="col-filter-pl text-center">
-                                    <img src="assets/icons/empty-circle.svg">
-                                </th>
-                                <th class="pl-0 pt-2 align-middle">
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <a href="#" class="avatar rounded-circle">
-                                                <img alt="Image placeholder" src="assets/img/user_card_img.png">
-                                            </a>
-                                        </div>
-                                        <div class="col ml-md-n2">
-                                            <a href="#!" class="d-block h6 mb-0 text-sm">Darrell Webb</a>
-                                            <small class="d-block text-dark color-black custom-fs-12 font-weight-900">#08</small>
-                                        </div>
-                                    </div>
-                                    <div class="text-sm text-muted">
-                                        <span>Исходники: </span>
-                                        <a href="!#">https://www.ben...</a>
-                                    </div>
-                                </th>
-                                <th class="text-sm pl-3 pt-4">Онбординг</th>
-                                <th class="px-0 pt-4">
-                                    <div class="status-block bg-warning pt-1"><span class="ml-3 text-sm font-weight-normal">В работе</span></div>
-                                </th>
-                                <th class="px-3 pt-4">
-                                    <div class="status-block multiselect bg-white text-dark d-flex align-items-center justify-content-between">
-                                        <span class="ml-3 text-sm">-Нет оценки-</span>
-                                        <img src="assets/icons/arrow-down-black.svg" height="4.93px" width="9.09px" class="mr-2">
-                                    </div>
-                                </th>
-                                <th class="text-wrap px-4 pt-4 pb-1 text-muted">
-                                    Оставьте комментарий
-                                </th>
-                                <th class="pr-2 text-right pt-4"><img src="assets/icons/edit.svg" alt="edit"></th>
-                                <th class="pl-1 pr-3 text-center pt-4"><img src="assets/icons/delete.svg"alt="delete"></th>
-                            </tr>
-                            <tr class="selected-col tr-height text-dark">
-                                <th scope="row" class="col-filter-pl text-center">
-                                    <img src="assets/icons/success-circle.svg" alt="success-circle">
-                                </th>
-                                <th class="pl-0 pt-2 align-middle">
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <a href="#" class="avatar rounded-circle">
-                                                <img alt="Image placeholder" src="assets/img/user_card_img.png">
-                                            </a>
-                                        </div>
-                                        <div class="col ml-md-n2">
-                                            <a href="#!" class="d-block h6 mb-0 text-sm">Lyli Nith</a>
-                                            <small class="d-block text-dark color-black custom-fs-12 font-weight-900">#03</small>
-                                        </div>
-                                    </div>
-                                    <div class="text-sm text-muted">
-                                        <span>Исходники: </span>
-                                        <a href="!#">https://www.ben...</a>
-                                    </div>
-                                </th>
-                                <th class="text-sm pl-3 pt-4">Онбординг</th>
-                                <th class="px-0 pt-4">
-                                    <div class="status-block gray-block pt-1"><span class="ml-3 text-sm font-weight-normal">Ожидает проверки</span></div>
-                                </th>
-                                <th class="px-3 pt-4">
-                                    <div class="status-block multiselect bg-white text-dark d-flex align-items-center justify-content-between">
-                                        <span class="ml-3 text-sm">Отлично</span>
-                                        <img src="assets/icons/arrow-down-black.svg" height="4.93px" width="9.09px" class="mr-2">
-                                    </div>
-                                </th>
-                                <th class="text-wrap px-4 pt-4 pb-1 text-muted">
-                                    Оставьте комментарий
-                                </th>
+                                <th class="text-wrap px-4 pt-4 pb-1">{{user.feedBack}}</th>
                                 <th class="pr-2 text-right pt-4"><img src="assets/icons/edit.svg" alt="edit"></th>
                                 <th class="pl-1 pr-3 text-center pt-4"><img src="assets/icons/delete.svg"alt="delete"></th>
                             </tr>

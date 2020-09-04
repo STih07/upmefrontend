@@ -17,15 +17,41 @@ export class DirectionsComponent implements OnInit {
     {
       id: 1, // ???
       name: 'Yuliia Chudina',
-      icon: 'assets/img/user_card_img.png',
+      image: 'assets/img/user_card_img.png',
       source: 'https://www.linkedin.com/in/gleb-rutskiy-990ab21a8/',
       stage: 'Онбординг',
-      // 1 - awaiting, 2 - in progress, 3 - checked
-      status: 3,
-      // 1 - no passed, 2 - with misses, 3 - good, 4 - excellent
-      rating: 4, // ???
+      // 0 - awaiting, 1 - in progress, 2 - checked
+      status: 2,
+      // 0 - no passed, 1 - with misses, 2 - good, 3 - excellent
+      rating: 3, // ???
       // tslint:disable-next-line:max-line-length
       feedBack: 'Кандидат хорошо владеет базовыми знаниями (типы переменнных и операции над ними), небольшой опыт владения классами, льём водичку для красоты, чтобы текста было много, очень много' // ???
+    },
+    {
+      id: 2, // ???
+      name: 'Darrell Webb',
+      image: 'assets/img/user_card_img.png',
+      source: 'https://www.linkedin.com/in/gleb-rutskiy-990ab21a8/',
+      stage: 'Онбординг',
+      // 0 - awaiting, 1 - in progress, 2 - checked
+      status: 1,
+      // 0 - no passed, 1 - with misses, 2 - good, 3 - excellent
+      rating: 3, // ???
+      // tslint:disable-next-line:max-line-length
+      feedBack: 'Оставьте комментарий' // ???
+    },
+    {
+      id: 3, // ???
+      name: 'Lyli Nith',
+      image: 'assets/img/user_card_img.png',
+      source: 'https://www.linkedin.com/in/gleb-rutskiy-990ab21a8/',
+      stage: 'Онбординг',
+      // 0 - awaiting, 1 - in progress, 2 - checked
+      status: 0,
+      // 0 - no passed, 1 - with misses, 2 - good, 3 - excellent
+      rating: 3, // ???
+      // tslint:disable-next-line:max-line-length
+      feedBack: 'Оставьте комментарий' // ???
     }
   ];
 

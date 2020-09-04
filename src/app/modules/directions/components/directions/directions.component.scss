@@ -69,3 +69,10 @@ th.name-col{
     border: 1px solid #8492A6;
     border-radius: 4px;
 }
+
+.user-source{
+    width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
