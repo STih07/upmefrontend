@@ -42,7 +42,6 @@
                                 <th class="py-1 align-middle dicision-col custom-fs-14" scope="col">Решение</th>
                                 <th class="pl-2 py-1 align-middle custom-fs-14 finish-col" scope="col">Финиш</th>
                                 <th scope="col edit-col"></th>
-                                <th scope="col edit-col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,7 +49,7 @@
                                 <th scope="row" class="py-2 align-middle col-filter-pl selected-row">
                                     <img src="assets/icons/success-circle.svg" alt="success-circle">
                                 </th>
-                                <th class="pl-0 py-2 align-middle">
+                                <th class="pl-0  align-middle">
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <a href="#" class="avatar rounded-circle">
@@ -70,13 +69,13 @@
                                 <th class="align-middle py-2 px-0">
                                     <div class="status-block" [class.bg-success]="user.letterTask == 2" [class.gray-block]="user.letterTask === 0" [class.bg-warning]="user.letterTask === 1"><span class="ml-4 custom-fs-12">{{user.letterTask | dashStatus}}</span></div>
                                 </th>
-                                <th class="align-middle py-2 px-0">
+                                <th class="align-middle  px-0">
                                     <div class="status-block bg-success d-flex align-items-center justify-content-between">
                                         <span class="ml-4 custom-fs-12">Готово</span>
                                         <img src="assets/icons/arrow-down.svg" height="7.41px" width="12px" class="mr-2">
                                     </div>
                                 </th>
-                                <th class="align-middle py-2 px-0">
+                                <th class="align-middle  px-0">
                                     <div class="status-block bg-success d-flex align-items-center justify-content-between">
                                         <span class="ml-4 custom-fs-12">Готово</span>
                                         <img src="assets/icons/arrow-down.svg" height="7.41px" width="12px" class="mr-2">

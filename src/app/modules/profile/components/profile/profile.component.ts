@@ -1,10 +1,11 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
+
 export class ProfileComponent implements OnInit {
 
   states = [
@@ -91,7 +92,7 @@ export class ProfileComponent implements OnInit {
   testTaskBlock = {
     name: 'SQL',
     status: 1,
-    daysSpent: 8,
+    daysSpent: 11,
     result: {
       points: 7,
       maxPossiblePoints: 10,
@@ -104,7 +105,7 @@ export class ProfileComponent implements OnInit {
       name: 'PHP',
       // status: 0 == IN PROGRESS, status: 1 == DONE
       status: 1,
-      daysSpent: 5,
+      daysSpent: 6,
       rating: {
         points: 10,
         maxPossiblePoints: 50,
@@ -135,7 +136,8 @@ export class ProfileComponent implements OnInit {
     { name: 'Выносливость', userRating: 3, mentorRating: 0 },
   ];
 
-  constructor() { }
+
+  constructor(private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -150,6 +152,13 @@ export class ProfileComponent implements OnInit {
   }
   scrollToTop() {
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }
+
+  showSuccess(): void {
+    this.toastr.success('Success', '', {
+      timeOut: 5000,
+      toastClass: 'ngx-toastr custom-toastr',
+    });
   }
 
 }
