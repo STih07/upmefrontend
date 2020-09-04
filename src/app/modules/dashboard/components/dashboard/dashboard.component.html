@@ -46,7 +46,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="all-done-row tr-height">
+                            <tr *ngFor="let user of users" class="all-done-row tr-height">
                                 <th scope="row" class="py-2 align-middle col-filter-pl selected-row">
                                     <img src="assets/icons/success-circle.svg" alt="success-circle">
                                 </th>
@@ -54,27 +54,21 @@
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <a href="#" class="avatar rounded-circle">
-                                                <img alt="Image placeholder" src="assets/img/user_card_img.png">
+                                                <img alt="Image placeholder" [src]="user.image">
                                             </a>
                                         </div>
                                         <div class="col ml-md-n2">
-                                            <a href="#!" class="d-block h6 mb-0 custom-fs-14">Yuliia Chudina</a>
-                                            <small class="d-block text-black color-black custom-fs-12">#01</small>
+                                            <a href="#!" class="d-block h6 mb-0 custom-fs-14">{{user.name}}</a>
+                                            <small class="d-block text-black color-black custom-fs-12">#0{{user.id}}</small>
                                         </div>
                                     </div>
                                 </th>
-                                <th class="py-2 align-middle custom-fs-14">26/02/2020</th>
+                                <th class="py-2 align-middle custom-fs-14">{{user.begin}}</th>
                                 <th class="align-middle py-2 px-0">
-                                    <div class="status-block bg-success"><span class="ml-4 custom-fs-12">Готово</span></div>
+                                    <div class="status-block" [class.bg-success]="user.formTask == 2" [class.gray-block]="user.formTask === 0" [class.bg-warning]="user.formTask === 1"><span class="ml-4 custom-fs-12">{{user.formTask | dashStatus}}</span></div>
                                 </th>
                                 <th class="align-middle py-2 px-0">
-                                    <div class="status-block bg-success"><span class="ml-4 custom-fs-12">Готово</span></div>
-                                </th>
-                                <th class="align-middle py-2 px-0">
-                                    <div class="status-block bg-success d-flex align-items-center justify-content-between">
-                                        <span class="ml-4 custom-fs-12">Готово</span>
-                                        <img src="assets/icons/arrow-down.svg" height="7.41px" width="12px" class="mr-2">
-                                    </div>
+                                    <div class="status-block" [class.bg-success]="user.letterTask == 2" [class.gray-block]="user.letterTask === 0" [class.bg-warning]="user.letterTask === 1"><span class="ml-4 custom-fs-12">{{user.letterTask | dashStatus}}</span></div>
                                 </th>
                                 <th class="align-middle py-2 px-0">
                                     <div class="status-block bg-success d-flex align-items-center justify-content-between">
@@ -82,126 +76,16 @@
                                         <img src="assets/icons/arrow-down.svg" height="7.41px" width="12px" class="mr-2">
                                     </div>
                                 </th>
-                                <th class="align-middle finish-row custom-fs-14 py-1">Принят</th>
-                                <th class="align-middle pl-2 pr-2 py-2 custom-fs-14">15/03/2020</th>
+                                <th class="align-middle py-2 px-0">
+                                    <div class="status-block bg-success d-flex align-items-center justify-content-between">
+                                        <span class="ml-4 custom-fs-12">Готово</span>
+                                        <img src="assets/icons/arrow-down.svg" height="7.41px" width="12px" class="mr-2">
+                                    </div>
+                                </th>
+                                <th class="align-middle finish-row custom-fs-14 py-1">{{user.decision}}</th>
+                                <th class="align-middle pl-2 pr-2 py-2 custom-fs-14">{{user.finish}}</th>
                                 <th class="align-middle pr-2 text-right"><img src="assets/icons/edit.svg" alt="edit"></th>
                                 <th class="align-middle pl-1 pr-3 text-center"><img src="assets/icons/delete.svg"alt="delete"></th>
-                            </tr>
-                            <tr class="all-done-row tr-height">
-                                <th scope="row" class="col-filter-pl align-middle py-2 selected-row">
-                                    <img src="assets/icons/success-circle.svg" alt="success-circle">
-                                </th>
-                                <th class="pl-0 align-middle py-2">
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <a href="#" class="avatar rounded-circle">
-                                                <img alt="Image placeholder" src="assets/img/user_card_img.png">
-                                            </a>
-                                        </div>
-                                        <div class="col ml-md-n2">
-                                            <a href="#!" class="d-block h6 mb-0 custom-fs-14">Darrell Web</a>
-                                            <small class="d-block text-black color-black custom-fs-12">#08</small>
-                                        </div>
-                                    </div>
-                                </th>
-                                <th class="align-middle py-2 custom-fs-14">06/02/2020</th>
-                                <th class="align-middle py-2 px-0">
-                                    <div class="status-block bg-success"><span class="ml-4 custom-fs-12">Готово</span></div>
-                                </th>
-                                <th class="align-middle py-2 px-0">
-                                    <div class="status-block bg-success"><span class="ml-4 custom-fs-12">Готово</span></div>
-                                </th>
-                                <th class="align-middle py-2 px-0">
-                                    <div class="status-block bg-success d-flex align-items-center justify-content-between">
-                                        <span class="ml-4 custom-fs-12">Готово</span>
-                                        <img src="assets/icons/arrow-down.svg" height="7.41px" width="12px" class="mr-2">
-                                    </div>
-                                </th>
-                                <th class="align-middle py-2 px-0 nothing-block">
-                                    <div class=""></div>
-                                </th>
-                                <th class="align-middle finish-row custom-fs-14 py-1">Принят на испытательный</th>
-                                <th class="align-middle pl-2 pr-2 py-2 custom-fs-14">17/03/2020</th>
-                                <th class="align-middle pr-2 text-right"><img src="assets/icons/edit.svg" alt="edit"></th>
-                                <th class="align-middle pl-1 pr-3 text-center"><img src="assets/icons/delete.svg" alt="delete"></th>
-                            </tr>
-                            <tr class="tr-height">
-                                <th scope="row" class="col-filter-pl align-middle py-2">
-                                    <img src="assets/icons/empty-circle.svg" alt="success-circle">
-                                </th>
-                                <th class="pl-0 align-middle py-2">
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <a href="#" class="avatar rounded-circle">
-                                                <img alt="Image placeholder" src="assets/img/user_card_img.png">
-                                            </a>
-                                        </div>
-                                        <div class="col ml-md-n2">
-                                            <a href="#!" class="d-block h6 mb-0 custom-fs-14">Lily Bell</a>
-                                            <small class="d-block text-black color-black custom-fs-12">#02</small>
-                                        </div>
-                                    </div>
-                                </th>
-                                <th class="align-middle py-2 custom-fs-14">01/02/2020</th>
-                                <th class="align-middle py-2 px-0">
-                                    <div class="status-block bg-success"><span class="ml-4 custom-fs-12">Готово</span></div>
-                                </th>
-                                <th class="align-middle py-2 px-0">
-                                    <div class="status-block gray-block"><span class="ml-4 custom-fs-12">Не начато</span></div>
-                                </th>
-                                <th class="align-middle py-2 px-0">
-                                    <div class="status-block gray-block d-flex align-items-center justify-content-between">
-                                        <span class="ml-4 custom-fs-12">Не начато</span>
-                                        <img src="assets/icons/arrow-down.svg" height="7.41px" width="12px" class="mr-2">
-                                    </div>
-                                </th>
-                                <th class="align-middle py-2 px-0">
-                                    <div class="status-block gray-block d-flex align-items-center justify-content-between">
-                                        <span class="ml-4 custom-fs-12">Не начато</span>
-                                        <img src="assets/icons/arrow-down.svg" height="7.41px" width="12px" class="mr-2">
-                                    </div>
-                                </th>
-                                <th class="align-middle finish-row custom-fs-14 py-1">Не принят</th>
-                                <th class="align-middle pl-2 pr-2 py-2 custom-fs-14">--</th>
-                                <th class="align-middle pr-2 text-right"><img src="assets/icons/edit.svg" alt="edit"></th>
-                                <th class="align-middle pl-1 pr-3 text-center"><img src="assets/icons/delete.svg" alt="delete"></th>
-                            </tr>
-                            <tr class="tr-height">
-                                <th scope="row" class="col-filter-pl align-middle ">
-                                    <img src="assets/icons/empty-circle.svg" alt="success-circle">
-                                </th>
-                                <th class="pl-0 align-middle ">
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <a href="#" class="avatar rounded-circle">
-                                                <img alt="Image placeholder" src="assets/img/user_card_img.png">
-                                            </a>
-                                        </div>
-                                        <div class="col ml-md-n2">
-                                            <a href="#!" class="d-block h6 mb-0 custom-fs-14">Cody Cooper</a>
-                                            <small class="d-block text-black color-black custom-fs-12">#03</small>
-                                        </div>
-                                    </div>
-                                </th>
-                                <th class="align-middle custom-fs-14">13/02/2020</th>
-                                <th class="align-middle  px-0">
-                                    <div class="status-block bg-success"><span class="ml-4 custom-fs-12">Готово</span></div>
-                                </th>
-                                <th class="align-middle  px-0">
-                                    <div class="status-block bg-success"><span class="ml-4 custom-fs-12">Готово</span></div>
-                                </th>
-                                <th class="align-middle  px-0">
-                                    <div class="status-block bg-warning d-flex align-items-center justify-content-between">
-                                        <span class="ml-4 custom-fs-12">В прогрессе</span>
-                                        <img src="assets/icons/arrow-down.svg" height="7.41px" width="12px" class="mr-2">
-                                    </div>
-                                </th>
-                                <th class="align-middle  px-0 nothing-block"><div class=""></div>
-                                </th>
-                                <th class=" align-middle finish-row custom-fs-14 py-1">Не принят, еще очень юн, советуем пойти в it2school</th>
-                                <th class="align-middle pl-2 pr-2 ">--</th>
-                                <th class="align-middle pr-2 text-right"><img src="assets/icons/edit.svg" alt="edit"></th>
-                                <th class="align-middle pl-1 pr-3 text-center"><img src="assets/icons/delete.svg" alt="delete"></th>
                             </tr>
                         </tbody>
                     </table>
