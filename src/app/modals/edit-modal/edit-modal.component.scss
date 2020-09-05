@@ -1,0 +1,13 @@
+.custom-edit-modal {
+    color: #3c4858;
+}
+
+.btn-modal-edit {
+    height : 35px;
+    padding: 8px 14px;
+
+    &.btn-modal-edit:hover {
+        color           : #fff !important;
+        background-color: #006ad7 !important;
+    }
+}
