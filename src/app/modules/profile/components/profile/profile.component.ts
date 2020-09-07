@@ -3,6 +3,8 @@ import { ToastrService } from 'ngx-toastr';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { EditModalComponent } from 'src/app/modals/edit-modal/edit-modal.component';
 import { SubmitModalComponent } from 'src/app/modals/submit-modal/submit-modal.component';
+import { FakeHttpService } from '../../services/fake-http.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -11,6 +13,7 @@ import { SubmitModalComponent } from 'src/app/modals/submit-modal/submit-modal.c
 })
 
 export class ProfileComponent implements OnInit {
+  users: any;
 
   states = [
     { id: 1, name: 'Онбординг', active: true },
@@ -141,10 +144,19 @@ export class ProfileComponent implements OnInit {
   ];
 
 
-  constructor(private toastr: ToastrService, private modalService: NgbModal) { }
+  constructor(
+    private toastr: ToastrService,
+    private modalService: NgbModal,
+    private fakeHttp: FakeHttpService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-
+    console.log(this.route.snapshot.params.id);
+    this.fakeHttp.getUserById(this.route.snapshot.params.id).subscribe(res => {
+      console.log(res);
+      this.users = res;
+    });
   }
 
   getArrayDays(spentDays: number) {
