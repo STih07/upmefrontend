@@ -5,6 +5,7 @@ import { EditModalComponent } from 'src/app/modals/edit-modal/edit-modal.compone
 import { SubmitModalComponent } from 'src/app/modals/submit-modal/submit-modal.component';
 import { FakeHttpService } from '../../services/fake-http.service';
 import { ActivatedRoute } from '@angular/router';
+import { PracticeTask, TestTask, ProfileUser } from '../../../../models/profile-user';
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class ProfileComponent implements OnInit {
-  users: any;
+  user = null;
 
   states = [
     { id: 1, name: 'Онбординг', active: true },
@@ -23,126 +24,16 @@ export class ProfileComponent implements OnInit {
     { id: 5, name: 'Трудоустройство', active: false },
   ];
 
-  user = {
-    name: 'Yuliia Chudina',
-    icon: 'assets/img/user_card_img.png',
-    profile: 'UX/UI Designer',
-    lastStateId: 2,
-    social_media: {
-      mail: 'yuliia.chudina@gmail.com',
-      phone: '+380 93 350 24 32',
-      telegram: {
-        username: '@chudiina',
-        link: 'https://t.me/stih07'
-      },
-      linkedin: 'https://www.linkedin.com/in/galina-orishich-a89b69169/'
-    },
-    points: 123,
-  };
-
   userStates = [
     { id: 0, name: 'Принят' },
     { id: 1, name: 'Принят на испытательный срок' },
     { id: 2, name: 'Не принят' },
     { id: 3, name: 'Не принят. Ты ещё очень юн и мы советуем тебе подать заявку в IT2School' },
   ];
-  selectedSolution = null;
   hasSolution = false;
 
-  activity = {
-    totalDays: {
-      average: 10,
-      current: 8,
-    },
-    formDays: {
-      average: 1,
-      current: 1,
-    },
-    testDays: {
-      average: 3,
-      current: 3,
-      mistakes: 5
-    },
-    practiceDays: {
-      average: 3,
-      current: 3,
-      mistakes: 3,
-    },
-  };
-
-  genInfo = {
-    studyingTime: {
-      began: '12-03-2020',
-      finished: '--',
-    },
-    education: {
-      institution: 'КЗИ ОНАС',
-      faculty: 'Разработчик ПО 4 курс',
-      otherAchievements: '3 класса музікальной школі, зборная колледжа по волейболу',
-    },
-    // tslint:disable-next-line:max-line-length
-    motivation: 'Хочу получать акутульное образование сфере ИТ и находиться среди ребят, который любят и ценят самообразование. Так же всегда мечтала заниматься инетресным делом и получать от этого удовольствие. Хочу получать акуаульно образование сфере ИТ и находиться среди ребят, который любят и ценят самообразование. Так же всегда мечтала заниматься который любят...',
-    tableHardSkill: [
-      // ничего - 0, не знаю - 1, читал немного - 2, хорошо знаю - 3, постоянно пишу - 4
-      { name: 'PHP', userRating: 4 },
-      { name: 'SQL', userRating: 3 },
-      { name: 'Front-end', userRating: 4 },
-    ],
-    tableSoftSkill: [
-      // ничего - 0, сильная сторона - 1, слабая сторона - 2, стоит поработать - 3
-      { name: 'Критическое мышление', userRating: 1 },
-      { name: 'Усидчивость', userRating: 3 },
-      { name: 'Коммуникабельность', userRating: 2 },
-    ],
-  };
-
-  testTaskBlock = {
-    name: 'SQL',
-    status: 1,
-    daysSpent: 11,
-    result: {
-      points: 7,
-      maxPossiblePoints: 10,
-    },
-    mistakes: 5,
-  };
-
-  practiceTaskBlock = [
-    {
-      name: 'PHP',
-      // status: 0 == IN PROGRESS, status: 1 == DONE
-      status: 1,
-      daysSpent: 6,
-      rating: {
-        points: 10,
-        maxPossiblePoints: 50,
-      },
-      // tslint:disable-next-line:max-line-length
-      feetback: 'Кандидат хорошо владеет базовыми знаниями (типы переменнных и операции над ними), небольшой опыт владения классами, льём водичку для красо...',
-      tableRating: [
-        // ничего - 0, не знаю - 1, читал немного - 2, хорошо знаю - 3, постоянно пишу - 4
-        { name: 'Самооценка', userRating: 4 },
-        { name: 'Оценка ментора', mentorRating: 3 },
-      ],
-      source: {
-        nameFile: 'name_of_file.png',
-        type: 'png',
-        size: '45mb',
-      }
-    }
-  ];
-
-  @ViewChild('solution') solutionRef: any;
-
-
-  softSkillBlock = [
-    // ничего - 0, сильная сторона - 1, стоит поработать - 2, слабая сторона - 3
-    { name: 'Критическое мышление', userRating: 1, mentorRating: 1 },
-    { name: 'Коммуникабельность', userRating: 1, mentorRating: 2 },
-    { name: 'Командная работа', userRating: 2, mentorRating: 0 },
-    { name: 'Выносливость', userRating: 3, mentorRating: 0 },
-  ];
-
+  selectedTest: TestTask;
+  selectedPractice: PracticeTask;
 
   constructor(
     private toastr: ToastrService,
@@ -153,15 +44,30 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.route.snapshot.params.id);
-    this.fakeHttp.getUserById(this.route.snapshot.params.id).subscribe(res => {
+    this.fakeHttp.getUserById(this.route.snapshot.params.id).subscribe((res) => {
       console.log(res);
-      this.users = res;
+      this.user = res;
+      this.selectedTest = this.user.testTasks?.[0];
+      this.selectedPractice = this.user.practiceTasks?.[0];
     });
+  }
+
+  showTest(test: TestTask) {
+    this.selectedTest = test;
+  }
+
+  showPractice(practice: PracticeTask) {
+    this.selectedPractice = practice;
   }
 
   getArrayDays(spentDays: number) {
     const length = Math.max(Math.min(spentDays, 10), 7);
     return Array.from({ length }, (x, i) => i + 1);
+  }
+
+  getFullName() {
+    const [name, surname] = this.user.info.name.split(' ').map((word: string) => word[0]);
+    return name + surname;
   }
 
   getPercentOfDiffrence(num1: number, num2: number): number {
@@ -183,12 +89,12 @@ export class ProfileComponent implements OnInit {
     this.modalService.open(EditModalComponent);
   }
 
-  openSubmitModal(name$: string): void {
+  openSubmitModal(): void {
     const modalRef = this.modalService.open(SubmitModalComponent);
 
     modalRef.componentInstance.user = {
-      username: name$,
-      solution: this.userStates[this.selectedSolution].name
+      username: this.user.info.name,
+      solution: this.userStates[this.user.userStateId].name
     };
   }
 }

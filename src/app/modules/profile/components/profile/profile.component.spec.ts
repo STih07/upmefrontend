@@ -6,6 +6,7 @@ import { TaskStatusPipe } from '../../pipes/status.pipe';
 import { RoundPipe } from '../../pipes/round.pipe';
 import { AbsPipe } from '../../pipes/abs.pipe';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -21,7 +22,8 @@ describe('ProfileComponent', () => {
       ],
       imports: [
         RouterTestingModule,
-        ToastrModule.forRoot()
+        ToastrModule.forRoot(),
+        HttpClientModule
       ]
     })
       .compileComponents();
