@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NgProgress, NgProgressRef } from 'ngx-progressbar';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {EditProfileModalComponent} from '../modals/edit-profile-modal/edit-profile-modal.component';
 
 @Component({
   selector: 'app-layout',
@@ -15,7 +17,10 @@ export class LayoutComponent {
     icon: 'assets/img/user_img.png'
   };
 
-  constructor(private ngProgress: NgProgress) {
+  constructor(private ngProgress: NgProgress, private modalService: NgbModal) {
   }
 
+  openEditProfileModal() {
+    this.modalService.open(EditProfileModalComponent);
+  }
 }
