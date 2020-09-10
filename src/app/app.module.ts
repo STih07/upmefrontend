@@ -12,17 +12,21 @@ import { Page404Component } from './page404/page404.component';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { EditModalComponent } from './modals/edit-modal/edit-modal.component';
 import { SubmitModalComponent } from './modals/submit-modal/submit-modal.component';
+import { EditProfileModalComponent } from './modals/edit-profile-modal/edit-profile-modal.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
     Page404Component,
+    EditProfileModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule, ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
@@ -39,7 +43,8 @@ import { SubmitModalComponent } from './modals/submit-modal/submit-modal.compone
   ],
   entryComponents: [
     EditModalComponent,
-    SubmitModalComponent
+    SubmitModalComponent,
+    EditProfileModalComponent
   ],
   bootstrap: [AppComponent]
 })

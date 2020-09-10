@@ -1,0 +1,29 @@
+<form [formGroup]="editProfileForm" class="p-4">
+  <div class="d-flex align-items-center flex-column mt-2">
+    <a href="#" class="avatar rounded-circle">
+      <img alt="Image placeholder" src="assets/img/edit-profile-modal.png" class="img-edit-profile">
+    </a>
+    <p class="mt-3 mb-1 text-primary text-sm">CEO, Founder</p>
+  </div>
+  <div class="form-group">
+    <label for="name" class="text-dark text-sm mt-2 mb-0">Полное имя</label>
+    <input type="text" class="form-control text-sm" id="name" aria-describedby="emailHelp" formControlName="fullName"
+           placeholder="Анна Деревянко">
+  </div>
+  <div class="form-group">
+    <label for="modal-edit-email" class="text-dark text-sm mt-2 mb-0">Email</label>
+    <input type="email" class="form-control text-sm" id="modal-edit-email" formControlName="email" placeholder="example@gmail.com">
+  </div>
+  <div class="form-group">
+    <label for="modal-edit-phone" class="text-dark text-sm mt-2 mb-0">Телефон</label>
+    <input type="text" class="form-control text-sm" id="modal-edit-phone" formControlName="telNumber">
+  </div>
+  <div class="form-group">
+    <label for="modal-edit-telegram" class="text-dark text-sm mt-2 mb-0">Телеграмм ник</label>
+    <input type="text" class="form-control text-sm" id="modal-edit-telegram" placeholder="@example" formControlName="telegramNickName">
+  </div>
+  <div class="d-flex justify-content-between">
+    <button type="button" class="btn btn-primary btn-sm py-2 text-sm" [disabled]="editProfileForm.invalid" (click)="onCancel()">Сохранить</button>
+    <button type="button" class="btn btn-sm text-danger text-sm" (click)="onCancel()">Отмена</button>
+  </div>
+</form>
