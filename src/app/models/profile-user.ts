@@ -76,7 +76,7 @@ export interface PracticeTask {
     name: string;
     status: number;
     daysSpent: number;
-    rating: Rating;
+    result: Rating;
     feedback: string;
     tableRating: SoftSkillBlock[];
     source: Source;

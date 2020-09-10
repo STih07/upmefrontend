@@ -329,12 +329,12 @@
                   <div *ngFor="let day of getArrayDays(selectedPractice.daysSpent)" class="d-inline-block custom-fs-12 used-day" [class.checked]="day <= 7 && selectedPractice.daysSpent >= day" [class.days-extra-color]="day > 7"><span>{{day}}</span></div>
               </div>
             </div>
-            <div class="h6 row font-weight-normal pb-3 " *ngIf="selectedPractice.rating">
+            <div class="h6 row font-weight-normal pb-3 " *ngIf="selectedPractice.result">
               <div class="col-lg-4 custom-fs-13">Оценка: <img src="assets/icons/info.svg" alt="info-result"
                 ngbPopover="Превышено более чем на 3 дня" triggers="mouseenter:mouseleave"
                 popoverClass="info-popover-custom"></div>
               <div class="col-lg-8 px-0 color-black custom-fs-14">
-                {{selectedPractice.rating?.points < (selectedPractice.rating?.maxPossiblePoints / 2) ? "Плохо" : "Хорошо"}} ({{selectedPractice.rating?.points}}/{{selectedPractice.rating?.maxPossiblePoints}} баллов)
+                {{selectedPractice.result?.points < (selectedPractice.result?.maxPossiblePoints / 2) ? "Плохо" : "Хорошо"}} ({{selectedPractice.result?.points}}/{{selectedPractice.result?.maxPossiblePoints}} баллов)
               </div>
             </div>
             <div class="h6 row font-weight-normal pb-4" *ngIf="selectedPractice.feedback">
