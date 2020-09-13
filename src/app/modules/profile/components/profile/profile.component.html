@@ -1,5 +1,5 @@
-<div class="container-fluid container-application mt-4 d-block">
-    <span class="text-white h3 custom-fs-26">{{user.name}}</span>
+<div class="container-fluid container-application mt-4 d-block" *ngIf="user">
+    <span class="text-white h3 custom-fs-26">{{user.info.name}}</span>
     <ul class="nav mt-4">
       <ng-container *ngFor="let state of states; let i = index">
         <li *ngIf="i !== 0" class="nav-item border-bottom pr-3" [class.not-active]="!state.active"></li>
@@ -17,13 +17,13 @@
             <div class="row align-items-center">
               <div class="col-auto">
                 <!-- Avatar -->
-                <a href="#" class="avatar rounded-circle">
-                  <img alt="Image placeholder" [src]="user.icon" class="">
-                </a>
+                <a href="#" class="avatar rounded-circle" [class.bg-warning]="!user.info.icon">
+                  <img *ngIf="user.info.icon" alt="Image placeholder" [src]="user.info.icon">
+                  <div *ngIf="!user.info.icon" class="text-white custom-fs-21 lh-100 font-weight-900" style="transform: translateY(5%)">{{getFullName()}}</div>                </a>
               </div>
               <div class="col ml-md-n2">
-                <a href="#!" class="d-block h6 mb-0 custom-fs-18">{{user.name}}</a>
-                <small class="d-block text-black color-black custom-fs-14">{{user.profile}}</small>
+                <a href="#!" class="d-block h6 mb-0 custom-fs-18">{{user.info.name}}</a>
+                <small class="d-block text-black color-black custom-fs-14">{{user.info.profile}}</small>
               </div>
               <div class="col-auto">
                 <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill btn-secondary" (click)="openEditModal()">
@@ -39,14 +39,14 @@
                 <h6 class="text-sm mb-0">
                   <img src="assets/icons/gmail_ico.svg" class="gmail-ico mr-3">
                   <a class="link" target="_blank"
-                    [href]="'mailto:' + user.social_media.mail">{{user.social_media.mail}}</a>
+                    [href]="'mailto:' + user.info.social_media.mail">{{user.info.social_media.mail}}</a>
                 </h6>
               </div>
             </div>
             <div class="row my-3 align-items-center">
               <div class="col">
                 <h6 class="text-sm mb-0">
-                  <i class="fa fa-phone mr-3"></i>{{user.social_media.phone}}
+                  <i class="fa fa-phone mr-3"></i>{{user.info.social_media.phone}}
                 </h6>
               </div>
             </div>
@@ -55,7 +55,7 @@
                 <h6 class="text-sm mb-0">
                   <i class="fa fa-paper-plane mr-3"></i>
                   <a class="link" target="_blank"
-                    [href]="user.social_media.telegram.link">{{user.social_media.telegram.username}}</a>
+                    [href]="user.info.social_media.telegram?.link">{{user.info.social_media.telegram?.username}}</a>
                 </h6>
               </div>
             </div>
@@ -63,8 +63,7 @@
               <div class="col">
                 <h6 class="text-sm mb-0 d-flex">
                   <i class="fa fa-linkedin-square mr-3"></i>
-                  <a class="link" target="_blank" [href]="user.social_media.linkedin"><span
-                      class="link">{{user.social_media.linkedin}}</span></a>
+                  <a class="link" target="_blank" [href]="user.info.social_media.linkedin"><span class="link">{{user.info.social_media.linkedin}}</span></a>
                 </h6>
               </div>
             </div>
@@ -84,40 +83,40 @@
             <div class="col-lg-6 d-flex flex-column justify-content-between">
               <div class="bottom-light-border mx-4 py-3">
                 <div class="mb-3 color-black font-weight-300 custom-fs-13">Всего</div>
-                <span class="text-success h2 font-weight-bold mr-2" [class.text-primary]='activity.totalDays.average === activity.totalDays.current'
-                [class.text-warning]='activity.totalDays.average < activity.totalDays.current' [class.text-success]='activity.totalDays.average > activity.totalDays.current'>8</span>
+                <span class="text-success h2 font-weight-bold mr-2" [class.text-primary]='user.activity.totalDays.average === user.activity.totalDays.current'
+                [class.text-warning]='user.activity.totalDays.average < user.activity.totalDays.current' [class.text-success]='user.activity.totalDays.average > user.activity.totalDays.current'>{{user.activity.totalDays.current}}</span>
                 <span class="custom-fs-12">дней</span>
               </div>
               <div class="ml-4 mr-3 py-3">
-                <div class="mb-3 color-black font-weight-300 custom-fs-13">Раньше на</div>
-                <span class="text-success h2 font-weight-bold mr-2" [class.text-primary]='activity.totalDays.average === activity.totalDays.current'
-                [class.text-warning]='activity.totalDays.average < activity.totalDays.current' [class.text-success]='activity.totalDays.average > activity.totalDays.current'>2</span>
+                <div class="mb-3 color-black font-weight-300 custom-fs-13">{{user.activity.totalDays.average > user.activity.totalDays.current ? 'Раньше на' : 'Использовал запасных'}}</div>
+                <span class="text-success h2 font-weight-bold mr-2" [class.text-primary]='user.activity.totalDays.average === user.activity.totalDays.current'
+                [class.text-warning]='user.activity.totalDays.average < user.activity.totalDays.current' [class.text-success]='user.activity.totalDays.average > user.activity.totalDays.current'>{{user.activity.totalDays.average - user.activity.totalDays.current | abs}}</span>
                 <span class="custom-fs-12">дня</span>
-                <span class="float-right small text-right pt-1 custom-fs-10">Быстрее<br>среднего на {{getPercentOfDiffrence(activity.totalDays.average, activity.totalDays.current) | round}}%</span>
+                <span class="float-right small text-right pt-1 custom-fs-10">{{user.activity.totalDays.average > user.activity.totalDays.current ? 'Быстрее' : 'Медленнее'}}<br>среднего на {{getPercentOfDiffrence(user.activity.totalDays.average, user.activity.totalDays.current) | round | abs}}%</span>
               </div>
             </div>
             <div class="col-lg-6 d-flex flex-column justify-content-around left-light-border">
               <div class="ml-3">
                 <div class="color-black font-weight-300 custom-fs-13">Форма</div>
                 <div class="mt-2">
-                  <span class="text-primary font-weight-bold h5 mr-1" [class.text-primary]='activity.formDays.average === activity.formDays.current'
-                  [class.text-warning]='activity.formDays.average < activity.formDays.current' [class.text-success]='activity.formDays.average > activity.formDays.current'>1</span><span class="custom-fs-12">день</span> 
+                  <span class="text-primary font-weight-bold h5 mr-1" [class.text-primary]='user.activity.formDays.average === user.activity.formDays.current'
+                  [class.text-warning]='user.activity.formDays.average < user.activity.formDays.current' [class.text-success]='user.activity.formDays.average > user.activity.formDays.current'>{{user.activity.formDays.current}}</span><span class="custom-fs-12">{{user.activity.formDays.current > 1 ? "дня " : "день"}}</span> 
                 </div>
               </div>
               <div class="ml-3">
                 <div class="color-black font-weight-300 custom-fs-13">Тестовое</div>
                 <div class="mt-2">
-                  <span class="text-primary font-weight-bold h5 mr-1" [class.text-primary]='activity.testDays.average === activity.testDays.current'
-                  [class.text-warning]='activity.testDays.average < activity.testDays.current' [class.text-success]='activity.testDays.average > activity.testDays.current'>{{activity.testDays.current}}</span><span class="custom-fs-12">дня</span> 
-                  <span class="float-right small mr-4">{{activity.testDays.mistakes}} ошибок</span>
+                  <span class="text-primary font-weight-bold h5 mr-1" [class.text-primary]='user.activity.testDays.average === user.activity.testDays.current'
+                  [class.text-warning]='user.activity.testDays.average < user.activity.testDays.current' [class.text-success]='user.activity.testDays.average > user.activity.testDays.current'>{{user.activity.testDays.current}}</span><span class="custom-fs-12">{{user.activity.testDays.current > 1 ? "дня " : "день"}}</span> 
+                  <span class="float-right small mr-4">Ошибок {{user.activity.testDays.mistakes}}</span>
                 </div>
               </div>
               <div class="ml-3">
                 <div class="color-black font-weight-300 custom-fs-13">Практическое</div>
                 <div class="mt-2">
-                  <span class="text-primary font-weight-bold h5 mr-1" [class.text-primary]='activity.practiceDays.average === activity.practiceDays.current'
-                  [class.text-warning]='activity.practiceDays.average < activity.practiceDays.current' [class.text-success]='activity.practiceDays.average > activity.practiceDays.current'>{{activity.practiceDays.current}}</span><span class="custom-fs-12">дня</span> 
-                  <span class="float-right small mr-4">{{activity.practiceDays.mistakes}} ошибки</span>
+                  <span class="text-primary font-weight-bold h5 mr-1" [class.text-primary]='user.activity.practiceDays.average === user.activity.practiceDays.current'
+                  [class.text-warning]='user.activity.practiceDays.average < user.activity.practiceDays.current' [class.text-success]='user.activity.practiceDays.average > user.activity.practiceDays.current'>{{user.activity.practiceDays.current}}</span><span class="custom-fs-12">{{user.activity.practiceDays.current > 1 ? "дня " : "день"}}</span> 
+                  <span class="float-right small mr-4" *ngIf="user.activity.practiceDays.mistakes">Ошибок {{user.activity.practiceDays.mistakes}}</span>
                 </div>
               </div>
             </div>
@@ -128,18 +127,18 @@
       <div class="col-lg-4">
         <!-- Profile stats -->
         <div class="card card-fluid" [class.disabled]='hasSolution'>
-          <div class="d-flex justify-content-center card-title small mt-1" [class.disabled]='hasSolution'></div>
+          <div class="d-flex justify-content-center card-title small mt-3" [class.disabled]='hasSolution'></div>
           <div class="card-body py-0 row mt-3">
             <div>
               <ul class="custom__ul">
-                <li *ngFor="let state of userStates; let i = index" [class._selected]="selectedSolution === state.id"
-                  (click)="selectedSolution = state.id" class="pl-1 custom_checkbox lh-120 text-sm"
+                <li *ngFor="let state of userStates; let i = index" [class._selected]="user.userStateId === state.id"
+                  (click)="user.userStateId = state.id" class="pl-1 custom_checkbox lh-120 text-sm"
                   [class.pb-4]="i !== userStates.length - 1">
                   {{state.name}}
                 </li>
               </ul>
             </div>
-            <button class="btn btn-secondary btn-xs mx-3 custom-btn w-100" [disabled]="selectedSolution === null || hasSolution" (click)="showSuccess(); openSubmitModal(user.name)">
+            <button class="btn btn-secondary btn-xs mx-3 custom-btn w-100" [disabled]="user.userStateId === null || hasSolution" (click)="showSuccess(); openSubmitModal()">
               <span class="h6 text-white">Подтвердить</span>
             </button>
           </div>
@@ -156,11 +155,11 @@
               <div class="d-flex justify-content-between">
                 <div class="mr-5 d-flex flex-column custom-fs-14">
                   <span class="text-muted">Начал:</span>
-                  <span>{{genInfo.studyingTime.began}}</span>
+                  <span>{{user.genInfo.studyingTime.began}}</span>
                 </div>
                 <div class="d-flex flex-column mr-3 custom-fs-14">
                   <span class="text-muted">Закончил:</span>
-                  <span>{{genInfo.studyingTime.finished}}</span>
+                  <span>{{user.genInfo.studyingTime.finished}}</span>
                 </div>
               </div>
             </div>
@@ -169,20 +168,15 @@
             <div class="row">
               <div class="col-lg-6">
                 <p class="_card-subtitle font-weight-900">Образование:</p>
-                <p class="h6 custom-fs-14 pb-2">Учебное заведение: {{genInfo.education.institution}}</p>
-                <p class="h6 custom-fs-14 pb-2">Факультет: {{genInfo.education.faculty}}</p>
-                <p class="h6 custom-fs-14">Другие достижения: {{genInfo.education.otherAchievements}}.</p>
+                <p class="h6 custom-fs-14 pb-2">Учебное заведение: {{user.genInfo.education.institution}}</p>
+                <p class="h6 custom-fs-14 pb-2">Факультет: {{user.genInfo.education.faculty}}</p>
+                <p class="h6 custom-fs-14">Другие достижения: {{user.genInfo.education.otherAchievements}}.</p>
               </div>
               <div class="col-lg-6 pl-4">
                 <p class="_card-subtitle font-weight-bolder ml-2">Мотивация:</p>
                 <div class="h6 pb-2 pr-5 fs-9 ml-2">
-                  Хочу получать акутульное образование сфере ИТ и находиться среди
-                  ребят, который любят и ценят самообразование. Так же всегда
-                  мечтала заниматься инетресным делом и получать от этого
-                  удовольствие. Хочу получать акуаульно образование сфере ИТ и
-                  находиться среди ребят, который любят и ценят самообразование.
-                  Так же всегда мечтала заниматься который любят...
-                  <span class="float-right text-primary font-weight-bold">Больше <i class="fa fa-angle-down"></i></span>
+                {{user.genInfo.motivation}} 
+                <!-- <span class="float-right text-primary font-weight-bold">Больше <i class="fa fa-angle-down"></i></span> -->
                 </div>
               </div>
               <div class="col-lg-6 mt-3 profile__table-hardSkills">
@@ -191,33 +185,19 @@
                   <thead>
                     <tr>
                       <th scope="col" class="pr-1">Направление</th>
-                      <th scope="col" class="pr-1">Не знаю</th>
+                      <th scope="col" class="pr-3">Не знаю</th>
                       <th scope="col" class="pr-1">Читал немного</th>
                       <th scope="col" class="pr-1">Хорошо знаю</th>
                       <th scope="col" class="pr-1">Постоянно пишу</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td scope="row">SQL</td>
-                      <td></td>
-                      <td></td>
-                      <td class="disabled"></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td scope="row">PHP</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td class="disabled"></td>
-                    </tr>
-                    <tr>
-                      <td scope="row">Front-end</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td class="disabled"></td>
+                    <tr *ngFor="let tableHardSkill of user.genInfo.tableHardSkill">
+                      <td scope="row">{{tableHardSkill.name}}</td>
+                      <td [class.disabled]="tableHardSkill.userRating === 1"></td>
+                      <td [class.disabled]="tableHardSkill.userRating === 2"></td>
+                      <td [class.disabled]="tableHardSkill.userRating === 3"></td>
+                      <td [class.disabled]="tableHardSkill.userRating === 4"></td>
                     </tr>
                   </tbody>
                 </table>
@@ -227,30 +207,18 @@
                 <table class="table custom-table table-sm ml-2">
                   <thead>
                     <tr>
-                      <th scope="col" class="pr-1">Качество</th>
+                      <th scope="col" class="">Качество</th>
                       <th scope="col" class="py-1 px-3">Сильная сторона</th>
                       <th scope="col" class="pr-1 px-3">Стоит попробовать</th>
-                      <th scope="col" class="py-1 pr-4">Слабая сторона</th>
+                      <th scope="col" class="py-1 px-2">Слабая сторона</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td scope="row" class="custom-fs-12">Критическое мышление</td>
-                      <td></td>
-                      <td></td>
-                      <td class="disabled"></td>
-                    </tr>
-                    <tr>
-                      <td scope="row" class="custom-fs-12">Усидчивость</td>
-                      <td></td>
-                      <td></td>
-                      <td class="disabled"></td>
-                    </tr>
-                    <tr>
-                      <td scope="row" class="custom-fs-12">Коммуникабельность</td>
-                      <td></td>
-                      <td></td>
-                      <td class="disabled"></td>
+                    <tr *ngFor="let tableSoftSkill of user.genInfo.tableSoftSkill">
+                      <td scope="row">{{tableSoftSkill.name}}</td>
+                      <td [class.disabled]="tableSoftSkill.userRating === 1"></td>
+                      <td [class.disabled]="tableSoftSkill.userRating === 2"></td>
+                      <td [class.disabled]="tableSoftSkill.userRating === 3"></td>
                     </tr>
                   </tbody>
                 </table>
@@ -262,39 +230,47 @@
     </div>
     <div class="row">
       <div class="col-lg-6">
-        <div class="card custom-card">
+        <div class="card" *ngIf="user.testTasks?.length">
           <div class="card-title m-4 pt-1">
             <span class="h4 font-weight-900 custom-fs-18">Тестовое</span>
-            <button class="btn btn-sm btn-secondary float-right fs-10 card-btn-label lh-120 custom-fs-14">SQL</button>
-          </div>
+            <div class="d-inline-flex float-right temp_choose-tab" *ngIf="user.testTasks?.length >= 1">
+              <button *ngFor="let test of user.testTasks" (click)="showTest(test)"
+                      [class.btn-light]="selectedTest !== test"
+                      [class.text-muted]="selectedTest !== test"
+                      [class.disabled]="selectedTest !== test"
+                class="btn btn-sm btn-secondary float-right fs-10 m-0 card-btn-label lh-120">
+                {{test.name}}
+              </button>
+            </div>  
+        </div>
           <div class="card-body pt-0 pb-0">
-            <div class="h6 row font-weight-normal pb-3">
+            <div class="h6 row font-weight-normal pb-3" *ngIf="selectedTest.status != null && selectedTest.status <= 1">
               <div class="col-lg-4 custom-fs-13">Статус:</div>
               <div class="col-lg-8 pl-0">
-                <div class="d-inline-block block_success text-white custom-fs-14">Done</div>
+                <div class="d-inline-block block_success text-white custom-fs-14" [class.bg-warning]="selectedTest.status == 0">{{ selectedTest.status | taskStatus}}</div>
               </div>
             </div>
-            <div class="h6 row font-weight-normal pb-3">
-              <div class="col-lg-4 custom-fs-13">Затрачено дней: <img *ngIf="testTaskBlock.daysSpent > 10" src="assets/icons/info.svg" alt="info-result"
+            <div class="h6 row font-weight-normal pb-3" *ngIf="selectedTest.daysSpent">
+              <div class="col-lg-4 custom-fs-13">Затрачено дней: <img *ngIf="selectedTest.daysSpent > 10" src="assets/icons/info.svg" alt="info-result"
                 ngbPopover="Превышено более чем на 3 дня" triggers="mouseenter:mouseleave"
                 popoverClass="info-popover-custom"></div>
               <div class="col-lg-8 px-0">
-                <div *ngFor="let day of getArrayDays(testTaskBlock.daysSpent)" class="d-inline-block custom-fs-12 used-day" [class.checked]="day <= 7 && testTaskBlock.daysSpent > day" [class.days-extra-color]="day > 7"><span>{{day}}</span></div>
+                <div *ngFor="let day of getArrayDays(selectedTest.daysSpent)" class="d-inline-block custom-fs-12 used-day" [class.checked]="day <= 7 && selectedTest.daysSpent >= day" [class.days-extra-color]="day > 7"><span>{{day}}</span></div>
               </div>
             </div>
-            <div class="h6 row font-weight-normal pb-3">
+            <div class="h6 row font-weight-normal pb-3" *ngIf="selectedTest.result">
               <div class="col-lg-4 custom-fs-13">Оценка: <img src="assets/icons/info.svg" alt="info-result"
                 ngbPopover="Превышено более чем на 3 дня" triggers="mouseenter:mouseleave"
                 popoverClass="info-popover-custom"></div>
               <div class="col-lg-8 px-0 color-black custom-fs-14" class="test__result">
                 <div class="custom-fs-14">
-                  <span class="font-weight-bolder">Хорошо</span> (7/10 баллов)
+                  <span class="font-weight-bolder">{{selectedTest.result?.points < (selectedTest.result?.maxPossiblePoints / 2) ? "Плохо" : "Хорошо"}}</span> ({{selectedTest.result?.points}}/{{selectedTest.result?.maxPossiblePoints}} баллов)
                 </div>
             </div>
           </div>
-            <div class="h6 row font-weight-normal pb-3">
+            <div class="h6 row font-weight-normal pb-3" *ngIf="selectedTest.mistakes">
               <div class="col-lg-4 custom-fs-13">Ошибок:</div>
-              <div class="col-lg-8 px-0 color-black custom-fs-14">{{testTaskBlock.mistakes}}</div>
+              <div class="col-lg-8 px-0 color-black custom-fs-14">{{selectedTest.mistakes}}</div>
             </div>
             <!-- <div class="h6 row font-weight-normal pb-3">
               <div class="col-lg-4">Баллы проф репутации:</div>
@@ -305,7 +281,7 @@
               </div>
             </div> -->
             <div class="big-divider"></div>
-            <div class="h6 row font-weight-normal pb-3">
+            <div class="h6 row font-weight-normal pb-3" *ngIf="selectedTest.source">
               <div class="sources pr-0 custom-fs-13">Исходники:</div>
               <div class="col-lg-8 px-0 color-black">
                 <div class="d-inline-flex align-items-center">
@@ -314,9 +290,9 @@
                   </div>
                   <div class="col ml-n2">
                     <span class="text-sm mb-0 custom-fs-13">
-                      <a href="#!">website-wireframe.psd</a>
+                      <a href="#!">{{selectedTest.source?.nameFile}}.{{selectedTest.source?.type}}</a>
                     </span>
-                    <p class="card-text mt-1 small text-muted custom-fs-13">45.9 MB</p>
+                    <p class="card-text mt-1 small text-muted custom-fs-13">{{selectedTest.source?.size}}</p>
                   </div>
                 </div>
               </div>
@@ -325,50 +301,53 @@
         </div>
       </div>
       <div class="col-lg-6">
-        <div class="card custom-card" *ngFor="let thing of practiceTaskBlock">
+        <div class="card custom-card" *ngIf="user.practiceTasks?.length">
           <div class="card-title m-4 pt-1">
             <span class="h4 font-weight-900 custom-fs-18">Практическое</span>
-            <div class="float-right temp_choose-tab">
-              <button class="btn btn-sm m-0 temp_btn btn-secondary custom-fs-14 lh-120">PHP</button>
-              <button class="btn btn-sm m-0 temp_btn btn-light fs-10 lh-120 custom-not-active custom-fs-14">Front-end</button>
-            </div>
+            <div class="d-inline-flex float-right temp_choose-tab" *ngIf="user.practiceTasks?.length >= 1">
+              <button *ngFor="let practice of user.practiceTasks" (click)="showPractice(practice)"
+                      [class.btn-light]="selectedPractice !== practice"
+                      [class.text-muted]="selectedPractice !== practice"
+                      [class.disabled]="selectedPractice !== practice"
+                class="btn btn-sm btn-secondary float-right fs-10 m-0 card-btn-label lh-120">
+                {{practice.name}}
+              </button>
+            </div>  
           </div>
           <div class="card-body pt-0 pb-0">
-            <div class="h6 row font-weight-normal pb-3">
+            <div class="h6 row font-weight-normal pb-3" *ngIf="selectedPractice.status != null && selectedPractice.status <= 1">
               <div class="col-lg-4 custom-fs-13">Статус:</div>
               <div class="col-lg-8 pl-0">
-                <div class="d-inline-block block_success text-white custom-fs-14">Done</div>
+                <div class="d-inline-block block_success text-white custom-fs-14" [class.bg-warning]="selectedPractice.status == 0">{{ selectedPractice.status | taskStatus}}</div>
               </div>
             </div>
-            <div class="h6 row font-weight-normal pb-3">
-              <div class="col-lg-4 custom-fs-13">Затрачено дней: <img *ngIf="thing.daysSpent > 10" src="assets/icons/info.svg" alt="info-result"
+            <div class="h6 row font-weight-normal pb-3" *ngIf="selectedPractice.daysSpent">
+              <div class="col-lg-4 custom-fs-13">Затрачено дней: <img *ngIf="selectedPractice.daysSpent > 10" src="assets/icons/info.svg" alt="info-result"
                 ngbPopover="Превышено более чем на 3 дня" triggers="mouseenter:mouseleave"
                 popoverClass="info-popover-custom"></div>
               <div class="col-lg-8 px-0">
-                  <div *ngFor="let day of getArrayDays(thing.daysSpent)" class="d-inline-block custom-fs-12 used-day" [class.checked]="day <= 7 && thing.daysSpent > day" [class.days-extra-color]="day > 7"><span>{{day}}</span></div>
+                  <div *ngFor="let day of getArrayDays(selectedPractice.daysSpent)" class="d-inline-block custom-fs-12 used-day" [class.checked]="day <= 7 && selectedPractice.daysSpent >= day" [class.days-extra-color]="day > 7"><span>{{day}}</span></div>
               </div>
             </div>
-            <div class="h6 row font-weight-normal pb-3">
+            <div class="h6 row font-weight-normal pb-3 " *ngIf="selectedPractice.result">
               <div class="col-lg-4 custom-fs-13">Оценка: <img src="assets/icons/info.svg" alt="info-result"
                 ngbPopover="Превышено более чем на 3 дня" triggers="mouseenter:mouseleave"
                 popoverClass="info-popover-custom"></div>
               <div class="col-lg-8 px-0 color-black custom-fs-14">
-                Выполнено с мелкими ошибками (40/50 баллов)
+                {{selectedPractice.result?.points < (selectedPractice.result?.maxPossiblePoints / 2) ? "Плохо" : "Хорошо"}} ({{selectedPractice.result?.points}}/{{selectedPractice.result?.maxPossiblePoints}} баллов)
               </div>
             </div>
-            <div class="h6 row font-weight-normal pb-4">
+            <div class="h6 row font-weight-normal pb-4" *ngIf="selectedPractice.feedback">
               <div class="col-lg-4 custom-fs-13">Фитбек от ментора:</div>
               <div class="col-lg-8 px-0 color-black custom-fs-14">
-                Кандидат хорошо владеет базовыми знаниями (типы переменнных и
-                операции над ними), небольшой опыт владения классами, льём водичку
-                для красо...
+                {{selectedPractice.feedback}}
                 <span class="float-right text-primary font-weight-bold mr-3">Больше <i class="fa fa-angle-down"></i></span>
               </div>
             </div>
-            <div class="h6 row font-weight-normal pb-1 custom-fs-13">
+            <!-- <div class="h6 row font-weight-normal pb-1 custom-fs-13">
               <div class="col-lg-12">Сравнение оценок:</div>
-            </div>
-            <table class="table custom-table">
+            </div> -->
+            <table class="table custom-table" *ngIf="selectedPractice.tableRating">
               <thead>
                 <tr>
                   <th scope="col" class="pr-1">Направление</th>
@@ -379,23 +358,16 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td scope="row">Самооценка</td>
-                  <td></td>
-                  <td></td>
-                  <td class="disabled"></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td scope="row">Оценка ментора</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td class="disabled"></td>
+                <tr *ngFor="let tablePractice of selectedPractice.tableRating">
+                  <td scope="row">{{tablePractice.name}}</td>
+                  <td [class.disabled]="tablePractice.userRating === 1 || tablePractice.mentorRating === 1"></td>
+                  <td [class.disabled]="tablePractice.userRating === 2 || tablePractice.mentorRating === 2"></td>
+                  <td [class.disabled]="tablePractice.userRating === 3 || tablePractice.mentorRating === 3"></td>
+                  <td [class.disabled]="tablePractice.userRating === 4 || tablePractice.mentorRating === 4"></td>
                 </tr>
               </tbody>
             </table>
-            <div class="h6 row font-weight-normal pb-3 pt-3 mt-4">
+            <div class="h6 row font-weight-normal pb-3 pt-3 mt-4" *ngIf="selectedPractice.source">
               <div class="sources pr-0 custom-fs-13">Исходники:</div>
               <div class="col-lg-8 px-0 color-black">
                 <div class="d-inline-flex align-items-center">
@@ -404,9 +376,9 @@
                   </div>
                   <div class="col ml-n2">
                     <h6 class="text-sm mb-0 custom-fs-13">
-                      <a href="#!">website-wireframe.psd</a>
+                      <a href="#!">{{selectedPractice.source?.nameFile}}.{{selectedPractice.source?.type}}</a>
                     </h6>
-                    <p class="card-text mt-1 small text-muted">45.9 MB</p>
+                    <p class="card-text mt-1 small text-muted">{{selectedPractice.source?.size}}</p>
                   </div>
                 </div>
               </div>
@@ -415,7 +387,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" *ngIf="user.softSkill">
       <div class="col">
         <div class="card">
           <div class="card-title m-4">
@@ -426,41 +398,24 @@
             <table class="table custom-table table-bg">
               <thead>
                 <tr>
-                  <th scope="col">Владение</th>
-                  <th scope="col" class="py-1">Критическое мышление</th>
-                  <th scope="col">Коммуникаб.</th>
-                  <th scope="col" class="py-1">Командная работа</th>
-                  <th scope="col" class="py-1">Выносливость</th>
+                  <th scope="col">Направление</th>
+                  <th scope="col" class="py-1">Не знаю</th>
+                  <th scope="col">Читал немного</th>
+                  <th scope="col" class="py-1">Хорошо знаю</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td scope="row" >Критическое мышление</td>
-                  <td class="mentor-match"></td>
-                  <td class="disabled"></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td scope="row">Коммуникаб.</td>
-                  <td></td>
-                  <td class="mentor-rating"></td>
-                  <td class="disabled"></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td scope="row">Выносливость</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td class="disabled"></td>
-                </tr>
-                <tr>
-                  <td scope="row">Комментарий</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                <tr *ngFor="let skill of user.softSkill">
+                  <td scope="row">{{skill.name}}</td>
+                  <td [class.disabled]="skill.userRating === 1"
+                    [class.block-mentor-and-user]="skill.userRating === skill.mentorRating && skill.userRating === 1"
+                    [class.block-mentor]="skill.mentorRating === 1"></td>
+                  <td [class.disabled]="skill.userRating === 2"
+                    [class.block-mentor-and-user]="skill.userRating === skill.mentorRating && skill.userRating === 2"
+                    [class.block-mentor]="skill.mentorRating === 2"></td>
+                  <td [class.disabled]="skill.userRating === 3"
+                    [class.block-mentor-and-user]="skill.userRating === skill.mentorRating && skill.userRating === 3"
+                    [class.block-mentor]="skill.mentorRating === 3"></td>
                 </tr>
                 <tr>
                   <td colspan="5">
@@ -477,7 +432,6 @@
               </tbody>
             </table>
           </div>
-          <div class="card-footer"></div>
         </div>
         <div class="d-flex justify-content-center my-5">
           <button class="btn btn-secondary custom-btn py-2 px-5 w-25" (click)="scrollToTop()" >
