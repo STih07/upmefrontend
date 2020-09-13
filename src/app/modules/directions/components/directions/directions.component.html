@@ -55,7 +55,7 @@
                         <div class="col">
                             <h6 class="text-sm mb-0 d-flex">
                                 <i class="fa fa-linkedin-square mr-3"></i>
-                                <a class="link" target="_blank" href="#!"><span class="link">https://www.linkedin.com/in/alex-zabiako-b696a090...</span></a>
+                                <a class="link" target="_blank" href="#!"><span class="link">https://www.linkedin.com/in/alex-zabiako-b696a0ssssssssssssss</span></a>
                             </h6>
                         </div>
                     </div>
@@ -73,9 +73,7 @@
             <div class="card mt-3">
                 <div class="card-header d-flex align-items-center justify-content-between pt-3 pb-4">
                     <div class="btn-group" role="group">
-                        <button class="btn font-weight-light py-1 btn-secondary btn-filter-width text-sm">Всего: 68</button>
-                        <button class="btn font-weight-light py-1 btn-gray btn-filter-width text-sm">В работе: 8</button>
-                        <button class="btn font-weight-light py-1 pl-4 btn-gray btn-filter-width text-sm text-nowrap">Проверенные: 12</button>
+                        <button *ngFor="let work of works" class="btn font-weight-light py-1 btn-filter-width text-sm text-nowrap" [class.btn-secondary]="selectedWorks == work.id" [class.btn-gray]="selectedWorks != work.id" (click)="selectedWorks = work.id">{{work.name}}: {{work.amount}}</button>
                     </div>
                     <div>
                         <button class="btn mr-4 btn-decision py-1 font-weight-normal custom-fs-12">Оценить</button>
@@ -117,7 +115,7 @@
                                         </div>
                                         <div class="col ml-md-n2">
                                             <a href="#!" class="d-block h6 mb-0 text-sm">{{user.name}}</a>
-                                            <small class="d-block text-dark color-black custom-fs-12 font-weight-900">#0{{user.id}}</small>
+                                            <small class="d-block text-dark color-black custom-fs-12 font-weight-900">#{{user.id |  number: '3.0': 'fr'}}</small>
                                         </div>
                                     </div>
                                     <div class="text-sm text-muted user-source">

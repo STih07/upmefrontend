@@ -7,14 +7,13 @@ import { DirectionTaskStatus } from '../../../models/direction-task-state.enum';
 
 export class TaskStatus implements PipeTransform {
     transform(status: DirectionTaskStatus) {
-        if (status === DirectionTaskStatus.AWAIT) {
-            return 'Ожидает проверки';
-        }
-        if (status === DirectionTaskStatus.IN_PROGRESS) {
-            return 'В работе';
-        }
-        if (status === DirectionTaskStatus.CHECKED) {
-            return 'Проверено';
+        switch (status) {
+            case 0:
+              return 'Ожидает проверки';
+            case 1:
+              return 'В работе';
+            case 2:
+              return 'Проверено';
         }
     }
 }

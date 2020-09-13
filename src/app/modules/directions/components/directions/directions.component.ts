@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr, 'fr');
 @Component({
   selector: 'app-directions',
   templateUrl: './directions.component.html',
@@ -7,11 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DirectionsComponent implements OnInit {
 
-  works = {
-    total: 68,
-    inProgress: 8,
-    checked: 12
-  };
+  works = [
+    {
+      id: 0,
+      name: 'Всего',
+      amount: 68,
+    },
+    {
+      id: 1,
+      name: 'В работе',
+      amount: 8,
+    },
+    {
+      id: 2,
+      name: 'Проверенные',
+      amount: 12,
+    }
+  ];
+
+  selectedWorks = 0;
 
   users = [
     {
