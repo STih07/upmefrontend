@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DirectionsComponent } from './directions.component';
+import { TaskStatus } from '../../pipe/status-task.pipe';
 
 describe('DirectionsComponent', () => {
   let component: DirectionsComponent;
@@ -8,9 +9,12 @@ describe('DirectionsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DirectionsComponent ]
+      declarations: [
+        DirectionsComponent,
+        TaskStatus
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

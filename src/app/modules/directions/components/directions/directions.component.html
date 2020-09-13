@@ -1,1 +1,146 @@
-<p>directions works!</p>
+<div class="container-fluid container-application mt-4 d-block">
+    <div class="row">
+        <div class="col">
+            <span class="text-white h3 custom-fs-24">UI/UX Design</span>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col col-lg-4">
+            <div class="card card-fluid">
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <!-- Avatar -->
+                            <a href="#" class="avatar rounded-circle">
+                                <img alt="Image placeholder" src="assets/img/user_alex_img.png">
+                            </a>
+                        </div>
+                        <div class="col ml-md-n2">
+                            <a href="#!" class="d-block h6 mb-0">Alex Zabiiako</a>
+                            <small class="d-block text-black color-black">UX/UI Designer</small>
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill btn-secondary">
+                                <span class="btn-inner--icon"><i class="fa fa-pencil"></i></span>
+                                <span class="btn-inner--text">Edit</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body pb-0">
+                    <div class="row mb-3 align-items-center">
+                        <div class="col">
+                            <h6 class="text-sm mb-0">
+                                <img src="assets/icons/gmail_ico.svg" class="gmail-ico mr-3">
+                                <a class="link" target="_blank" href="#!">zabiiako@gmail.com</a>
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="row my-3 align-items-center">
+                        <div class="col">
+                            <h6 class="text-sm mb-0">
+                                <i class="fa fa-phone mr-3"></i>+380 93 350 24 32
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="row my-3 align-items-center">
+                        <div class="col">
+                            <h6 class="text-sm mb-0">
+                                <i class="fa fa-paper-plane mr-3"></i>
+                                <a class="link" target="_blank" href="#!">@zabiiako</a>
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="row my-3 align-items-center">
+                        <div class="col">
+                            <h6 class="text-sm mb-0 d-flex">
+                                <i class="fa fa-linkedin-square mr-3"></i>
+                                <a class="link" target="_blank" href="#!"><span class="link">https://www.linkedin.com/in/alex-zabiako-b696a0ssssssssssssss</span></a>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer p-2 d-flex justify-content-center">
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="h5 mb-0 text-secondary">Mentor</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card mt-3">
+                <div class="card-header d-flex align-items-center justify-content-between pt-3 pb-4">
+                    <div class="btn-group" role="group">
+                        <button *ngFor="let work of works" class="btn font-weight-light py-1 btn-filter-width text-sm text-nowrap" [class.btn-secondary]="selectedWorks == work.id" [class.btn-gray]="selectedWorks != work.id" (click)="selectedWorks = work.id">{{work.name}}: {{work.amount}}</button>
+                    </div>
+                    <div>
+                        <button class="btn mr-4 btn-decision py-1 font-weight-normal custom-fs-12">Оценить</button>
+                        <i class="fa fa-search mr-4" aria-hidden="false"></i>
+                        <i class="fa fa-filter mr-4" aria-hidden="false"></i>
+                        <img src="assets/icons/more.svg" alt="more">
+                    </div>
+                </div>
+                <div class="card-body pt-0 px-0">
+                    <table class="table">
+                        <thead>
+                            <tr class="text-dark">
+                                <th class="pl-2 pr-0 py-1 align-middle col-filter text-center" scope="col">
+                                    <button class="btn btn-table-filter">
+                                        <img src="assets/icons/check-circle.svg" alt="check-circle" class="mr-2">
+                                        <img src="assets/icons/arrow-down-gray.svg" alt="arrow-down">
+                                    </button>
+                                </th>
+                                <th class="pl-0 py-1 align-middle name-col text-sm" scope="col">Имя</th>
+                                <th class="py-1 px-3 align-middle stage-col text-sm" scope="col">Этап</th>
+                                <th class="py-1 pl-3 align-middle status-col text-sm" scope="col">Статус задания</th>
+                                <th class="py-1 align-middle rating-col text-sm" scope="col">Оценка</th>
+                                <th class="py-1 align-middle feedback-col text-sm" scope="col">Фидбек</th>
+                                <th scope="col edit-col"></th>
+                                <th scope="col edit-col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let user of users" class="selected-col tr-height text-dark">
+                                <th scope="row" class="col-filter-pl text-center">
+                                    <img src="assets/icons/success-circle.svg" alt="success-circle">
+                                </th>
+                                <th class="pl-0 pt-2 align-middle">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <a href="#" class="avatar rounded-circle">
+                                                <img alt="Image placeholder" [src]="user.image">
+                                            </a>
+                                        </div>
+                                        <div class="col ml-md-n2">
+                                            <a href="#!" class="d-block h6 mb-0 text-sm">{{user.name}}</a>
+                                            <small class="d-block text-dark color-black custom-fs-12 font-weight-900">#{{user.id |  number: '3.0': 'fr'}}</small>
+                                        </div>
+                                    </div>
+                                    <div class="text-sm text-muted user-source">
+                                        <span>Исходники: </span>
+                                        <a href="!#">{{user.source}}</a>
+                                    </div>
+                                </th>
+                                <th class="text-sm pl-3 pt-4">{{user.stage}}</th>
+                                <th class="px-0 pt-4">
+                                    <div class="status-block pt-1" [class.bg-success]="user.status === 2" [class.bg-warning]="user.status === 1" [class.gray-block]="user.status === 0" ><span class="ml-3 text-sm font-weight-normal">{{user.status | taskStatus}}</span></div>
+                                </th>
+                                <th class="px-3 pt-4">
+                                    <div class="status-block multiselect bg-white text-dark d-flex align-items-center justify-content-between">
+                                        <span class="ml-3 text-sm">Отлично</span>
+                                        <img src="assets/icons/arrow-down-black.svg" height="4.93px" width="9.09px" class="mr-2">
+                                    </div>
+                                </th>
+                                <th class="text-wrap px-4 pt-4 pb-1">{{user.feedBack}}</th>
+                                <th class="pr-2 text-right pt-4"><img src="assets/icons/edit.svg" alt="edit"></th>
+                                <th class="pl-1 pr-3 text-center pt-4"><img src="assets/icons/delete.svg"alt="delete"></th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
