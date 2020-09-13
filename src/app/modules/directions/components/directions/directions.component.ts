@@ -33,7 +33,7 @@ export class DirectionsComponent implements OnInit {
     {
       id: 1, // ???
       name: 'Yuliia Chudina',
-      image: 'assets/img/user_card_img.png',
+      image: 'assets/img/user_1.png',
       source: 'https://www.linkedin.com/in/gleb-rutskiy-990ab21a8/',
       stage: 'Онбординг',
       // 0 - awaiting, 1 - in progress, 2 - checked
@@ -46,7 +46,7 @@ export class DirectionsComponent implements OnInit {
     {
       id: 2, // ???
       name: 'Darrell Webb',
-      image: 'assets/img/user_card_img.png',
+      image: 'assets/img/user_1.png',
       source: 'https://www.linkedin.com/in/gleb-rutskiy-990ab21a8/',
       stage: 'Онбординг',
       // 0 - awaiting, 1 - in progress, 2 - checked
@@ -59,7 +59,7 @@ export class DirectionsComponent implements OnInit {
     {
       id: 3, // ???
       name: 'Lyli Nith',
-      image: 'assets/img/user_card_img.png',
+      image: 'assets/img/user_1.png',
       source: 'https://www.linkedin.com/in/gleb-rutskiy-990ab21a8/',
       stage: 'Онбординг',
       // 0 - awaiting, 1 - in progress, 2 - checked
