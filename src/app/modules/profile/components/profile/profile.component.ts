@@ -1,5 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { EditModalComponent } from 'src/app/modals/edit-modal/edit-modal.component';
+import { SubmitModalComponent } from 'src/app/modals/submit-modal/submit-modal.component';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -33,10 +37,10 @@ export class ProfileComponent implements OnInit {
   };
 
   userStates = [
-    { id: 1, name: 'Принят' },
-    { id: 2, name: 'Принят на испытательный срок' },
-    { id: 3, name: 'Не принят' },
-    { id: 4, name: 'Не принят. Ты ещё очень юн и мы советуем тебе подать заявку в IT2School' },
+    { id: 0, name: 'Принят' },
+    { id: 1, name: 'Принят на испытательный срок' },
+    { id: 2, name: 'Не принят' },
+    { id: 3, name: 'Не принят. Ты ещё очень юн и мы советуем тебе подать заявку в IT2School' },
   ];
   selectedSolution = null;
   hasSolution = false;
@@ -124,7 +128,7 @@ export class ProfileComponent implements OnInit {
     }
   ];
 
-  @ViewChild('solution') solutionRef: any ;
+  @ViewChild('solution') solutionRef: any;
 
 
   softSkillBlock = [
@@ -136,21 +140,23 @@ export class ProfileComponent implements OnInit {
   ];
 
 
-  constructor(private toastr: ToastrService) { }
+  constructor(private toastr: ToastrService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
+
   }
 
   getArrayDays(spentDays: number) {
     const length = Math.max(Math.min(spentDays, 10), 7);
-    return Array.from({length}, (x, i) => i + 1);
+    return Array.from({ length }, (x, i) => i + 1);
   }
 
-  getPercentOfDiffrence(num1: number, num2: number) {
+  getPercentOfDiffrence(num1: number, num2: number): number {
     return ((num1 - num2) * 100 / num1);
   }
+
   scrollToTop() {
-    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   }
 
   showSuccess(): void {
@@ -160,4 +166,16 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  openEditModal(): void {
+    this.modalService.open(EditModalComponent);
+  }
+
+  openSubmitModal(name$: string): void {
+    const modalRef = this.modalService.open(SubmitModalComponent);
+
+    modalRef.componentInstance.user = {
+      username: name$,
+      solution: this.userStates[this.selectedSolution].name
+    };
+  }
 }
