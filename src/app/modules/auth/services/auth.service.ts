@@ -11,22 +11,27 @@ import { tap } from 'rxjs/operators';
 })
 export class AuthService {
 
-  private static loginRequestUrl = 'http://my-json-server.typicode.com/ArtyomKazlanzhi/json-holder/authResponse';
+  private static BASE_URL = 'https://murmuring-stream-64302.herokuapp.com/api/auth';
 
   constructor(private http: HttpClient) {
   }
 
   login(data: LoginRequest): Observable<AuthResponse> {
-    return this.http.get<AuthResponse>(AuthService.loginRequestUrl).pipe(
-      tap(authResponse => localStorage.setItem('auth', authResponse.accessToken))
-    );
+    return this.http.post<AuthResponse>(AuthService.BASE_URL + '/login', data).pipe(
+      tap(authResponse => this.setTokens(authResponse)));
   }
 
   register(data: RegisterRequest): Observable<any> {
-    return this.http.get(AuthService.loginRequestUrl);
+    return this.http.post<AuthResponse>(AuthService.BASE_URL + '/register', data).pipe(
+      tap(authResponse => this.setTokens(authResponse)));
   }
 
   isAuthenticated(): boolean {
-    return localStorage.getItem('auth') != null;
+    return localStorage.getItem('access_token') != null;
+  }
+
+  private setTokens(authResponse: AuthResponse): void {
+    localStorage.setItem('access_token', authResponse.accessToken);
+    localStorage.setItem('refresh_token', authResponse.refreshToken);
   }
 }
