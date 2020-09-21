@@ -13,27 +13,28 @@
                   </div>
                   <span class="clearfix"></span>
                   <form [formGroup]="singInForm" (ngSubmit)="onSubmit()">
-                    <div class="form-group">
-                      <label class="form-control-label">Email address</label>
-                      <div class="input-group input-group-merge">
+                    <div class="form-group mb-0">
+                      <label class="form-control-label" [class.text-danger]="singInForm.controls.email.errors?.noSuchEmail">Email address</label>
+                      <div class="input-group input-group-merge border rounded" [class.border-danger]="singInForm.controls.email.errors?.noSuchEmail">
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fa fa-user"></i></span>
                         </div>
                         <input type="email" formControlName="email" class="form-control"
-                               placeholder="email@example.com">
+                        placeholder="email@example.com">
                       </div>
+                      <span [class.invisible]="!singInForm.controls.email.errors?.noSuchEmail" class="mb-0 text-danger text-sm">Нет пользователя с таким Email</span>
                     </div>
-                    <div class="form-group mb-4">
+                    <div class="form-group">
                       <div class="d-flex align-items-center justify-content-between">
                         <div>
-                          <label class="form-control-label">Password</label>
+                          <label class="form-control-label" [class.text-danger]="singInForm.controls.password.errors?.wrongPassword">Password</label>
                         </div>
                         <div class="mb-2">
                           <a href="" class="small text-muted text-underline--dashed border-primary">Forget
                             password?</a>
                         </div>
                       </div>
-                      <div class="input-group input-group-merge pass">
+                      <div class="input-group input-group-merge pass border rounded" [class.border-danger]="singInForm.controls.password.errors?.wrongPassword">
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fa fa-key"></i></span>
                         </div>
@@ -48,8 +49,9 @@
                             </span>
                         </div>
                       </div>
+                      <span [class.invisible]="!singInForm.controls.password.errors?.wrongPassword" class="mb-0 text-danger text-sm">Пароль неверный</span>
                     </div>
-                    <div class="mt-5 mb-1">
+                    <div class="mt-3 mb-1">
                       <button type="submit" class="btn submit-btn btn-sm btn-primary btn-icon" [disabled]="singInForm.invalid">
                         <span class="btn-inner--text">Sign in</span>
                         <i class="fa fa-long-arrow-right"></i>
