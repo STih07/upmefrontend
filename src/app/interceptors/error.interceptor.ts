@@ -1,14 +1,15 @@
-import {Injectable} from '@angular/core';
-import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
-import {Observable, of} from 'rxjs';
-import {AuthService} from '../modules/auth/services/auth.service';
-import {Router} from '@angular/router';
-import {catchError, tap} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { AuthService } from '../modules/auth/services/auth.service';
+import { Router } from '@angular/router';
+import { catchError, tap } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({providedIn: 'root'})
 export class ErrorInterceptor implements HttpInterceptor {
 
-  constructor(private auth: AuthService, private router: Router) {
+  constructor(private auth: AuthService, private router: Router, private toastr: ToastrService) {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -23,9 +24,9 @@ export class ErrorInterceptor implements HttpInterceptor {
       case 403:
         return this.handle403(req, next);
       case 404:
-        return this.handle404$(req, next);
+        return this.handle404(req, next);
       case 500:
-        console.log('Got 500 from server');
+        return this.handle500(req, next);
     }
   }
 
@@ -33,7 +34,11 @@ export class ErrorInterceptor implements HttpInterceptor {
     return of(this.router.navigateByUrl('/auth/login'));
   }
 
-  private handle404$(req, next): Observable<any> {
+  private handle404(req, next): Observable<any> {
     return of(this.router.navigateByUrl('/404'));
+  }
+
+  private handle500(req, next): Observable<any> {
+    return of(this.toastr.error('Ой! Произошло что-то очень плохое!', 'Error'));
   }
 }
