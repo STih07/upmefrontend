@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DashboardComponent } from './dashboard.component';
-import { DashStatusPipe } from '../../pipe/dash-status.pipe';
+import {DashboardComponent} from './dashboard.component';
+import {DashStatusPipe} from '../../pipe/dash-status.pipe';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;

@@ -19,7 +19,7 @@
         top: 19px;
         left: 30%;
     }
-} 
+}
 
 .btn-decision{
     padding:7px 39px;
@@ -118,4 +118,39 @@ th.selected-row{
 
 .task-col-practice{
     width: 80px;
+}
+
+.col-filter-pl input{
+  display: none;
+  cursor: pointer;
+  &:checked + label:after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 6.25px;
+    left: 6px;
+    width: 6px;
+    height: 10px;
+    border: solid #8492a6;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);  }
+}
+
+.col-filter-pl label{
+  position: relative;
+  cursor: pointer;
+  &:before{
+    content:'';
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 2px solid #8492a6;
+    border-radius: 50%;
+    height: 18px;
+    width: 18px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 5px;
+  }
 }

@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SubmitModalComponent } from 'src/app/modals/submit-modal/submit-modal.component';
+
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr, 'fr');
 
 @Component({
   selector: 'app-dashboard',
@@ -28,6 +34,7 @@ export class DashboardComponent implements OnInit {
       ],
       decision: 'Принят',
       finish: '15/03/2020',
+      selected: true
     },
     {
       id: 2,
@@ -45,6 +52,7 @@ export class DashboardComponent implements OnInit {
       practiceTasks: null,
       decision: 'Принят на испытательный',
       finish: '17/03/2020',
+      selected: true
     },
     {
       id: 3,
@@ -66,6 +74,7 @@ export class DashboardComponent implements OnInit {
       ],
       decision: 'Не принят',
       finish: '--',
+      selected: false
     },
     {
       id: 4,
@@ -83,12 +92,26 @@ export class DashboardComponent implements OnInit {
       practiceTasks: null,
       decision: 'Не принят, еще очень юн, советуем пойти в it2school',
       finish: '--',
+      selected: true
     },
   ];
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
   }
 
+
+  checkUser(id$: number): void {
+    this.users[id$ - 1].selected = !this.users[id$ - 1].selected;
+  }
+
+  deleteUser(user$: any): void {
+    this.users = this.users.filter(user => user.id !== user$.id);
+  }
+
+  openSubmitModal(): void {
+    const modalRef = this.modalService.open(SubmitModalComponent);
+    modalRef.componentInstance.user = this.users.filter(user$ => user$.selected === true);
+  }
 }

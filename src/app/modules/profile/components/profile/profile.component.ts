@@ -91,10 +91,6 @@ export class ProfileComponent implements OnInit {
 
   openSubmitModal(): void {
     const modalRef = this.modalService.open(SubmitModalComponent);
-
-    modalRef.componentInstance.user = {
-      username: this.user.info.name,
-      solution: this.userStates[this.user.userStateId].name
-    };
+    modalRef.componentInstance.user = [this.user];
   }
 }
