@@ -67,6 +67,51 @@
                 </div>
             </div>
         </div>
+        <div class="col-lg-4">
+            <!-- Direction stats -->
+            <div class="card card-fluid">
+              <div class="d-flex justify-content-center card-title small mt-1 custom-fs-12"></div>
+              <div class="card-body p-0 row">
+                <div class="col-lg-6 d-flex flex-column justify-content-between">
+                  <div class="bottom-light-border mx-4 pt-4 pb-4">
+                    <div class="mb-2 text-dark font-weight-500 custom-fs-13">Всего кандидатов</div>
+                    <span class="text-primary h2 font-weight-bold mr-2">{{users.length}}</span>
+                  </div>
+                  <div class="ml-4 mr-3 py-4">
+                    <div class="mb-2 text-dark font-weight-500 custom-fs-13">Оценка "Хорошо"</div>
+                    <span class="text-primary h2 font-weight-bold mr-2">36%</span>
+                  </div>
+                </div>
+                <div class="col-lg-6 d-flex flex-column justify-content-around left-light-border">
+                  <div class="ml-3">
+                    <div class="text-dark font-weight-500 custom-fs-13">Оценка "Отлично"</div>
+                    <div class="mt-0">
+                      <span class="text-primary font-weight-bold h5 mr-1">3</span><span class="custom-fs-12">кандидата</span> 
+                    </div>
+                  </div>
+                  <div class="ml-3">
+                    <div class="text-dark font-weight-500 custom-fs-13">Оценка "Хорошо"</div>
+                    <div class="mt-0">
+                      <span class="text-primary font-weight-bold h5 mr-1">5</span><span class="custom-fs-12">кандидатов</span> 
+                    </div>
+                  </div>
+                  <div class="ml-3">
+                    <div class="text-dark font-weight-500 custom-fs-13">Оценка "С ошибкой"</div>
+                    <div class="mt-0">
+                      <span class="text-primary font-weight-bold h5 mr-1">2</span><span class="custom-fs-12">кандидата</span> 
+                    </div>
+                  </div>
+                  <div class="ml-3">
+                    <div class="text-dark font-weight-500 custom-fs-13">Оценка "Не сдал"</div>
+                    <div class="mt-0">
+                      <span class="text-primary font-weight-bold h5 mr-1">3</span><span class="custom-fs-12">кандидата</span> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer border-top-0 pt-2"></div>
+            </div>
+        </div>
     </div>
     <div class="row">
         <div class="col">
@@ -110,7 +155,7 @@
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <a href="#" class="avatar rounded-circle">
-                                                <img alt="Image placeholder" [src]="user.image">
+                                                <img alt="Image placeholder" [src]="user.image" class="h-100">
                                             </a>
                                         </div>
                                         <div class="col ml-md-n2">
