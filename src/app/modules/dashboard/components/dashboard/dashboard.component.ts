@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { SubmitModalComponent } from 'src/app/modals/submit-modal/submit-modal.component';
-
+import { SolutionModalComponent } from 'src/app/modals/solution-modal/solution-modal.component';
 import localeFr from '@angular/common/locales/fr';
 registerLocaleData(localeFr, 'fr');
 
@@ -17,7 +16,7 @@ export class DashboardComponent implements OnInit {
     {
       id: 1,
       name: 'Yuliia Chudina',
-      image: 'assets/img/user_card_img.png',
+      image: 'assets/img/user_1.png',
       begin: '26/02/2020',
       // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
       formTask: 2,
@@ -39,7 +38,7 @@ export class DashboardComponent implements OnInit {
     {
       id: 2,
       name: 'Darrell Web',
-      image: 'assets/img/user_card_img.png',
+      image: 'assets/img/user_1.png',
       begin: '06/02/2020',
       // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
       formTask: 2,
@@ -57,7 +56,7 @@ export class DashboardComponent implements OnInit {
     {
       id: 3,
       name: 'Lily Bell',
-      image: 'assets/img/user_card_img.png',
+      image: 'assets/img/user_1.png',
       begin: '01/02/2020',
       // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
       formTask: 2,
@@ -79,7 +78,7 @@ export class DashboardComponent implements OnInit {
     {
       id: 4,
       name: 'Cody Cooper',
-      image: 'assets/img/user_card_img.png',
+      image: 'assets/img/user_1.png',
       begin: '06/02/2020',
       // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
       formTask: 2,
@@ -111,7 +110,20 @@ export class DashboardComponent implements OnInit {
   }
 
   openSubmitModal(): void {
-    const modalRef = this.modalService.open(SubmitModalComponent);
-    modalRef.componentInstance.user = this.users.filter(user$ => user$.selected === true);
+    const modalRef = this.modalService.open(SolutionModalComponent);
+    const firstUser = this.users.find(user$ => user$.selected === true);
+
+    modalRef.componentInstance.user = {
+      users: this.users.filter(user$ => user$.selected === true),
+      name: firstUser.name,
+      solution: null
+    };
+
+    modalRef.componentInstance.backValue.subscribe((entryValue) => {
+      this.users.forEach(user$ => {
+        const findUser = entryValue.users.find(user2$ => user$.id === user2$.id);
+        return findUser !== undefined ? (user$.decision = findUser.decision) : user$.decision;
+      });
+    });
   }
 }

@@ -2,13 +2,6 @@
     <div class="row">
         <div class="col d-flex align-items-center justify-content-between">
             <span class="text-white h3 custom-fs-24">Dashboard</span>
-            <div class="d-flex align-items-center">
-                <div>
-                    <img src="assets/icons/settings.svg" alt="settings" class="p-1">
-                    <span class="text-white custom-fs-14">Settings</span>
-                </div>
-                <div class="bg-white text-white rounded-circle ml-3 add-block"></div>
-            </div>
         </div>
     </div>
     <div class="row">
@@ -20,7 +13,16 @@
                         <button class="btn mr-4 btn-decision custom-fs-12" (click)="openSubmitModal()">Принять решение</button>
                         <button class="btn m-0 p-0"><img src="assets/icons/search.svg" alt="search" class="pr-4"></button>
                         <button class="btn m-0 p-0"><img src="assets/icons/filter.svg" alt="filter" class="pr-4"></button>
-                        <button class="btn m-0 p-0"><img src="assets/icons/more.svg" alt="more"></button>
+                        <div class="dropdown">
+                            <button class="btn m-0 p-0" id="filterMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/icons/more.svg" alt="more">
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="filterMenu">
+                                <a class="dropdown-item text-dark" href="#">Action</a>
+                                <a class="dropdown-item text-dark" href="#">Another action</a>
+                                <a class="dropdown-item text-dark" href="#">Something else here</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body pt-0 px-0">
@@ -50,8 +52,8 @@
                                     <input type="checkbox" id="{{user.id}}" (click)="checkUser(user.id)" [attr.checked]="user.selected ? '' : null"/>
                                     <label for="{{user.id}}" class="mb-0"></label>
                                 </th>
-                                <th class="pl-0  align-middle">
-                                    <div class="row align-items-center">
+                                <th class="pl-0 align-middle">
+                                    <div class="row align-items-center flex-nowrap">
                                         <div class="col-auto">
                                             <a href="#" class="avatar rounded-circle">
                                                 <img alt="Image placeholder" [src]="user.image">

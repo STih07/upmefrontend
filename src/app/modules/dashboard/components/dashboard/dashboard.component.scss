@@ -39,7 +39,7 @@
 }
 
 .tr-height{
-    height: 80px;
+    height: 100px;
 }
 
 th.col-name{
@@ -82,6 +82,7 @@ th.col-filter-pl{
 
 th.selected-row{
     border-left: 8px solid #36b37e;
+    transition: border-left 1s;
 }
 
 .status-block{
@@ -96,9 +97,15 @@ th.selected-row{
     background-color: #EFF2F7;
 }
 
-.all-done-row{
-    background-color: #EFF9FF;
+
+tr {
+    transition: all 0.3s;
+    &.all-done-row{
+        background-color: #EFF9FF;
+        transition: all 0.3s;
+    }
 }
+
 
 .circle-active{
     width: 5px;
@@ -133,7 +140,8 @@ th.selected-row{
     height: 10px;
     border: solid #8492a6;
     border-width: 0 3px 3px 0;
-    transform: rotate(45deg);  }
+    transform: rotate(45deg);
+  }
 }
 
 .col-filter-pl label{
@@ -141,16 +149,13 @@ th.selected-row{
   cursor: pointer;
   &:before{
     content:'';
-    -webkit-appearance: none;
     background-color: transparent;
     border: 2px solid #8492a6;
     border-radius: 50%;
     height: 18px;
     width: 18px;
     display: inline-block;
-    position: relative;
     vertical-align: middle;
     cursor: pointer;
-    margin-right: 5px;
   }
 }

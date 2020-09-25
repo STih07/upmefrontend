@@ -43,7 +43,6 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.params.id);
     this.fakeHttp.getUserById(this.route.snapshot.params.id).subscribe((res) => {
       console.log(res);
       this.user = res;
@@ -91,6 +90,14 @@ export class ProfileComponent implements OnInit {
 
   openSubmitModal(): void {
     const modalRef = this.modalService.open(SubmitModalComponent);
-    modalRef.componentInstance.user = [this.user];
+
+    modalRef.componentInstance.user = {
+      users: [this.user],
+      name: this.user.info.name,
+      solution: this.userStates[this.user.userStateId].name
+    };
+    modalRef.componentInstance.entryValue.subscribe((entryValue) => {
+    });
+
   }
 }
