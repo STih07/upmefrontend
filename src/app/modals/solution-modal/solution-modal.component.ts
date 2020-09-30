@@ -33,7 +33,7 @@ export class SolutionModalComponent implements OnInit {
       name: this.user.name,
       solution: this.userStates[this.user.solution].name
     };
-    modalRef.componentInstance.entryValue.subscribe((entryValue) => {
+    modalRef.componentInstance.entryValue.subscribe((entryValue: UserSubmit) => {
       this.backValue.emit(entryValue);
     });
     this.activeModalService.close();

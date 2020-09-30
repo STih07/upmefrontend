@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SolutionModalComponent } from 'src/app/modals/solution-modal/solution-modal.component';
+import { UserSubmit } from 'src/app/models/user-submit';
 import localeFr from '@angular/common/locales/fr';
 registerLocaleData(localeFr, 'fr');
 
@@ -89,7 +90,7 @@ export class DashboardComponent implements OnInit {
         { status: 1, name: 'SQL' }
       ],
       practiceTasks: null,
-      decision: 'Не принят, еще очень юн, советуем пойти в it2school',
+      decision: 'Не принят. Ты ещё очень юн и мы советуем тебе подать заявку в IT2School',
       finish: '--',
       selected: true
     },
@@ -119,9 +120,9 @@ export class DashboardComponent implements OnInit {
       solution: null
     };
 
-    modalRef.componentInstance.backValue.subscribe((entryValue) => {
+    modalRef.componentInstance.backValue.subscribe((entryValue: UserSubmit) => {
       this.users.forEach(user$ => {
-        const findUser = entryValue.users.find(user2$ => user$.id === user2$.id);
+        const findUser = entryValue.users.find(entryUser$ => user$.id === entryUser$.id);
         return findUser !== undefined ? (user$.decision = findUser.decision) : user$.decision;
       });
     });

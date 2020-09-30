@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgProgressModule } from 'ngx-progressbar';
 
 import { SolutionModalComponent } from './solution-modal.component';
 
@@ -8,7 +10,8 @@ describe('SolutionModalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SolutionModalComponent ]
+      declarations: [ SolutionModalComponent ],
+      providers: [ NgbActiveModal ]
     })
     .compileComponents();
   }));
@@ -16,6 +19,11 @@ describe('SolutionModalComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SolutionModalComponent);
     component = fixture.componentInstance;
+    component.user = {
+      users: ['infoAboutUser'],
+      name: 'name',
+      solution: 'solution'
+    };
     fixture.detectChanges();
   });
 
