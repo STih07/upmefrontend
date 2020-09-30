@@ -22,16 +22,22 @@ export class DashboardComponent implements OnInit {
       // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
       formTask: 2,
       letterTask: 2,
-      testTasks: [
-        // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
-        { status: 2, name: 'PHP' },
-        { status: 2, name: 'SQL' }
-      ],
-      practiceTasks: [
-        // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
-        { status: 2, name: 'Front-end' },
-        { status: 2, name: 'Design' }
-      ],
+      testTasks: {
+        status: 2,
+        tasks: [
+          // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
+          { status: 2, name: 'PHP' },
+          { status: 2, name: 'SQL' }
+        ]
+      },
+      practiceTasks: {
+        status: 2,
+        tasks: [
+          // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
+          { status: 2, name: 'PHP' },
+          { status: 2, name: 'SQL' }
+        ]
+      },
       decision: 'Принят',
       finish: '15/03/2020',
       selected: true
@@ -44,11 +50,14 @@ export class DashboardComponent implements OnInit {
       // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
       formTask: 2,
       letterTask: 2,
-      testTasks: [
-        // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
-        { status: 2, name: 'PHP' },
-        { status: 2, name: 'SQL' }
-      ],
+      testTasks: {
+        status: 2,
+        tasks: [
+          // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
+          { status: 2, name: 'PHP' },
+          { status: 2, name: 'SQL' }
+        ]
+      },
       practiceTasks: null,
       decision: 'Принят на испытательный',
       finish: '17/03/2020',
@@ -62,16 +71,22 @@ export class DashboardComponent implements OnInit {
       // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
       formTask: 2,
       letterTask: 0,
-      testTasks: [
-        // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
-        { status: 0, name: 'PHP' },
-        { status: 0, name: 'SQL' }
-      ],
-      practiceTasks: [
-        // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
-        { status: 1, name: 'Front-end' },
-        { status: 1, name: 'Design' }
-      ],
+      testTasks: {
+        status: 0,
+        tasks: [
+          // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
+          { status: 0, name: 'PHP' },
+          { status: 0, name: 'SQL' }
+        ]
+      },
+      practiceTasks: {
+        status: 1,
+        tasks: [
+          // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
+          { status: 1, name: 'PHP' },
+          { status: 1, name: 'SQL' }
+        ]
+      },
       decision: 'Не принят',
       finish: '--',
       selected: false
@@ -84,11 +99,14 @@ export class DashboardComponent implements OnInit {
       // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
       formTask: 2,
       letterTask: 2,
-      testTasks: [
-        // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
-        { status: 2, name: 'PHP' },
-        { status: 1, name: 'SQL' }
-      ],
+      testTasks: {
+        status: 1,
+        tasks: [
+          // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
+          { status: 2, name: 'PHP' },
+          { status: 1, name: 'SQL' }
+        ]
+      },
       practiceTasks: null,
       decision: 'Не принят. Ты ещё очень юн и мы советуем тебе подать заявку в IT2School',
       finish: '--',
