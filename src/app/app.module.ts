@@ -16,6 +16,7 @@ import { SubmitModalComponent } from './modals/submit-modal/submit-modal.compone
 import { EditProfileModalComponent } from './modals/edit-profile-modal/edit-profile-modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SolutionModalComponent } from './modals/solution-modal/solution-modal.component';
+import { ArchiveModalComponent } from './modals/archive-modal/archive-modal.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SolutionModalComponent } from './modals/solution-modal/solution-modal.c
     LayoutComponent,
     Page404Component,
     EditProfileModalComponent,
-    SolutionModalComponent
+    SolutionModalComponent,
+    ArchiveModalComponent
   ],
   imports: [
     BrowserModule,

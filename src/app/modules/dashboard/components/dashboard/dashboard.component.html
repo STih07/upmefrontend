@@ -10,7 +10,8 @@
                 <div class="card-header d-flex align-items-center justify-content-between py-2">
                     <span class="text-sm">Кандидаты</span>
                     <div>
-                        <button class="btn mr-4 btn-decision custom-fs-12" (click)="openSubmitModal()">Принять решение</button>
+                        <button class="btn btn-light mr-3 py-2 text-dark btn-archive custom-fs-12" (click)="openArchiveModal()">Архивировать</button>
+                        <button class="btn btn-primary mr-4 text-white btn-decision custom-fs-12" (click)="openSubmitModal()">Принять решение</button>
                         <button class="btn m-0 p-0"><img src="assets/icons/search.svg" alt="search" class="pr-4"></button>
                         <button class="btn m-0 p-0"><img src="assets/icons/filter.svg" alt="filter" class="pr-4"></button>
                         <div class="dropdown">
@@ -81,12 +82,12 @@
                                 </th>
                                 <th class="align-middle px-0" [class.nothing-block]="!user.testTasks">
                                     <div class="dropdown d-block" *ngIf="user.testTasks">
-                                        <div class="status-block d-flex align-items-center justify-content-between" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="testTask" [class.bg-success]="user.testTasks.status == 2" [class.bg-warning]="user.testTasks.status == 1" [class.gray-block]="user.testTasks.status == 0">
-                                            <span class="ml-4 custom-fs-12 ">{{user.testTasks.status | dashStatus}}</span>
+                                        <div class="status-block d-flex align-items-center justify-content-between" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="testTask" [class.bg-success]="taskStatus(user.testTasks) == 2" [class.bg-warning]="taskStatus(user.testTasks) == 1" [class.gray-block]="taskStatus(user.testTasks) == 0">
+                                            <span class="ml-4 custom-fs-12 ">{{taskStatus(user.testTasks) | dashStatus}}</span>
                                             <img src="assets/icons/arrow-down.svg" height="7.41px" width="12px" class="mr-2">
                                         </div>
                                         <div class="dropdown-menu dropdown-test-task mt-0 border-0 p-0" aria-labelledby="testTask">
-                                            <a *ngFor="let task of user.testTasks.tasks" class="dropdown-item my-1 py-0 pl-4 custom-fs-12 d-flex align-items-center" href="#">
+                                            <a *ngFor="let task of user.testTasks" class="dropdown-item my-1 py-0 pl-4 custom-fs-12 d-flex align-items-center" href="#">
                                                 <span class="d-inline-block rounded task-status mr-1" [class.bg-success]="task.status == 2" [class.bg-warning]="task.status == 1" [class.bg-light]="task.status == 0"></span>{{task.name}}
                                             </a>
                                         </div>
@@ -94,12 +95,12 @@
                                 </th>
                                 <th class="align-middle px-0" [class.nothing-block]="!user.practiceTasks">
                                     <div class="dropdown d-block" *ngIf="user.practiceTasks">
-                                        <div class="status-block d-flex align-items-center justify-content-between" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="testTask" [class.bg-success]="user.practiceTasks.status == 2" [class.bg-warning]="user.practiceTasks.status == 1" [class.gray-block]="user.practiceTasks.status == 0">
-                                            <span class="ml-4 custom-fs-12">{{user.practiceTasks.status | dashStatus}}</span>
+                                        <div class="status-block d-flex align-items-center justify-content-between" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="testTask" [class.bg-success]="taskStatus(user.practiceTasks) == 2" [class.bg-warning]="taskStatus(user.practiceTasks) == 1" [class.gray-block]="taskStatus(user.practiceTasks) == 0">
+                                            <span class="ml-4 custom-fs-12">{{taskStatus(user.practiceTasks) | dashStatus}}</span>
                                             <img src="assets/icons/arrow-down.svg" height="7.41px" width="12px" class="mr-2">
                                         </div>
                                         <div class="dropdown-menu dropdown-practice-task mt-0 bo" aria-labelledby="testTask">
-                                            <a *ngFor="let task of user.practiceTasks.tasks" class="dropdown-item my-1 py-0 pl-4 custom-fs-12 d-flex align-items-center" href="#">
+                                            <a *ngFor="let task of user.practiceTasks" class="dropdown-item my-1 py-0 pl-4 custom-fs-12 d-flex align-items-center" href="#">
                                                 <span class="d-inline-block rounded task-status mr-1" [class.bg-success]="task.status == 2" [class.bg-warning]="task.status == 1" [class.bg-light]="task.status == 0"></span>{{task.name}}
                                             </a>
                                         </div>

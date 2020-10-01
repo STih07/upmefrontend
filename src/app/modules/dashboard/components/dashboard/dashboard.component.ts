@@ -4,6 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SolutionModalComponent } from 'src/app/modals/solution-modal/solution-modal.component';
 import { UserSubmit } from 'src/app/models/user-submit';
 import localeFr from '@angular/common/locales/fr';
+import { ArchiveModalComponent } from 'src/app/modals/archive-modal/archive-modal.component';
 registerLocaleData(localeFr, 'fr');
 
 @Component({
@@ -22,22 +23,16 @@ export class DashboardComponent implements OnInit {
       // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
       formTask: 2,
       letterTask: 2,
-      testTasks: {
-        status: 2,
-        tasks: [
-          // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
-          { status: 2, name: 'PHP' },
-          { status: 2, name: 'SQL' }
-        ]
-      },
-      practiceTasks: {
-        status: 2,
-        tasks: [
-          // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
-          { status: 2, name: 'PHP' },
-          { status: 2, name: 'SQL' }
-        ]
-      },
+      testTasks: [
+        // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
+        { status: 2, name: 'PHP' },
+        { status: 2, name: 'SQL' }
+      ],
+      practiceTasks: [
+        // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
+        { status: 2, name: 'PHP' },
+        { status: 2, name: 'SQL' }
+      ],
       decision: 'Принят',
       finish: '15/03/2020',
       selected: true
@@ -50,14 +45,11 @@ export class DashboardComponent implements OnInit {
       // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
       formTask: 2,
       letterTask: 2,
-      testTasks: {
-        status: 2,
-        tasks: [
-          // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
-          { status: 2, name: 'PHP' },
-          { status: 2, name: 'SQL' }
-        ]
-      },
+      testTasks: [
+        // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
+        { status: 2, name: 'PHP' },
+        { status: 2, name: 'SQL' }
+      ],
       practiceTasks: null,
       decision: 'Принят на испытательный',
       finish: '17/03/2020',
@@ -71,22 +63,16 @@ export class DashboardComponent implements OnInit {
       // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
       formTask: 2,
       letterTask: 0,
-      testTasks: {
-        status: 0,
-        tasks: [
-          // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
-          { status: 0, name: 'PHP' },
-          { status: 0, name: 'SQL' }
-        ]
-      },
-      practiceTasks: {
-        status: 1,
-        tasks: [
-          // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
-          { status: 1, name: 'PHP' },
-          { status: 1, name: 'SQL' }
-        ]
-      },
+      testTasks: [
+        // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
+        { status: 0, name: 'PHP' },
+        { status: 0, name: 'SQL' }
+      ],
+      practiceTasks: [
+        // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
+        { status: 1, name: 'PHP' },
+        { status: 1, name: 'SQL' }
+      ],
       decision: 'Не принят',
       finish: '--',
       selected: false
@@ -99,14 +85,11 @@ export class DashboardComponent implements OnInit {
       // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
       formTask: 2,
       letterTask: 2,
-      testTasks: {
-        status: 1,
-        tasks: [
-          // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
-          { status: 2, name: 'PHP' },
-          { status: 1, name: 'SQL' }
-        ]
-      },
+      testTasks: [
+        // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
+        { status: 2, name: 'PHP' },
+        { status: 1, name: 'SQL' }
+      ],
       practiceTasks: null,
       decision: 'Не принят. Ты ещё очень юн и мы советуем тебе подать заявку в IT2School',
       finish: '--',
@@ -144,5 +127,28 @@ export class DashboardComponent implements OnInit {
         return findUser !== undefined ? (user$.decision = findUser.decision) : user$.decision;
       });
     });
+  }
+
+  openArchiveModal(): void {
+    const modalRef = this.modalService.open(ArchiveModalComponent);
+    const firstUser = this.users.find(user$ => user$.selected === true);
+
+    modalRef.componentInstance.user = {
+      users: this.users.filter(user$ => user$.selected === true),
+      name: firstUser.name
+    };
+
+    modalRef.result.then((result) => result ? console.log(result) : false);
+  }
+
+  taskStatus(arrTasks$: any[]): number {
+    const [firstTask, secondTask] = arrTasks$;
+    if (firstTask.status === 2 && secondTask.status === 2) {
+      return 2;
+    } else if (firstTask.status === 1 || secondTask.status === 1) {
+      return 1;
+    } else {
+      return 0;
+    }
   }
 }

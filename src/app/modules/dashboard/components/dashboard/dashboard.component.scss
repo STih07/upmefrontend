@@ -21,10 +21,12 @@
     }
 }
 
+.btn-archive{
+    
+}
+
 .btn-decision{
     padding:7px 39px;
-    background: #EFF2F7;
-    color: #273444;
 }
 
 .col-filter{
@@ -138,7 +140,7 @@ tr {
     content: '';
     display: block;
     position: absolute;
-    top: 5px;
+    top: 25%;
     left: 6px;
     width: 6px;
     height: 10px;
