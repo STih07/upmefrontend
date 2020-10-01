@@ -6,6 +6,8 @@ import { UserSubmit } from 'src/app/models/user-submit';
 import localeFr from '@angular/common/locales/fr';
 import { ArchiveModalComponent } from 'src/app/modals/archive-modal/archive-modal.component';
 registerLocaleData(localeFr, 'fr');
+import { DashboardUser } from '../../../../models/dashboard-user';
+import { FakeHttpService } from '../../services/fake-http.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,92 +16,16 @@ registerLocaleData(localeFr, 'fr');
 })
 export class DashboardComponent implements OnInit {
 
-  users = [
-    {
-      id: 1,
-      name: 'Yuliia Chudina',
-      image: 'assets/img/user_1.png',
-      begin: '26/02/2020',
-      // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
-      formTask: 2,
-      letterTask: 2,
-      testTasks: [
-        // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
-        { status: 2, name: 'PHP' },
-        { status: 2, name: 'SQL' }
-      ],
-      practiceTasks: [
-        // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
-        { status: 2, name: 'PHP' },
-        { status: 2, name: 'SQL' }
-      ],
-      decision: 'Принят',
-      finish: '15/03/2020',
-      selected: true
-    },
-    {
-      id: 2,
-      name: 'Darrell Web',
-      image: 'assets/img/user_1.png',
-      begin: '06/02/2020',
-      // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
-      formTask: 2,
-      letterTask: 2,
-      testTasks: [
-        // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
-        { status: 2, name: 'PHP' },
-        { status: 2, name: 'SQL' }
-      ],
-      practiceTasks: null,
-      decision: 'Принят на испытательный',
-      finish: '17/03/2020',
-      selected: true
-    },
-    {
-      id: 3,
-      name: 'Lily Bell',
-      image: 'assets/img/user_1.png',
-      begin: '01/02/2020',
-      // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
-      formTask: 2,
-      letterTask: 0,
-      testTasks: [
-        // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
-        { status: 0, name: 'PHP' },
-        { status: 0, name: 'SQL' }
-      ],
-      practiceTasks: [
-        // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
-        { status: 1, name: 'PHP' },
-        { status: 1, name: 'SQL' }
-      ],
-      decision: 'Не принят',
-      finish: '--',
-      selected: false
-    },
-    {
-      id: 4,
-      name: 'Cody Cooper',
-      image: 'assets/img/user_1.png',
-      begin: '06/02/2020',
-      // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
-      formTask: 2,
-      letterTask: 2,
-      testTasks: [
-        // 0 ==> don't begin, 1 ==> in progress, 2 ==> complete
-        { status: 2, name: 'PHP' },
-        { status: 1, name: 'SQL' }
-      ],
-      practiceTasks: null,
-      decision: 'Не принят. Ты ещё очень юн и мы советуем тебе подать заявку в IT2School',
-      finish: '--',
-      selected: true
-    },
-  ];
+  users: DashboardUser[] = null;
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private fakeHttp: FakeHttpService, private modalService: NgbModal) {
+  }
 
   ngOnInit(): void {
+    this.fakeHttp.getDashBoardUsers().subscribe((res) => {
+      console.log(res);
+      this.users = res;
+    });
   }
 
 

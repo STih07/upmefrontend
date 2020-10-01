@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -23,10 +24,21 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    this.authService.login(this.singInForm.value).subscribe(() => this.router.navigateByUrl(''));
+    this.authService.login(this.singInForm.value).subscribe(() => this.router.navigateByUrl(''), error => this.handleError(error));
   }
 
   onEyeClick() {
     this.showPassword = !this.showPassword;
+  }
+
+  private handleError(error: HttpErrorResponse): void {
+    switch (error.error.message) {
+      case 'Wrong password':
+        this.singInForm.controls.password.setErrors({ wrongPassword: true } );
+        break;
+      case 'User not found':
+        this.singInForm.controls.email.setErrors({ noSuchEmail: true } );
+        break;
+    }
   }
 }
