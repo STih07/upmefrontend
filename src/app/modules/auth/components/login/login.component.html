@@ -14,7 +14,7 @@
                   <span class="clearfix"></span>
                   <form [formGroup]="singInForm" (ngSubmit)="onSubmit()">
                     <div class="form-group mb-0">
-                      <label class="form-control-label" [class.text-danger]="singInForm.controls.email.errors?.noSuchEmail">Почта</label>
+                      <label class="form-control-label" [class.text-danger]="singInForm.controls.email.errors?.noSuchEmail">Email</label>
                       <div class="input-group input-group-merge border rounded" [class.border-danger]="singInForm.controls.email.errors?.noSuchEmail">
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fa fa-user"></i></span>
