@@ -108,3 +108,38 @@
 .custom-card{
   max-height: 592px;
 }
+
+.dropdown-menu-arrow::before{
+  bottom: 100%;
+  transform: rotate(-45deg) translateY(1rem);
+  content: "";
+  background: #fff;
+  box-shadow: none;
+  display: block;
+  height: 16px;
+  width: 16px;
+  right: 2.5rem;
+  left: 0.5rem;
+  position: absolute;
+  z-index: -5;
+  border-radius: .2rem;
+}
+
+.dropdown-item:hover{
+  color: #006ad7 !important;
+}
+
+.nav-link > img {
+  height: 14px;
+  width: 12px;
+  user-select: none;
+}
+
+.dropdown-submenu > .dropdown-item:after, .dropdown-submenu > .list-group-item:after {
+  display: none;
+}
+
+.dropdown-submenu .dropdown-item > img {
+  height: 8px;
+  width: 6px;
+}

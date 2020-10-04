@@ -6,13 +6,12 @@ import { Observable } from 'rxjs';
 
 import { Works } from '../../../models/direction/work';
 import { DirectionUser } from '../../../models/direction/direction-user';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FakeHttpService {
-
-  private static API_URL = 'https://murmuring-stream-64302.herokuapp.com/api/direction';
 
   constructor(private progress: Progress, private http: HttpClient) {
   }
@@ -21,7 +20,7 @@ export class FakeHttpService {
     const headers = new HttpHeaders()
       .set('token', 'SOME_VALID_TOKEN');
     this.progress.start();
-    return this.http.get<Works[]>(FakeHttpService.API_URL + '/works', {headers}).pipe(
+    return this.http.get<Works[]>(environment.API_URL + '/direction/works', {headers}).pipe(
       tap(() => this.progress.complete())
     );
   }
@@ -29,6 +28,6 @@ export class FakeHttpService {
   getDirectionUsers(): Observable<DirectionUser[]> {
     const headers = new HttpHeaders()
       .set('token', 'SOME_VALID_TOKEN');
-    return this.http.get<DirectionUser[]>(FakeHttpService.API_URL + '/users', {headers});
+    return this.http.get<DirectionUser[]>(environment.API_URL + '/direction/users', {headers});
   }
 }
