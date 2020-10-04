@@ -1,4 +1,4 @@
-<div class="container-fluid container-application mt-4 d-block">
+<div class="container-fluid container-application mt-4 d-block" *ngIf="users">
     <div class="row">
         <div class="col d-flex align-items-center justify-content-between">
             <span class="text-white h3 custom-fs-24">Dashboard</span>
@@ -10,8 +10,8 @@
                 <div class="card-header d-flex align-items-center justify-content-between py-2">
                     <span class="text-sm">Кандидаты</span>
                     <div>
-                        <button class="btn btn-light mr-3 py-2 text-dark btn-archive custom-fs-12" (click)="openArchiveModal()">Архивировать</button>
-                        <button class="btn btn-primary mr-4 text-white btn-decision custom-fs-12" (click)="openSubmitModal()">Принять решение</button>
+                        <button class="btn btn-light mr-3 py-2 text-dark btn-archive custom-fs-12" (click)="openArchiveModal()" [disabled]="checkOnSelected()">Архивировать</button>
+                        <button class="btn btn-primary mr-4 text-white btn-decision custom-fs-12" (click)="openSubmitModal()" [disabled]="checkOnSelected()">Принять решение</button>
                         <button class="btn m-0 p-0"><img src="assets/icons/search.svg" alt="search" class="pr-4"></button>
                         <button class="btn m-0 p-0"><img src="assets/icons/filter.svg" alt="filter" class="pr-4"></button>
                         <div class="dropdown">
@@ -60,7 +60,7 @@
                                     <div class="row align-items-center flex-nowrap">
                                         <div class="col-auto">
                                             <a href="#" class="avatar rounded-circle">
-                                                <img alt="Image placeholder" [src]="user.image" class="h-100">
+                                                <img alt="Image placeholder" [src]="user.image" class="h-100 w-100">
                                             </a>
                                         </div>
                                         <div class="col ml-md-n2">
@@ -108,7 +108,6 @@
                                 </th>
                                 <th class="align-middle finish-row text-sm py-1 pr-0">{{user.decision}}</th>
                                 <th class="align-middle pl-2 pr-2 py-2 text-sm">{{user.finish}}</th>
-                                <th class="align-middle pr-2 text-right"></th>
                                 <th class="align-middle pl-1 pr-3 text-center"><img src="assets/icons/delete.svg"alt="delete" (click)="deleteUser(user)"></th>
                             </tr>
                         </tbody>

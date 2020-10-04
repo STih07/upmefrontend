@@ -6,7 +6,7 @@ import { UserSubmit } from 'src/app/models/user-submit';
 import localeFr from '@angular/common/locales/fr';
 import { ArchiveModalComponent } from 'src/app/modals/archive-modal/archive-modal.component';
 registerLocaleData(localeFr, 'fr');
-import { DashboardUser } from '../../../../models/dashboard-user';
+import { DashboardUser, Task } from '../../../../models/dashboard-user';
 import { FakeHttpService } from '../../services/fake-http.service';
 
 @Component({
@@ -23,8 +23,8 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.fakeHttp.getDashBoardUsers().subscribe((res) => {
-      console.log(res);
       this.users = res;
+      this.users.forEach(user => user.selected = false);
     });
   }
 
@@ -67,7 +67,11 @@ export class DashboardComponent implements OnInit {
     modalRef.result.then((result) => result ? console.log(result) : false);
   }
 
-  taskStatus(arrTasks$: any[]): number {
+  checkOnSelected(): boolean {
+    return !this.users.some(user => user.selected === true);
+  }
+
+  taskStatus(arrTasks$: Task[]): number {
     const [firstTask, secondTask] = arrTasks$;
     if (firstTask.status === 2 && secondTask.status === 2) {
       return 2;
