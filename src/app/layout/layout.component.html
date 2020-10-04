@@ -12,10 +12,60 @@
                 <a class="nav-link pl-0 custom-fs-16" [routerLink]="['']">Главная</a>
               </li>
               <li class="nav-item dropdown dropdown-custom mr-5">
-                <a class="nav-link pr-1 custom-fs-16" [routerLink]="['/directions']"  id="navbar-primary_dropdown_1" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">Направление</a>
-                <img src="../assets/icons/arrow-down.svg" width="12px" height="7.41px" alt="">
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-primary_dropdown_1"></div>
+                <div class="nav-link pr-1 custom-fs-16" id="navbar__dropdown-direction" role="button"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Направления
+                  <img src="../assets/icons/arrow-down.svg" class="ml-2">
+                </div>
+                <div class="dropdown-menu dropdown-menu-arrow" aria-labelledby="navbar__dropdown-direction">
+                  <a class="dropdown-item text-sm" [routerLink]="['/directions']">Все направления</a>
+                  <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
+                    <a href="#" class="dropdown-item text-sm d-flex align-items-center justify-content-between" role="button" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">Дизайн<img src="assets/icons/arrow-right.svg" class="ml-2">
+                    </a>
+                    <div class="dropdown-menu ">
+                      <a class="dropdown-item text-sm" href="#">UI/UX design</a>
+                      <a class="dropdown-item text-sm" href="#">Motion design</a>
+                    </div>
+                  </div> 
+                  <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
+                    <a href="#" class="dropdown-item text-sm d-flex align-items-center justify-content-between" role="button" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">Программирование<img src="assets/icons/arrow-right.svg" class="ml-2">
+                    </a>
+                    <div class="dropdown-menu ">
+                      <a class="dropdown-item text-sm" href="#">Python</a>
+                      <a class="dropdown-item text-sm" href="#">C++</a>
+                      <a class="dropdown-item text-sm" href="#">JavaScript</a>
+                      <a class="dropdown-item text-sm" href="#">PHP</a>
+                      <a class="dropdown-item text-sm" href="#">Java</a>
+                    </div>
+                  </div>
+                  <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
+                    <a href="#" class="dropdown-item text-sm d-flex align-items-center justify-content-between" role="button" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">Разработка<img src="assets/icons/arrow-right.svg" class="ml-2">
+                    </a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item text-sm" href="#">Android</a>
+                      <a class="dropdown-item text-sm" href="#">iOS</a>
+                      <a class="dropdown-item text-sm" href="#">Front-End</a>
+                      <a class="dropdown-item text-sm" href="#">ML</a>
+                    </div>
+                  </div>
+                  <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
+                    <a href="#" class="dropdown-item text-sm d-flex align-items-center justify-content-between" role="button" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">Экспресс курсы<img src="assets/icons/arrow-right.svg" class="ml-2">
+                    </a>
+                    <div class="dropdown-menu ">
+                      <a class="dropdown-item text-sm" href="#">Дизайн мышления</a>
+                      <a class="dropdown-item text-sm" href="#">Azure</a>
+                      <a class="dropdown-item text-sm" href="#">AWS</a>
+                      <a class="dropdown-item text-sm" href="#">Space managment</a>
+                      <a class="dropdown-item text-sm" href="#">Project managment</a>
+                    </div>
+                  </div>                 
+                  <a class="dropdown-item text-sm" href="#">Фундаментальное программирование</a>
+                  <a class="dropdown-item text-sm" href="#">QA</a>
+                </div>
               </li>
               <li class="nav-item mr-5">
                 <a class="nav-link header-link-custom custom-fs-16" href="#">Soft Skills</a>
@@ -33,17 +83,6 @@
           </div>
         </div>
       </nav>
-      <div class="ml-auto">
-        <!-- Sidenav toggler -->
-        <div class="sidenav-toggler sidenav-toggler-dark d-md-none active" data-action="sidenav-unpin"
-             data-target="#sidenav-main">
-          <div class="sidenav-toggler-inner">
-            <i class="sidenav-toggler-line bg-white"></i>
-            <i class="sidenav-toggler-line bg-white"></i>
-            <i class="sidenav-toggler-line bg-white"></i>
-          </div>
-        </div>
-      </div>
     </div>
     <!-- Misc area -->
   </div>
@@ -55,8 +94,8 @@
         <div class="collapse navbar-collapse pr-0 navbar-collapse-fade" id="navbar-main-collapse">
           <ul class="navbar-nav ml-lg-auto align-items-center d-none d-lg-flex">
             <li class="nav-item dropdown dropdown-animate">
-              <a class="nav-link pt-0 pr-lg-0" (click)="openEditProfileModal()" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                 aria-expanded="false">
+              <a class="nav-link pt-0 pr-lg-0" (click)="openEditProfileModal()" href="#" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="media media-pill align-items-center">
                   <span class="avatar rounded-circle">
                     <img alt="Image placeholder" [src]="mainUser.icon">
