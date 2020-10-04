@@ -9,23 +9,22 @@
               <div class="card shadow zindex-100 mb-0">
                 <div class="card-body px-md-5 pt-5 pb-2">
                   <div class="mb-4">
-                    <h6 class="form-h3">Sign Up</h6>
+                    <h6 class="form-h3">Зарегистрироваться</h6>
                   </div>
                   <span class="clearfix"></span>
                   <form [formGroup]="singUpForm" (ngSubmit)="onSubmit()">
                     <div class="form-group">
-                      <label class="form-control-label">Login</label>
+                      <label class="form-control-label">Логин</label>
                       <div class="input-group input-group-merge">
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fa fa-user"></i></span>
                         </div>
-                        <input type="email" formControlName="login" class="form-control" placeholder="Name">
+                        <input type="email" formControlName="login" class="form-control" placeholder="Логин">
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="form-control-label"
-                             [class.text-danger]="singUpForm.controls.email.errors?.notUniqueEmail">Email
-                        address</label>
+                             [class.text-danger]="singUpForm.controls.email.errors?.notUniqueEmail">Почта</label>
                       <div class="input-group input-group-merge border rounded"
                            [class.border-danger]="singUpForm.controls.email.errors?.notUniqueEmail">
                         <div class="input-group-prepend">
@@ -40,15 +39,14 @@
                     <div class="form-group mb-4">
                       <div class="d-flex align-items-center justify-content-between">
                         <div>
-                          <label class="form-control-label">Create Password</label>
+                          <label class="form-control-label">Пароль</label>
                         </div>
                       </div>
                       <div class="input-group input-group-merge pass mb-2">
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fa fa-key"></i></span>
                         </div>
-                        <input [type]="showPassword ? 'text' : 'password'" formControlName="password"
-                               class="form-control pass" placeholder="Password">
+                        <input [type]="showPassword ? 'text' : 'password'" formControlName="password" class="form-control pass" placeholder="Пароль">
                         <div class="input-group-append">
                           <span class="input-group-text">
                             <i id="eye" (click)="onEyeClick()" [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"
@@ -60,21 +58,19 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fa fa-key"></i></span>
                         </div>
-                        <input [type]="showPassword ? 'text' : 'password'" formControlName="confirmPassword"
-                               class="form-control pass"
-                               placeholder="Confirm">
+                        <input [type]="showPassword ? 'text' : 'password'" formControlName="confirmPassword" class="form-control pass" placeholder="Подтвердить">
                       </div>
                     </div>
                     <div class="mt-3 mb-2">
                       <button type="submit" class="btn submit-btn btn-sm btn-primary btn-icon"
                               [disabled]="singUpForm.invalid">
-                        <span class="btn-inner--text">Sign Up</span>
+                        <span class="btn-inner--text">Зарегистрироваться</span>
                         <i class="fa fa-long-arrow-right"></i>
                       </button>
                     </div>
                   </form>
                 </div>
-                <div class="card-footer px-md-5"><small>Уже зарегестрированы? </small>
+                <div class="card-footer px-md-5"><small>Уже зарегистрированы? </small>
                   <a [routerLink]="['/auth/login']" class="small font-weight-bold">Войти</a>
                 </div>
               </div>
