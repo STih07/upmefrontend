@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { MustMatch } from '../../../../utils/validators/must-match.validator';
+import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -21,15 +23,23 @@ export class RegisterComponent {
     validator: MustMatch('password', 'confirmPassword')
   });
 
-  constructor(private authService: AuthService, private fb: FormBuilder) {
+  constructor(private authService: AuthService, private fb: FormBuilder, private router: Router) {
     this.showPassword = false;
   }
 
   onSubmit() {
-    this.authService.register(this.singUpForm.value);
+    this.authService.register(this.singUpForm.value).subscribe(() => this.router.navigateByUrl(''), error => this.handleError(error));
   }
 
   onEyeClick() {
     this.showPassword = !this.showPassword;
+  }
+
+  private handleError(error: HttpErrorResponse): void {
+    switch (error.error.message) {
+      case 'Not unique email':
+        this.singUpForm.controls.email.setErrors({ notUniqueEmail: true } );
+        break;
+    }
   }
 }
