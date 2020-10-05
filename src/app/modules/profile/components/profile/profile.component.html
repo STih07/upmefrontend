@@ -19,7 +19,7 @@
                 <!-- Avatar -->
                 <a href="#" class="avatar rounded-circle" [class.bg-warning]="!user.info.icon">
                   <img *ngIf="user.info.icon" alt="Image placeholder" [src]="user.info.icon">
-                  <div *ngIf="!user.info.icon" class="text-white custom-fs-21 lh-100 font-weight-900" style="transform: translateY(5%)">{{getFullName()}}</div>                </a>
+                  <div *ngIf="!user.info.icon" class="text-white custom-fs-21 lh-100 font-weight-900" style="transform: translateY(5%)">{{getFullName()}}</div></a>
               </div>
               <div class="col ml-md-n2">
                 <a href="#!" class="d-block h6 mb-0 custom-fs-18">{{user.info.name}}</a>
@@ -28,7 +28,7 @@
               <div class="col-auto">
                 <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill btn-secondary" (click)="openEditModal()">
                   <span class="btn-inner--icon"><i class="fa fa-pencil"></i></span>
-                  <span class="btn-inner--text">Edit</span>
+                  <span class="btn-inner--text">Изменить</span>
                 </button>
               </div>
             </div>

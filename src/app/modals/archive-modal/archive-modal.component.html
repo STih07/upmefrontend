@@ -1,0 +1,7 @@
+<div class="px-5 pt-4 pb-4">
+    <div class=" text-dark text-sm text-center">Вы уверены что {{user.users.length > 1 ? user.users.length : 'пользователь'}}<strong> {{user.users.length === 1 ? user.name : ''}} </strong> {{user.users.length > 1 ? 'пользователя будут' : 'будет'}} <strong>{{user.users.length > 1 ? 'архивированы' : 'архивирован'}}</strong></div>
+    <div class="pt-3 pb-0 d-flex justify-content-center align-content-center">
+        <button class="btn btn-primary btn-desicion py-2 text-sm" (click)="submitModal()">Да</button>
+        <button class="btn btn-light btn-desicion py-2 px-2 text-sm" (click)="closeModal()">Отмена</button>
+    </div>
+</div>
