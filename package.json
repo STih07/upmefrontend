@@ -8,7 +8,8 @@
     "test": "ng test -- --no-watch --no-progress --browsers=ChromeHeadlessCI",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --prod --base-href=/upmefrontend/"
+    "deploy": "ng build --prod --base-href=/upmefrontend/",
+    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "dependencies": {
