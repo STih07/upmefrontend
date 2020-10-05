@@ -51,22 +51,6 @@ export class DirectionService {
           icon: 'assets/img/user_alex_img.png'
         }
       },
-      {
-        id: 2,
-        name: 'Front-End',
-        schelude: 'ПН 18:00-19:30',
-        residents: 9,
-        candidates: 5,
-        duration: {
-          start: '10/03/2020',
-          end: null
-        },
-        mentor: {
-          id: 2,
-          name: 'Вова Сакаян',
-          icon: 'assets/img/user_alex_img.png'
-        }
-      },
     ]);
   }
 

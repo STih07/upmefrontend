@@ -12,19 +12,19 @@
                     <div>
                         <button class="btn btn-light mr-3 py-2 text-dark btn-archive custom-fs-12" (click)="openArchiveModal()" [disabled]="!isAnySelected()">Архивировать</button>
                         <button class="btn btn-primary mr-4 text-white btn-decision custom-fs-12" (click)="openSubmitModal()" [disabled]="!isAnySelected()">Принять решение</button>
-                        <button class="btn m-0 p-0"><img src="assets/icons/search.svg" alt="search" class="pr-4"></button>
-                        <button class="btn m-0 p-0"><img src="assets/icons/filter.svg" alt="filter" class="pr-4"></button>
+<!--                        <button class="btn m-0 p-0"><img src="assets/icons/search.svg" alt="search" class="pr-4"></button>-->
+<!--                        <button class="btn m-0 p-0"><img src="assets/icons/filter.svg" alt="filter" class="pr-4"></button>-->
                         <div class="dropdown">
                             <button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn m-0 p-0" id="filterMenu">
                                 <img src="assets/icons/more.svg" alt="more">
                             </button>
                             <div class="dropdown-menu" aria-labelledby="filterMenu">
                                 <div class="text-sm text-dark px-3 font-weight-bold">Сортировать по:</div>
-                                <a class="dropdown-item text-primary" href="#"><img src="assets/icons/vector.svg" class="mr-2" alt="">Статусу</a>
-                                <a class="dropdown-item" href="#"><img src="assets/icons/newest.svg" class="mr-2" alt="">Сначала новые</a>
-                                <a class="dropdown-item" href="#"><img src="assets/icons/older.svg" class="mr-2" alt="">Сначала старые</a>
-                                <a class="dropdown-item" href="#"><img src="assets/icons/fromA-Z.svg" class="mr-2" alt="">От А до Я</a>
-                                <a class="dropdown-item" href="#"><img src="assets/icons/fromZ-A.svg" class="mr-2" alt="">От Я до А</a>
+                                <a class="dropdown-item text-primary cursor-pointer"><img src="assets/icons/vector.svg" class="mr-2" alt="">Статусу</a>
+                                <a class="dropdown-item text-muted cursor-na" disabled><img src="assets/icons/newest.svg" class="mr-2" alt="">Сначала новые</a>
+                                <a class="dropdown-item text-muted cursor-na" disabled><img src="assets/icons/older.svg" class="mr-2" alt="">Сначала старые</a>
+                                <a class="dropdown-item text-muted cursor-na" disabled><img src="assets/icons/fromA-Z.svg" class="mr-2" alt="">От А до Я</a>
+                                <a class="dropdown-item text-muted cursor-na" disabled><img src="assets/icons/fromZ-A.svg" class="mr-2" alt="">От Я до А</a>
                             </div>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                         <thead>
                             <tr>
                                 <th class="pl-2 pr-2 py-1 align-middle col-filter" scope="col">
-                                    <button class="btn btn-table-filter">
+                                    <button class="d-none btn btn-table-filter">
                                         <img src="assets/icons/check-circle.svg" alt="check-circle" class="mr-2">
                                         <img src="assets/icons/arrow-down-gray.svg" alt="arrow-down">
                                     </button>
@@ -108,7 +108,7 @@
                                 </th>
                                 <th class="align-middle finish-row text-sm py-1 pr-0">{{user.decision}}</th>
                                 <th class="align-middle pl-2 pr-2 py-2 text-sm">{{user.finish}}</th>
-                                <th class="align-middle pl-1 pr-3 text-center"><img src="assets/icons/delete.svg"alt="delete" (click)="deleteUser(user)"></th>
+                                <th class="align-middle pl-1 pr-3 text-center"><img class="cursor-pointer" src="assets/icons/delete.svg"alt="delete" (click)="deleteUser(user)"></th>
                             </tr>
                         </tbody>
                     </table>

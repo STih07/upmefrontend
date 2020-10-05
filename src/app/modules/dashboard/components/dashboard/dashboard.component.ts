@@ -8,6 +8,8 @@ import { ArchiveModalComponent } from 'src/app/modals/archive-modal/archive-moda
 registerLocaleData(localeFr, 'fr');
 import { DashboardUser, Task } from '../../../../models/dashboard-user';
 import { FakeHttpService } from '../../services/fake-http.service';
+import {mapTo, switchMap} from 'rxjs/operators';
+import {timer} from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -46,7 +48,9 @@ export class DashboardComponent implements OnInit {
       solution: null
     };
 
-    modalRef.componentInstance.backValue.subscribe((entryValue: UserSubmit) => {
+    modalRef.componentInstance.backValue.pipe(
+      // switchMap(data => timer(5000).pipe(mapTo(data)))
+    ).subscribe((entryValue: UserSubmit) => {
       this.users.forEach(user$ => {
         const findUser = entryValue.users.find(entryUser$ => user$.id === entryUser$.id);
         return findUser !== undefined ? (user$.decision = findUser.decision) : user$.decision;

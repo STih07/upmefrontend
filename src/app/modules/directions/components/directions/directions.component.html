@@ -11,19 +11,19 @@
           <span class="text-sm">Направления</span>
           <div>
             <button class="btn btn-light mr-3 py-2 text-dark btn-archive custom-fs-12" (click)="openArchiveModal()" [disabled]="true">Архивировать</button>
-            <button class="btn m-0 p-0"><img src="assets/icons/search.svg" alt="search" class="pr-4"></button>
-            <button class="btn m-0 p-0"><img src="assets/icons/filter.svg" alt="filter" class="pr-4"></button>
+<!--            <button class="btn m-0 p-0"><img src="assets/icons/search.svg" alt="search" class="pr-4"></button>-->
+<!--            <button class="btn m-0 p-0"><img src="assets/icons/filter.svg" alt="filter" class="pr-4"></button>-->
             <div class="dropdown">
               <button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn m-0 p-0" id="filterMenu">
                 <img src="assets/icons/more.svg" alt="more">
               </button>
               <div class="dropdown-menu" aria-labelledby="filterMenu">
                 <div class="text-sm text-dark px-3 font-weight-bold">Сортировать по:</div>
-                <a class="dropdown-item text-primary" href="#"><img src="assets/icons/vector.svg" class="mr-2" alt="">Статусу</a>
-                <a class="dropdown-item" href="#"><img src="assets/icons/newest.svg" class="mr-2" alt="">Сначала новые</a>
-                <a class="dropdown-item" href="#"><img src="assets/icons/older.svg" class="mr-2" alt="">Сначала старые</a>
-                <a class="dropdown-item" href="#"><img src="assets/icons/fromA-Z.svg" class="mr-2" alt="">От А до Я</a>
-                <a class="dropdown-item" href="#"><img src="assets/icons/fromZ-A.svg" class="mr-2" alt="">От Я до А</a>
+                <a class="dropdown-item text-primary"><img src="assets/icons/vector.svg" class="mr-2" alt="">Статусу</a>
+                <a class="dropdown-item text-muted cursor-na" disabled><img src="assets/icons/newest.svg" class="mr-2" alt="">Сначала новые</a>
+                <a class="dropdown-item text-muted cursor-na" disabled><img src="assets/icons/older.svg" class="mr-2" alt="">Сначала старые</a>
+                <a class="dropdown-item text-muted cursor-na" disabled><img src="assets/icons/fromA-Z.svg" class="mr-2" alt="">От А до Я</a>
+                <a class="dropdown-item text-muted cursor-na" disabled><img src="assets/icons/fromZ-A.svg" class="mr-2" alt="">От Я до А</a>
               </div>
             </div>
           </div>
@@ -33,7 +33,7 @@
             <thead>
             <tr>
               <th class="pl-2 pr-2 py-1 align-middle col-filter" scope="col">
-                <button class="btn btn-table-filter">
+                <button class="d-none btn btn-table-filter">
                   <img src="assets/icons/check-circle.svg" alt="check-circle" class="mr-2">
                   <img src="assets/icons/arrow-down-gray.svg" alt="arrow-down">
                 </button>
@@ -59,7 +59,8 @@
               <th class="pl-0 align-middle">
                 <div class="row align-items-center flex-nowrap">
                   <div class="col-auto">
-                    <a [routerLink]="'/mentor/' + direction.mentor.id" disabled class="avatar rounded-circle">
+<!--                    <a [routerLink]="'/mentor/' + direction.mentor.id" disabled class="avatar rounded-circle">-->
+                    <a [routerLink]="direction.id" disabled class="avatar rounded-circle">
                       <img alt="Image placeholder" [src]="direction.mentor.icon" class="h-100 w-100">
                     </a>
                   </div>
@@ -78,7 +79,7 @@
               <th class="align-middle py-2 text-sm">
                 {{direction.duration.start}} - {{direction.duration.end || "Сейчас"}}
               </th>
-              <th class="align-middle pl-1 pr-3 text-center"><img src="assets/icons/delete.svg" alt="delete" (click)="delete(direction)"></th>
+              <th class="align-middle pl-1 pr-3 text-center"><img class="cursor-pointer" src="assets/icons/delete.svg" alt="delete" (click)="delete(direction)"></th>
             </tr>
             </tbody>
           </table>
