@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 import { UserSubmit } from 'src/app/models/user-submit';
 
 @Component({
@@ -12,7 +13,10 @@ export class SubmitModalComponent implements OnInit {
   @Input() user: UserSubmit;
   @Output() entryValue: EventEmitter<any> = new EventEmitter();
 
-  constructor(private modalService: NgbActiveModal) { }
+  constructor(
+    private modalService: NgbActiveModal,
+    private toastr: ToastrService
+  ) { }
 
   ngOnInit(): void { }
 
@@ -20,7 +24,14 @@ export class SubmitModalComponent implements OnInit {
     this.user.users.forEach(user$ => {
       user$.decision = this.user.solution;
     });
+
     this.entryValue.emit(this.user);
+
+    this.toastr.success('Success', '', {
+      timeOut: 5000,
+      toastClass: 'ngx-toastr custom-toastr',
+    });
+
     this.modalService.close();
   }
 

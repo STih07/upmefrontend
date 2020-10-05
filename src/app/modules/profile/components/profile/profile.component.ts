@@ -77,13 +77,6 @@ export class ProfileComponent implements OnInit {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   }
 
-  showSuccess(): void {
-    this.toastr.success('Success', '', {
-      timeOut: 5000,
-      toastClass: 'ngx-toastr custom-toastr',
-    });
-  }
-
   openEditModal(): void {
     this.modalService.open(EditModalComponent);
   }
