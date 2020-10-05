@@ -15,7 +15,8 @@
                   <form [formGroup]="singUpForm" (ngSubmit)="onSubmit()">
                     <div class="form-group">
                       <label class="form-control-label">Login</label>
-                      <div class="input-group input-group-merge">
+                      <div class="input-group input-group-merge border rounded"
+                           [class.border-danger]="singUpForm.controls.login?.errors && showErrors">
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fa fa-user"></i></span>
                         </div>
@@ -24,26 +25,30 @@
                     </div>
                     <div class="form-group">
                       <label class="form-control-label"
-                             [class.text-danger]="singUpForm.controls.email.errors?.notUniqueEmail">Email
+                             [class.text-danger]="singUpForm.controls.email?.errors && showErrors">Email
                         address</label>
                       <div class="input-group input-group-merge border rounded"
-                           [class.border-danger]="singUpForm.controls.email.errors?.notUniqueEmail">
+                           [class.border-danger]="singUpForm.controls.email?.errors && showErrors">
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fa fa-envelope-o"></i></span>
                         </div>
                         <input type="email" formControlName="email" class="form-control"
                                placeholder="email@example.com">
                       </div>
-                      <span [class.invisible]="!singUpForm.controls.email.errors?.notUniqueEmail"
-                            class="mb-0 text-danger text-sm">Email занят</span>
+                      <span *ngIf="singUpForm.controls.email?.errors && showErrors; else noContent"
+                            class="mb-0 text-danger text-sm"
+                            [textContent]="singUpForm.controls.email.errors.notUniqueEmail ? 'Email занят' : 'Неверный формат Email'">
+                      </span>
                     </div>
                     <div class="form-group mb-4">
                       <div class="d-flex align-items-center justify-content-between">
                         <div>
-                          <label class="form-control-label">Create Password</label>
+                          <label class="form-control-label" [class.text-danger]="(singUpForm.controls.password?.errors || singUpForm.controls.confirmPassword?.errors) && showErrors">Create Password</label>
+                          <span class="text-sm" *ngIf="(singUpForm.controls.password?.errors || singUpForm.controls.confirmPassword?.errors) && showErrors"> (минимально 8 символов)</span>
                         </div>
                       </div>
-                      <div class="input-group input-group-merge pass mb-2">
+                      <div class="input-group input-group-merge pass mb-2 border rounded"
+                           [class.border-danger]="(singUpForm.controls.password?.errors || singUpForm.controls.confirmPassword?.errors) && showErrors">
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fa fa-key"></i></span>
                         </div>
@@ -56,7 +61,8 @@
                           </span>
                         </div>
                       </div>
-                      <div class="input-group input-group-merge pass">
+                      <div class="input-group input-group-merge pass border rounded"
+                           [class.border-danger]="(singUpForm.controls.password?.errors || singUpForm.controls.confirmPassword?.errors) && showErrors">
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fa fa-key"></i></span>
                         </div>
@@ -64,10 +70,13 @@
                                class="form-control pass"
                                placeholder="Confirm">
                       </div>
+                      <span *ngIf="singUpForm.controls.confirmPassword.errors?.mustMatch && showErrors; else noContent"
+                            class="mb-0 text-danger text-sm">
+                        Пароли не совпадают
+                      </span>
                     </div>
                     <div class="mt-3 mb-2">
-                      <button type="submit" class="btn submit-btn btn-sm btn-primary btn-icon"
-                              [disabled]="singUpForm.invalid">
+                      <button type="submit" class="btn submit-btn btn-sm btn-primary btn-icon">
                         <span class="btn-inner--text">Sign Up</span>
                         <i class="fa fa-long-arrow-right"></i>
                       </button>
@@ -85,3 +94,4 @@
     </div>
   </div>
 </div>
+<ng-template #noContent><span class="invisible">.</span></ng-template>

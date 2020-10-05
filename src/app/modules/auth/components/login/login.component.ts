@@ -13,6 +13,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class LoginComponent {
 
   showPassword: boolean;
+  showErrors: boolean;
 
   singInForm: FormGroup = this.fb.group({
     email: ['', [Validators.email, Validators.required]],
@@ -21,10 +22,19 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private fb: FormBuilder, private router: Router) {
     this.showPassword = false;
+    this.showErrors = false;
+    this.singInForm.valueChanges.subscribe(() => this.showErrors = false);
   }
 
   onSubmit() {
-    this.authService.login(this.singInForm.value).subscribe(() => this.router.navigateByUrl(''), error => this.handleError(error));
+    if (this.singInForm.valid) {
+      this.authService.login(this.singInForm.value).subscribe(() => this.router.navigateByUrl(''), error => {
+        this.showErrors = true;
+        this.handleError(error);
+      });
+    } else {
+      this.showErrors = true;
+    }
   }
 
   onEyeClick() {
