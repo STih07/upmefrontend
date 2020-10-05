@@ -42,6 +42,9 @@ export class ErrorInterceptor implements HttpInterceptor {
   }
 
   private handle500(req, next): Observable<any> {
-    return of(this.toastr.error('Ой! Произошло что-то очень плохое!', 'Error'));
+    return of(this.toastr.error('Ой! Произошло что-то очень плохое!', '', {
+      timeOut: 5000,
+      toastClass: 'ngx-toastr custom-fs-12'
+    }));
   }
 }

@@ -27,9 +27,9 @@ export class SubmitModalComponent implements OnInit {
 
     this.entryValue.emit(this.user);
 
-    this.toastr.success('Success', '', {
+    this.toastr.success('Готово', '', {
       timeOut: 5000,
-      toastClass: 'ngx-toastr custom-toastr',
+      toastClass: 'ngx-toastr success-toastr',
     });
 
     this.modalService.close();
