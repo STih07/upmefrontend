@@ -5,10 +5,11 @@ export interface DashboardUser {
   begin: string;
   formTask: number;
   letterTask: number;
-  testTask: Task[];
+  testTasks: Task[];
   practiceTasks: Task[];
   decision: string;
   finish: string;
+  selected?: boolean;
 }
 
 export interface Task {

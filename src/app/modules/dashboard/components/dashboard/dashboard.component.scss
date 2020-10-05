@@ -23,8 +23,6 @@
 
 .btn-decision{
     padding:7px 39px;
-    background: #EFF2F7;
-    color: #273444;
 }
 
 .col-filter{
@@ -80,12 +78,17 @@ th.col-filter-pl{
     border-left: 8px solid transparent;
 }
 
-th.selected-row{
-    border-left: 8px solid #36b37e;
+th{
+    transition:all 0.3s;
+    &.selected-row{
+        border-left: 8px solid #36b37e;
+        transition: border-left 0.3s;
+    }
 }
 
 .status-block{
     height: 24px;
+    width: 100%;
     color: #fff;
     &.gray-block{
         background-color: #8492a6;
@@ -96,9 +99,15 @@ th.selected-row{
     background-color: #EFF2F7;
 }
 
-.all-done-row{
-    background-color: #EFF9FF;
+
+tr {
+    transition: all 0.3s;
+    &.all-done-row{
+        background-color: #EFF9FF;
+        transition: all 0.3s;
+    }
 }
+
 
 .circle-active{
     width: 5px;
@@ -118,4 +127,59 @@ th.selected-row{
 
 .task-col-practice{
     width: 80px;
+}
+
+.col-filter-pl input{
+  display: none;
+  cursor: pointer;
+  &:checked + label:after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 25%;
+    left: 6px;
+    width: 6px;
+    height: 10px;
+    border: solid #8492a6;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+}
+
+.col-filter-pl label{
+  position: relative;
+  cursor: pointer;
+  &:before{
+    content:'';
+    background-color: transparent;
+    border: 2px solid #8492a6;
+    border-radius: 50%;
+    height: 18px;
+    width: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+}
+
+th div.dropdown {
+    user-select: none;
+    cursor: pointer;
+}
+
+.dropdown-test-task{
+    width: 120px;
+    min-width: 120px;
+    border-radius: 0 0 0.25rem 0.25rem;
+}
+
+.dropdown-practice-task{
+    width: 148px;
+    min-width: 148px;
+    border-radius: 0 0 0.25rem 0.25rem;
+}
+
+.task-status{
+    width: 6px;
+    height: 6px;
 }

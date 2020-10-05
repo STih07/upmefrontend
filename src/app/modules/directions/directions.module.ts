@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DirectionsRoutingModule } from './directions-routing.module';
 import { DirectionsComponent } from './components/directions/directions.component';
 import { TaskStatus } from './pipe/status-task.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { TaskStatus } from './pipe/status-task.pipe';
   ],
   imports: [
     CommonModule,
-    DirectionsRoutingModule
+    DirectionsRoutingModule,
+    NgbModule
   ]
 })
 export class DirectionsModule { }

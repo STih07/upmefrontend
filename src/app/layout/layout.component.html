@@ -71,16 +71,10 @@
                 <a class="nav-link header-link-custom custom-fs-16" href="#">Soft Skills</a>
               </li>
               <li class="nav-item dropdown dropdown-custom mr-5">
-                <div class="nav-link pr-1 custom-fs-16" id="navbar__dropdown-users" role="button" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  Пользователи
-                  <img src="../assets/icons/arrow-down.svg" class="ml-2">
-                </div>
-                <div class="dropdown-menu dropdown-menu-arrow" aria-labelledby="navbar__dropdown-users">
-                  <a class="dropdown-item text-sm" [routerLink]="['/profile']">Кандидаты</a>
-                  <a class="dropdown-item text-sm" href="#">Резиденты</a>
-                  <a class="dropdown-item text-sm" href="#">Менторы</a>
-                </div>
+                <a class="nav-link pr-1 custom-fs-16" [routerLink]="['/profile']" id="navbar-primary_dropdown_2" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Пользователи</a>
+                <img src="../assets/icons/arrow-down.svg" width="12px" height="7.41px" alt="">
+                <div class="dropdown-menu" aria-labelledby="navbar-primary_dropdown_1"></div>
               </li>
               <li class="nav-item mr-5">
                 <a class="nav-link custom-fs-16" href="#">Карьера</a>

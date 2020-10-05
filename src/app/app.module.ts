@@ -15,13 +15,17 @@ import { EditModalComponent } from './modals/edit-modal/edit-modal.component';
 import { SubmitModalComponent } from './modals/submit-modal/submit-modal.component';
 import { EditProfileModalComponent } from './modals/edit-profile-modal/edit-profile-modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SolutionModalComponent } from './modals/solution-modal/solution-modal.component';
+import { ArchiveModalComponent } from './modals/archive-modal/archive-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
     Page404Component,
-    EditProfileModalComponent
+    EditProfileModalComponent,
+    SolutionModalComponent,
+    ArchiveModalComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-<div class="container-fluid container-application mt-4 d-block">
+<div class="container-fluid container-application mt-4 d-block" *ngIf="users">
     <div class="row">
         <div class="col d-flex align-items-center justify-content-between">
             <span class="text-white h3 custom-fs-24">Кандидаты</span>
@@ -8,12 +8,25 @@
         <div class="col">
             <div class="card mt-3">
                 <div class="card-header d-flex align-items-center justify-content-between py-2">
-                    <span class="custom-fs-14">Кандидаты</span>
+                    <span class="text-sm">Кандидаты</span>
                     <div>
-                        <button class="btn mr-4 btn-decision custom-fs-12 ">Принять решение</button>
-                        <img src="assets/icons/search.svg" alt="search" class="mr-4">
-                        <img src="assets/icons/filter.svg" alt="filter" class="mr-4">
-                        <img src="assets/icons/more.svg" alt="more">
+                        <button class="btn btn-light mr-3 py-2 text-dark btn-archive custom-fs-12" (click)="openArchiveModal()" [disabled]="checkOnSelected()">Архивировать</button>
+                        <button class="btn btn-primary mr-4 text-white btn-decision custom-fs-12" (click)="openSubmitModal()" [disabled]="checkOnSelected()">Принять решение</button>
+                        <button class="btn m-0 p-0"><img src="assets/icons/search.svg" alt="search" class="pr-4"></button>
+                        <button class="btn m-0 p-0"><img src="assets/icons/filter.svg" alt="filter" class="pr-4"></button>
+                        <div class="dropdown">
+                            <button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn m-0 p-0" id="filterMenu">
+                                <img src="assets/icons/more.svg" alt="more">
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="filterMenu">
+                                <div class="text-sm text-dark px-3 font-weight-bold">Сортировать по:</div>
+                                <a class="dropdown-item text-primary" href="#"><img src="assets/icons/vector.svg" class="mr-2" alt="">Статусу</a>
+                                <a class="dropdown-item" href="#"><img src="assets/icons/newest.svg" class="mr-2" alt="">Сначала новые</a>
+                                <a class="dropdown-item" href="#"><img src="assets/icons/older.svg" class="mr-2" alt="">Сначала старые</a>
+                                <a class="dropdown-item" href="#"><img src="assets/icons/fromA-Z.svg" class="mr-2" alt="">От А до Я</a>
+                                <a class="dropdown-item" href="#"><img src="assets/icons/fromZ-A.svg" class="mr-2" alt="">От Я до А</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body pt-0 px-0">
@@ -26,58 +39,76 @@
                                         <img src="assets/icons/arrow-down-gray.svg" alt="arrow-down">
                                     </button>
                                 </th>
-                                <th class="pl-0 py-1 align-middle col-name custom-fs-14" scope="col">Имя</th>
-                                <th class="py-1 align-middle col-begin custom-fs-14" scope="col">Начало</th>
-                                <th class="py-1 align-middle form-col custom-fs-14" scope="col">Форма</th>
-                                <th class="py-1 align-middle letter-col custom-fs-14" scope="col">Письмо</th>
-                                <th class="py-1 align-middle test-col custom-fs-14" scope="col">Тестовое</th>
-                                <th class="py-1 align-middle practice-col custom-fs-14" scope="col">Практическое</th>
-                                <th class="py-1 align-middle dicision-col custom-fs-14" scope="col">Решение</th>
-                                <th class="pl-2 py-1 align-middle custom-fs-14 finish-col" scope="col">Финиш</th>
+                                <th class="pl-0 py-1 align-middle col-name text-sm" scope="col">Имя</th>
+                                <th class="py-1 align-middle col-begin text-sm" scope="col">Начало</th>
+                                <th class="py-1 align-middle form-col text-sm" scope="col">Форма</th>
+                                <th class="py-1 align-middle letter-col text-sm" scope="col">Письмо</th>
+                                <th class="py-1 align-middle test-col text-sm" scope="col">Тестовое</th>
+                                <th class="py-1 align-middle practice-col text-sm" scope="col">Практическое</th>
+                                <th class="py-1 align-middle dicision-col text-sm" scope="col">Решение</th>
+                                <th class="pl-2 py-1 align-middle text-sm finish-col" scope="col">Финиш</th>
                                 <th scope="col edit-col"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let user of users" class="all-done-row tr-height">
-                                <th scope="row" class="py-2 align-middle col-filter-pl selected-row">
-                                    <img src="assets/icons/success-circle.svg" alt="success-circle">
+                            <tr *ngFor="let user of users" class="tr-height" [class.all-done-row]="user.selected">
+                                <th scope="row" class="py-2 align-middle col-filter-pl" [class.selected-row]="user.selected">
+                                    <input type="checkbox" id="{{user.id}}" (click)="checkUser(user.id)" [attr.checked]="user.selected ? '' : null"/>
+                                    <label for="{{user.id}}" class="mb-0"></label>
                                 </th>
-                                <th class="pl-0  align-middle">
-                                    <div class="row align-items-center">
+                                <th class="pl-0 align-middle">
+                                    <div class="row align-items-center flex-nowrap">
                                         <div class="col-auto">
                                             <a href="#" class="avatar rounded-circle">
-                                                <img alt="Image placeholder" [src]="user.image" class="h-100">
+                                                <img alt="Image placeholder" [src]="user.image" class="h-100 w-100">
                                             </a>
                                         </div>
                                         <div class="col ml-md-n2">
-                                            <a href="#!" class="d-block h6 mb-0 custom-fs-14">{{user.name}}</a>
-                                            <small class="d-block text-black color-black custom-fs-12">#0{{user.id}}</small>
+                                            <a href="#!" class="d-block h6 mb-0 text-sm">{{user.name}}</a>
+                                            <small class="d-block text-dark font-weight-900 custom-fs-12">#{{user.id | number : '3.0': 'fr'}}</small>
                                         </div>
                                     </div>
                                 </th>
-                                <th class="py-2 align-middle custom-fs-14">{{user.begin}}</th>
+                                <th class="py-2 align-middle text-sm">{{user.begin}}</th>
                                 <th class="align-middle py-2 px-0">
-                                    <div class="status-block" [class.bg-success]="user.formTask == 2" [class.gray-block]="user.formTask === 0" [class.bg-warning]="user.formTask === 1"><span class="ml-4 custom-fs-12">{{user.formTask | dashStatus}}</span></div>
-                                </th>
-                                <th class="align-middle py-2 px-0">
-                                    <div class="status-block" [class.bg-success]="user.letterTask == 2" [class.gray-block]="user.letterTask === 0" [class.bg-warning]="user.letterTask === 1"><span class="ml-4 custom-fs-12">{{user.letterTask | dashStatus}}</span></div>
-                                </th>
-                                <th class="align-middle  px-0">
-                                    <div class="status-block bg-success d-flex align-items-center justify-content-between">
-                                        <span class="ml-4 custom-fs-12">Готово</span>
-                                        <img src="assets/icons/arrow-down.svg" height="7.41px" width="12px" class="mr-2">
+                                    <div class="status-block d-flex" [class.bg-success]="user.formTask == 2" [class.gray-block]="user.formTask === 0" [class.bg-warning]="user.formTask === 1">
+                                        <span class="ml-4 custom-fs-12 align-self-center">{{user.formTask | dashStatus}}</span>
                                     </div>
                                 </th>
-                                <th class="align-middle  px-0">
-                                    <div class="status-block bg-success d-flex align-items-center justify-content-between">
-                                        <span class="ml-4 custom-fs-12">Готово</span>
-                                        <img src="assets/icons/arrow-down.svg" height="7.41px" width="12px" class="mr-2">
+                                <th class="align-middle py-2 px-0">
+                                    <div class="status-block d-flex" [class.bg-success]="user.letterTask == 2" [class.gray-block]="user.letterTask === 0" [class.bg-warning]="user.letterTask === 1">
+                                        <span class="ml-4 custom-fs-12 align-self-center">{{user.letterTask | dashStatus}}</span>
                                     </div>
                                 </th>
-                                <th class="align-middle finish-row custom-fs-14 py-1">{{user.decision}}</th>
-                                <th class="align-middle pl-2 pr-2 py-2 custom-fs-14">{{user.finish}}</th>
-                                <th class="align-middle pr-2 text-right"><img src="assets/icons/edit.svg" alt="edit"></th>
-                                <th class="align-middle pl-1 pr-3 text-center"><img src="assets/icons/delete.svg"alt="delete"></th>
+                                <th class="align-middle px-0" [class.nothing-block]="!user.testTasks">
+                                    <div class="dropdown d-block" *ngIf="user.testTasks">
+                                        <div class="status-block d-flex align-items-center justify-content-between" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="testTask" [class.bg-success]="taskStatus(user.testTasks) == 2" [class.bg-warning]="taskStatus(user.testTasks) == 1" [class.gray-block]="taskStatus(user.testTasks) == 0">
+                                            <span class="ml-4 custom-fs-12 ">{{taskStatus(user.testTasks) | dashStatus}}</span>
+                                            <img src="assets/icons/arrow-down.svg" height="7.41px" width="12px" class="mr-2">
+                                        </div>
+                                        <div class="dropdown-menu dropdown-test-task mt-0 border-0 p-0" aria-labelledby="testTask">
+                                            <a *ngFor="let task of user.testTasks" class="dropdown-item my-1 py-0 pl-4 custom-fs-12 d-flex align-items-center" href="#">
+                                                <span class="d-inline-block rounded task-status mr-1" [class.bg-success]="task.status == 2" [class.bg-warning]="task.status == 1" [class.bg-light]="task.status == 0"></span>{{task.name}}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th class="align-middle px-0" [class.nothing-block]="!user.practiceTasks">
+                                    <div class="dropdown d-block" *ngIf="user.practiceTasks">
+                                        <div class="status-block d-flex align-items-center justify-content-between" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="testTask" [class.bg-success]="taskStatus(user.practiceTasks) == 2" [class.bg-warning]="taskStatus(user.practiceTasks) == 1" [class.gray-block]="taskStatus(user.practiceTasks) == 0">
+                                            <span class="ml-4 custom-fs-12">{{taskStatus(user.practiceTasks) | dashStatus}}</span>
+                                            <img src="assets/icons/arrow-down.svg" height="7.41px" width="12px" class="mr-2">
+                                        </div>
+                                        <div class="dropdown-menu dropdown-practice-task mt-0 bo" aria-labelledby="testTask">
+                                            <a *ngFor="let task of user.practiceTasks" class="dropdown-item my-1 py-0 pl-4 custom-fs-12 d-flex align-items-center" href="#">
+                                                <span class="d-inline-block rounded task-status mr-1" [class.bg-success]="task.status == 2" [class.bg-warning]="task.status == 1" [class.bg-light]="task.status == 0"></span>{{task.name}}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th class="align-middle finish-row text-sm py-1 pr-0">{{user.decision}}</th>
+                                <th class="align-middle pl-2 pr-2 py-2 text-sm">{{user.finish}}</th>
+                                <th class="align-middle pl-1 pr-3 text-center"><img src="assets/icons/delete.svg"alt="delete" (click)="deleteUser(user)"></th>
                             </tr>
                         </tbody>
                     </table>

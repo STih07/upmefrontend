@@ -1,0 +1,18 @@
+<div class="card card-fluid mb-0" [class.disabled]='hasSolution'>
+    <div class="d-flex justify-content-left mx-4 card-title text-dark my-3 custom-fs-20" [class.disabled]='hasSolution'>Принять решение</div>
+    <div class="card-body py-0 row mt-3 mb-4">
+        <div class="pr-4">
+            <ul class="custom__ul">
+                <li *ngFor="let state of userStates; let i = index" [class._selected]="user.solution === state.id"
+                    (click)="user.solution = state.id" class="pl-1 custom_checkbox lh-120 text-sm"
+                    [class.pb-4]="i !== userStates.length - 1">
+                    {{state.name}}
+                </li>
+            </ul>
+        </div>
+        <button class="btn btn-secondary btn-xs mx-3 custom-btn w-100"
+            [disabled]="user.solution === null || hasSolution" (click)="openSubmitModal()">
+            <span class="h6 text-white">Подтвердить</span>
+        </button>
+    </div>
+</div>

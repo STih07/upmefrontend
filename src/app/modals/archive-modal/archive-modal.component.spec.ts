@@ -1,34 +1,31 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { SubmitModalComponent } from './submit-modal.component';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { RouterTestingModule } from '@angular/router/testing';
 
+import { ArchiveModalComponent } from './archive-modal.component';
 
-describe('SubmitModalComponent', () => {
-  let component: SubmitModalComponent;
-  let fixture: ComponentFixture<SubmitModalComponent>;
+describe('ArchiveModalComponent', () => {
+  let component: ArchiveModalComponent;
+  let fixture: ComponentFixture<ArchiveModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [SubmitModalComponent],
+      declarations: [ArchiveModalComponent],
       providers: [NgbActiveModal]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SubmitModalComponent);
+    fixture = TestBed.createComponent(ArchiveModalComponent);
     component = fixture.componentInstance;
     component.user = {
       users: ['infoAboutUser'],
       name: 'name',
-      solution: 'solution'
     };
     fixture.detectChanges();
   });
 
   it('should create', () => {
-        expect(component).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 });
