@@ -1,191 +1,89 @@
-<div class="container-fluid container-application mt-4 d-block">
-    <div class="row">
-        <div class="col">
-            <span class="text-white h3 custom-fs-24">UI/UX Design</span>
-        </div>
+<div class="container-fluid container-application mt-4 d-block" *ngIf="directions">
+  <div class="row">
+    <div class="col d-flex align-items-center justify-content-between">
+      <span class="text-white h3 custom-fs-24">Направления</span>
     </div>
-    <div class="row mt-4">
-        <div class="col col-lg-4">
-            <div class="card card-fluid">
-                <div class="card-header">
-                    <div class="row align-items-center">
-                        <div class="col-auto">
-                            <!-- Avatar -->
-                            <a href="#" class="avatar rounded-circle">
-                                <img alt="Image placeholder" src="assets/img/user_alex_img.png">
-                            </a>
-                        </div>
-                        <div class="col ml-md-n2">
-                            <a href="#!" class="d-block h6 mb-0">Alex Zabiiako</a>
-                            <small class="d-block text-black color-black">UX/UI Дизайнер</small>
-                        </div>
-                        <div class="col-auto">
-                            <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill btn-secondary">
-                                <span class="btn-inner--icon"><i class="fa fa-pencil"></i></span>
-                                <span class="btn-inner--text">Изменить</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body pb-0">
-                    <div class="row mb-3 align-items-center">
-                        <div class="col">
-                            <h6 class="text-sm mb-0">
-                                <img src="assets/icons/gmail_ico.svg" class="gmail-ico mr-3">
-                                <a class="link" target="_blank" href="#!">zabiiako@gmail.com</a>
-                            </h6>
-                        </div>
-                    </div>
-                    <div class="row my-3 align-items-center">
-                        <div class="col">
-                            <h6 class="text-sm mb-0">
-                                <i class="fa fa-phone mr-3"></i>+380 93 350 24 32
-                            </h6>
-                        </div>
-                    </div>
-                    <div class="row my-3 align-items-center">
-                        <div class="col">
-                            <h6 class="text-sm mb-0">
-                                <i class="fa fa-paper-plane mr-3"></i>
-                                <a class="link" target="_blank" href="#!">@zabiiako</a>
-                            </h6>
-                        </div>
-                    </div>
-                    <div class="row my-3 align-items-center">
-                        <div class="col">
-                            <h6 class="text-sm mb-0 d-flex">
-                                <i class="fa fa-linkedin-square mr-3"></i>
-                                <a class="link" target="_blank" href="#!"><span class="link">https://www.linkedin.com/in/alex-zabiako-b696a0ssssssssssssss</span></a>
-                            </h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer p-2 d-flex justify-content-center">
-                    <div class="d-flex flex-column align-items-center">
-                        <div class="h5 mb-0 text-secondary">Ментор</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <!-- Direction stats -->
-            <div class="card card-fluid">
-              <div class="d-flex justify-content-center card-title small mt-1 custom-fs-12"></div>
-              <div class="card-body p-0 row">
-                <div class="col-lg-6 d-flex flex-column justify-content-between">
-                  <div class="bottom-light-border mx-4 pt-4 pb-4">
-                    <div class="mb-2 text-dark font-weight-500 custom-fs-13">Всего кандидатов</div>
-                    <span class="text-primary h2 font-weight-bold mr-2">{{users?.length}}</span>
-                  </div>
-                  <div class="ml-4 mr-3 py-4">
-                    <div class="mb-2 text-dark font-weight-500 custom-fs-13">Оценка "Хорошо"</div>
-                    <span class="text-primary h2 font-weight-bold mr-2">36%</span>
-                  </div>
-                </div>
-                <div class="col-lg-6 d-flex flex-column justify-content-around left-light-border">
-                  <div class="ml-3">
-                    <div class="text-dark font-weight-500 custom-fs-13">Оценка "Отлично"</div>
-                    <div class="mt-0">
-                      <span class="text-primary font-weight-bold h5 mr-1">3</span><span class="custom-fs-12">кандидата</span>
-                    </div>
-                  </div>
-                  <div class="ml-3">
-                    <div class="text-dark font-weight-500 custom-fs-13">Оценка "Хорошо"</div>
-                    <div class="mt-0">
-                      <span class="text-primary font-weight-bold h5 mr-1">5</span><span class="custom-fs-12">кандидатов</span>
-                    </div>
-                  </div>
-                  <div class="ml-3">
-                    <div class="text-dark font-weight-500 custom-fs-13">Оценка "С ошибкой"</div>
-                    <div class="mt-0">
-                      <span class="text-primary font-weight-bold h5 mr-1">2</span><span class="custom-fs-12">кандидата</span>
-                    </div>
-                  </div>
-                  <div class="ml-3">
-                    <div class="text-dark font-weight-500 custom-fs-13">Оценка "Не сдал"</div>
-                    <div class="mt-0">
-                      <span class="text-primary font-weight-bold h5 mr-1">3</span><span class="custom-fs-12">кандидата</span>
-                    </div>
-                  </div>
-                </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card mt-3">
+        <div class="card-header d-flex align-items-center justify-content-between py-2">
+          <span class="text-sm">Направления</span>
+          <div>
+            <button class="btn btn-light mr-3 py-2 text-dark btn-archive custom-fs-12" (click)="openArchiveModal()" [disabled]="true">Архивировать</button>
+            <button class="btn m-0 p-0"><img src="assets/icons/search.svg" alt="search" class="pr-4"></button>
+            <button class="btn m-0 p-0"><img src="assets/icons/filter.svg" alt="filter" class="pr-4"></button>
+            <div class="dropdown">
+              <button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn m-0 p-0" id="filterMenu">
+                <img src="assets/icons/more.svg" alt="more">
+              </button>
+              <div class="dropdown-menu" aria-labelledby="filterMenu">
+                <div class="text-sm text-dark px-3 font-weight-bold">Сортировать по:</div>
+                <a class="dropdown-item text-primary" href="#"><img src="assets/icons/vector.svg" class="mr-2" alt="">Статусу</a>
+                <a class="dropdown-item" href="#"><img src="assets/icons/newest.svg" class="mr-2" alt="">Сначала новые</a>
+                <a class="dropdown-item" href="#"><img src="assets/icons/older.svg" class="mr-2" alt="">Сначала старые</a>
+                <a class="dropdown-item" href="#"><img src="assets/icons/fromA-Z.svg" class="mr-2" alt="">От А до Я</a>
+                <a class="dropdown-item" href="#"><img src="assets/icons/fromZ-A.svg" class="mr-2" alt="">От Я до А</a>
               </div>
-              <div class="card-footer border-top-0 pt-2"></div>
             </div>
+          </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <div class="card mt-3">
-                <div class="card-header d-flex align-items-center justify-content-between pt-3 pb-4">
-                    <div class="btn-group" role="group">
-                        <button *ngFor="let work of works" class="btn font-weight-light py-1 btn-filter-width text-sm text-nowrap" [class.btn-secondary]="selectedWorks == work.id" [class.btn-gray]="selectedWorks != work.id" (click)="selectedWorks = work.id">{{work.name}}: {{work.amount}}</button>
-                    </div>
-                    <div>
-                        <button class="btn mr-4 btn-decision py-1 font-weight-normal custom-fs-12">Оценить</button>
-                        <i class="fa fa-search mr-4" aria-hidden="false"></i>
-                        <i class="fa fa-filter mr-4" aria-hidden="false"></i>
-                        <img src="assets/icons/more.svg" alt="more">
-                    </div>
+        <div class="card-body pt-0 px-0">
+          <table class="table">
+            <thead>
+            <tr>
+              <th class="pl-2 pr-2 py-1 align-middle col-filter" scope="col">
+                <button class="btn btn-table-filter">
+                  <img src="assets/icons/check-circle.svg" alt="check-circle" class="mr-2">
+                  <img src="assets/icons/arrow-down-gray.svg" alt="arrow-down">
+                </button>
+              </th>
+              <th class="pl-0 py-1 align-middle col-name text-sm" scope="col">Курс</th>
+              <th class="py-1 align-middle col-begin text-sm" scope="col">Ментор</th>
+              <th class="py-1 align-middle form-col text-sm" scope="col">День и время</th>
+              <th class="py-1 align-middle letter-col text-sm" scope="col">Резидентов</th>
+              <th class="py-1 align-middle test-col text-sm" scope="col">Кандидатов</th>
+              <th class="py-1 align-middle practice-col text-sm" scope="col">Продолжительность</th>
+              <th scope="col edit-col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let direction of directions" class="tr-height" [class.all-done-row]="isSelected(direction)">
+              <th scope="row" class="py-2 align-middle col-filter-pl" [class.selected-row]="isSelected(direction)">
+                <input type="checkbox" [id]="direction.id" (click)="select(direction)" [checked]="isSelected(direction)"/>
+                <label [for]="direction.id" class="mb-0"></label>
+              </th>
+              <th class="pl-0 align-middle text-sm">
+                {{direction.name}}
+              </th>
+              <th class="pl-0 align-middle">
+                <div class="row align-items-center flex-nowrap">
+                  <div class="col-auto">
+                    <a [routerLink]="'/mentor/' + direction.mentor.id" disabled class="avatar rounded-circle">
+                      <img alt="Image placeholder" [src]="direction.mentor.icon" class="h-100 w-100">
+                    </a>
+                  </div>
+                  <div class="col ml-md-n2">
+                    <a [routerLink]="direction.id" class="d-block h6 mb-0 text-sm">{{direction.mentor.name}}</a>
+                  </div>
                 </div>
-                <div class="card-body pt-0 px-0">
-                    <table class="table">
-                        <thead>
-                            <tr class="text-dark">
-                                <th class="pl-2 pr-0 py-1 align-middle col-filter text-center" scope="col">
-                                    <button class="btn btn-table-filter">
-                                        <img src="assets/icons/check-circle.svg" alt="check-circle" class="mr-2">
-                                        <img src="assets/icons/arrow-down-gray.svg" alt="arrow-down">
-                                    </button>
-                                </th>
-                                <th class="pl-0 py-1 align-middle name-col text-sm" scope="col">Имя</th>
-                                <th class="py-1 px-3 align-middle stage-col text-sm" scope="col">Этап</th>
-                                <th class="py-1 pl-3 align-middle status-col text-sm" scope="col">Статус задания</th>
-                                <th class="py-1 align-middle rating-col text-sm" scope="col">Оценка</th>
-                                <th class="py-1 align-middle feedback-col text-sm" scope="col">Фидбек</th>
-                                <th scope="col edit-col"></th>
-                                <th scope="col edit-col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let user of users" class="selected-col tr-height text-dark">
-                                <th scope="row" class="col-filter-pl text-center">
-                                    <img src="assets/icons/success-circle.svg" alt="success-circle">
-                                </th>
-                                <th class="pl-0 pt-2 align-middle">
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <a href="#" class="avatar rounded-circle">
-                                                <img alt="Image placeholder" [src]="user.image" class="h-100">
-                                            </a>
-                                        </div>
-                                        <div class="col ml-md-n2">
-                                            <a href="#!" class="d-block h6 mb-0 text-sm">{{user.name}}</a>
-                                            <small class="d-block text-dark color-black custom-fs-12 font-weight-900">#{{user.id | number: '3.0': 'fr'}}</small>
-                                        </div>
-                                    </div>
-                                    <div class="text-sm text-muted user-source">
-                                        <span>Исходники: </span>
-                                        <a href="!#">{{user.source}}</a>
-                                    </div>
-                                </th>
-                                <th class="text-sm pl-3 pt-4">{{user.stage}}</th>
-                                <th class="px-0 pt-4">
-                                    <div class="status-block pt-1" [class.bg-success]="user.status === 2" [class.bg-warning]="user.status === 1" [class.gray-block]="user.status === 0" ><span class="ml-3 text-sm font-weight-normal">{{user.status | taskStatus}}</span></div>
-                                </th>
-                                <th class="px-3 pt-4">
-                                    <div class="status-block multiselect bg-white text-dark d-flex align-items-center justify-content-between">
-                                        <span class="ml-3 text-sm">Отлично</span>
-                                        <img src="assets/icons/arrow-down-black.svg" height="4.93px" width="9.09px" class="mr-2">
-                                    </div>
-                                </th>
-                                <th class="text-wrap px-4 pt-4 pb-1">{{user.feedBack}}</th>
-                                <th class="pr-2 text-right pt-4"><img src="assets/icons/edit.svg" alt="edit"></th>
-                                <th class="pl-1 pr-3 text-center pt-4"><img src="assets/icons/delete.svg"alt="delete"></th>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+              </th>
+              <th class="py-2 align-middle text-sm">{{direction.schelude}}</th>
+              <th class="align-middle py-2 text-sm">
+                {{direction.residents}}
+              </th>
+              <th class="align-middle py-2 text-sm">
+                {{direction.candidates}}
+              </th>
+              <th class="align-middle py-2 text-sm">
+                {{direction.duration.start}} - {{direction.duration.end || "Сейчас"}}
+              </th>
+              <th class="align-middle pl-1 pr-3 text-center"><img src="assets/icons/delete.svg" alt="delete" (click)="delete(direction)"></th>
+            </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
     </div>
+  </div>
 </div>

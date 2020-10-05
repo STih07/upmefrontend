@@ -1,0 +1,27 @@
+<div class="container-fluid container-application mt-4 d-block" *ngIf="users">
+  <div class="row mb-5">
+    <div class="col d-flex align-items-center justify-content-between">
+      <span class="text-white h3 custom-fs-24">Резиденты</span>
+    </div>
+  </div>
+  <!-- Page title -->
+  <div class="row">
+    <div class="col-lg-3 col-sm-6" [routerLink]="'/profile/' + user.id" *ngFor="let user of users">
+      <div class="card hover-shadow-lg">
+        <div class="card-body text-center">
+          <div class="avatar-parent-child">
+            <img [alt]="user.name" [src]="user.icon" class="avatar rounded-circle avatar-xl">
+          </div>
+          <h5 class="h6 mt-4 mb-0">{{user.name}}</h5>
+          <a [routerLink]="'/profile/' + user.id" class="text-primary">{{user.profile}}</a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <!-- Load more -->
+<!--  <div class="mt-4 text-center">-->
+<!--    <a href="#" class="btn btn-sm btn-neutral rounded-pill shadow hover-translate-y-n3">Load more ...</a>-->
+<!--  </div>-->
+</div>

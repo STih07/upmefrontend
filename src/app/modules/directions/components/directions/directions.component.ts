@@ -1,31 +1,46 @@
 import { Component, OnInit } from '@angular/core';
-import { registerLocaleData } from '@angular/common';
-import localeFr from '@angular/common/locales/fr';
-
-import { Works } from '../../../../models/direction/work';
-import { FakeHttpService } from '../../services/fake-http.service';
-import { DirectionUser } from '../../../../models/direction/direction-user';
-
-registerLocaleData(localeFr, 'fr');
+import {DirectionService} from '../../services/direction.service';
+import {ListDirection} from '../../../../models/direction/list-direction';
 
 @Component({
-  selector: 'app-directions',
+  selector: 'upme-directions',
   templateUrl: './directions.component.html',
   styleUrls: ['./directions.component.scss']
 })
 export class DirectionsComponent implements OnInit {
 
-  works: Works[] = null;
+  directions: ListDirection[];
 
-  selectedWorks = 0;
+  selected: Set<number> = new Set<number>();
 
-  users: DirectionUser[] = null;
-
-  constructor(private fakeHttp: FakeHttpService) {
-  }
+  constructor(
+    private directionService: DirectionService
+  ) { }
 
   ngOnInit(): void {
-    this.fakeHttp.getWorks().subscribe(res => this.works = res);
-    this.fakeHttp.getDirectionUsers().subscribe(res => this.users = res);
+    this.directionService.getAll().subscribe(
+      directions => this.directions = directions
+    );
+  }
+
+  openArchiveModal() {
+
+  }
+
+  select(direction: ListDirection) {
+    const { id } = direction;
+    if (this.selected.has(id)) {
+      this.selected.delete(id);
+    } else {
+      this.selected.add(id);
+    }
+  }
+
+  isSelected(direction: ListDirection) {
+    return this.selected.has(direction.id);
+  }
+
+  delete(direction: ListDirection) {
+    this.directionService.delete(direction).subscribe();
   }
 }
