@@ -125,7 +125,7 @@
   border-radius: .2rem;
 }
 
-.dropdown-item:hover{
+.dropdown-item:hover:not(.text-muted){
   color: #006ad7 !important;
 }
 
@@ -142,4 +142,8 @@
 .dropdown-submenu .dropdown-item > img {
   height: 8px;
   width: 6px;
+}
+
+a.text-muted{
+  cursor: not-allowed;
 }

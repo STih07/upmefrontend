@@ -19,12 +19,12 @@
                             <a href="#!" class="d-block h6 mb-0">Alex Zabiiako</a>
                             <small class="d-block text-black color-black">UX/UI Дизайнер</small>
                         </div>
-                        <div class="col-auto">
+                        <!-- <div class="col-auto">
                             <button type="button" class="btn btn-xs btn-primary btn-icon rounded-pill btn-secondary">
                                 <span class="btn-inner--icon"><i class="fa fa-pencil"></i></span>
                                 <span class="btn-inner--text">Изменить</span>
                             </button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="card-body pb-0">
@@ -121,7 +121,7 @@
                         <button *ngFor="let work of works" class="btn font-weight-light py-1 btn-filter-width text-sm text-nowrap" [class.btn-secondary]="selectedWorks == work.id" [class.btn-gray]="selectedWorks != work.id" (click)="selectedWorks = work.id">{{work.name}}: {{work.amount}}</button>
                     </div>
                     <div>
-                        <button class="btn mr-4 btn-decision py-1 font-weight-normal custom-fs-12">Оценить</button>
+                        <!-- <button class="btn mr-4 btn-decision py-1 font-weight-normal custom-fs-12">Оценить</button> -->
                         <i class="fa fa-search mr-4" aria-hidden="false"></i>
                         <i class="fa fa-filter mr-4" aria-hidden="false"></i>
                         <img src="assets/icons/more.svg" alt="more">
@@ -142,24 +142,23 @@
                                 <th class="py-1 pl-3 align-middle status-col text-sm" scope="col">Статус задания</th>
                                 <th class="py-1 align-middle rating-col text-sm" scope="col">Оценка</th>
                                 <th class="py-1 align-middle feedback-col text-sm" scope="col">Фидбек</th>
-                                <th scope="col edit-col"></th>
-                                <th scope="col edit-col"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let user of users" class="selected-col tr-height text-dark">
+                            <tr *ngFor="let user of users" class="tr-height text-dark" [class.all-done-row]="isSelected(user)">
                                 <th scope="row" class="col-filter-pl text-center">
-                                    <img src="assets/icons/success-circle.svg" alt="success-circle">
+                                    <input type="checkbox" [id]="user.id" (click)="select(user)" [checked]="isSelected(user)"/>
+                                    <label [for]="user.id" class="mb-0"></label>
                                 </th>
                                 <th class="pl-0 pt-2 align-middle">
                                     <div class="row align-items-center">
                                         <div class="col-auto">
-                                            <a href="#" class="avatar rounded-circle">
+                                            <a [routerLink]="['/profile/' + user.id]" class="avatar rounded-circle">
                                                 <img alt="Image placeholder" [src]="user.image" class="h-100">
                                             </a>
                                         </div>
                                         <div class="col ml-md-n2">
-                                            <a href="#!" class="d-block h6 mb-0 text-sm">{{user.name}}</a>
+                                            <a [routerLink]="['/profile/' + user.id]" class="d-block h6 mb-0 text-sm">{{user.name}}</a>
                                             <small class="d-block text-dark color-black custom-fs-12 font-weight-900">#{{user.id | number: '3.0': 'fr'}}</small>
                                         </div>
                                     </div>
@@ -169,7 +168,7 @@
                                     </div>
                                 </th>
                                 <th class="text-sm pl-3 pt-4">{{user.stage}}</th>
-                                <th class="px-0 pt-4">
+                                <th class="px-0 pt-4 status-task-col">
                                     <div class="status-block pt-1" [class.bg-success]="user.status === 2" [class.bg-warning]="user.status === 1" [class.gray-block]="user.status === 0" ><span class="ml-3 text-sm font-weight-normal">{{user.status | taskStatus}}</span></div>
                                 </th>
                                 <th class="px-3 pt-4">
@@ -179,8 +178,6 @@
                                     </div>
                                 </th>
                                 <th class="text-wrap px-4 pt-4 pb-1">{{user.feedBack}}</th>
-                                <th class="pr-2 text-right pt-4"><img src="assets/icons/edit.svg" alt="edit"></th>
-                                <th class="pl-1 pr-3 text-center pt-4"><img src="assets/icons/delete.svg"alt="delete"></th>
                             </tr>
                         </tbody>
                     </table>

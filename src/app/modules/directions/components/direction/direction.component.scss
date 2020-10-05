@@ -15,7 +15,7 @@
 }
 
 th.col-filter-pl{
-    padding-left: 0.8rem;
+    padding-left: 1rem;
     padding-top: 2.1rem;
     border-left: 8px solid transparent;
 }
@@ -42,11 +42,7 @@ th.name-col{
 }
 
 .feedback-col{
-    width: 368px;
-}
-
-.edit-col{
-    width: 52px;
+    width: 472px;
 }
 
 .tr-height{
@@ -83,3 +79,44 @@ th.name-col{
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
+tr {
+    transition: all 0.3s;
+    &.all-done-row{
+        background-color: #EFF9FF;
+        transition: all 0.3s;
+    }
+}
+
+.col-filter-pl input{
+    display: none;
+    cursor: pointer;
+    &:checked + label:after{
+      content: '';
+      display: block;
+      position: absolute;
+      top: 25%;
+      left: 6px;
+      width: 6px;
+      height: 10px;
+      border: solid #8492a6;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg);
+    }
+  }
+  
+  .col-filter-pl label{
+    position: relative;
+    cursor: pointer;
+    &:before{
+      content:'';
+      background-color: transparent;
+      border: 2px solid #8492a6;
+      border-radius: 50%;
+      height: 18px;
+      width: 18px;
+      display: inline-block;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+  }

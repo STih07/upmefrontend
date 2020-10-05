@@ -18,8 +18,12 @@ export class DashboardComponent implements OnInit {
 
   users: DashboardUser[] = null;
 
-  constructor(private fakeHttp: FakeHttpService, private modalService: NgbModal) {
-  }
+  selected: Set<DashboardUser> = new Set<DashboardUser>();
+
+  constructor(
+    private fakeHttp: FakeHttpService,
+    private modalService: NgbModal
+  ) { }
 
   ngOnInit(): void {
     this.fakeHttp.getDashBoardUsers().subscribe((res) => {
@@ -28,22 +32,17 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-
-  checkUser(id$: number): void {
-    this.users[id$ - 1].selected = !this.users[id$ - 1].selected;
-  }
-
   deleteUser(user$: any): void {
     this.users = this.users.filter(user => user.id !== user$.id);
   }
 
   openSubmitModal(): void {
     const modalRef = this.modalService.open(SolutionModalComponent);
-    const firstUser = this.users.find(user$ => user$.selected === true);
+    const selectedUsers: Array<DashboardUser> = Array.from(this.selected);
 
     modalRef.componentInstance.user = {
-      users: this.users.filter(user$ => user$.selected === true),
-      name: firstUser.name,
+      users: Array.from(this.selected),
+      name: selectedUsers[0].name,
       solution: null
     };
 
@@ -57,18 +56,29 @@ export class DashboardComponent implements OnInit {
 
   openArchiveModal(): void {
     const modalRef = this.modalService.open(ArchiveModalComponent);
-    const firstUser = this.users.find(user$ => user$.selected === true);
-
+    const selectedUsers: Array<DashboardUser> = Array.from(this.selected);
     modalRef.componentInstance.user = {
-      users: this.users.filter(user$ => user$.selected === true),
-      name: firstUser.name
+      users: Array.from(this.selected),
+      name: selectedUsers[0].name
     };
 
     modalRef.result.then((result) => result ? console.log(result) : false);
   }
 
-  checkOnSelected(): boolean {
-    return !this.users.some(user => user.selected === true);
+  isAnySelected(): boolean {
+    return this.selected.size > 0;
+  }
+
+  select(user: DashboardUser): void {
+    if (this.selected.has(user)) {
+      this.selected.delete(user);
+    } else {
+      this.selected.add(user);
+    }
+  }
+
+  isSelected(user: DashboardUser): boolean {
+    return this.selected.has(user);
   }
 
   taskStatus(arrTasks$: Task[]): number {

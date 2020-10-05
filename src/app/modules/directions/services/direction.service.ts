@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { Progress } from '../../profile/services/progress-bar.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
-import {Observable, of} from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 import { Works } from '../../../models/direction/work';
 import { DirectionUser } from '../../../models/direction/direction-user';
 import { environment } from '../../../../environments/environment';
-import {ListDirection} from '../../../models/direction/list-direction';
+import { ListDirection } from '../../../models/direction/list-direction';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,7 @@ export class DirectionService {
     const headers = new HttpHeaders()
       .set('token', 'SOME_VALID_TOKEN');
     this.progress.start();
-    return this.http.get<Works[]>(environment.API_URL + '/direction/works', {headers}).pipe(
+    return this.http.get<Works[]>(environment.API_URL + '/direction/works', { headers }).pipe(
       tap(() => this.progress.complete())
     );
   }
@@ -29,13 +29,14 @@ export class DirectionService {
   getDirectionUsers(): Observable<DirectionUser[]> {
     const headers = new HttpHeaders()
       .set('token', 'SOME_VALID_TOKEN');
-    return this.http.get<DirectionUser[]>(environment.API_URL + '/direction/users', {headers});
+    return this.http.get<DirectionUser[]>(environment.API_URL + '/direction/users', { headers });
   }
 
   getAll(): Observable<ListDirection[]> {
     // return this.http...
     return of([
-      { id: 1,
+      {
+        id: 1,
         name: 'UI/UX Design',
         schelude: 'ПН 14:30-16:00',
         residents: 7,
@@ -49,7 +50,23 @@ export class DirectionService {
           name: 'Alex Zabiiako',
           icon: 'assets/img/user_alex_img.png'
         }
-      }
+      },
+      {
+        id: 2,
+        name: 'Front-End',
+        schelude: 'ПН 18:00-19:30',
+        residents: 9,
+        candidates: 5,
+        duration: {
+          start: '10/03/2020',
+          end: null
+        },
+        mentor: {
+          id: 2,
+          name: 'Вова Сакаян',
+          icon: 'assets/img/user_alex_img.png'
+        }
+      },
     ]);
   }
 

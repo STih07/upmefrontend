@@ -19,6 +19,8 @@ export class DirectionComponent implements OnInit {
 
   selectedWorks = 0;
 
+  selected: Set<DirectionUser> = new Set<DirectionUser>();
+
   users: DirectionUser[] = null;
 
   constructor(private directionService: DirectionService) {
@@ -27,5 +29,17 @@ export class DirectionComponent implements OnInit {
   ngOnInit(): void {
     this.directionService.getWorks().subscribe(res => this.works = res);
     this.directionService.getDirectionUsers().subscribe(res => this.users = res);
+  }
+
+  select(user: DirectionUser): void {
+    if (this.selected.has(user)) {
+      this.selected.delete(user);
+    } else {
+      this.selected.add(user);
+    }
+  }
+
+  isSelected(user: DirectionUser): boolean {
+    return this.selected.has(user);
   }
 }

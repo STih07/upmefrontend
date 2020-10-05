@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {DirectionService} from '../../services/direction.service';
-import {ListDirection} from '../../../../models/direction/list-direction';
+import { DirectionService } from '../../services/direction.service';
+import { ListDirection } from '../../../../models/direction/list-direction';
 
 @Component({
   selector: 'upme-directions',
@@ -11,7 +11,7 @@ export class DirectionsComponent implements OnInit {
 
   directions: ListDirection[];
 
-  selected: Set<number> = new Set<number>();
+  selected: Set<ListDirection> = new Set<ListDirection>();
 
   constructor(
     private directionService: DirectionService
@@ -24,23 +24,22 @@ export class DirectionsComponent implements OnInit {
   }
 
   openArchiveModal() {
-
+    const selectedDirections: Array<ListDirection> = Array.from(this.selected);
   }
 
-  select(direction: ListDirection) {
-    const { id } = direction;
-    if (this.selected.has(id)) {
-      this.selected.delete(id);
+  select(direction: ListDirection): void {
+    if (this.selected.has(direction)) {
+      this.selected.delete(direction);
     } else {
-      this.selected.add(id);
+      this.selected.add(direction);
     }
   }
 
-  isSelected(direction: ListDirection) {
-    return this.selected.has(direction.id);
+  isSelected(direction: ListDirection): boolean {
+    return this.selected.has(direction);
   }
 
-  delete(direction: ListDirection) {
+  delete(direction: ListDirection): void {
     this.directionService.delete(direction).subscribe();
   }
 }

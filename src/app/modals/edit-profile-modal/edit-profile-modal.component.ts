@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -16,10 +17,17 @@ export class EditProfileModalComponent {
     telegramNickName: ['']
   });
 
-  constructor(private modalService: NgbActiveModal, private fb: FormBuilder) {
+  constructor(private modalService: NgbActiveModal, private fb: FormBuilder, private router: Router) {
   }
 
-  onCancel() {
+  logOut(): void {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
+    this.modalService.close();
+    this.router.navigateByUrl('/auth/login');
+  }
+
+  onCancel(): void {
     this.modalService.close();
   }
 }

@@ -1,0 +1,134 @@
+.btn-decision{
+    height: 30px;
+    padding:7px 67px;
+    background: #EFF2F7;
+    color: #273444;
+}
+
+.btn-filter-width{
+    width: 160px;
+}
+
+.col-filter{
+    width: 68px;
+    padding: 6px 10px;
+}
+
+th.col-filter-pl{
+    padding-left: 0.8rem;
+    padding-top: 2.1rem;
+    border-left: 8px solid transparent;
+}
+
+.btn-table-filter{
+    padding: 2px 5px;
+}
+
+th.name-col{
+    width: 196px;
+    padding-right: 9rem;
+}
+
+.stage-col{
+    width: 136px;
+}
+
+.status.col{
+    width: 200px;
+}
+
+.rating-col{
+    width: 224px;
+}
+
+.feedback-col{
+    width: 368px;
+}
+
+.edit-col{
+    width: 52px;
+}
+
+.tr-height{
+    height: 80px;
+}
+
+.selected-col{
+    background-color: #EFF9FF;
+}
+
+.status-block{
+    height: 32px;
+    color: #fff;
+    &.gray-block{
+        background-color: #8492a6;
+    }
+}
+
+.multiselect{
+    border: 1px solid #8492A6;
+    border-radius: 4px;
+}
+
+.user-source{
+    width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.link{
+    color: #006ad7;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+th{
+    transition:all 0.3s;
+    &.selected-row{
+        border-left: 8px solid #36b37e;
+        transition: border-left 0.3s;
+    }
+}
+
+tr {
+    transition: all 0.3s;
+    &.all-done-row{
+        background-color: #EFF9FF;
+        transition: all 0.3s;
+    }
+}
+
+.col-filter-pl input{
+    display: none;
+    cursor: pointer;
+    &:checked + label:after{
+      content: '';
+      display: block;
+      position: absolute;
+      top: 25%;
+      left: 6px;
+      width: 6px;
+      height: 10px;
+      border: solid #8492a6;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg);
+    }
+  }
+  
+  .col-filter-pl label{
+    position: relative;
+    cursor: pointer;
+    &:before{
+      content:'';
+      background-color: transparent;
+      border: 2px solid #8492a6;
+      border-radius: 50%;
+      height: 18px;
+      width: 18px;
+      display: inline-block;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+  }
