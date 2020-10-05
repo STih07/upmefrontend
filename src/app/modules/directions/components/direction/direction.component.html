@@ -172,9 +172,15 @@
                                     <div class="status-block pt-1" [class.bg-success]="user.status === 2" [class.bg-warning]="user.status === 1" [class.gray-block]="user.status === 0" ><span class="ml-3 text-sm font-weight-normal">{{user.status | taskStatus}}</span></div>
                                 </th>
                                 <th class="px-3 pt-4">
-                                    <div class="status-block multiselect bg-white text-dark d-flex align-items-center justify-content-between">
-                                        <span class="ml-3 text-sm">Отлично</span>
+                                    <div class="dropdown status-block multiselect bg-white text-dark d-flex align-items-center justify-content-between" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="rating">
+                                        <span class="ml-3 text-sm text-dark">Отлично</span>
                                         <img src="assets/icons/arrow-down-black.svg" height="4.93px" width="9.09px" class="mr-2">
+                                        <div class="dropdown-menu dropdown-rating mt-0" aria-labelledby="rating">
+                                            <a class="dropdown-item text-dark">Хорошо</a>
+                                            <a class="dropdown-item text-dark">Статусу</a>
+                                            <a class="dropdown-item text-dark">Не сдал</a>
+                                            <a class="dropdown-item text-dark">Сдал с ошибкой</a>
+                                        </div>
                                     </div>
                                 </th>
                                 <th class="text-wrap px-4 pt-4 pb-1">{{user.feedBack}}</th>
