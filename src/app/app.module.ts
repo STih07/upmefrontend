@@ -17,6 +17,8 @@ import { EditProfileModalComponent } from './modals/edit-profile-modal/edit-prof
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SolutionModalComponent } from './modals/solution-modal/solution-modal.component';
 import { ArchiveModalComponent } from './modals/archive-modal/archive-modal.component';
+import { HeaderComponent } from './layout/components/header/header.component';
+import { FooterComponent } from './layout/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ArchiveModalComponent } from './modals/archive-modal/archive-modal.comp
     Page404Component,
     EditProfileModalComponent,
     SolutionModalComponent,
-    ArchiveModalComponent
+    ArchiveModalComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
