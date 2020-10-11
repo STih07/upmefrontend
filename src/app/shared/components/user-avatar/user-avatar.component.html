@@ -1,0 +1,6 @@
+<a href="#" class="avatar rounded-circle" [class.bg-warning]="!avatar.icon">
+    <img *ngIf="avatar.icon" alt="Image placeholder" [src]="avatar.icon">
+    <div *ngIf="!avatar.icon" class="text-white custom-fs-21 lh-100 font-weight-900" style="transform: translateY(-1%)">
+        {{getAbbreviatedName()}}
+    </div>
+</a>

@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { UserAvatarComponent } from './components/user-avatar/user-avatar.component';
 
 @NgModule({
-    declarations: [],
+    declarations: [UserAvatarComponent],
     imports: [CommonModule],
-    exports: []
+    exports: [UserAvatarComponent]
 })
 export class SharedModule { }

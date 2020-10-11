@@ -17,6 +17,7 @@ import { EditProfileModalComponent } from './modals/edit-profile-modal/edit-prof
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SolutionModalComponent } from './modals/solution-modal/solution-modal.component';
 import { ArchiveModalComponent } from './modals/archive-modal/archive-modal.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ArchiveModalComponent } from './modals/archive-modal/archive-modal.comp
     ArchiveModalComponent
   ],
   imports: [
+    SharedModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
