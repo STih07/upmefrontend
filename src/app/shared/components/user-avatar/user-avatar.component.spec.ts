@@ -17,6 +17,7 @@ describe('UserAvatarComponent', () => {
     fixture = TestBed.createComponent(UserAvatarComponent);
     component = fixture.componentInstance;
     component.avatar = {
+      id: 1,
       name: 'Name',
       surname: 'Surname'
     };
