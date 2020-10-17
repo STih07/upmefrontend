@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { UserAvatar } from 'src/app/models/user-avatar';
 
 @Component({
-  selector: 'app-user-avatar',
+  selector: 'upme-user-avatar',
   templateUrl: './user-avatar.component.html',
   styleUrls: ['./user-avatar.component.scss']
 })
