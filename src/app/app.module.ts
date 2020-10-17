@@ -18,6 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SolutionModalComponent } from './modals/solution-modal/solution-modal.component';
 import { ArchiveModalComponent } from './modals/archive-modal/archive-modal.component';
 import { SharedModule } from './shared/shared.module';
+import { HeaderComponent } from './layout/components/header/header.component';
+import { FooterComponent } from './layout/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { SharedModule } from './shared/shared.module';
     Page404Component,
     EditProfileModalComponent,
     SolutionModalComponent,
-    ArchiveModalComponent
+    ArchiveModalComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     SharedModule,
