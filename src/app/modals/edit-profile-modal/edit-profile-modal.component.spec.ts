@@ -2,7 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { EditProfileModalComponent } from './edit-profile-modal.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('EditProfileModalComponent', () => {
   let component: EditProfileModalComponent;
@@ -10,11 +11,11 @@ describe('EditProfileModalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditProfileModalComponent ],
-      providers: [ NgbActiveModal ],
-      imports: [ ReactiveFormsModule ]
+      declarations: [EditProfileModalComponent],
+      providers: [NgbActiveModal],
+      imports: [ReactiveFormsModule, RouterTestingModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
