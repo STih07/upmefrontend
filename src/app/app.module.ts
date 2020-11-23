@@ -19,6 +19,7 @@ import { SolutionModalComponent } from './modals/solution-modal/solution-modal.c
 import { ArchiveModalComponent } from './modals/archive-modal/archive-modal.component';
 import { HeaderComponent } from './layout/components/header/header.component';
 import { FooterComponent } from './layout/components/footer/footer.component';
+import { QuestionModalComponent } from './modals/question-modal/question-modal.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FooterComponent } from './layout/components/footer/footer.component';
     SolutionModalComponent,
     ArchiveModalComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    QuestionModalComponent
   ],
   imports: [
     BrowserModule,
