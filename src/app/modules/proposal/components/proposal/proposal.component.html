@@ -1,0 +1,33 @@
+<div class="container-fluid container mt-4 d-block" *ngIf="proposalUser">
+  <div class="row mb-5">
+    <div class="col d-flex align-items-center justify-content-between">
+      <span class="text-white h3 custom-fs-24">Резиденты</span>
+    </div>
+  </div>
+  <!-- Page title -->
+  <div class="row">
+    <div class="col-lg-3 col-sm-6" [routerLink]="'/profile/' + user.id" *ngFor="let user of proposalUser"
+      (mouseover)="user.hovered = true" (mouseout)="user.hovered = false">
+      <div class="card hover-shadow-lg">
+        <div class="py-3 px-0 card-body text-center">
+          <div class="avatar-parent-child">
+            <img [alt]="user.name" [src]="user.icon" class="avatar rounded-circle avatar-xl">
+          </div>
+          <h5 class="h6 mt-4 mb-0">{{user.name}}</h5>
+          <div class="pt-3 pb-3 px-4 mt-0 text-dark text-left card-outliers">
+            <div><i class="fa fa-birthday-cake mr-3" aria-hidden="true"></i>{{user.birthday}}</div>
+            <div><i class="fa fa-envelope mr-3" aria-hidden="true"></i>{{user.mail}}</div>
+            <div><i class="fa fa-phone mr-3" aria-hidden="true"></i>{{user.phone}}</div>
+            <div><i class="fa fa-telegram mr-3" aria-hidden="true"></i>{{user.telegram}}</div>
+            <div><i class="fa fa-institution mr-3" aria-hidden="true"></i>{{user.institution}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Load more -->
+  <!--  <div class="mt-4 text-center">-->
+  <!--    <a href="#" class="btn btn-sm btn-neutral rounded-pill shadow hover-translate-y-n3">Load more ...</a>-->
+  <!--  </div>-->
+</div>
