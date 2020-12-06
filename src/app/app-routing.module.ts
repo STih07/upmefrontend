@@ -29,6 +29,10 @@ const routes: Routes = [
       {
         path: 'proposal',
         loadChildren: () => import('./modules/proposal/proposal.module').then(m => m.ProposalModule)
+      },
+      {
+        path: 'residents',
+        loadChildren: () => import('./modules/residents/residents.module').then(m => m.ResidentsModule)
       }
     ],
     canActivate: [AuthGuard]
@@ -40,7 +44,7 @@ const routes: Routes = [
   {
     path: '**',
     component: Page404Component
-  },
+  }
 ];
 
 @NgModule({
