@@ -5,6 +5,7 @@ import localeFr from '@angular/common/locales/fr';
 import { Works } from '../../../../models/direction/work';
 import { DirectionService } from '../../services/direction.service';
 import { DirectionUser } from '../../../../models/direction/direction-user';
+import { title } from 'process';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -16,6 +17,18 @@ registerLocaleData(localeFr, 'fr');
 export class DirectionComponent implements OnInit {
 
   works: Works[] = null;
+
+  chartData = [['Не проверено', 48], ['Без оценки', 8], ['Проверено', 12]];
+  chartOptions = {
+    legend: 'none',
+    colors: ['#8492A6', '#FF5630', '#3DB280'],
+  };
+
+  chartCircles = [
+    '../../../../../assets/icons/chart-circle-gray.svg',
+    '../../../../../assets/icons/chart-circle-red.svg',
+    '../../../../../assets/icons/chart-circle-green.svg'
+  ]
 
   selectedWorks = 0;
 
