@@ -1,4 +1,4 @@
-<div class="container-fluid container-application mt-4 d-block" *ngIf="users">
+<div class="container-fluid container mt-4 d-block" *ngIf="users">
     <div class="row">
         <div class="col d-flex align-items-center justify-content-between">
             <span class="text-white h3 custom-fs-24">Кандидаты</span>
@@ -15,16 +15,108 @@
 <!--                        <button class="btn m-0 p-0"><img src="assets/icons/search.svg" alt="search" class="pr-4"></button>-->
 <!--                        <button class="btn m-0 p-0"><img src="assets/icons/filter.svg" alt="filter" class="pr-4"></button>-->
                         <div class="dropdown">
-                            <button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn m-0 p-0" id="filterMenu">
-                                <img src="assets/icons/more.svg" alt="more">
+                            <button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn m-0 p-0" id="filterDashboard">
+                                <img class="pr-4" src="assets/icons/filter.svg" alt="more">
                             </button>
-                            <div class="dropdown-menu" aria-labelledby="filterMenu">
+                            <div class="dropdown-menu" aria-labelledby="filterDashboard">
                                 <div class="text-sm text-dark px-3 font-weight-bold">Сортировать по:</div>
-                                <a class="dropdown-item text-primary cursor-pointer"><img src="assets/icons/vector.svg" class="mr-2" alt="">Статусу</a>
                                 <a class="dropdown-item text-muted cursor-na" disabled><img src="assets/icons/newest.svg" class="mr-2" alt="">Сначала новые</a>
                                 <a class="dropdown-item text-muted cursor-na" disabled><img src="assets/icons/older.svg" class="mr-2" alt="">Сначала старые</a>
                                 <a class="dropdown-item text-muted cursor-na" disabled><img src="assets/icons/fromA-Z.svg" class="mr-2" alt="">От А до Я</a>
                                 <a class="dropdown-item text-muted cursor-na" disabled><img src="assets/icons/fromZ-A.svg" class="mr-2" alt="">От Я до А</a>
+                            </div>
+                        </div>
+                        <div class="dropleft">
+                            <button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn m-0 p-0" id="filterMenu">
+                                <img src="assets/icons/more.svg" alt="more">
+                            </button>
+                            <div class="dropdown-menu filter-dropdown" aria-labelledby="filterMenu" (click)="$event.stopPropagation()">
+                                <mat-accordion class="example-headers-align" multi>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Тестирование</mat-panel-title>
+                                        </mat-expansion-panel-header>
+            
+                                        <div class="my-2">
+                                            <mat-checkbox>Только тестовое</mat-checkbox>
+                                        </div>
+                                        <div class="my-2">
+                                            <mat-checkbox>Только практическое</mat-checkbox>
+                                        </div>
+                                        <div class="my-2">
+                                            <mat-checkbox>Тестовое и практическое</mat-checkbox>
+                                        </div>
+            
+                                    </mat-expansion-panel>
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Тестовое по:</mat-panel-title>
+                                        </mat-expansion-panel-header>
+            
+                                        <div class="my-2">
+                                            <mat-checkbox>Front-End</mat-checkbox>
+                                        </div>
+                                        <div class="my-2">
+                                            <mat-checkbox>UI/UX design</mat-checkbox>
+                                        </div>
+                                        <div class="my-2">
+                                            <mat-checkbox>PHP</mat-checkbox>
+                                        </div>
+
+                                    </mat-expansion-panel>
+            
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Практическое по:</mat-panel-title>
+                                        </mat-expansion-panel-header>
+            
+                                        <div class="my-2">
+                                            <mat-checkbox>Front-End</mat-checkbox>
+                                        </div>
+                                        <div class="my-2">
+                                            <mat-checkbox>UI/UX design</mat-checkbox>
+                                        </div>
+                                        <div class="my-2">
+                                            <mat-checkbox>PHP</mat-checkbox>
+                                        </div>
+            
+                                    </mat-expansion-panel>
+            
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Тестовое</mat-panel-title>
+                                        </mat-expansion-panel-header>
+            
+                                        <div class="my-2">
+                                            <mat-checkbox>Не начато</mat-checkbox>
+                                        </div>
+                                        <div class="my-2">
+                                            <mat-checkbox>В процессе</mat-checkbox>
+                                        </div>
+                                        <div class="my-2">
+                                            <mat-checkbox>Готово</mat-checkbox>
+                                        </div>
+            
+                                    </mat-expansion-panel>
+
+                                    <mat-expansion-panel>
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title>Практическое</mat-panel-title>
+                                        </mat-expansion-panel-header>
+            
+                                        <div class="my-2">
+                                            <mat-checkbox>Не начато</mat-checkbox>
+                                        </div>
+                                        <div class="my-2">
+                                            <mat-checkbox>В процессе</mat-checkbox>
+                                        </div>
+                                        <div class="my-2">
+                                            <mat-checkbox>Готово</mat-checkbox>
+                                        </div>
+            
+                                    </mat-expansion-panel>
+
+                                </mat-accordion>
                             </div>
                         </div>
                     </div>

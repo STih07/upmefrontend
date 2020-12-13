@@ -2,6 +2,71 @@
   <div class="row mb-5">
     <div class="col d-flex align-items-center justify-content-between">
       <span class="text-white h3 custom-fs-24">Резиденты</span>
+      <div class="dropleft">
+        <button type="button" class="btn button-filter text-sm" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          <i class="fa fa-filter mr-2" aria-hidden="true"></i>Фильтровать по
+        </button>
+        <div class="dropdown-menu filter-dropdown" (click)="$event.stopPropagation()">
+          <div class="text-center my-3">
+            <div class="mb-3 input-icon">
+              <i class="fa fa-search icon" aria-hidden="true"></i>
+              <input class="input-field" type="text" placeholder="Поиск">
+            </div>
+          </div>
+
+          <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>Направлению</mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <div class="my-2">
+                <mat-checkbox>Не определился</mat-checkbox>
+              </div>
+              <div class="my-2">
+                <mat-checkbox>Front-End Dev</mat-checkbox>
+              </div>
+              <div class="my-2">
+                <mat-checkbox>UX/UI Designer</mat-checkbox>
+              </div>
+
+
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>Учебное заведение</mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <div class="my-2">
+                <mat-checkbox>ОНПУ</mat-checkbox>
+              </div>
+              <div class="my-2">
+                <mat-checkbox>ОНУ им. Мечникова</mat-checkbox>
+              </div>
+              <div class="my-2">
+                <mat-checkbox>КЗИ ОНАЗ</mat-checkbox>
+              </div>
+
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>Возраст</mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <div class="my-2">
+                <mat-checkbox>По возрастанию</mat-checkbox>
+              </div>
+              <div class="my-2">
+                <mat-checkbox>По убыванию</mat-checkbox>
+              </div>
+
+            </mat-expansion-panel>
+
+          </mat-accordion>
+        </div>
+      </div>
     </div>
   </div>
   <!-- Page title -->

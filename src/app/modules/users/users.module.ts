@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UsersComponent } from './components/users/users.component';
-import {RouterModule, Routes} from '@angular/router';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', component: UsersComponent }
@@ -12,7 +17,11 @@ const routes: Routes = [
   declarations: [UsersComponent],
   imports: [
     RouterModule.forChild(routes),
-    CommonModule
+    CommonModule,
+    MatExpansionModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatIconModule
   ]
 })
 export class UsersModule { }
