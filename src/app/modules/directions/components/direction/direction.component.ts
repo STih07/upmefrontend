@@ -5,7 +5,6 @@ import localeFr from '@angular/common/locales/fr';
 import { Works } from '../../../../models/direction/work';
 import { DirectionService } from '../../services/direction.service';
 import { DirectionUser } from '../../../../models/direction/direction-user';
-import { title } from 'process';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -28,7 +27,7 @@ export class DirectionComponent implements OnInit {
     '../../../../../assets/icons/chart-circle-gray.svg',
     '../../../../../assets/icons/chart-circle-red.svg',
     '../../../../../assets/icons/chart-circle-green.svg'
-  ]
+  ];
 
   selectedWorks = 0;
 
