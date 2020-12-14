@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DirectionService } from '../../services/direction.service';
 import { ListDirection } from '../../../../models/direction/list-direction';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AddProjectComponent } from 'src/app/modals/add-project/add-project.component';
 
 @Component({
   selector: 'upme-directions',
@@ -14,7 +16,8 @@ export class DirectionsComponent implements OnInit {
   selected: Set<ListDirection> = new Set<ListDirection>();
 
   constructor(
-    private directionService: DirectionService
+    private directionService: DirectionService,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -25,6 +28,10 @@ export class DirectionsComponent implements OnInit {
 
   openArchiveModal() {
     const selectedDirections: Array<ListDirection> = Array.from(this.selected);
+  }
+
+  openAddProject() {
+    const modalRef = this.modalService.open(AddProjectComponent);
   }
 
   select(direction: ListDirection): void {

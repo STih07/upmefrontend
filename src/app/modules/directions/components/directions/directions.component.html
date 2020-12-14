@@ -1,7 +1,10 @@
-<div class="container-fluid container-application mt-4 d-block" *ngIf="directions">
+<div class="container-fluid container mt-4 d-block" *ngIf="directions">
   <div class="row">
     <div class="col d-flex align-items-center justify-content-between">
       <span class="text-white h3 custom-fs-24">Направления</span>
+      <a href="#modal-project-create" class="btn btn-sm btn-white btn-icon-only rounded-circle ml-4" data-toggle="modal" (click)="openAddProject()">
+        <span class="btn-inner--icon"><i class="fa fa-plus"></i></span>
+      </a>
     </div>
   </div>
   <div class="row">
@@ -13,7 +16,7 @@
             <button class="btn btn-light mr-3 py-2 text-dark btn-archive custom-fs-12" (click)="openArchiveModal()" [disabled]="true">Архивировать</button>
 <!--            <button class="btn m-0 p-0"><img src="assets/icons/search.svg" alt="search" class="pr-4"></button>-->
 <!--            <button class="btn m-0 p-0"><img src="assets/icons/filter.svg" alt="filter" class="pr-4"></button>-->
-            <div class="dropdown">
+            <div class="dropleft">
               <button data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn m-0 p-0" id="filterMenu">
                 <img src="assets/icons/more.svg" alt="more">
               </button>
