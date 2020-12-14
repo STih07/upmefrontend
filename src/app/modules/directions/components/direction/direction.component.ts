@@ -17,6 +17,18 @@ export class DirectionComponent implements OnInit {
 
   works: Works[] = null;
 
+  chartData = [['Не проверено', 48], ['Без оценки', 8], ['Проверено', 12]];
+  chartOptions = {
+    legend: 'none',
+    colors: ['#8492A6', '#FF5630', '#3DB280'],
+  };
+
+  chartCircles = [
+    '../../../../../assets/icons/chart-circle-gray.svg',
+    '../../../../../assets/icons/chart-circle-red.svg',
+    '../../../../../assets/icons/chart-circle-green.svg'
+  ];
+
   selectedWorks = 0;
 
   selected: Set<DirectionUser> = new Set<DirectionUser>();

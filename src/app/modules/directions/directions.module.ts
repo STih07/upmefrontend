@@ -6,6 +6,7 @@ import { DirectionComponent } from './components/direction/direction.component';
 import { TaskStatus } from './pipe/status-task.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DirectionsComponent } from './components/directions/directions.component';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DirectionsComponent } from './components/directions/directions.componen
   imports: [
     CommonModule,
     DirectionsRoutingModule,
-    NgbModule
+    NgbModule,
+    GoogleChartsModule
   ]
 })
 export class DirectionsModule { }

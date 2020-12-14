@@ -1,4 +1,4 @@
-<div class="container-fluid container-application mt-4 d-block">
+<div class="container-fluid container mt-4 d-block">
     <div class="row">
         <div class="col">
             <span class="text-white h3 custom-fs-24">UI/UX Design</span>
@@ -55,7 +55,9 @@
                         <div class="col">
                             <h6 class="text-sm mb-0 d-flex">
                                 <i class="fa fa-linkedin-square mr-3"></i>
-                                <a class="link" target="_blank" href="https://www.linkedin.com/in/alex-zabiako-b696a"><span class="link">https://www.linkedin.com/in/alex-zabiako-b696a</span></a>
+                                <a class="link" target="_blank"
+                                    href="https://www.linkedin.com/in/alex-zabiako-b696a"><span
+                                        class="link">https://www.linkedin.com/in/alex-zabiako-b696a</span></a>
                             </h6>
                         </div>
                     </div>
@@ -67,49 +69,66 @@
                 </div>
             </div>
         </div>
+        <div class="col col-lg-4">
+            <div class="card card-fluid">
+                <div class="card-title activity-title text-dark">Активность</div>
+                <div class="d-flex h-100">
+                    <google-chart [type]="'PieChart'" [data]="chartData" [options]="chartOptions"
+                        [style]="{'height': '90%', 'width': '60%'}"></google-chart>
+                    <div class="position-absolute charts-legend">
+                        <div *ngFor="let data of chartData; let i = index" class="text-dark"><img [src]="chartCircles[i]"> {{data[0]}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="col-lg-4">
             <!-- Direction stats -->
             <div class="card card-fluid">
-              <div class="d-flex justify-content-center card-title small mt-1 custom-fs-12"></div>
-              <div class="card-body p-0 row">
-                <div class="col-lg-6 d-flex flex-column justify-content-between">
-                  <div class="bottom-light-border mx-4 pt-4 pb-4">
-                    <div class="mb-2 text-dark font-weight-500 custom-fs-13">Всего кандидатов</div>
-                    <span class="text-primary h2 font-weight-bold mr-2">{{users?.length}}</span>
-                  </div>
-                  <div class="ml-4 mr-3 py-4">
-                    <div class="mb-2 text-dark font-weight-500 custom-fs-13">Оценка "Хорошо"</div>
-                    <span class="text-primary h2 font-weight-bold mr-2">36%</span>
-                  </div>
+                <div class="d-flex justify-content-center card-title small mt-1 custom-fs-12"></div>
+                <div class="card-body p-0 row">
+                    <div class="col-lg-6 d-flex flex-column justify-content-between">
+                        <div class="bottom-light-border mx-4 pt-4 pb-4">
+                            <div class="mb-2 text-dark font-weight-500 custom-fs-13">Всего кандидатов</div>
+                            <span class="text-primary h2 font-weight-bold mr-2">{{users?.length}}</span>
+                        </div>
+                        <div class="ml-4 mr-3 py-4">
+                            <div class="mb-2 text-dark font-weight-500 custom-fs-13">Оценка "Хорошо"</div>
+                            <span class="text-primary h2 font-weight-bold mr-2">36%</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 d-flex flex-column justify-content-around left-light-border">
+                        <div class="ml-3">
+                            <div class="text-dark font-weight-500 custom-fs-13">Оценка "Отлично"</div>
+                            <div class="mt-0">
+                                <span class="text-primary font-weight-bold h5 mr-1">3</span><span
+                                    class="custom-fs-12">кандидата</span>
+                            </div>
+                        </div>
+                        <div class="ml-3">
+                            <div class="text-dark font-weight-500 custom-fs-13">Оценка "Хорошо"</div>
+                            <div class="mt-0">
+                                <span class="text-primary font-weight-bold h5 mr-1">5</span><span
+                                    class="custom-fs-12">кандидатов</span>
+                            </div>
+                        </div>
+                        <div class="ml-3">
+                            <div class="text-dark font-weight-500 custom-fs-13">Оценка "С ошибкой"</div>
+                            <div class="mt-0">
+                                <span class="text-primary font-weight-bold h5 mr-1">2</span><span
+                                    class="custom-fs-12">кандидата</span>
+                            </div>
+                        </div>
+                        <div class="ml-3">
+                            <div class="text-dark font-weight-500 custom-fs-13">Оценка "Не сдал"</div>
+                            <div class="mt-0">
+                                <span class="text-primary font-weight-bold h5 mr-1">3</span><span
+                                    class="custom-fs-12">кандидата</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-6 d-flex flex-column justify-content-around left-light-border">
-                  <div class="ml-3">
-                    <div class="text-dark font-weight-500 custom-fs-13">Оценка "Отлично"</div>
-                    <div class="mt-0">
-                      <span class="text-primary font-weight-bold h5 mr-1">3</span><span class="custom-fs-12">кандидата</span>
-                    </div>
-                  </div>
-                  <div class="ml-3">
-                    <div class="text-dark font-weight-500 custom-fs-13">Оценка "Хорошо"</div>
-                    <div class="mt-0">
-                      <span class="text-primary font-weight-bold h5 mr-1">5</span><span class="custom-fs-12">кандидатов</span>
-                    </div>
-                  </div>
-                  <div class="ml-3">
-                    <div class="text-dark font-weight-500 custom-fs-13">Оценка "С ошибкой"</div>
-                    <div class="mt-0">
-                      <span class="text-primary font-weight-bold h5 mr-1">2</span><span class="custom-fs-12">кандидата</span>
-                    </div>
-                  </div>
-                  <div class="ml-3">
-                    <div class="text-dark font-weight-500 custom-fs-13">Оценка "Не сдал"</div>
-                    <div class="mt-0">
-                      <span class="text-primary font-weight-bold h5 mr-1">3</span><span class="custom-fs-12">кандидата</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer border-top-0 pt-2"></div>
+                <div class="card-footer border-top-0 pt-2"></div>
             </div>
         </div>
     </div>
@@ -118,7 +137,10 @@
             <div class="card mt-3">
                 <div class="card-header d-flex align-items-center justify-content-between pt-3 pb-4">
                     <div class="btn-group" role="group">
-                        <button *ngFor="let work of works" class="btn font-weight-light py-1 btn-filter-width text-sm text-nowrap" [class.btn-secondary]="selectedWorks == work.id" [class.btn-gray]="selectedWorks != work.id" (click)="selectedWorks = work.id">{{work.name}}: {{work.amount}}</button>
+                        <button *ngFor="let work of works"
+                            class="btn font-weight-light py-1 btn-filter-width text-sm text-nowrap"
+                            [class.btn-secondary]="selectedWorks == work.id" [class.btn-gray]="selectedWorks != work.id"
+                            (click)="selectedWorks = work.id">{{work.name}}: {{work.amount}}</button>
                     </div>
                     <div>
                         <!-- <button class="btn mr-4 btn-decision py-1 font-weight-normal custom-fs-12">Оценить</button> -->
@@ -145,9 +167,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let user of users" class="tr-height text-dark" [class.all-done-row]="isSelected(user)">
+                            <tr *ngFor="let user of users" class="tr-height text-dark"
+                                [class.all-done-row]="isSelected(user)">
                                 <th scope="row" class="col-filter-pl text-center">
-                                    <input type="checkbox" [id]="user.id" (click)="select(user)" [checked]="isSelected(user)"/>
+                                    <input type="checkbox" [id]="user.id" (click)="select(user)"
+                                        [checked]="isSelected(user)" />
                                     <label [for]="user.id" class="mb-0"></label>
                                 </th>
                                 <th class="pl-0 pt-2 align-middle">
@@ -158,8 +182,11 @@
                                             </a>
                                         </div>
                                         <div class="col ml-md-n2">
-                                            <a [routerLink]="['/profile/' + user.id]" class="d-block h6 mb-0 text-sm">{{user.name}}</a>
-                                            <small class="d-block text-dark color-black custom-fs-12 font-weight-900">#{{user.id | number: '3.0': 'fr'}}</small>
+                                            <a [routerLink]="['/profile/' + user.id]"
+                                                class="d-block h6 mb-0 text-sm">{{user.name}}</a>
+                                            <small
+                                                class="d-block text-dark color-black custom-fs-12 font-weight-900">#{{user.id
+                                                | number: '3.0': 'fr'}}</small>
                                         </div>
                                     </div>
                                     <div class="text-sm text-muted user-source">
@@ -169,12 +196,18 @@
                                 </th>
                                 <th class="text-sm pl-3 pt-4">{{user.stage}}</th>
                                 <th class="px-0 pt-4 status-task-col">
-                                    <div class="status-block pt-1" [class.bg-success]="user.status === 2" [class.bg-warning]="user.status === 1" [class.gray-block]="user.status === 0" ><span class="ml-3 text-sm font-weight-normal">{{user.status | taskStatus}}</span></div>
+                                    <div class="status-block pt-1" [class.bg-success]="user.status === 2"
+                                        [class.bg-warning]="user.status === 1" [class.gray-block]="user.status === 0">
+                                        <span class="ml-3 text-sm font-weight-normal">{{user.status |
+                                            taskStatus}}</span>
+                                    </div>
                                 </th>
                                 <th class="px-3 pt-4">
-                                    <div class="dropdown status-block multiselect bg-white text-dark d-flex align-items-center justify-content-between" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="rating">
+                                    <div class="dropdown status-block multiselect bg-white text-dark d-flex align-items-center justify-content-between"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="rating">
                                         <span class="ml-3 text-sm text-dark">Отлично</span>
-                                        <img src="assets/icons/arrow-down-black.svg" height="4.93px" width="9.09px" class="mr-2">
+                                        <img src="assets/icons/arrow-down-black.svg" height="4.93px" width="9.09px"
+                                            class="mr-2">
                                         <div class="dropdown-menu dropdown-rating mt-0" aria-labelledby="rating">
                                             <a class="dropdown-item text-dark">Хорошо</a>
                                             <a class="dropdown-item text-dark">Статусу</a>
