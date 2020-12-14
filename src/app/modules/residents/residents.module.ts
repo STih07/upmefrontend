@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { DashboardRoutingModule } from './dashboard-routing.module';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { DashStatusPipe } from './pipe/dash-status.pipe';
+import { ResidentsRoutingModule } from './residents-routing.module';
+import { ResidentsComponent } from './components/residents/residents.component';
 
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -11,17 +10,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  declarations: [
-    DashboardComponent,
-    DashStatusPipe
-  ],
+  declarations: [ResidentsComponent],
   imports: [
     CommonModule,
-    DashboardRoutingModule,
+    ResidentsRoutingModule,
     MatExpansionModule,
     MatCheckboxModule,
     MatInputModule,
     MatIconModule
   ]
 })
-export class DashboardModule { }
+export class ResidentsModule { }
