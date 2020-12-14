@@ -17,6 +17,7 @@ import { EditProfileModalComponent } from './modals/edit-profile-modal/edit-prof
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SolutionModalComponent } from './modals/solution-modal/solution-modal.component';
 import { ArchiveModalComponent } from './modals/archive-modal/archive-modal.component';
+import { AddProjectComponent } from './modals/add-project/add-project.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ArchiveModalComponent } from './modals/archive-modal/archive-modal.comp
     Page404Component,
     EditProfileModalComponent,
     SolutionModalComponent,
-    ArchiveModalComponent
+    ArchiveModalComponent,
+    AddProjectComponent
   ],
   imports: [
     BrowserModule,
