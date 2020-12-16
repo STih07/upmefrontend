@@ -19,12 +19,12 @@ const routes: Routes = [
         loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule)
       },
       {
-        path: 'direction',
+        path: 'directions',
         loadChildren: () => import('./modules/directions/directions.module').then(m => m.DirectionsModule)
       },
       {
         path: 'users',
-        loadChildren: () => import('./modules/users/users.module').then(m => m.UsersModule)
+        loadChildren: () => import('./modules/universal-list-page/universal-list-page.module').then(m => m.UniversalListPageModule)
       },
       {
         path: 'proposal',
@@ -32,7 +32,11 @@ const routes: Routes = [
       },
       {
         path: 'residents',
-        loadChildren: () => import('./modules/residents/residents.module').then(m => m.ResidentsModule)
+        loadChildren: () => import('./modules/universal-list-page/universal-list-page.module').then(m => m.UniversalListPageModule)
+      },
+      {
+        path: 'mentors',
+        loadChildren: () => import('./modules/universal-list-page/universal-list-page.module').then(m => m.UniversalListPageModule)
       }
     ],
     canActivate: [AuthGuard]

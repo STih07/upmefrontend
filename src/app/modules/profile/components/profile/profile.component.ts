@@ -1,11 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { EditModalComponent } from 'src/app/modals/edit-modal/edit-modal.component';
 import { SubmitModalComponent } from 'src/app/modals/submit-modal/submit-modal.component';
 import { FakeHttpService } from '../../services/fake-http.service';
 import { ActivatedRoute } from '@angular/router';
-import { PracticeTask, TestTask, ProfileUser } from '../../../../models/profile-user';
+import { PracticeTask, TestTask } from '../../../../models/profile/profile-user';
 
 @Component({
   selector: 'app-profile',
@@ -44,7 +44,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.fakeHttp.getUserById(this.route.snapshot.params.id).subscribe((res) => {
-      console.log(res);
       this.user = res;
       this.selectedTest = this.user.testTasks?.[0];
       this.selectedPractice = this.user.practiceTasks?.[0];

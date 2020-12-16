@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-lg-3 col-sm-6" [routerLink]="'/profile/' + mentor.id" *ngFor="let mentor of mentors"
+    (mouseover)="mentorInfo.hidden = false" (mouseout)="mentorInfo.hidden = true">
+    <div class="card hover-shadow-lg">
+      <div class="card-body text-center">
+        <div class="avatar-parent-child">
+          <img [alt]="mentor.name" [src]="mentor.icon" class="avatar rounded-circle avatar-xl">
+        </div>
+        <h5 class="h6 mt-4 mb-0">{{mentor.name}}</h5>
+        <a [routerLink]="'/profile/' + mentor.id" class="text-primary text-sm">{{mentor.profile}}</a>
+        <div class="pt-0 pb-3 px-5 mt-0 border-top-0 position-absolute zindex-100 text-dark text-left card-outliers" #mentorInfo hidden="false">
+          <div><i class="fa fa-birthday-cake mr-3" aria-hidden="true"></i>{{mentor.birthday}}</div>
+          <div><i class="fa fa-envelope mr-3" aria-hidden="true"></i>{{mentor.mail}}</div>
+          <div><i class="fa fa-phone mr-3" aria-hidden="true"></i>{{mentor.phone}}</div>
+          <div><i class="fa fa-telegram mr-3" aria-hidden="true"></i>{{mentor.telegram}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

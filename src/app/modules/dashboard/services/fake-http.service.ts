@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Progress } from '../../profile/services/progress-bar.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
-import { DashboardUser } from '../../../models/dashboard-user';
+import { DashboardUser } from '../../../models/dashboard/dashboard-user';
 import { Observable } from 'rxjs';
 
 @Injectable({

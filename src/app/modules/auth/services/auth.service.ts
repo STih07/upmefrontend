@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LoginRequest } from '../../../models/login-request';
-import { AuthResponse } from '../../../models/auth-response';
+import { LoginRequest } from '../../../models/auth/login-request';
+import { AuthResponse } from '../../../models/auth/auth-response';
 import { HttpClient } from '@angular/common/http';
-import { RegisterRequest } from '../../../models/register-request';
+import { RegisterRequest } from '../../../models/auth/register-request';
 import { tap } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
 

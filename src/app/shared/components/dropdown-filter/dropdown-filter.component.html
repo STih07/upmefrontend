@@ -1,0 +1,30 @@
+<div class="dropdown-menu filter-dropdown" (click)="$event.stopPropagation()">
+  <!-- Global Search -->
+  <div class="text-center my-3" *ngIf="filters?.hasGlobalSearch">
+    <div class="mb-3 input-icon">
+      <i class="fa fa-search icon" aria-hidden="true"></i>
+      <input class="input-field" type="text" placeholder="Поиск">
+    </div>
+  </div>
+
+  <mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel *ngFor="let filter of filters?.list">
+      <!-- Title -->
+      <mat-expansion-panel-header>
+        <mat-panel-title>{{filter?.title}}</mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <!-- Local Search -->
+      <div class="mb-3 input-icon" *ngIf="filter?.hasSearch">
+        <i class="fa fa-search icon" aria-hidden="true"></i>
+        <input class="input-field" type="text" placeholder="Поиск">
+      </div>
+
+      <!-- Checkboxes -->
+      <div class="my-2" *ngFor="let child of filter?.childs">
+        <mat-checkbox [color]="'primary'">{{child?.title}}</mat-checkbox>
+      </div>
+    </mat-expansion-panel>
+
+  </mat-accordion>
+</div>

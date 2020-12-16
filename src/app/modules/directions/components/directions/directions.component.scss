@@ -17,7 +17,7 @@
 th.col-filter-pl{
     padding-left: 0.8rem;
     padding-top: 2.1rem;
-    border-left: 8px solid transparent;
+    border-left: 3px solid transparent;
 }
 
 .btn-table-filter{
@@ -87,7 +87,7 @@ th.name-col{
 th{
     transition:all 0.3s;
     &.selected-row{
-        border-left: 8px solid #36b37e;
+        border-left: 3px solid #36b37e;
         transition: border-left 0.3s;
     }
 }

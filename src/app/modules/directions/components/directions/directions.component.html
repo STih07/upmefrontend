@@ -63,7 +63,7 @@
                 <div class="row align-items-center flex-nowrap">
                   <div class="col-auto">
 <!--                    <a [routerLink]="'/mentor/' + direction.mentor.id" disabled class="avatar rounded-circle">-->
-                    <a [routerLink]="direction.id" disabled class="avatar rounded-circle">
+                    <a [routerLink]="'/directions/' + direction.id" disabled class="avatar rounded-circle">
                       <img alt="Image placeholder" [src]="direction.mentor.icon" class="h-100 w-100">
                     </a>
                   </div>
@@ -82,7 +82,7 @@
               <th class="align-middle py-2 text-sm">
                 {{direction.duration.start}} - {{direction.duration.end || "Сейчас"}}
               </th>
-              <th class="align-middle pl-1 pr-3 text-center"><img class="cursor-pointer" src="assets/icons/delete.svg" alt="delete" (click)="delete(direction)"></th>
+              <th class="align-middle pl-1 pr-3 text-center"><img class="cursor-pointer" src="assets/icons/delete.svg" alt="delete" (click)="deleteDirection(direction)"></th>
             </tr>
             </tbody>
           </table>
