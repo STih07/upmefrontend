@@ -19,12 +19,12 @@
                 <div class="dropdown-menu dropdown-menu-arrow" aria-labelledby="navbar__dropdown-direction">
                   <a class="dropdown-item text-sm" [routerLink]="['/directions']">Все направления</a>
                   <div class="dropdown dropdown-animate dropdown-submenu" data-toggle="hover">
-                    <a href="#" class="dropdown-item text-sm d-flex align-items-center justify-content-between"
+                    <a [routerLink]="['/directions']" class="dropdown-item text-sm d-flex align-items-center justify-content-between"
                       role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Дизайн<img
                         src="assets/icons/arrow-right.svg" class="ml-2">
                     </a>
                     <div class="dropdown-menu">
-                      <a class="dropdown-item text-sm" [routerLink]="['/direction/1']">UI/UX design</a>
+                      <a class="dropdown-item text-sm" [routerLink]="['/directions/1']">UI/UX design</a>
                       <a class="dropdown-item text-sm text-muted" disabled href="#">Motion design</a>
                     </div>
                   </div>

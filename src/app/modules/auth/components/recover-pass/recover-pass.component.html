@@ -1,0 +1,108 @@
+<div class="container-fluid container-application">
+  <div class="main-content position-relative">
+    <!-- Page content -->
+    <div class="page-content">
+      <div class="min-vh-100 py-5 d-flex align-items-center">
+        <div class="w-100">
+          <div class="row justify-content-center">
+            <div class="stepper__wrapper">
+              <div class="card shadow zindex-100 mb-0">
+                <div class="card-body px-md-5 pt-5 pb-2">
+                  <div class="mb-4">
+                    <h6 class="form-h3 custom-fs-20">Восстановление пароля</h6>
+                  </div>
+                  <div class="row d-flex justify-content-between position-relative stepper" [class.stepper-wait]="stepCounter === 2">
+                    <div class="ball rounded-circle text-center text-white" [class.bg-primary]="stepCounter >= 1">1</div>
+                    <div class="line first-line position-absolute bg-gray" [class.bg-primary]="stepCounter > 1"></div>
+                    <div class="ball rounded-circle bg-gray text-center text-white" [class.bg-primary]="stepCounter >= 3">2</div>
+                    <div class="line second-line position-absolute bg-gray" [class.bg-primary]="stepCounter > 3"></div>
+                    <div class="ball rounded-circle bg-gray text-center text-white" [class.bg-primary]="stepCounter >= 4">3</div>
+                  </div>
+                  <span class="clearfix"></span>
+                  <form [formGroup]="recoveryForm" (ngSubmit)="nextStep()">
+                    <div class="form-group mb-0 recovery__form">
+                      <!-- First step -->
+                      <ng-container *ngIf="stepCounter === 1">
+                      <label class="form-control-label text-sm mb-1">Email</label>
+                      <div class="input-group input-group-merge form__group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                        </div>
+                        <input type="email" formControlName="email" class="form-control"
+                               placeholder="email@example.com">
+                      </div>
+                      <!-- <span *ngIf="firstStep.controls.email?.errors; else noContent"
+                            class="mb-0 text-danger text-sm"
+                            [textContent]="'Неверный формат Email'">
+                      </span> -->
+                      </ng-container>
+
+                      <!-- Second step -->
+                      <ng-container *ngIf="stepCounter === 2">
+                        <div class="text-sm text-dark text-center">Мы отправили инструкцию как сменить Ваш пароль на следующий электронный адрес: yuliia@gmail.com</div>
+                      </ng-container>
+
+                      <!-- Third step -->
+                      <ng-container *ngIf="stepCounter === 3">
+                        <label class="form-control-label text-sm mb-0">Новый пароль <span class="custom-fs-12 text-muted">(минимально 8 символов)</span></label>
+                        <div class="input-group input-group-merge form__group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-key"></i></span>
+                          </div>
+                          <input [type]="showPassword ? 'text' : 'password'" formControlName="password" class="form-control"
+                                 placeholder="Пароль">
+                          <div class="input-group-append">
+                            <span class="input-group-text">
+                              <i id="eye" (click)="onEyeClick()" [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"
+                                 aria-hidden="true"></i>
+                            </span>
+                          </div>
+                        </div>
+                        <!-- <span *ngIf="firstStep.controls.email?.errors; else noContent"
+                              class="mb-0 text-danger text-sm"
+                              [textContent]="'Неверный формат Email'">
+                        </span> -->
+                        <label class="form-control-label text-sm mb-0 mt-2">Подтвердите новый пароль</label>
+                        <div class="input-group input-group-merge form__group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-key"></i></span>
+                          </div>
+                          <input [type]="showPassword ? 'text' : 'password'" formControlName="confirmPassword" class="form-control"
+                                 placeholder="Пароль">
+                          <div class="input-group-append">
+                            <span class="input-group-text">
+                              <i id="eye" (click)="onEyeClick()" [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"
+                                 aria-hidden="true"></i>
+                            </span>
+                          </div>
+                        </div>
+                        <!-- <span *ngIf="firstStep.controls.email?.errors; else noContent"
+                              class="mb-0 text-danger text-sm"
+                              [textContent]="'Неверный формат Email'">
+                        </span> -->    
+                      </ng-container>
+
+                      <ng-container *ngIf="stepCounter === 4">
+                        <div class="text-dark text-center custom-fs-20">Вы успешно сменили пароль!</div>
+                        <div class="text-dark text-center custom-fs-20">Вы можете войти в аккаунт.</div>
+                      </ng-container>
+                    </div>
+                    <div class="recover__footer d-flex justify-content-between" [class.short-margin]="stepCounter === 3" [class.btn-icon]="stepCounter === 4">
+                      <button type="button" class="btn btn-light footer__btn py-2 px-2 custom-fs-12" [routerLink]="['/auth/login']" [hidden]="stepCounter === 4">Отмена</button>
+                      <button type="submit" class="btn submit-btn btn-sm btn-primary px-0 footer__btn" [class.ml-auto]="stepCounter === 4">
+                        <span class="custom-fs-12" *ngIf="stepCounter < 4">{{stepCounter > 1 ? 'Далее' : 'Получить письмо'}}</span>
+                        <span class="custom-fs-12" *ngIf="stepCounter === 4">Войти</span>
+                        <i class="fa fa-long-arrow-right" *ngIf="stepCounter === 4"></i>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #noContent><span class="invisible">.</span></ng-template>
