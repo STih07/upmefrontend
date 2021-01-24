@@ -16,12 +16,10 @@ export class RegisterComponent {
   showErrors: boolean;
 
   singUpForm: FormGroup = this.fb.group({
-    login: ['', [Validators.minLength(3), Validators.required]],
+    name: ['', [Validators.minLength(3), Validators.required]],
+    surname: ['', [Validators.minLength(3), Validators.required]],
     email: ['', [Validators.email, Validators.required]],
-    password: ['', [Validators.minLength(8), Validators.required]],
-    confirmPassword: ['', [Validators.required]]
-  }, {
-    validator: MustMatch('password', 'confirmPassword')
+    password: ['', [Validators.minLength(8), Validators.required]]
   });
 
   constructor(private authService: AuthService, private fb: FormBuilder, private router: Router) {
@@ -49,7 +47,7 @@ export class RegisterComponent {
   private handleError(error: HttpErrorResponse): void {
     switch (error.error.message) {
       case 'Not unique email':
-        this.singUpForm.controls.email.setErrors({ notUniqueEmail: true } );
+        this.singUpForm.controls.email.setErrors({ notUniqueEmail: true });
         break;
     }
   }
