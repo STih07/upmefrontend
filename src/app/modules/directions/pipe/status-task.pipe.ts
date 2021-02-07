@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { DirectionTaskStatus } from '../../../models/direction-task-state.enum';
+import { DirectionTaskStatus } from '../../../models/direction/direction-task-state.enum';
 
 @Pipe({
     name: 'taskStatus',

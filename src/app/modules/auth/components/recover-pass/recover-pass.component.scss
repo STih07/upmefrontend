@@ -1,0 +1,60 @@
+.stepper__wrapper {
+  width: 440px !important;
+
+  .stepper {
+    margin: 32px 0;
+
+    .ball {
+      width: 25px;
+      height: 25px;
+    }
+
+    .bg-gray {
+      background: #C1C8D2;
+    }
+
+    .line {
+      height: 2px;
+      width: 140px;
+      top: 49%;
+      z-index: -1;
+
+      &.first-line {
+        left: 20px;
+      }
+
+      &.second-line {
+        right: 20px;
+      }
+    }
+
+    &.stepper-wait {
+      opacity: 0;
+    }
+  }
+
+  .recover__footer {
+    margin-top: 100px;
+    margin-bottom: 24px;
+
+    &.short-margin {
+      margin-top: 30px;
+    }
+
+    .footer__btn {
+      width: 128px;
+      height: 40px;
+    }
+  }
+
+  .form__group {
+    height: 40px !important;
+
+    .input-group-prepend,
+    .input-group-append,
+    input {
+      height: 40px !important;
+    }
+  }
+
+}

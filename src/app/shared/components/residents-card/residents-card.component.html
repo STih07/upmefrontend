@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-lg-3 col-sm-6" [routerLink]="'/profile/' + resident.id" *ngFor="let resident of residents"
+    (mouseover)="residentInfo.hidden = false" (mouseout)="residentInfo.hidden = true">
+    <div class="card hover-shadow-lg">
+      <div class="card-body text-center">
+        <div class="avatar-parent-child">
+          <img [alt]="resident.name" [src]="resident.icon" class="avatar rounded-circle avatar-xl">
+        </div>
+        <h5 class="h6 mt-4 mb-0">{{resident.name}}</h5>
+        <a [routerLink]="'/profile/' + resident.id" class="text-primary text-sm">{{resident.profile}}</a>
+        <div class="pt-0 pb-3 px-5 mt-0 border-top-0 position-absolute zindex-100 text-dark text-left card-outliers" #residentInfo hidden="false">
+          <div><i class="fa fa-birthday-cake mr-3" aria-hidden="true"></i>{{resident.birthday}}</div>
+          <div><i class="fa fa-envelope mr-3" aria-hidden="true"></i>{{resident.mail}}</div>
+          <div><i class="fa fa-phone mr-3" aria-hidden="true"></i>{{resident.phone}}</div>
+          <div><i class="fa fa-telegram mr-3" aria-hidden="true"></i>{{resident.telegram}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

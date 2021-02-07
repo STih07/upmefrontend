@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { DashStatusState } from '../../../models/dash-status-state.enum';
+import { DashStatusState } from '../../../models/dashboard/dash-status-state.enum';
 @Pipe({
     name: 'dashStatus',
 })

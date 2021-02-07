@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-lg-3 col-sm-6" [routerLink]="'/profile/' + user.id" *ngFor="let user of users"
+    (mouseover)="userInfo.hidden = false" (mouseout)="userInfo.hidden = true">
+    <div class="card hover-shadow-lg">
+      <div class="py-3 px-0 card-body text-center">
+        <div class="avatar-parent-child">
+          <img [alt]="user.name" [src]="user.icon" class="avatar rounded-circle avatar-xl">
+        </div>
+        <h5 class="h6 mt-4 mb-0">{{user.name}}</h5>
+        <a [routerLink]="'/profile/' + user.id" class="text-primary text-sm">{{user.profile}}</a>
+        <div class="pt-3 mt-3 border-top text-primary custom-fs-20">
+          {{user.status}}
+        </div>
+        <div class="pt-3 pb-3 px-5 mt-0 position-absolute zindex-100 text-dark text-left card-outliers" #userInfo hidden="false">
+          <div><i class="fa fa-birthday-cake mr-3" aria-hidden="true"></i>{{user.birthday}}</div>
+          <div><i class="fa fa-envelope mr-3" aria-hidden="true"></i>{{user.mail}}</div>
+          <div><i class="fa fa-phone mr-3" aria-hidden="true"></i>{{user.phone}}</div>
+          <div><i class="fa fa-telegram mr-3" aria-hidden="true"></i>{{user.telegram}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

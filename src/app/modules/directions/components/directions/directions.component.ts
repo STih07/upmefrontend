@@ -49,4 +49,9 @@ export class DirectionsComponent implements OnInit {
   delete(direction: ListDirection): void {
     this.directionService.delete(direction).subscribe();
   }
+
+  deleteDirection(direction: any): void {
+    this.directions = this.directions.filter(user => user.id !== direction.id);
+  }
+
 }

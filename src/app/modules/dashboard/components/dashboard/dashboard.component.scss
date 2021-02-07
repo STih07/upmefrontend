@@ -75,13 +75,13 @@ th.col-name{
 
 th.col-filter-pl{
     padding-left: 0.65rem;
-    border-left: 8px solid transparent;
+    border-left: 3px solid transparent;
 }
 
 th{
     transition:all 0.3s;
     &.selected-row{
-        border-left: 8px solid #36b37e;
+        border-left: 3px solid #36b37e;
         transition: border-left 0.3s;
     }
 }

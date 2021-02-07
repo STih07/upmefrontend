@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SolutionModalComponent } from './modals/solution-modal/solution-modal.component';
 import { ArchiveModalComponent } from './modals/archive-modal/archive-modal.component';
 import { AddProjectComponent } from './modals/add-project/add-project.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AddProjectComponent } from './modals/add-project/add-project.component'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule, ReactiveFormsModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
@@ -42,6 +44,7 @@ import { AddProjectComponent } from './modals/add-project/add-project.component'
       thick: true,
       spinner: false
     }),
+    SharedModule
   ],
   providers: [
     {

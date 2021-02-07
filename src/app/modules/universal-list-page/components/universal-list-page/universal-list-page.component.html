@@ -1,0 +1,27 @@
+<div class="container-fluid container mt-4 d-block" *ngIf="list">
+  <div class="row mb-5">
+    <div class="col d-flex align-items-center justify-content-between">
+      <span class="text-white custom-fs-24">{{title}}</span>
+      <div class="dropleft">
+        <button type="button" class="btn button-filter text-sm" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          <i class="fa fa-filter mr-2" aria-hidden="true"></i>Фильтровать по
+        </button>
+        <upme-dropdown-filter [filters]="filters"></upme-dropdown-filter>
+      </div>
+    </div>
+  </div>
+  <!-- User card -->
+  <upme-user-card [users]="list" *ngIf="page === 2"></upme-user-card>
+
+  <!-- Residents card -->
+  <upme-mentors-card [mentors]="list" *ngIf="page === 1"></upme-mentors-card>
+
+  <!-- User card -->
+  <upme-residents-card [residents]="list" *ngIf="page === 0"></upme-residents-card>
+  
+  <!-- Load more -->
+  <!--  <div class="mt-4 text-center">-->
+  <!--    <a href="#" class="btn btn-sm btn-neutral rounded-pill shadow hover-translate-y-n3">Load more ...</a>-->
+  <!--  </div>-->
+</div>

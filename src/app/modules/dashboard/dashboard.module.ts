@@ -5,10 +5,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DashStatusPipe } from './pipe/dash-status.pipe';
 
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,10 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    MatExpansionModule,
-    MatCheckboxModule,
-    MatInputModule,
-    MatIconModule
+    SharedModule
   ]
 })
 export class DashboardModule { }

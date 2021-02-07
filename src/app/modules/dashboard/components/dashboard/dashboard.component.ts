@@ -6,10 +6,9 @@ import { UserSubmit } from 'src/app/models/user-submit';
 import localeFr from '@angular/common/locales/fr';
 import { ArchiveModalComponent } from 'src/app/modals/archive-modal/archive-modal.component';
 registerLocaleData(localeFr, 'fr');
-import { DashboardUser, Task } from '../../../../models/dashboard-user';
+import { DashboardUser, Task } from '../../../../models/dashboard/dashboard-user';
 import { FakeHttpService } from '../../services/fake-http.service';
-import {mapTo, switchMap} from 'rxjs/operators';
-import {timer} from 'rxjs';
+import { Filter } from './../../../../models/filter';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,6 +18,58 @@ import {timer} from 'rxjs';
 export class DashboardComponent implements OnInit {
 
   users: DashboardUser[] = null;
+
+  filters: Filter = {
+    hasGlobalSearch: false,
+    list: [
+      {
+        title: 'Тестирование',
+        hasSearch: false,
+        childs: [
+          { title: 'Только тестовое' },
+          { title: 'Только практическое' },
+          { title: 'Тестовое и практическое' },
+        ]
+      },
+      {
+        title: 'Тестовое по:',
+        hasSearch: false,
+        childs: [
+          { title: 'Front-End' },
+          { title: 'Back-End' },
+          { title: 'UI/UX design' },
+        ]
+      },
+      {
+        title: 'Практическое по:',
+        hasSearch: false,
+        childs: [
+          { title: 'Front-End' },
+          { title: 'Back-End' },
+          { title: 'UI/UX design' },
+        ]
+      },
+      {
+        title: 'Тестовое',
+        hasSearch: false,
+        childs: [
+          { title: 'Не начато' },
+          { title: 'В процессе' },
+          { title: 'Готово' },
+        ]
+      },
+      {
+        title: 'Практическое',
+        hasSearch: false,
+        childs: [
+          { title: 'Не начато' },
+          { title: 'В процессе' },
+          { title: 'Готово' },
+        ]
+      },
+
+    ]
+  };
 
   selected: Set<DashboardUser> = new Set<DashboardUser>();
 
