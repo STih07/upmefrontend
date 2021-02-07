@@ -17,6 +17,7 @@ import { EditProfileModalComponent } from './modals/edit-profile-modal/edit-prof
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SolutionModalComponent } from './modals/solution-modal/solution-modal.component';
 import { ArchiveModalComponent } from './modals/archive-modal/archive-modal.component';
+import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './layout/components/header/header.component';
 import { FooterComponent } from './layout/components/footer/footer.component';
 
@@ -32,6 +33,7 @@ import { FooterComponent } from './layout/components/footer/footer.component';
     FooterComponent
   ],
   imports: [
+    SharedModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

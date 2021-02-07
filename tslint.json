@@ -20,7 +20,8 @@
       true,
       "element",
       "app",
-      "kebab-case"
+      "kebab-case",
+      "upme"
     ],
     "import-blacklist": [
       true,
