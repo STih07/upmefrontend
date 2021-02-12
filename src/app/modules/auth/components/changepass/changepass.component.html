@@ -1,1 +1,93 @@
-<p>changepass works!</p>
+<div class="px-5">
+ <h6 class="form-h3 pt-5 pb-3">Смена пароля</h6>
+ <form [formGroup]="singUpForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <!--  -->
+    <div class="d-flex align-items-center justify-content-between">
+      <div>
+        <label class="form-control-label"
+               [class.text-danger]="(singUpForm.controls.password?.errors || singUpForm.controls.confirmPassword?.errors) && showErrors">Старый пароль</label>
+        <span class="text-sm"
+              *ngIf="(singUpForm.controls.password?.errors || singUpForm.controls.confirmPassword?.errors) && showErrors"> (минимально 8 символов)</span>
+      </div>
+    </div>
+    <div class="input-group input-group-merge pass mb-2 border rounded"
+         [class.border-danger]="(singUpForm.controls.password?.errors || singUpForm.controls.confirmPassword?.errors) && showErrors">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-key"></i></span>
+      </div>
+      <input [type]="showPassword ? 'text' : 'password'" formControlName="password"
+             class="form-control pass" placeholder="Пароль">
+      <div class="input-group-append">
+        <span class="input-group-text">
+          <i id="eye" (click)="onEyeClick()" [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"
+             aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+    <span *ngIf="singUpForm.controls.password?.errors && showErrors;"  
+      class="mb-0 text-danger text-sm">
+        Пароль неверный
+   </span>
+    <!--  -->
+    <div class="d-flex align-items-center justify-content-between pt-4">
+      <div>
+        <label class="form-control-label"
+               [class.text-danger]="(singUpForm.controls.password?.errors || singUpForm.controls.confirmPassword?.errors) && showErrors">Новый пароль</label>
+        <span class="text-sm"
+              *ngIf="(singUpForm.controls.password?.errors || singUpForm.controls.confirmPassword?.errors) && showErrors"> (минимально 8 символов)</span>
+      </div>
+    </div>
+    <div class="input-group input-group-merge pass mb-2 border rounded"
+         [class.border-danger]="(singUpForm.controls.password?.errors || singUpForm.controls.confirmPassword?.errors) && showErrors">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-key"></i></span>
+      </div>
+      <input [type]="showPassword ? 'text' : 'password'" formControlName="password"
+             class="form-control pass" placeholder="Пароль">
+      <div class="input-group-append">
+        <span class="input-group-text">
+          <i id="eye" (click)="onEyeClick()" [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"
+             aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+    <!--  -->
+    <div class="d-flex align-items-center justify-content-between pt-2">
+      <div>
+        <label class="form-control-label"
+               [class.text-danger]="(singUpForm.controls.password?.errors || singUpForm.controls.confirmPassword?.errors) && showErrors">Подтвердите новый пароль</label>
+        <span class="text-sm"
+              *ngIf="(singUpForm.controls.password?.errors || singUpForm.controls.confirmPassword?.errors) && showErrors"> (минимально 8 символов)</span>
+      </div>
+    </div>
+    <div class="input-group input-group-merge pass border rounded"
+         [class.border-danger]="(singUpForm.controls.password?.errors || singUpForm.controls.confirmPassword?.errors) && showErrors">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-key"></i></span>
+      </div>
+      <input [type]="showPassword ? 'text' : 'password'" formControlName="confirmPassword"
+             class="form-control pass" placeholder="Подтвердить">
+    </div>
+    <span *ngIf="singUpForm.controls.confirmPassword.errors?.mustMatch && showErrors;" 
+      class="mb-0 text-danger text-sm"> <!-- else noContent -->
+        Пароли не совпадают 
+    </span>
+  </div>
+<!-- кнопки -->
+  <div class="d-flex justify-content-between my-4 py-3">
+    <button type="submit" (click)='close()' class="btn submit-btn btn-sm btn-primary btn-icon">
+      <span  class="btn-inner--text">Отменить</span> <!-- (click)='close()' -->
+    </button>
+    <button type="submit" class="btn submit-btn btn-sm btn-primary btn-icon">
+      <span class="btn-inner--text">Далее</span>
+    </button>
+  </div>
+ <!-- забыл пароль -->
+
+ </form>
+ <div class="py-4 px-0"><small>Забыли старый пароль? </small>
+  <a (click)="goRecovery()" class="small font-weight-bold">Восстановить</a>
+</div>
+</div>
+
