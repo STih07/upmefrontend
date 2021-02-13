@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ChangepassComponent } from 'src/app/modules/auth/components/changepass/changepass.component';
+import { ChangepassComponent } from 'src/app/modals/changepass/changepass.component';
 
 @Component({
   selector: 'app-edit-profile-modal',

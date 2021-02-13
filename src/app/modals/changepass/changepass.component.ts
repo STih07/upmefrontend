@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
-import { MustMatch } from '../../../../utils/validators/must-match.validator';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
+import { MustMatch } from 'src/app/utils/validators/must-match.validator';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'upme-changepass',
@@ -15,12 +16,12 @@ export class ChangepassComponent implements OnInit {
 
   showPassword: boolean;
   showErrors: boolean;
-
-  singUpForm: FormGroup = this.fb.group({
-    password: ['', [Validators.minLength(8), Validators.required]],
+  changeForm: FormGroup = this.fb.group({
+    oldPassword: ['', [Validators.minLength(8), Validators.required]],
+    newPassword: ['', [Validators.minLength(8), Validators.required]],
     confirmPassword: ['', [Validators.required]]
   }, {
-    validator: MustMatch('password', 'confirmPassword')
+    validator: MustMatch('newPassword', 'confirmPassword')
   });
 
   constructor(
@@ -28,25 +29,28 @@ export class ChangepassComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private activeModal: NgbActiveModal,
-    private modal: NgbModal
+    private modal: NgbModal,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
     this.showPassword = false;
     this.showErrors = false;
-    this.singUpForm.valueChanges.subscribe(() => this.showErrors = false);
+    this.changeForm.valueChanges.subscribe(() => this.showErrors = false);
   }
 
   onSubmit() {
-    if (this.singUpForm.valid) {
-      this.authService.register(this.singUpForm.value).subscribe(() => this.router.navigateByUrl(''), error => {
+    this.authService.changePass().subscribe((val) => {
+      console.log(val);
+      if (this.changeForm.valid) {   
+        console.log(123);
+          this.toastr.success('Вы можете войти в аккаунт', 'Вы успешно сменили пароль!');
+          this.modal.dismissAll();  
+      } else {    
+        console.log(12345);        
         this.showErrors = true;
-        this.handleError(error);
-      });
-    } else {
-      console.log(this.singUpForm);
-      this.showErrors = true;
-    }
+      }
+    });
   }
 
   onEyeClick() {
@@ -55,7 +59,6 @@ export class ChangepassComponent implements OnInit {
 
   close(): void {
     this.activeModal.close();
-    console.log('+');
   }
 
   goRecovery() {
@@ -63,11 +66,4 @@ export class ChangepassComponent implements OnInit {
     this.router.navigateByUrl('auth/recovery-password');
   }
 
-  private handleError(error: HttpErrorResponse): void {
-    switch (error.error.message) {
-      case 'Not unique email':
-        this.singUpForm.controls.email.setErrors({ notUniqueEmail: true });
-        break;
-    }
-  }
 }

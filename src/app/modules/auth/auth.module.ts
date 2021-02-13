@@ -6,7 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './components/register/register.component';
-import { ChangepassComponent } from './components/changepass/changepass.component';
+import { ChangepassComponent } from 'src/app/modals/changepass/changepass.component';
 import { RecoverPassComponent } from './components/recover-pass/recover-pass.component';
 
 @NgModule({
