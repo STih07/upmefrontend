@@ -19,22 +19,22 @@ export class EditProfileModalComponent {
     telegramNickName: ['']
   });
 
-  constructor(private modalService: NgbActiveModal,private modalService2: NgbModal, private fb: FormBuilder, private router: Router) {
+  constructor(private activeModal: NgbActiveModal,private modalService: NgbModal, private fb: FormBuilder, private router: Router) {
   }
 
   logOut(): void {
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
-    this.modalService.close();
+    this.activeModal.close();
     this.router.navigateByUrl('/auth/login');
   }
 
   onCancel(): void {
-    this.modalService.close();
+    this.activeModal.close();
   }
 
   open() {
-    const modalRef = this.modalService2.open(ChangepassComponent, {centered: true});
+    const modalRef = this.modalService.open(ChangepassComponent, {centered: true});
     modalRef.componentInstance.name = 'World';
   }
 }

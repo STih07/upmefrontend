@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AskQuestionComponent } from 'src/app/modals/ask-question/ask-question.component';
 
 @Component({
   selector: 'upme-footer',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
   }
-
+  open() {
+    const modalRef = this.modalService.open(AskQuestionComponent);
+    modalRef.componentInstance.name = 'World';
+  }
 }

@@ -1,0 +1,16 @@
+<form [formGroup]="askForm" (ngSubmit)="onSubmit()">
+  <div class="px-4">
+    <div class="d-flex justify-content-center py-4 my-2 h4">
+      Как мы можем помочь?
+    </div>
+    <input class="form-control" formControlName="input">
+    <div class="d-flex justify-content-between py-4 border-top">
+      <button class="btn btn-sm btn-primary btn-icon">
+        <span (click)="close()" class="btn-inner--text p-2">Отмена</span>
+      </button>
+      <button type="submit" class="btn btn-sm btn-primary btn-icon">
+        <span class="btn-inner--text p-2">Отправить</span>
+      </button>
+    </div>
+  </div>
+</form>

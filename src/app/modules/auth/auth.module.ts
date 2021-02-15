@@ -8,9 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './components/register/register.component';
 import { ChangepassComponent } from 'src/app/modals/changepass/changepass.component';
 import { RecoverPassComponent } from './components/recover-pass/recover-pass.component';
-
+import {AskQuestionComponent } from 'src/app/modals/ask-question/ask-question.component'
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, ChangepassComponent, RecoverPassComponent],
+  declarations: [LoginComponent, RegisterComponent, ChangepassComponent, RecoverPassComponent, AskQuestionComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

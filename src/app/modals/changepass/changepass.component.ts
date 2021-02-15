@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import { MustMatch } from 'src/app/utils/validators/must-match.validator';
 import { Router } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 
@@ -41,13 +40,10 @@ export class ChangepassComponent implements OnInit {
 
   onSubmit() {
     this.authService.changePass().subscribe((val) => {
-      console.log(val);
       if (this.changeForm.valid) {   
-        console.log(123);
           this.toastr.success('Вы можете войти в аккаунт', 'Вы успешно сменили пароль!');
           this.modal.dismissAll();  
       } else {    
-        console.log(12345);        
         this.showErrors = true;
       }
     });

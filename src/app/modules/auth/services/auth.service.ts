@@ -34,6 +34,12 @@ export class AuthService {
       delay(1000)
     )
   }
+  
+  askQuestion(): Observable<boolean> {
+    return of(true).pipe(
+      delay(1000)
+    )
+  }
 
   private setTokens(authResponse: AuthResponse): void {
     localStorage.setItem('access_token', authResponse.accessToken);

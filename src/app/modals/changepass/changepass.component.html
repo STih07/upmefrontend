@@ -2,7 +2,7 @@
   <h6 class="form-h3 pt-5 pb-3">Смена пароля</h6>
   <form [formGroup]="changeForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <!--  -->
+      <!-- Старый пароль -->
       <div class="d-flex align-items-center justify-content-between">
         <div>
           <label class="form-control-label"
@@ -28,7 +28,7 @@
       <span *ngIf="changeForm.controls.oldPassword?.errors && showErrors;" class="mb-0 text-danger text-sm">
         Пароль неверный
       </span>
-      <!--  -->
+      <!-- Новый пароль -->
       <div class="d-flex align-items-center justify-content-between pt-4">
         <div>
           <label class="form-control-label"
@@ -53,7 +53,7 @@
           </span>
         </div>
       </div>
-      <!--  -->
+      <!-- Повторите пароль -->
       <div class="d-flex align-items-center justify-content-between pt-2">
         <div>
           <label class="form-control-label"
@@ -74,13 +74,11 @@
       </div>
       <span *ngIf="changeForm.controls.confirmPassword.errors?.mustMatch && showErrors;"
         class="mb-0 text-danger text-sm">
-        <!-- else noContent -->
-        Пароли не совпадают
       </span>
     </div>
-    <!-- кнопки -->
+    <!-- Кнопки -->
     <div class="d-flex justify-content-between my-4 py-3">
-      <button type="submit" (click)='close()' class="btn submit-btn btn-sm btn-primary btn-icon">
+      <button (click)='close()' class="btn submit-btn btn-sm btn-primary btn-icon">
         <span class="btn-inner--text py-2 px-4 mx-2">Отменить</span>
       </button>
       <button type="submit" class="btn submit-btn btn-sm btn-primary btn-icon">
@@ -88,7 +86,7 @@
       </button>
     </div>
   </form>
-  <!-- забыл пароль -->
+  <!--  -->
   <div class="py-4 px-0 border-top"><small>Забыли старый пароль? </small>
     <a (click)="goRecovery()" class="small font-weight-bold">Восстановить</a>
   </div>
