@@ -34,7 +34,6 @@ export class EditProfileModalComponent {
   }
 
   open() {
-    const modalRef = this.modalService.open(ChangepassComponent, {centered: true});
-    modalRef.componentInstance.name = 'World';
+    this.modalService.open(ChangepassComponent, {centered: true});
   }
 }

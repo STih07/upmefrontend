@@ -14,7 +14,6 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
   }
   open() {
-    const modalRef = this.modalService.open(AskQuestionComponent);
-    modalRef.componentInstance.name = 'World';
+    this.modalService.open(AskQuestionComponent);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import { MustMatch } from 'src/app/utils/validators/must-match.validator';
@@ -11,10 +11,12 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './changepass.component.html',
   styleUrls: ['./changepass.component.scss']
 })
-export class ChangepassComponent implements OnInit {
+export class ChangepassComponent {
 
-  showPassword: boolean;
-  showErrors: boolean;
+  showOldP: boolean = false;
+  showNewP: boolean = false;
+  // showPassword: boolean = false;
+  showErrors: boolean = false;
   changeForm: FormGroup = this.fb.group({
     oldPassword: ['', [Validators.minLength(8), Validators.required]],
     newPassword: ['', [Validators.minLength(8), Validators.required]],
@@ -32,32 +34,33 @@ export class ChangepassComponent implements OnInit {
     private toastr: ToastrService
   ) { }
 
-  ngOnInit() {
-    this.showPassword = false;
-    this.showErrors = false;
-    this.changeForm.valueChanges.subscribe(() => this.showErrors = false);
-  }
-
   onSubmit() {
+    if (this.changeForm.valid) {
     this.authService.changePass().subscribe((val) => {
-      if (this.changeForm.valid) {   
+      if (val) {   
           this.toastr.success('Вы можете войти в аккаунт', 'Вы успешно сменили пароль!');
           this.modal.dismissAll();  
-      } else {    
-        this.showErrors = true;
-      }
+      } 
     });
   }
+  else {    
+    this.showErrors = true;
+  }
+}
 
-  onEyeClick() {
-    this.showPassword = !this.showPassword;
+  onEyeClick(type: boolean) {
+    if (type) {
+      this.showOldP = !this.showOldP;
+    } else {
+      this.showNewP = !this.showNewP;
+    }
   }
 
   close(): void {
     this.activeModal.close();
   }
 
-  goRecovery() {
+  recovery() {
     this.modal.dismissAll();
     this.router.navigateByUrl('auth/recovery-password');
   }
