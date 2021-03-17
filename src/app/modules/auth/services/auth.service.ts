@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { LoginRequest } from '../../../models/auth/login-request';
 import { AuthResponse } from '../../../models/auth/auth-response';
 import { HttpClient } from '@angular/common/http';
 import { RegisterRequest } from '../../../models/auth/register-request';
-import { tap } from 'rxjs/operators';
+import { delay, tap } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
 
 @Injectable({
@@ -27,6 +27,18 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     return localStorage.getItem('access_token') != null;
+  }
+
+  changePass(): Observable<boolean> {
+    return of(true).pipe(
+      delay(1000)
+    )
+  }
+  
+  askQuestion(): Observable<boolean> {
+    return of(true).pipe(
+      delay(1000)
+    )
   }
 
   private setTokens(authResponse: AuthResponse): void {

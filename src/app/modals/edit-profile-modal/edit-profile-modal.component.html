@@ -17,6 +17,15 @@
     <label for="modal-edit-email" class="text-dark text-sm mt-2 mb-0">Почта</label>
     <input type="email" class="form-control text-sm" id="modal-edit-email" formControlName="email" placeholder="mail@gmail.com">
   </div>
+  <!--  -->
+  <div class="form-group">
+    <div class="d-flex align-items-center justify-content-between">
+      <label for="modal-edit-password" class="text-dark text-sm mt-2 mb-0">Пароль</label>
+      <a class="small text-muted text-underline--dashed border-primary" role="button" (click)="open()">Сменить пароль</a>
+    </div>
+      <input type="password" class="form-control text-sm" id="modal-edit-password" formControlName="password" placeholder="Пароль">
+  </div>
+  <!--  -->
   <div class="form-group">
     <label for="modal-edit-phone" class="text-dark text-sm mt-2 mb-0">Телефон</label>
     <input type="text" class="form-control text-sm" id="modal-edit-phone" formControlName="telNumber">

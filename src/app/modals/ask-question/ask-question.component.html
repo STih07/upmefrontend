@@ -1,0 +1,20 @@
+<form [formGroup]="askForm" (ngSubmit)="onSend()">
+  <div class="px-4">
+    <div class="d-flex justify-content-center py-4 my-2 h4">
+      Как мы можем помочь?
+    </div>
+    <input [class.border-danger]="askForm.controls.text?.errors && showErrors" class="form-control"
+      formControlName="text">
+    <span [class.invisible]="!(askForm.controls.text?.errors && showErrors)" class="mb-2 text-danger text-sm">
+      Поле не должно быть пустым
+    </span>
+    <div class="d-flex justify-content-between mt-2 py-4 border-top">
+      <button (click)="close()" class="btn btn-sm btn-primary p-2">
+        Отмена
+      </button>
+      <button type="submit" class="btn btn-sm btn-primary p-2">
+        Отправить
+      </button>
+    </div>
+  </div>
+</form>
