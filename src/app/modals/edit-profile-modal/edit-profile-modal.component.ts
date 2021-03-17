@@ -14,7 +14,7 @@ export class EditProfileModalComponent {
   editProfileForm: FormGroup = this.fb.group({
     fullName: ['', [Validators.pattern('^[a-zа-яA-ZА-Я]+(([\' -][a-zа-яA-ZА-Я ])?[aa-zа-яA-ZА-Я]*)*$'), Validators.required]],
     email: ['', [Validators.email, Validators.required]],
-    password: ['', [Validators.minLength(5), Validators.required]],
+    password: ['', [Validators.minLength(8), Validators.required]],
     telNumber: ['+38', [Validators.pattern('^\\+(?:[0-9] ?){6,14}[0-9]$'), Validators.required]],
     telegramNickName: ['']
   });

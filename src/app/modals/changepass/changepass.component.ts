@@ -13,9 +13,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ChangepassComponent {
 
-  showOldP: boolean = false;
-  showNewP: boolean = false;
-  // showPassword: boolean = false;
+  showOldP = false;
+  showNewP = false;
   showErrors: boolean = false;
   changeForm: FormGroup = this.fb.group({
     oldPassword: ['', [Validators.minLength(8), Validators.required]],

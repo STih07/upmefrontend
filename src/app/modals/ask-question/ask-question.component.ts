@@ -27,7 +27,7 @@ export class AskQuestionComponent {
   onSend(): void {
     if (this.askForm.valid) {
       this.authService.askQuestion().subscribe((val) => {
-        if (val == true) {
+        if (val) {
           this.activeModal.close();
         } 
       });
